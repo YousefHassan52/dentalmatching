@@ -11,10 +11,12 @@ class OnboardingScreen extends StatelessWidget {
     Get.put(OnboardingControllerImp());
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(),
       body: Column(
         children: [
-          Expanded(flex: 3, child: OnboardingPageBuilder()),
+          SizedBox(
+            height: 40,
+          ),
+          Expanded(flex: 5, child: OnboardingPageBuilder()),
           const Expanded(flex: 1, child: OnboardingLowerWidgets())
         ],
       ),

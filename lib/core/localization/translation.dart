@@ -5,17 +5,18 @@ class MyTranslation implements Translations {
   Map<String, Map<String, String>> get keys => {
         "ar": {
           "1": "عربي",
-          "First Title": "العنوان الاول",
-          "Second Title": "العنوان الثاني",
-          "third Title": "العنوان الثالث",
-          "Fourth Title": "العنوان الرابع",
+          "First Title": "هدفنا",
+          "Second Title": "كيف",
+          "third Title": "ما نريد",
+          "Fourth Title": "تجنب الاستغلال",
         },
         "en": {
           "1": "English",
-          "First Title": "First Title",
-          "Second Title": "Second Title",
-          "third Title": "third Title",
-          "Fourth Title": "Fourth Title",
+          "First Title": "Our Goal",
+          "Second Title": "How",
+          "third Title": "Our Aim",
+          "Fourth Title": "Avoid Exploitation",
         },
       };
 }
+// هدفنا

@@ -1,4 +1,5 @@
 import 'package:dentalmatching/core/constants/colors.dart';
+import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/common_faetures/onboarding/controller/imp_controller.dart';
 import 'package:dentalmatching/features/common_faetures/onboarding/data/data_source/static.dart';
 import 'package:flutter/material.dart';
@@ -23,13 +24,15 @@ class OnboardingButton extends StatelessWidget {
                     20), // Adjust the value to change corner radius
               ),
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 15.0, horizontal: 70),
-                child:
-                    internalController.currentPage < onboardingList.length - 1
-                        ? const Text("Continue")
-                        : const Text("Login   "),
-              ),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 15.0, horizontal: 70),
+                  child:
+                      internalController.currentPage < onboardingList.length - 1
+                          ? const Icon(Icons.arrow_right_rounded)
+                          : const Text(
+                              "Start",
+                              style: Styles.textStyle16White,
+                            )),
             ));
   }
 }

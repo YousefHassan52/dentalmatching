@@ -4,22 +4,22 @@ import 'package:get/get.dart';
 List<OnboardingModel> onboardingList = [
   OnboardingModel(
       title: "First Title".tr,
-      image: "assets/images/onboardingone.PNG",
+      image: "assets/svg/doctors_team.svg",
       desc:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dictum, \n nulla et pharetra convallis, ligula nulla commodo est,\n non ultrices orci erat vitae magna."),
   OnboardingModel(
       title: "Second Title".tr,
-      image: "assets/images/onboardingtwo.PNG",
-      desc:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dictum, \n nulla et pharetra convallis, ligula nulla commodo est,\n non ultrices orci erat vitae magna."),
-  OnboardingModel(
-      title: "third Title".tr,
-      image: "assets/images/onboardingthree.PNG",
+      image: "assets/svg/add.svg",
       desc:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dictum, \n nulla et pharetra convallis, ligula nulla commodo est,\n non ultrices orci erat vitae magna."),
   OnboardingModel(
       title: "Fourth Title".tr,
-      image: "assets/images/onboardingfour.PNG",
+      image: "assets/svg/save_money.svg",
+      desc:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dictum, \n nulla et pharetra convallis, ligula nulla commodo est,\n non ultrices orci erat vitae magna."),
+  OnboardingModel(
+      title: "third Title".tr,
+      image: "assets/svg/doctor_patient.svg",
       desc:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dictum, \n nulla et pharetra convallis, ligula nulla commodo est,\n non ultrices orci erat vitae magna."),
 ];

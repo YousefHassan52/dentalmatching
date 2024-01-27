@@ -1,3 +1,4 @@
+import 'package:dentalmatching/core/constants/themes.dart';
 import 'package:dentalmatching/core/localization/translation.dart';
 import 'package:dentalmatching/core/localization/translation_controller.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         Get.put(TranslationController());
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: translationController.appTheme(),
+      theme: mainAppTheme,
       translations: MyTranslation(),
       getPages: routes,
       locale: translationController.getCurrentLocale(),

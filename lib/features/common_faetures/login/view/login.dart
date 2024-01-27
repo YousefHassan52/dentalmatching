@@ -39,58 +39,58 @@ class LoginScreen extends StatelessWidget {
             Text(
               "1".tr,
               style: TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.w200,
-                  fontFamily: "Cairo"),
+                fontSize: 36,
+                fontWeight: FontWeight.w200,
+              ),
             ),
             Text(
               "1".tr,
               style: TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.w300,
-                  fontFamily: "Cairo"),
+                fontSize: 36,
+                fontWeight: FontWeight.w300,
+              ),
             ),
             Text(
               "1".tr,
               style: TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: "Cairo"),
+                fontSize: 36,
+                fontWeight: FontWeight.w400,
+              ),
             ),
             Text(
               "1".tr,
               style: TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.w500,
-                  fontFamily: "Cairo"),
+                fontSize: 36,
+                fontWeight: FontWeight.w500,
+              ),
             ),
             Text(
               "1".tr,
               style: TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.w600,
-                  fontFamily: "Cairo"),
+                fontSize: 36,
+                fontWeight: FontWeight.w600,
+              ),
             ),
             Text(
               "1".tr,
               style: TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: "Cairo"),
+                fontSize: 36,
+                fontWeight: FontWeight.w700,
+              ),
             ),
             Text(
               "1".tr,
               style: TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.w800,
-                  fontFamily: "Cairo"),
+                fontSize: 36,
+                fontWeight: FontWeight.w800,
+              ),
             ),
             Text(
               "1".tr,
               style: TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.w900,
-                  fontFamily: "Cairo"),
+                fontSize: 36,
+                fontWeight: FontWeight.w900,
+              ),
             ),
           ],
         ),

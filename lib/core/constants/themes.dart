@@ -9,7 +9,13 @@ ThemeData englishTheme = ThemeData(
 
 ThemeData arabicTheme = ThemeData(
     scaffoldBackgroundColor: Colors.white,
-    fontFamily: "Shekari",
+    fontFamily: "Cairo",
     appBarTheme: const AppBarTheme(backgroundColor: AppColors.mainColor),
     useMaterial3: true,
     primaryColor: AppColors.mainColor);
+
+ThemeData mainAppTheme = ThemeData(
+    primaryColor: AppColors.mainColor,
+    useMaterial3: true,
+    fontFamily: "Cairo",
+    appBarTheme: const AppBarTheme(backgroundColor: AppColors.mainColor));
