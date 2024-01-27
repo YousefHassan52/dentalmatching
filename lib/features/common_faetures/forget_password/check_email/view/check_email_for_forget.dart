@@ -18,31 +18,38 @@ class CheckEmailForForgetPasswordScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+            icon: SvgPicture.asset("assets/svg/double_back_button.svg"),
+            onPressed: () {}),
+        title: const Text(
+          "Forget Password",
+          style: Styles.largetitle,
+        ),
         backgroundColor: Colors.white,
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         width: double.infinity,
+        color: Colors.white,
         child: SingleChildScrollView(
           child: Form(
             key: externalController.formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ClipOval(
-                    child: CircleAvatar(
-                        radius: 50,
-                        child: SvgPicture.asset("assets/svg/save_money.svg"))),
-                const Text(
-                  "Forget Password !!",
-                  style: Styles.textStyle16,
+                SvgPicture.asset(
+                  "assets/svg/check_email.svg",
+                  height: Get.height * 0.3,
                 ),
-                Container(
-                    margin: const EdgeInsets.symmetric(vertical: 20),
-                    child: const AuthWelcomeText(
-                      welcomeText:
-                          "Write your Email and we will send to you a verification code",
-                    )),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Text(
+                  "Please Enter Your Email Address To Receive A verification Code ",
+                  style: Styles.textStyle16LightBlue,
+                  textAlign: TextAlign.center,
+                ),
                 AuthTextFormField(
                   validator: (value) {
                     return AppValidator.textFormFieldValidator(value!, "email");
@@ -52,11 +59,17 @@ class CheckEmailForForgetPasswordScreen extends StatelessWidget {
                   fieldController: externalController.emailController,
                   keyboardType: TextInputType.emailAddress,
                 ),
+                const SizedBox(
+                  height: 10,
+                ),
                 AuthButton(
                     buttonText: "Check",
                     onTap: () {
                       externalController.checkEmail();
                     }),
+                const SizedBox(
+                  height: 20,
+                ),
               ],
             ),
           ),

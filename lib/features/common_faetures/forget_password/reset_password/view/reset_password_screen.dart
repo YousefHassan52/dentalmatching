@@ -19,6 +19,14 @@ class ResetPasswordScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+            icon: SvgPicture.asset("assets/svg/double_back_button.svg"),
+            onPressed: () {}),
+        title: const Text(
+          "Reset Password",
+          style: Styles.largetitle,
+        ),
         backgroundColor: Colors.white,
       ),
       body: Container(
@@ -30,19 +38,18 @@ class ResetPasswordScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ClipOval(
-                    child: CircleAvatar(
-                        radius: 50,
-                        child: SvgPicture.asset("assets/svg/save_money.svg"))),
-                const Text(
-                  "Reset Password",
-                  style: Styles.textStyle16,
+                SvgPicture.asset(
+                  "assets/svg/reset_password.svg",
+                  height: Get.height * 0.3,
                 ),
-                Container(
-                    margin: const EdgeInsets.symmetric(vertical: 20),
-                    child: const AuthWelcomeText(
-                      welcomeText: "Now you could reset your password ",
-                    )),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Text(
+                  "Please enter your new passwordto reset your account access ",
+                  style: Styles.textStyle16LightBlue,
+                  textAlign: TextAlign.center,
+                ),
                 GetBuilder<ResetPasswordControllerImp>(
                     builder: (internalController) => AuthTextFormField(
                           validator: (value) {
@@ -64,7 +71,7 @@ class ResetPasswordScreen extends StatelessWidget {
                           isPassword: !internalController.passwordOneVisibility,
                         )),
                 AuthButton(
-                    buttonText: "Save",
+                    buttonText: "Confirm",
                     onTap: () {
                       externalController.resetPassword();
                     }),

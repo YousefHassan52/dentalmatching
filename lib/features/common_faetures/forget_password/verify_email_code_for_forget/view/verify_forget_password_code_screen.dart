@@ -18,6 +18,14 @@ class VerifyForgetPasswordCodeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+            icon: SvgPicture.asset("assets/svg/double_back_button.svg"),
+            onPressed: () {}),
+        title: const Text(
+          "Verify Your Email",
+          style: Styles.largetitle,
+        ),
         backgroundColor: Colors.white,
       ),
       body: Container(
@@ -27,20 +35,22 @@ class VerifyForgetPasswordCodeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              ClipOval(
-                  child: CircleAvatar(
-                      radius: 50,
-                      child: SvgPicture.asset("assets/svg/add.svg"))),
+              SvgPicture.asset(
+                "assets/svg/verify_email.svg",
+                height: Get.height * 0.3,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               const Text(
-                "Verification Code",
+                "Please Enter 5 Digits code Sent to",
+                style: Styles.textStyle16LightBlue,
+              ),
+              Text(
+                externalController.email,
                 style: Styles.textStyle16,
               ),
-              Container(
-                  margin: const EdgeInsets.symmetric(vertical: 20),
-                  child: const AuthWelcomeText(
-                    welcomeText:
-                        "Write the verification code that has been sent to \n y*******n@gmail.com",
-                  )),
+              const SizedBox(height: 20),
               OTPTextField(
                   controller: externalController.verifyCodeController,
                   length: 5,
