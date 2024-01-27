@@ -31,12 +31,66 @@ class LoginScreen extends StatelessWidget {
                     onPressed: () {
                       translationController.changeLang(langCode: "en");
                     },
-                    child: const Text("english")),
+                    child: const Text(
+                      "english",
+                    )),
               ],
             ),
             Text(
               "1".tr,
-              style: Styles.textStyle24,
+              style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.w200,
+                  fontFamily: "Cairo"),
+            ),
+            Text(
+              "1".tr,
+              style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.w300,
+                  fontFamily: "Cairo"),
+            ),
+            Text(
+              "1".tr,
+              style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: "Cairo"),
+            ),
+            Text(
+              "1".tr,
+              style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: "Cairo"),
+            ),
+            Text(
+              "1".tr,
+              style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: "Cairo"),
+            ),
+            Text(
+              "1".tr,
+              style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: "Cairo"),
+            ),
+            Text(
+              "1".tr,
+              style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.w800,
+                  fontFamily: "Cairo"),
+            ),
+            Text(
+              "1".tr,
+              style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.w900,
+                  fontFamily: "Cairo"),
             ),
           ],
         ),

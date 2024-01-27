@@ -11,7 +11,7 @@ class MyTranslation implements Translations {
           "Fourth Title": "العنوان الرابع",
         },
         "en": {
-          "1": "english",
+          "1": "English",
           "First Title": "First Title",
           "Second Title": "Second Title",
           "third Title": "third Title",

@@ -10,6 +10,7 @@ class OnboardingControllerImp extends OnboardingControllerAbstract {
   PageController pageController = PageController();
   MyServices myServices = Get.find();
 
+  // by pressing button
   @override
   void next() {
     currentPage++;
@@ -23,6 +24,7 @@ class OnboardingControllerImp extends OnboardingControllerAbstract {
     }
   }
 
+  // by scroll
   @override
   void onPageChanged(int index) {
     currentPage = index;
