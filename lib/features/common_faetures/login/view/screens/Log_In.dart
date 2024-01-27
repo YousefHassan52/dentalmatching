@@ -5,7 +5,7 @@ import 'package:dentalmatching/features/common_faetures/login/view/widgets/TextF
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'widgets/CustomButton.dart';
+import '../widgets/CustomButton.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
