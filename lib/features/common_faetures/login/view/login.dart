@@ -1,4 +1,4 @@
-import 'package:dentalmatching/core/constants/styles.dart';
+import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/localization/translation_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,6 +19,12 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            ElevatedButton(
+              onPressed: () {
+                Get.offAllNamed(AppRoutes.checkEmailForgetPassword);
+              },
+              child: const Text("Reset Password"),
+            ),
             Row(
               children: [
                 ElevatedButton(
@@ -26,7 +32,7 @@ class LoginScreen extends StatelessWidget {
                       translationController.changeLang(langCode: "ar");
                     },
                     child: const Text("arabic")),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 ElevatedButton(
                     onPressed: () {
                       translationController.changeLang(langCode: "en");
