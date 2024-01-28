@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+
+import '../screens/SignUp.dart';
 
 class PreSignUpWidget extends StatelessWidget {
   const PreSignUpWidget({super.key, required this.image, required this.userType});
@@ -11,17 +14,20 @@ class PreSignUpWidget extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 50),
-                child: Container(
-                  //decoration: BoxDecoration(shape: BoxShape.circle,),
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color.fromARGB(20, 68, 100, 160),
-                  ),
-                  // height: 100,
-                  // width: 250,
-                  child: SvgPicture.asset(
-                    image,
-                    height: 200,
+                child: GestureDetector(
+                  onTap: () => Get.off(SignUp()),
+                  child: Container(
+                    
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color.fromARGB(20, 68, 100, 160),
+                    ),
+                    // height: 100,
+                    // width: 250,
+                    child: SvgPicture.asset(
+                      image,
+                      height: 200,
+                    ),
                   ),
                 ),
               ),
