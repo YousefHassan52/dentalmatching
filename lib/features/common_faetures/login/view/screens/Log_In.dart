@@ -1,4 +1,5 @@
 
+import 'package:dentalmatching/features/common_faetures/login/view/screens/PreSignup.dart';
 import 'package:dentalmatching/features/common_faetures/login/view/widgets/CentImg.dart';
 import 'package:dentalmatching/features/common_faetures/login/view/widgets/Heading.dart';
 import 'package:dentalmatching/features/common_faetures/login/view/widgets/TextForm.dart';
@@ -20,6 +21,7 @@ class Login extends StatelessWidget {
           child: Column(
             children: [
               const Heading(text: 'Welcome Back'),
+              
               //const CentImg(Centeredimg: 'log.svg'),
               const TextForm(
                 hint: "Phone Number",
@@ -69,8 +71,8 @@ class Login extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: (){
-                      // Get.off(const Login());
-                      return print("object");
+                      Get.off(const PreSignup());
+                    
                     },
                     child: const Text(
                       'Sign Up',
