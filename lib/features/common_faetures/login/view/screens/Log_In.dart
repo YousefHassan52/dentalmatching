@@ -20,7 +20,7 @@ class Login extends StatelessWidget {
           child: Column(
             children: [
               const Heading(text: 'Welcome Back'),
-              const CentImg(Centeredimg: 'assets/image.svg'),
+              //const CentImg(Centeredimg: 'log.svg'),
               const TextForm(
                 hint: "Phone Number",
                 icon: Icons.phone_outlined,
