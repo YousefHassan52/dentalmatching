@@ -30,4 +30,11 @@ class AppValidator {
       }
     }
   }
+
+  static chechkPasswordMatching(
+      secondPasswordValue, String firstPasswordValue) {
+    if (secondPasswordValue.toString() != firstPasswordValue) {
+      return "Not Same Password";
+    }
+  }
 }

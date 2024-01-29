@@ -15,13 +15,32 @@ class AuthButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       onPressed: onTap,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      color: AppColors.mainColor,
-      minWidth: Get.width,
-      height: 50,
-      child: Text(
-        buttonText,
-        style: const TextStyle(color: Colors.white, fontSize: 18),
+      child: Container(
+        alignment: Alignment.center,
+        width: double.infinity,
+        height: 50,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Color(0xFF4A6BAD),
+                Color.fromRGBO(25, 63, 138, 0.48),
+              ]),
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0xffC3C3C3),
+              spreadRadius: 2,
+              blurRadius: 4,
+              offset: Offset(0, 4), // changes position of shadow
+            ),
+          ],
+        ),
+        child: Text(
+          buttonText,
+          style: const TextStyle(color: Colors.white, fontSize: 18),
+        ),
       ),
     );
   }

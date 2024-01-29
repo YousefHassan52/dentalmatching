@@ -1,4 +1,5 @@
 import 'package:dentalmatching/core/class/request_status.dart';
+import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/reset_password/controller/reset_password_controller_imp.dart';
@@ -46,30 +47,95 @@ class ResetPasswordScreen extends StatelessWidget {
                   height: 20,
                 ),
                 const Text(
-                  "Please enter your new passwordto reset your account access ",
+                  "Please enter your new password to reset your account access ",
                   style: Styles.textStyle16LightBlue,
                   textAlign: TextAlign.center,
                 ),
+                // GetBuilder<ResetPasswordControllerImp>(
+                //     builder: (internalController) => AuthTextFormField(
+                //           validator: (value) {
+                //             return AppValidator.textFormFieldValidator(
+                //                 value!, "password");
+                //           },
+                //           text: "Password",
+                //           icon: IconButton(
+                //             onPressed: () {
+                //               internalController.changePasswordVisibility();
+                //             },
+                //             icon: internalController.passwordOneVisibility ==
+                //                     false
+                //                 ? const Icon(Icons.remove_red_eye)
+                //                 : const Icon(Icons.visibility_off),
+                //           ),
+                //           fieldController: internalController.firstPassword,
+                //           keyboardType: TextInputType.visiblePassword,
+                //           isPassword: !internalController.passwordOneVisibility,
+                //         )),
                 GetBuilder<ResetPasswordControllerImp>(
-                    builder: (internalController) => AuthTextFormField(
-                          validator: (value) {
-                            return AppValidator.textFormFieldValidator(
-                                value!, "password");
+                  builder: (internalController) => Column(
+                    children: [
+                      AuthTextFormField(
+                        isPassword: internalController.passwordOneVisibility,
+                        hint: "Password",
+                        icon: "assets/svg/unlock.svg",
+                        type: TextInputType.visiblePassword,
+                        validator: (value) {
+                          return AppValidator.textFormFieldValidator(
+                              value!, "password");
+                        },
+                        fieldController:
+                            internalController.firstPasswordController,
+                        icon2: IconButton(
+                          onPressed: () {
+                            internalController.changePasswordVisibility();
                           },
-                          text: "Password",
-                          icon: IconButton(
-                            onPressed: () {
-                              internalController.changePasswordVisibility();
-                            },
-                            icon: internalController.passwordOneVisibility ==
-                                    false
-                                ? const Icon(Icons.remove_red_eye)
-                                : const Icon(Icons.visibility_off),
-                          ),
-                          fieldController: internalController.firstPassword,
-                          keyboardType: TextInputType.visiblePassword,
-                          isPassword: !internalController.passwordOneVisibility,
-                        )),
+                          icon: internalController.passwordOneVisibility
+                              ? const Icon(
+                                  Icons.remove_red_eye,
+                                  color: AppColors.secondColor,
+                                )
+                              : const Icon(
+                                  Icons.visibility_off,
+                                  color: AppColors.secondColor,
+                                ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      AuthTextFormField(
+                        isPassword: internalController.passwordTwoVisibility,
+                        hint: "Repeated Password",
+                        icon: "assets/svg/unlock.svg",
+                        type: TextInputType.visiblePassword,
+                        validator: (value) {
+                          return AppValidator.chechkPasswordMatching(value,
+                              internalController.firstPasswordController.text);
+                        },
+                        fieldController:
+                            internalController.secondPasswordController,
+                        icon2: IconButton(
+                          onPressed: () {
+                            internalController.changePasswordVisibility(
+                                secondPass: true);
+                          },
+                          icon: internalController.passwordTwoVisibility
+                              ? const Icon(
+                                  Icons.remove_red_eye,
+                                  color: AppColors.secondColor,
+                                )
+                              : const Icon(
+                                  Icons.visibility_off,
+                                  color: AppColors.secondColor,
+                                ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
                 AuthButton(
                     buttonText: "Confirm",
                     onTap: () {

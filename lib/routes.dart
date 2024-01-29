@@ -13,7 +13,9 @@ List<GetPage> routes = [
       page: () => const OnboardingScreen(),
       middlewares: [FirstScreen()]),
   // GetPage(name: '/', page:()=>const TestScreen()),
-  GetPage(name: AppRoutes.login, page: () => const LoginScreen()),
+  GetPage(
+      name: AppRoutes.login,
+      page: () => const CheckEmailForForgetPasswordScreen()),
   // GetPage(name: AppRoutes.signup, page: () => const SignupScreen()),
 
   // forget password

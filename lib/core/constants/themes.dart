@@ -15,6 +15,9 @@ ThemeData arabicTheme = ThemeData(
     primaryColor: AppColors.mainColor);
 
 ThemeData mainAppTheme = ThemeData(
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: AppColors.secondColor,
+    ),
     primaryColor: AppColors.mainColor,
     useMaterial3: true,
     fontFamily: "Cairo",

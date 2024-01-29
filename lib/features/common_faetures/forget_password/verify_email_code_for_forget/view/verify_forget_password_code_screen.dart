@@ -1,4 +1,5 @@
 import 'package:dentalmatching/core/class/request_status.dart';
+import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/verify_email_code_for_forget/controller/verify_forget_password_code_controller_imp.dart';
 import 'package:dentalmatching/features/common_faetures/login/view/widgets/welcome_text.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:otp_text_field/otp_field.dart';
+import 'package:otp_text_field/otp_field_style.dart';
 import 'package:otp_text_field/style.dart';
 
 class VerifyForgetPasswordCodeScreen extends StatelessWidget {
@@ -54,7 +56,7 @@ class VerifyForgetPasswordCodeScreen extends StatelessWidget {
               OTPTextField(
                   controller: externalController.verifyCodeController,
                   length: 5,
-                  width: MediaQuery.of(context).size.width,
+                  width: Get.width,
                   textFieldAlignment: MainAxisAlignment.spaceAround,
                   fieldWidth: 45,
                   fieldStyle: FieldStyle.box,

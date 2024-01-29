@@ -5,10 +5,11 @@ import 'package:get/get.dart';
 
 class ResetPasswordControllerImp extends ResetPasswordControllerAbstract {
   bool passwordOneVisibility = true;
-
-  late TextEditingController firstPassword;
+  bool passwordTwoVisibility = true;
   late String email;
 
+  late TextEditingController firstPasswordController;
+  late TextEditingController secondPasswordController;
   late GlobalKey<FormState> formKey;
 
   RequestStatus? requestStatus;
@@ -18,20 +19,26 @@ class ResetPasswordControllerImp extends ResetPasswordControllerAbstract {
   void onInit() {
     email = Get.arguments["email"];
     formKey = GlobalKey<FormState>();
-    firstPassword = TextEditingController();
+    firstPasswordController = TextEditingController();
+    secondPasswordController = TextEditingController();
     super.onInit();
   }
 
   @override
-  void changePasswordVisibility() {
-    passwordOneVisibility = !passwordOneVisibility;
+  void changePasswordVisibility({bool secondPass = false}) {
+    if (secondPass == false) {
+      passwordOneVisibility = !passwordOneVisibility;
+    } else if (secondPass == true) {
+      passwordTwoVisibility = !passwordTwoVisibility;
+    }
 
     update();
   }
 
   @override
   void resetPassword() async {
-    if (formKey.currentState!.validate()) {
+    if (formKey.currentState!.validate() &&
+        firstPasswordController.text == secondPasswordController.text) {
       // requestStatus = RequestStatus.LOADING;
       // var response = await restPasswordData.postData(
       //     email: email, password: firstPassword.text);

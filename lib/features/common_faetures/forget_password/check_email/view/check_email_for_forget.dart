@@ -3,7 +3,6 @@ import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/check_email/controller/check_email_forget_password_controller_imp.dart';
 import 'package:dentalmatching/features/common_faetures/login/view/widgets/auth_button.dart';
 import 'package:dentalmatching/features/common_faetures/login/view/widgets/textformfield.dart';
-import 'package:dentalmatching/features/common_faetures/login/view/widgets/welcome_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -50,17 +49,29 @@ class CheckEmailForForgetPasswordScreen extends StatelessWidget {
                   style: Styles.textStyle16LightBlue,
                   textAlign: TextAlign.center,
                 ),
-                AuthTextFormField(
-                  validator: (value) {
-                    return AppValidator.textFormFieldValidator(value!, "email");
-                  },
-                  text: "Email",
-                  icon: Icon(Icons.email_rounded),
-                  fieldController: externalController.emailController,
-                  keyboardType: TextInputType.emailAddress,
-                ),
                 const SizedBox(
-                  height: 10,
+                  height: 25,
+                ),
+                // AuthTextFormField(
+                //   validator: (value) {
+                //     return AppValidator.textFormFieldValidator(value!, "email");
+                //   },
+                //   text: "Email",
+                //   icon: Icon(Icons.email_rounded),
+                //   fieldController: externalController.emailController,
+                //   keyboardType: TextInputType.emailAddress,
+                // ),
+                AuthTextFormField(
+                    type: TextInputType.emailAddress,
+                    hint: "Email Address",
+                    icon: "assets/svg/email.svg",
+                    validator: (value) {
+                      return AppValidator.textFormFieldValidator(
+                          value!, "email");
+                    },
+                    fieldController: externalController.emailController),
+                const SizedBox(
+                  height: 25,
                 ),
                 AuthButton(
                     buttonText: "Check",
