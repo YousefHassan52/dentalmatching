@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TextForm extends StatelessWidget {
   final String hint;
@@ -18,37 +19,37 @@ class TextForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+    //double screenWidth = MediaQuery.of(context).size.width;
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05 , vertical: screenWidth * 0.02),
+      padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05 , vertical: Get.width * 0.02),
       child: Form(
         child: TextFormField(
           obscureText: password,
           cursorColor: const Color(0xFF4464A0),
           keyboardType: type,
           style: TextStyle(
-            color: Color(0xFF4464A0),
+            color: const Color(0xFF4464A0),
             fontWeight: FontWeight.bold,
-            fontSize: screenWidth * 0.04,
+            fontSize: Get.width * 0.04,
           ),
           decoration: InputDecoration(
             prefixIcon: Icon(
               icon,
               color: const Color.fromARGB(224, 94, 148, 195),
-              size: screenWidth * 0.08,
+              size: Get.width * 0.08,
             ),
             suffixIcon: icon2 != null
                 ? Icon(
                     icon2,
                     color: const Color.fromARGB(224, 94, 148, 195),
-                    size: screenWidth * 0.08,
+                    size: Get.width * 0.08,
                   )
                 : null,
             hintText: hint,
             hintStyle: TextStyle(
-              color: Color.fromARGB(100, 94, 148, 195),
-              fontSize: screenWidth * 0.04,
+              color: const Color.fromARGB(100, 94, 148, 195),
+              fontSize: Get.width * 0.04,
             ),
             enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(width: 3, color: Color(0xFFCBE1F8)),
