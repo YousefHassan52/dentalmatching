@@ -9,7 +9,9 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      appBar: AppBar(actions: [
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        actions: [
         IconButton(
           icon: const Icon(
             Icons.keyboard_double_arrow_right_outlined,

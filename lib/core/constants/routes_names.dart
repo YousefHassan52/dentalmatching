@@ -3,17 +3,18 @@ class AppRoutes {
 
   // Auth routes
   static const String login = '/login';
-/*  static const String signup = '/signup';
+  static const String userType = '/UserType';
+static const String signup = '/signup';
 
-  static const String verifyEmailCode = '/verify_email';
-  static const String home = '/home';
+//   static const String verifyEmailCode = '/verify_email';
+//   static const String home = '/home';
 
-// forgetPassword
-  static const String checkEmailForgetPassword = '/check_email_forget_password';
-  static const String verifyEmailForgetPassword =
-      '/verify_email_forget_password';
-  static const String resetPassword = '/reset_password';
+// // forgetPassword
+//   static const String checkEmailForgetPassword = '/check_email_forget_password';
+//   static const String verifyEmailForgetPassword =
+//       '/verify_email_forget_password';
+//   static const String resetPassword = '/reset_password';
 
-  //
-  static const String settings = '/settings';*/
+//   //
+//   static const String settings = '/settings';
 }

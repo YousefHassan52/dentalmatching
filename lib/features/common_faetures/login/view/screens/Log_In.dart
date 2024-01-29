@@ -1,4 +1,5 @@
 
+import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/features/common_faetures/login/view/screens/PreSignup.dart';
 import 'package:dentalmatching/features/common_faetures/login/view/widgets/CentImg.dart';
 import 'package:dentalmatching/features/common_faetures/login/view/widgets/Heading.dart';
@@ -21,7 +22,6 @@ class Login extends StatelessWidget {
           child: Column(
             children: [
               const Heading(text: 'Welcome Back'),
-              
               //const CentImg(Centeredimg: 'log.svg'),
               const TextForm(
                 hint: "Phone Number",
@@ -30,6 +30,7 @@ class Login extends StatelessWidget {
                 password: false,
                 
               ),
+              
               const TextForm(
                 hint: "Password",
                 icon: Icons.lock_open_outlined,
@@ -62,28 +63,31 @@ class Login extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Don't have an account? ",
-                    style: TextStyle(color: Color.fromARGB(255, 118, 119, 120)),
-                  ),
-                  TextButton(
-                    onPressed: (){
-                      Get.off(const PreSignup());
-                    
-                    },
-                    child: const Text(
-                      'Sign Up',
-                      style: TextStyle(
-                        color: Color(0xFF1E496B),
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline,
+              Container(
+                width: Get.width,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Don't have an account? ",
+                      style: TextStyle(color: Color.fromARGB(255, 118, 119, 120),fontSize: 10),
+                    ),
+                    TextButton(
+                      onPressed: (){
+                        Get.off(const PreSignup());  
+                      },
+                      child: const Text(
+                        'Sign Up',
+                        style: TextStyle(
+                          color: Color(0xFF1E496B),
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.underline,
+                          fontSize: 10,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               
             ],

@@ -1,25 +1,28 @@
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Heading extends StatelessWidget {
   final String text;
+
   const Heading({
-    super.key, required this.text,
+    super.key,
+    required this.text,
   });
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: const EdgeInsets.only(top: 120),
+    
+
+    return Padding(
+      padding: EdgeInsets.only(top: Get.width * 0.15),
       child: Center(
         child: Text(
           text,
-          style: const TextStyle(
-            color: Color(0xFF1E496B),
-            fontSize: 45,
-            //fontFamily: 'Commissioner',
+          style: TextStyle(
+            color: const Color(0xFF1E496B),
+            fontSize: Get.width * 0.08,
             fontWeight: FontWeight.w800,
-            height: 0.09,
+            height: 1.2, 
             letterSpacing: 2,
           ),
         ),
