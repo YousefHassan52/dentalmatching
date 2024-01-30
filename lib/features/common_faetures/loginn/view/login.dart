@@ -42,7 +42,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 GetBuilder<LoginControllerImp>(
                   builder: (controller) => AuthTextFormField(
-                    hint: "password",
+                    hint: "Password",
                     icon: "assets/svg/unlock.svg",
                     type: TextInputType.visiblePassword,
                     validator: (value) {
