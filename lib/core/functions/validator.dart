@@ -5,6 +5,9 @@ class AppValidator {
   static const int _maxPassword = 46;
 
   static textFormFieldValidator(String value, String type) {
+     if (value.isEmpty) {
+    return "Please enter your $type";
+  }
     if (type == "email") {
       if (!GetUtils.isEmail(value)) {
         return "invalid Email address";
