@@ -41,7 +41,7 @@ class CheckEmailForForgetPasswordControllerImp
   }
 
   void goToVerifyCodeScreen() {
-    Get.offAllNamed(AppRoutes.verifyEmailForgetPassword,
+    Get.toNamed(AppRoutes.verifyEmailForgetPassword,
         arguments: {"email": emailController.text});
   }
 }

@@ -1,4 +1,5 @@
 import 'package:dentalmatching/core/class/request_status.dart';
+import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/reset_password/controller/reset_password_controller_abstract.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -48,6 +49,8 @@ class ResetPasswordControllerImp extends ResetPasswordControllerAbstract {
       //   if (response["success"] == true) {
       Get.defaultDialog(
           title: "Success", middleText: "Password reseted successfully");
+
+      Get.offAllNamed(AppRoutes.login);
       //   } else {
       //     requestStatus = RequestStatus.FAILURE;
       //     Get.defaultDialog(

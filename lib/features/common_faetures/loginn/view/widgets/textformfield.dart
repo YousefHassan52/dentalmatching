@@ -42,7 +42,7 @@ class AuthTextFormField extends StatelessWidget {
         suffixIcon: icon2,
         hintText: hint,
         hintStyle: TextStyle(
-          color: Color.fromARGB(100, 94, 148, 195),
+          color: const Color.fromARGB(100, 94, 148, 195),
           fontSize: screenWidth * 0.04,
         ),
         enabledBorder: const UnderlineInputBorder(

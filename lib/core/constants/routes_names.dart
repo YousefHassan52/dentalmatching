@@ -3,7 +3,7 @@ class AppRoutes {
 
   // Auth routes
   static const String login = '/login';
-  // static const String signup = '/signup';
+  static const String signup = '/signup';
 
   static const String verifyEmailCode = '/verify_email';
   //static const String home = '/home';

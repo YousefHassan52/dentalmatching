@@ -13,7 +13,7 @@ class OnboardingScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Expanded(flex: 5, child: OnboardingPageBuilder()),

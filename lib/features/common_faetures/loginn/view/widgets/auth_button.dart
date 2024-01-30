@@ -1,6 +1,4 @@
-import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class AuthButton extends StatelessWidget {
   const AuthButton({
@@ -21,7 +19,7 @@ class AuthButton extends StatelessWidget {
         height: 50,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [

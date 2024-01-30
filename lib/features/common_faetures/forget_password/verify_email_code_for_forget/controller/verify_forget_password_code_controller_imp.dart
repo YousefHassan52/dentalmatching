@@ -40,6 +40,6 @@ class VerifyForgetPasswordCodeControllerImp
 
   @override
   void goToRestPassword() {
-    Get.offAllNamed(AppRoutes.resetPassword, arguments: {"email": email});
+    Get.toNamed(AppRoutes.resetPassword, arguments: {"email": email});
   }
 }

@@ -3,9 +3,8 @@ import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/reset_password/controller/reset_password_controller_imp.dart';
-import 'package:dentalmatching/features/common_faetures/login/view/widgets/auth_button.dart';
-import 'package:dentalmatching/features/common_faetures/login/view/widgets/textformfield.dart';
-import 'package:dentalmatching/features/common_faetures/login/view/widgets/welcome_text.dart';
+import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
+import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -23,7 +22,9 @@ class ResetPasswordScreen extends StatelessWidget {
         centerTitle: true,
         leading: IconButton(
             icon: SvgPicture.asset("assets/svg/double_back_button.svg"),
-            onPressed: () {}),
+            onPressed: () {
+              Get.back();
+            }),
         title: const Text(
           "Reset Password",
           style: Styles.largetitle,
