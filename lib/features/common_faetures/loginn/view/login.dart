@@ -30,7 +30,7 @@ class LoginScreen extends StatelessWidget {
                 const CentImg(centeredImg: 'assets/svg/log.svg'),
                 AuthTextFormField(
                     hint: "Phone",
-                    icon: "assets/svg/email.svg",
+                    icon: "assets/svg/Phone_icon.svg",
                     type: TextInputType.phone,
                     validator: (value) {
                       return AppValidator.textFormFieldValidator(
@@ -43,7 +43,7 @@ class LoginScreen extends StatelessWidget {
                 GetBuilder<LoginControllerImp>(
                   builder: (controller) => AuthTextFormField(
                     hint: "password",
-                    icon: "assets/svg/email.svg",
+                    icon: "assets/svg/unlock.svg",
                     type: TextInputType.visiblePassword,
                     validator: (value) {
                       return AppValidator.textFormFieldValidator(

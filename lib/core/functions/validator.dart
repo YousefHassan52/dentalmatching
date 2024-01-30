@@ -13,7 +13,7 @@ class AppValidator {
 
     if (type == "username") {
       if (value.isEmpty) {
-        return "invalid user name";
+        return "invalid username";
       }
     }
 
@@ -34,7 +34,7 @@ class AppValidator {
   static chechkPasswordMatching(
       secondPasswordValue, String firstPasswordValue) {
     if (secondPasswordValue.toString() != firstPasswordValue) {
-      return "Not Same Password";
+      return "Passwords don't match ";
     }
   }
 }

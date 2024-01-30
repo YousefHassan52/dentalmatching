@@ -106,7 +106,7 @@ class ResetPasswordScreen extends StatelessWidget {
                       ),
                       AuthTextFormField(
                         isPassword: internalController.passwordTwoVisibility,
-                        hint: "Repeated Password",
+                        hint: "Confirm Password",
                         icon: "assets/svg/unlock.svg",
                         type: TextInputType.visiblePassword,
                         validator: (value) {
