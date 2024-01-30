@@ -17,10 +17,21 @@ class PreSignup extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        actions: [
-        IconButton(
+      //   actions: [
+      //   IconButton(
+      //     icon: const Icon(
+      //       Icons.keyboard_double_arrow_right_outlined,
+      //       color: AppColors.blueTextColor,
+      //       size: 50,
+      //     ),
+      //     onPressed: () {
+      //      Get.offNamed(AppRoutes.login);
+      //     },
+      //   ),
+      // ]
+      leading: IconButton(
           icon: const Icon(
-            Icons.keyboard_double_arrow_right_outlined,
+            Icons.keyboard_double_arrow_left_outlined,
             color: AppColors.blueTextColor,
             size: 50,
           ),
@@ -28,7 +39,7 @@ class PreSignup extends StatelessWidget {
            Get.offNamed(AppRoutes.login);
           },
         ),
-      ]),
+      ),
       body: const Padding(
         padding: EdgeInsets.all(8.0),
         child: Center(
