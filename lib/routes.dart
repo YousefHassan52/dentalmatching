@@ -1,5 +1,6 @@
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/middlewares/first_screen.dart';
+import 'package:dentalmatching/features/common_faetures/Pre%20SignUp/PreSignUpPage.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/check_email/view/check_email_for_forget.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/reset_password/view/reset_password_screen.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/verify_email_code_for_forget/view/verify_forget_password_code_screen.dart';
@@ -25,6 +26,9 @@ List<GetPage> routes = [
       page: () => const VerifyForgetPasswordCodeScreen()),
   GetPage(
       name: AppRoutes.resetPassword, page: () => const ResetPasswordScreen()),
+ 
+  GetPage(
+      name: AppRoutes.userType, page: () => const PreSignup()),
 
   // GetPage(
   //     name: AppRoutes.verifyEmailCode,

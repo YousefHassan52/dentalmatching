@@ -7,5 +7,5 @@ class AppColors {
   static const Color blueLightTextColor = Color(0xff2C5390);
   static const Color greyTextColor = Color(0xFF808080);
   static const Color userTextColor = Color.fromARGB(255, 104, 145, 211);
-  static const Color circleColor = Color.fromARGB(20, 68, 100, 160);
+  static const Color circleColor = Color.fromARGB(25, 68, 100, 160);
 }
