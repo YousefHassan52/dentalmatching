@@ -1,4 +1,5 @@
 
+import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -25,7 +26,7 @@ class PreSignUpWidget extends StatelessWidget {
             child: Container(
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: Color.fromARGB(20, 68, 100, 160),
+                color: AppColors.circleColor,
               ),
               height: Get.width * 0.4,
               width: Get.width * 0.8,
@@ -41,7 +42,7 @@ class PreSignUpWidget extends StatelessWidget {
           style: TextStyle(
             fontSize: Get.width * 0.07,
             fontWeight: FontWeight.bold,
-            color: const Color(0xFF1E496B),
+            color: AppColors.blueTextColor,
           ),
         ),
       ],

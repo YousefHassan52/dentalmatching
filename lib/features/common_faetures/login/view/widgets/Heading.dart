@@ -1,3 +1,4 @@
+import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +20,7 @@ class Heading extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            color: const Color(0xFF1E496B),
+            color: AppColors.blueTextColor,
             fontSize: Get.width * 0.08,
             fontWeight: FontWeight.w800,
             height: 1.2, 

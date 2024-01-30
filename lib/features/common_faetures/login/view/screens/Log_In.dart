@@ -1,4 +1,5 @@
 
+import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/features/common_faetures/login/view/screens/PreSignup.dart';
 import 'package:dentalmatching/features/common_faetures/login/view/widgets/CentImg.dart';
@@ -41,15 +42,17 @@ class Login extends StatelessWidget {
                 padding: EdgeInsets.only(top: 10, right: 20),
                 child: Align(
                   alignment: Alignment.centerRight,
-                  child: Text(
-                    'ForgetPaassword?',
-                    textAlign: TextAlign.end,
-                    style: TextStyle(
-                      color: Color(0xFF1E496B),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                      decoration: TextDecoration.underline,
-                      fontStyle: FontStyle.italic,
+                  child: InkWell(
+                    child: Text(
+                      'ForgetPaassword?',
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        color: AppColors.blueTextColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        decoration: TextDecoration.underline,
+                        fontStyle: FontStyle.italic,
+                      ),
                     ),
                   ),
                 ),
@@ -57,8 +60,10 @@ class Login extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              const CustomButton(
+              CustomButton(
                 text: 'Log in',
+                onPressed: ()  {
+                },
               ),
               const SizedBox(
                 height: 15,
@@ -74,12 +79,12 @@ class Login extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: (){
-                        Get.off(const PreSignup());  
+                        Get.offNamed(AppRoutes.userType);  
                       },
                          child: const Text(
                         'Sign Up',
                         style: TextStyle(
-                          color: Color(0xFF1E496B),
+                          color: AppColors.blueTextColor,
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.underline,
                           fontSize: 10,

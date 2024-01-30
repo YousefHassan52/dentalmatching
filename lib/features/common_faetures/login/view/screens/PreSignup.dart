@@ -1,4 +1,5 @@
 
+import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -21,7 +22,7 @@ class PreSignup extends StatelessWidget {
         IconButton(
           icon: const Icon(
             Icons.keyboard_double_arrow_right_outlined,
-            color: Color(0xFF1E496B),
+            color:AppColors.blueTextColor,
             size: 50,
           ),
           onPressed: () {
