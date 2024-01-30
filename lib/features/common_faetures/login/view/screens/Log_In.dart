@@ -72,11 +72,11 @@ class Login extends StatelessWidget {
                       "Don't have an account? ",
                       style: TextStyle(color: Color.fromARGB(255, 118, 119, 120),fontSize: 10),
                     ),
-                    TextButton(
-                      onPressed: (){
+                    InkWell(
+                      onTap: (){
                         Get.off(const PreSignup());  
                       },
-                      child: const Text(
+                         child: const Text(
                         'Sign Up',
                         style: TextStyle(
                           color: Color(0xFF1E496B),
