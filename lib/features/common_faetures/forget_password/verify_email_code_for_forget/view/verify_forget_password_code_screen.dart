@@ -27,7 +27,7 @@ class VerifyForgetPasswordCodeScreen extends StatelessWidget {
             }),
         title: const Text(
           "Verify Your Email",
-          style: Styles.largetitle,
+          style: Styles.mediumTitle,
         ),
         backgroundColor: Colors.white,
       ),

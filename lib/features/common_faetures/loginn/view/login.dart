@@ -9,8 +9,6 @@ import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/text
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/constants/routes_names.dart';
-
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -121,7 +119,8 @@ class LoginScreen extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          Get.offNamed(AppRoutes.userType);
+                          // Get.offNamed(AppRoutes.userType);
+                          externalController.goToSignupScreen();
                         },
                         child: const Text(
                           'Sign Up',

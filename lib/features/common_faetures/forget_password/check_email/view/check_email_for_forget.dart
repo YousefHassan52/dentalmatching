@@ -25,7 +25,7 @@ class CheckEmailForForgetPasswordScreen extends StatelessWidget {
             }),
         title: const Text(
           "Forget Password",
-          style: Styles.largetitle,
+          style: Styles.mediumTitle,
         ),
         backgroundColor: Colors.white,
       ),
