@@ -7,13 +7,12 @@ import 'package:get/get.dart';
 class UpperSignupWidget extends StatelessWidget {
   const UpperSignupWidget({
     super.key,
-    required this.upperPartHeight,
   });
-
-  final double upperPartHeight;
 
   @override
   Widget build(BuildContext context) {
+    double upperPartHeight = Get.height * 0.2;
+
     return Container(
       height: upperPartHeight,
       decoration: const BoxDecoration(
@@ -29,7 +28,7 @@ class UpperSignupWidget extends StatelessWidget {
               bottomLeft: Radius.circular(20),
               bottomRight: Radius.circular(20),
             ),
-            color: AppColors.mainColor.withOpacity(0.5)),
+            color: AppColors.mainColor.withOpacity(0.8)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [

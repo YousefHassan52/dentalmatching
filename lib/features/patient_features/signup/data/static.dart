@@ -27,3 +27,4 @@ List<String> governments = [
   'South Sinai',
   'Suez',
 ];
+List<String> gender = ["Male", "Female"];
