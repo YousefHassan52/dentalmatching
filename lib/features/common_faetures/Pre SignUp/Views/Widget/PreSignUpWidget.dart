@@ -4,10 +4,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class PreSignUpWidget extends StatelessWidget {
-  const PreSignUpWidget({super.key, required this.image, required this.userType});
+  const PreSignUpWidget({super.key, required this.image, required this.userType,required this.onTap});
 
   final String image;
   final String userType;
+  final void Function() onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class PreSignUpWidget extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(top: Get.width * 0.2),
           child: GestureDetector(
-            onTap: (){},// => Get.off(const SignUp()),
+            onTap: onTap,
             child: Container(
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,

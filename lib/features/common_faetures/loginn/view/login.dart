@@ -120,7 +120,8 @@ class LoginScreen extends StatelessWidget {
                       InkWell(
                         onTap: () {
                           // Get.offNamed(AppRoutes.userType);
-                          externalController.goToSignupScreen();
+                          //externalController.goToSignupScreen();
+                          externalController.goToPreSignupScreen();
                         },
                         child: const Text(
                           'Sign Up',
