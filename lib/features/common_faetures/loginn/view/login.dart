@@ -6,6 +6,7 @@ import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/Cent
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/Heading.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/textformfield.dart';
+import 'package:dentalmatching/features/patient_features/PatientProfile/Views/PatientProfile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -121,7 +122,8 @@ class LoginScreen extends StatelessWidget {
                         onTap: () {
                           // Get.offNamed(AppRoutes.userType);
                           //externalController.goToSignupScreen();
-                          externalController.goToPreSignupScreen();
+                          //externalController.goToPreSignupScreen();
+                          Get.to(PatientProfile());
                         },
                         child: const Text(
                           'Sign Up',
