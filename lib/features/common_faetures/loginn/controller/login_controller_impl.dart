@@ -24,6 +24,13 @@ class LoginControllerImp extends LoginControllerAbstract {
     update();
   }
 
+
+@override
+  void goToPreSignupScreen() {
+   Get.toNamed(AppRoutes.userType);
+  }
+
+
   @override
   void goToSignupScreen() {
     Get.toNamed(AppRoutes.signupPatinet);
@@ -85,4 +92,6 @@ class LoginControllerImp extends LoginControllerAbstract {
   void goToForgetPassword() {
     Get.toNamed(AppRoutes.checkEmailForgetPassword);
   }
+  
+  
 }

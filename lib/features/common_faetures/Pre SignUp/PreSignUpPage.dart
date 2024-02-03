@@ -32,11 +32,11 @@ class PreSignup extends StatelessWidget {
             size: 50,
           ),
           onPressed: () {
-            Get.offNamed(AppRoutes.login);
+            Get.back();
           },
         ),
       ),
-      body: const Padding(
+      body:  Padding(
         padding: EdgeInsets.all(8.0),
         child: Center(
           child: Column(
@@ -44,10 +44,17 @@ class PreSignup extends StatelessWidget {
               PreSignUpWidget(
                 image: 'assets/svg/doctors.svg',
                 userType: 'Doctor',
+                onTap: (){
+                  Get.toNamed(AppRoutes.signup);
+                
+                },
               ),
               PreSignUpWidget(
                 image: 'assets/svg/Patient.svg',
                 userType: 'Patient',
+                onTap: (){
+                  Get.toNamed(AppRoutes.signup);
+                },
               ),
             ],
           ),
