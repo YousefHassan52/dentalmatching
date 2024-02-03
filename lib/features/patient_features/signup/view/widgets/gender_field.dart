@@ -12,7 +12,7 @@ class GenderDropdown extends StatelessWidget {
     required this.externalController,
   });
 
-  final SignupControllerImpl externalController;
+  final SignupPatientControllerImpl externalController;
 
   @override
   Widget build(BuildContext context) {

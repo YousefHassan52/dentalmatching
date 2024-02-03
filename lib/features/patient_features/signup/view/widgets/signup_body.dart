@@ -1,3 +1,4 @@
+import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
@@ -20,7 +21,7 @@ class SignupFormBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SignupControllerImpl externalController = Get.find();
+    SignupPatientControllerImpl externalController = Get.find();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
@@ -47,6 +48,19 @@ class SignupFormBody extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
+          AuthTextFormField(
+              hint: "age",
+              icon: "assets/svg/age.svg",
+              type: TextInputType.number,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return "required";
+                }
+              },
+              fieldController: externalController.ageController),
+          const SizedBox(
+            height: 15,
+          ),
           GovernmentDropdownSearch(externalController: externalController),
           const SizedBox(
             height: 15,
@@ -55,7 +69,15 @@ class SignupFormBody extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-
+          AuthTextFormField(
+              hint: "Chronic Diseases",
+              icon: "assets/svg/🦆 icon _Cardiogram_.svg",
+              type: TextInputType.name,
+              validator: (value) {},
+              fieldController: externalController.chronicDiseasesController),
+          const SizedBox(
+            height: 15,
+          ),
           // phone----------------------------
           AuthTextFormField(
               hint: "Phone",
@@ -81,7 +103,7 @@ class SignupFormBody extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          GetBuilder<SignupControllerImpl>(
+          GetBuilder<SignupPatientControllerImpl>(
             builder: (controller) => AuthTextFormField(
               hint: "Password",
               icon: "assets/svg/unlock.svg",
@@ -115,6 +137,15 @@ class SignupFormBody extends StatelessWidget {
               onTap: () {
                 externalController.signup();
               }),
+          GetBuilder<SignupPatientControllerImpl>(
+            builder: (controller) => Container(
+              margin: const EdgeInsets.symmetric(vertical: 10),
+              width: double.infinity,
+              child: controller.requestStatus == RequestStatus.LOADING
+                  ? const LinearProgressIndicator()
+                  : null,
+            ),
+          ),
         ],
       ),
     );

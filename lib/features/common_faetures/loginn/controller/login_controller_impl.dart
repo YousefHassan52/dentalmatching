@@ -26,7 +26,7 @@ class LoginControllerImp extends LoginControllerAbstract {
 
   @override
   void goToSignupScreen() {
-    Get.toNamed(AppRoutes.signup);
+    Get.toNamed(AppRoutes.signupPatinet);
   }
 
   @override

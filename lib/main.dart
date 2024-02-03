@@ -1,3 +1,4 @@
+import 'package:dentalmatching/core/bindings/initialBinding.dart';
 import 'package:dentalmatching/core/constants/themes.dart';
 import 'package:dentalmatching/core/localization/translation.dart';
 import 'package:dentalmatching/core/localization/translation_controller.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       translations: MyTranslation(),
       getPages: routes,
       locale: translationController.getCurrentLocale(),
+      initialBinding: InitialBindings(),
     );
   }
 }

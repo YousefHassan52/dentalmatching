@@ -4,12 +4,13 @@ import 'package:dentalmatching/features/patient_features/signup/view/widgets/upp
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SignupScreen extends StatelessWidget {
-  const SignupScreen({Key? key}) : super(key: key);
+class SignupPatientScreen extends StatelessWidget {
+  const SignupPatientScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    SignupControllerImpl externalController = Get.put(SignupControllerImpl());
+    SignupPatientControllerImpl externalController =
+        Get.put(SignupPatientControllerImpl());
     return Scaffold(
       extendBodyBehindAppBar: true,
       body: Form(

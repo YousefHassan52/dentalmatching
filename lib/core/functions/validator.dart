@@ -1,13 +1,10 @@
 import 'package:get/get.dart';
 
 class AppValidator {
-  static const int _minPassword = 8;
-  static const int _maxPassword = 46;
-
   static textFormFieldValidator(String value, String type) {
-     if (value.isEmpty) {
-    return "Please enter your $type";
-  }
+    if (value.isEmpty) {
+      return "Please enter your $type";
+    }
     if (type == "email") {
       if (!GetUtils.isEmail(value)) {
         return "invalid Email address";
@@ -21,14 +18,15 @@ class AppValidator {
     }
 
     if (type == "phone") {
-      if (!GetUtils.isPhoneNumber(value)) {
+      if (!RegExp(r'^\d{11}$').hasMatch(value)) {
         return "invalid Phone number";
       }
     }
     if (type == "password") {
-      if (value.isEmpty ||
-          value.length < _minPassword ||
-          value.length > _maxPassword) {
+      RegExp strongPasswordRegex = RegExp(
+        r'^(?=.*\d)(?=.*[a-zA-Z])(?=.*[A-Z])(?=.*[!@#\$%^&*(),.?":{}|<>]).{6,}$',
+      );
+      if (!strongPasswordRegex.hasMatch(value)) {
         return "invalid password";
       }
     }

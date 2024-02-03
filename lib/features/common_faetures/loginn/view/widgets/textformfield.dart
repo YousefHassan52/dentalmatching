@@ -69,8 +69,9 @@ class CustomSvgPicture extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10),
       child: SvgPicture.asset(
+        height: 10,
         icon,
-        color: AppColors.secondColor,
+        color: Color(0xFF67A4D3),
       ),
     );
   }
