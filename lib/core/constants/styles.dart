@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 abstract class Styles {
   static const TextStyle extraLargetitle = TextStyle(
       color: AppColors.mainColor, fontWeight: FontWeight.w700, fontSize: 42);
-
-
   static const TextStyle mediumTitle = TextStyle(
       color: AppColors.mainColor, fontWeight: FontWeight.w700, fontSize: 26);
 
@@ -18,8 +16,6 @@ abstract class Styles {
       color: AppColors.greyTextColor,
       fontWeight: FontWeight.w600,
       fontSize: 18);
-
-
   static const TextStyle textStyle16White =
       TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 16);
       
