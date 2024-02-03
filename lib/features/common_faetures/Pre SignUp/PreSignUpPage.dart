@@ -36,7 +36,7 @@ class PreSignup extends StatelessWidget {
           },
         ),
       ),
-      body:  Padding(
+      body: Padding(
         padding: EdgeInsets.all(8.0),
         child: Center(
           child: Column(
@@ -44,16 +44,15 @@ class PreSignup extends StatelessWidget {
               PreSignUpWidget(
                 image: 'assets/svg/doctors.svg',
                 userType: 'Doctor',
-                onTap: (){
-                  Get.toNamed(AppRoutes.signup);
-                
+                onTap: () {
+                  Get.toNamed(AppRoutes.signupPatinet);
                 },
               ),
               PreSignUpWidget(
                 image: 'assets/svg/Patient.svg',
                 userType: 'Patient',
-                onTap: (){
-                  Get.toNamed(AppRoutes.signup);
+                onTap: () {
+                  Get.toNamed(AppRoutes.signupPatinet);
                 },
               ),
             ],
