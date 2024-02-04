@@ -142,16 +142,21 @@ class ResetPasswordScreen extends StatelessWidget {
                     onTap: () {
                       externalController.resetPassword();
                     }),
+                const SizedBox(
+                  height: 20,
+                ),
                 GetBuilder<ResetPasswordControllerImp>(
-                  init: ResetPasswordControllerImp(),
-                  builder: (internalController) {
-                    if (internalController.requestStatus ==
-                        RequestStatus.LOADING) {
-                      return const LinearProgressIndicator();
-                    } else {
-                      return Container();
-                    }
-                  },
+                  builder: (controller) => Container(
+                    margin: const EdgeInsets.symmetric(vertical: 10),
+                    width: double.infinity,
+                    child: controller.requestStatus == RequestStatus.LOADING
+                        ? LinearProgressIndicator(
+                            color: AppColors.mainColor,
+                            backgroundColor:
+                                AppColors.mainColor.withOpacity(0.20),
+                          )
+                        : null,
+                  ),
                 ),
               ],
             ),

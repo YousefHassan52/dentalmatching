@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:dentalmatching/core/class/request_status.dart';
+import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/verify_email_code_for_forget/controller/verify_forget_password_code_controller_imp.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +15,8 @@ class VerifyForgetPasswordCodeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    VerifyForgetPasswordCodeControllerImp externalController =
-        Get.put(VerifyForgetPasswordCodeControllerImp());
+    VerifyEmailForgetPasswordCodeControllerImp externalController =
+        Get.put(VerifyEmailForgetPasswordCodeControllerImp());
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -69,15 +70,18 @@ class VerifyForgetPasswordCodeScreen extends StatelessWidget {
                   onCompleted: (pin) {
                     externalController.checkForgetPasswordCode(code: pin);
                   }),
-              GetBuilder<VerifyForgetPasswordCodeControllerImp>(
-                builder: (internalController) {
-                  if (internalController.requestStatus ==
-                      RequestStatus.LOADING) {
-                    return const LinearProgressIndicator();
-                  } else {
-                    return Container();
-                  }
-                },
+              GetBuilder<VerifyEmailForgetPasswordCodeControllerImp>(
+                builder: (controller) => Container(
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  width: double.infinity,
+                  child: controller.requestStatus == RequestStatus.LOADING
+                      ? LinearProgressIndicator(
+                          color: AppColors.mainColor,
+                          backgroundColor:
+                              AppColors.mainColor.withOpacity(0.20),
+                        )
+                      : null,
+                ),
               ),
             ],
           ),

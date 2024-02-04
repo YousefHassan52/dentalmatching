@@ -1,3 +1,5 @@
+import 'package:dentalmatching/core/class/request_status.dart';
+import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/check_email/controller/check_email_forget_password_controller_imp.dart';
@@ -12,8 +14,8 @@ class CheckEmailForForgetPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CheckEmailForForgetPasswordControllerImp externalController =
-        Get.put(CheckEmailForForgetPasswordControllerImp());
+    CheckEmailForgetPasswordControllerImp externalController =
+        Get.put(CheckEmailForgetPasswordControllerImp());
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -82,6 +84,19 @@ class CheckEmailForForgetPasswordScreen extends StatelessWidget {
                     }),
                 const SizedBox(
                   height: 20,
+                ),
+                GetBuilder<CheckEmailForgetPasswordControllerImp>(
+                  builder: (controller) => Container(
+                    margin: const EdgeInsets.symmetric(vertical: 10),
+                    width: double.infinity,
+                    child: controller.requestStatus == RequestStatus.LOADING
+                        ? LinearProgressIndicator(
+                            color: AppColors.mainColor,
+                            backgroundColor:
+                                AppColors.mainColor.withOpacity(0.20),
+                          )
+                        : null,
+                  ),
                 ),
               ],
             ),
