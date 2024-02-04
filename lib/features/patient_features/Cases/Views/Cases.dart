@@ -1,5 +1,6 @@
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Controller/CounterController.dart';
+import 'package:dentalmatching/features/patient_features/Cases/Views/AddCase.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -33,11 +34,20 @@ class CasesScreen extends GetView<MyServices> {
           MaterialButton(
             color: Colors.amber,
             onPressed: (){
-            controller.Rsest();
+            Get.to(AddCaseScreen());
           },
-        child: Text('Reset counter'),
+          child: Text('Form Add cases'),
           textColor: Colors.black,
           ),
+          MaterialButton(
+            color: Colors.amber,
+            onPressed: (){
+              controller.Resest();
+          },
+        child: Text('Reset Counter'),
+          textColor: Colors.black,
+          ),
+      
         ],
       ),
     );
