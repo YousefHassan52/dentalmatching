@@ -2,14 +2,15 @@
 
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
+import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/controller/login_controller_abstract.dart';
+import 'package:dentalmatching/features/common_faetures/loginn/data/login_patient.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class LoginControllerImp extends LoginControllerAbstract {
-  // LoginData loginData = LoginData(Get.find());
+  LoginData loginData = LoginData(Get.find());
   RequestStatus? requestStatus;
-  Map<String, dynamic> user = {};
   bool notVisible = true;
   late TextEditingController phoneController;
   late TextEditingController passwordController;
@@ -24,12 +25,10 @@ class LoginControllerImp extends LoginControllerAbstract {
     update();
   }
 
-
-@override
+  @override
   void goToPreSignupScreen() {
-   Get.toNamed(AppRoutes.userType);
+    Get.toNamed(AppRoutes.userType);
   }
-
 
   @override
   void goToSignupScreen() {
@@ -40,43 +39,49 @@ class LoginControllerImp extends LoginControllerAbstract {
   void login() async {
     if (formKey.currentState!.validate()) {
       print(phoneController.text + passwordController.text);
-      Get.defaultDialog(middleText: "Logged in <3");
-      // // initialize request status
-      // requestStatus = RequestStatus.LOADING;
-      // var response = await loginData.postData(
-      //     email: emailController.text, password: passwordController.text);
-      // print(response.toString());
-      // requestStatus = HandlingResponseType.fun(response);
-      // print("joe ;${requestStatus.toString()}");
-      // update();
-      // if (requestStatus == RequestStatus.SUCCESS) {
-      //   // handle type kman 34an hayb2a fe doctor and patient
-      //   if (response['success'] == true) {
-      //     user.addAll(response["data"]);
-      //     if (response["data"]["user_approve"] == 1) {
-      //       // save  in sharedPref
-      //       myServices.sharedPref
-      //           .setInt("user_id", response["data"]["user_id"]);
-      //       myServices.sharedPref
-      //           .setString("user_name", response["data"]["user_name"]);
-      //       myServices.sharedPref
-      //           .setString("user_email", response["data"]["user_email"]);
-      //       myServices.sharedPref
-      //           .setString("user_phone", response["data"]["user_phone"]);
-      //       myServices.sharedPref.setBool("logged", true);
-
-      //       Get.offAllNamed(AppRoutes.home);
-      //     } else {
-      //       // 2olna m4 han3mel verify email ... han3mel forget bs
-      //       Get.offAllNamed(AppRoutes.verifyEmailCode,
-      //           arguments: {"email": emailController.text});
-      //     }
-      //   } else {
-      //     Get.defaultDialog(title: "Try Again", middleText: response['msg']);
-      //     requestStatus = RequestStatus.FAILURE;
-      //     update();
-      //   }
-      // }
+      requestStatus = RequestStatus.LOADING;
+      update();
+      var response = await loginData.postData(
+          phoneNumber: phoneController.text, password: passwordController.text);
+      print(response.toString());
+      requestStatus = HandlingResponseType.fun(response);
+      update();
+      print("joe ;${requestStatus.toString()}");
+      if (requestStatus == RequestStatus.SUCCESS) {
+        // handle type kman 34an hayb2a fe doctor and patient
+        if (response['success'] == true) {
+          if (response["data"]["role"] == "Doctor") {
+            Get.defaultDialog(
+                title: "Hello ${response["data"]["role"]}",
+                middleText: "${response["data"]["firstName"]}");
+            // save  in sharedPref
+            //    myServices.sharedPref
+            //        .setInt("user_id", response["data"]["user_id"]);
+            //    myServices.sharedPref
+            //        .setString("user_name", response["data"]["user_name"]);
+            //    myServices.sharedPref
+            //        .setString("user_email", response["data"]["user_email"]);
+            //    myServices.sharedPref
+            //        .setString("user_phone", response["data"]["user_phone"]);
+            //    myServices.sharedPref.setBool("logged", true);
+            //    Get.offAllNamed(AppRoutes.home);
+            //  }
+            //else {
+            // 2olna m4 han3mel verify email ... han3mel forget bs
+            //  Get.offAllNamed(AppRoutes.verifyEmailCode,
+            //      arguments: {"email": emailController.text});
+          }
+          if (response["data"]["role"] == "Patient") {
+            Get.defaultDialog(
+                title: "Hello ${response["data"]["role"]}",
+                middleText: "${response["data"]["firstName"]}");
+          }
+        }
+      } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
+        Get.defaultDialog(middleText: "Incorrect Phone or Password");
+      } else {
+        Get.defaultDialog(middleText: "Server Error Please Try Again");
+      }
     }
   }
 
@@ -92,6 +97,4 @@ class LoginControllerImp extends LoginControllerAbstract {
   void goToForgetPassword() {
     Get.toNamed(AppRoutes.checkEmailForgetPassword);
   }
-  
-  
 }

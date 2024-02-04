@@ -19,7 +19,8 @@ class SignupPatientControllerImpl extends SignupPatientControllerAbstract {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   RequestStatus? requestStatus;
-  SignupPatientData signupData = SignupPatientData(Get.find());
+  SignupPatientData signupData =
+      SignupPatientData(Get.find()); // get.find related to CRUD
 
   @override
   void signup() async {
@@ -58,14 +59,9 @@ class SignupPatientControllerImpl extends SignupPatientControllerAbstract {
           chronicDiseasesController.clear();
 
           // go to home
-        } else {
-          requestStatus = RequestStatus.FAILURE;
-          Get.defaultDialog(
-              title: "Warning",
-              middleText: "Email or Phone Already exists before");
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-        Get.defaultDialog(middleText: "Email Or phone Already Exists");
+        Get.defaultDialog(middleText: "Email or Phone Already exists before");
       } else {
         Get.defaultDialog(middleText: "Server Error Please Try Again");
       }

@@ -1,11 +1,10 @@
 import 'package:dentalmatching/core/services/my_services.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Controller/CounterController.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/AddCase.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CasesScreen extends GetView<MyServices> {
-   const CasesScreen({super.key});
+  const CasesScreen({super.key});
 // CounterController controller = Get.put(CounterController());
 
   @override
@@ -13,41 +12,39 @@ class CasesScreen extends GetView<MyServices> {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        
         children: [
           MaterialButton(
             color: Colors.amber,
-            onPressed: (){
-            Get.back();
-          },
-        child: Text('Back'),
-          textColor: Colors.black,
+            onPressed: () {
+              Get.back();
+            },
+            textColor: Colors.black,
+            child: const Text('Back'),
           ),
           MaterialButton(
             color: Colors.amber,
-            onPressed: (){
-            controller.AddedCase();
-          },
-        child: Text('Cases counter'),
-          textColor: Colors.black,
+            onPressed: () {
+              controller.AddedCase();
+            },
+            textColor: Colors.black,
+            child: const Text('Cases counter'),
           ),
           MaterialButton(
             color: Colors.amber,
-            onPressed: (){
-            Get.to(AddCaseScreen());
-          },
-          child: Text('Form Add cases'),
-          textColor: Colors.black,
+            onPressed: () {
+              Get.to(AddCaseScreen());
+            },
+            child: Text('Form Add cases'),
+            textColor: Colors.black,
           ),
           MaterialButton(
             color: Colors.amber,
-            onPressed: (){
+            onPressed: () {
               controller.Resest();
-          },
-        child: Text('Reset Counter'),
-          textColor: Colors.black,
+            },
+            child: Text('Reset Counter'),
+            textColor: Colors.black,
           ),
-      
         ],
       ),
     );

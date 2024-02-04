@@ -142,7 +142,10 @@ class SignupFormBody extends StatelessWidget {
               margin: const EdgeInsets.symmetric(vertical: 10),
               width: double.infinity,
               child: controller.requestStatus == RequestStatus.LOADING
-                  ? const LinearProgressIndicator()
+                  ? LinearProgressIndicator(
+                      color: AppColors.mainColor,
+                      backgroundColor: AppColors.mainColor.withOpacity(0.20),
+                    )
                   : null,
             ),
           ),

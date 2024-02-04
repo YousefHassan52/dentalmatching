@@ -1,3 +1,4 @@
+import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/controller/login_controller_impl.dart';
@@ -122,8 +123,7 @@ class LoginScreen extends StatelessWidget {
                         onTap: () {
                           // Get.offNamed(AppRoutes.userType);
                           //externalController.goToSignupScreen();
-                          //externalController.goToPreSignupScreen();
-                          Get.to(PatientProfile());
+                          externalController.goToPreSignupScreen();
                         },
                         child: const Text(
                           'Sign Up',
@@ -136,6 +136,19 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                     ],
+                  ),
+                ),
+                GetBuilder<LoginControllerImp>(
+                  builder: (controller) => Container(
+                    margin: const EdgeInsets.symmetric(vertical: 10),
+                    width: double.infinity,
+                    child: controller.requestStatus == RequestStatus.LOADING
+                        ? LinearProgressIndicator(
+                            color: AppColors.mainColor,
+                            backgroundColor:
+                                AppColors.mainColor.withOpacity(0.20),
+                          )
+                        : null,
                   ),
                 ),
               ],
