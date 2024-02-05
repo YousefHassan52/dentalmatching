@@ -1,6 +1,7 @@
-import 'package:dentalmatching/core/constants/colors.dart';
-import 'package:dentalmatching/core/constants/styles.dart';
+import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
+import 'package:dentalmatching/features/patient_features/Cases/Controller/ButtonController.dart';
+import 'package:dentalmatching/features/patient_features/Cases/Controller/KnownController.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/AddImg.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/AddOptionalImg.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/Check.dart';
@@ -12,8 +13,9 @@ import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/Opti
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class FormContainer extends StatelessWidget {
-  const FormContainer({
+class FormContainer extends GetView<MyServices> {
+  final NextButtonController button = Get.put(NextButtonController());
+ FormContainer({
     super.key,
   });
 
@@ -107,7 +109,10 @@ class FormContainer extends StatelessWidget {
               ),
               AuthButton(
                 buttonText: 'Next',
-                onTap: () {},
+                onTap: () {
+                  button.handleButtonBehavior();
+
+                },
               )
             ],
           ),
