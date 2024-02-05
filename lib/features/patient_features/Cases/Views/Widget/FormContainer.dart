@@ -1,9 +1,14 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
+import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
+import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/AddImg.dart';
+import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/AddOptionalImg.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/Check.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/DescripBox.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/FormHeadLine.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/HDivider.dart';
+import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/KnownCheckWidget.dart';
+import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/OptionalText.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,36 +23,94 @@ class FormContainer extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: Container(
         width: Get.width * 0.93,
-        height: 600,
+        height: 1300,
         decoration: BoxDecoration(
           color: const Color.fromARGB(77, 207, 216, 220),
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: const Color(0xff4A6BAD),
           ),
-
-          // boxShadow: [
-          //   BoxShadow(
-          //     color: AppColors.blueLightTextColor.withOpacity(0.2),
-          //     spreadRadius: 1,
-          //     blurRadius: 3,
-          //   ),
-          // ],
         ),
-        child:  Column(
-          children: [
-            const FormHeadLine(headline: 'Describe what you feel'),
-            const Padding(
-              padding: EdgeInsets.all(16.0),
-              child: DescripBox(),
-            ),
-            const HDivider(),
-            const FormHeadLine(headline: 'Chronic Diseases'),
-            ChronicDiseasesChecklist(),
-            const HDivider(),
-           const FormHeadLine(headline: 'Add a Clear Pictures of your Mouth')
-          
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const FormHeadLine(headline: 'Describe what you feel'),
+              const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: DescripBox(),
+              ),
+              const HDivider(),
+              const FormHeadLine(headline: 'Chronic Diseases'),
+              ChronicDiseasesChecklist(),
+              const HDivider(),
+              const FormHeadLine(
+                  headline: 'Add a Clear Pictures of your Mouth'),
+              AddImageWidget(
+                img: 'assets/svg/Bold_Img_load-box.svg',
+                txt: 'Upload Pictures',
+                onPressed: () {},
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              AddImageWidget(
+                img: 'assets/svg/Boldd_Camera.svg',
+                txt: 'Take Pictures',
+                onPressed: () {},
+              ),
+              const OptionalText(
+                text: 'Add X-Ray',
+              ),
+              AddOptionalImg(
+                img: 'assets/svg/Bold_Img_load-box.svg',
+                txt: 'Upload Picture',
+                onPressed: () {},
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              AddOptionalImg(
+                img: 'assets/svg/Boldd_Camera.svg',
+                txt: 'Take Picture   ',
+                onPressed: () {},
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 8.0),
+                child: HDivider(),
+              ),
+              const OptionalText(
+                text: 'Add Prescription',
+              ),
+              AddOptionalImg(
+                img: 'assets/svg/Bold_Img_load-box.svg',
+                txt: 'Upload Picture',
+                onPressed: () {},
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              AddOptionalImg(
+                img: 'assets/svg/Boldd_Camera.svg',
+                txt: 'Take Picture   ',
+                onPressed: () {},
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 8.0),
+                child: HDivider(),
+              ),
+              const FormHeadLine(headline: 'Do you know your case ?'),
+              KnownCheckWidget(),
+              const SizedBox(
+                height: 8,
+              ),
+              AuthButton(
+                buttonText: 'Next',
+                onTap: () {},
+              )
+            ],
+          ),
         ),
       ),
     );

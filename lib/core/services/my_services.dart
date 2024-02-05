@@ -20,7 +20,7 @@ class MyServices extends GetxService {
   sharedPref.setInt("casesCounter", casesCounter.value);
 }
 
-  Resest()
+Resest()
 {
   casesCounter.value = 0 ;
   sharedPref.setInt("casesCounter", casesCounter.value);

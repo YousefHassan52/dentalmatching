@@ -13,6 +13,7 @@ class AddCaseScreen extends StatelessWidget {
     return Scaffold(
       body: Expanded(
         child: ListView(
+          physics:  const BouncingScrollPhysics(),
           children: const [
             UpperWidget(),
             SizedBox(

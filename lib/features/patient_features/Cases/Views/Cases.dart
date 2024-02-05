@@ -1,5 +1,6 @@
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/AddCase.dart';
+import 'package:dentalmatching/features/patient_features/PatientProfile/Views/PatientProfile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +17,7 @@ class CasesScreen extends GetView<MyServices> {
           MaterialButton(
             color: Colors.amber,
             onPressed: () {
-              Get.back();
+              Get.to(PatientProfile());
             },
             textColor: Colors.black,
             child: const Text('Back'),
