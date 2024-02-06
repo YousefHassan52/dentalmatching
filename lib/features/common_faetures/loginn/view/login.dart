@@ -109,7 +109,7 @@ class LoginScreen extends StatelessWidget {
                     },
                     child: RichText(
                       text: const TextSpan(
-                        text: 'Do not have and account? ',
+                        text: "Don't have and account?" ,
                         style: TextStyle(
                             color: Color.fromARGB(255, 118, 119, 120),
                             fontSize: 20),

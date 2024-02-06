@@ -23,22 +23,23 @@ class NextButtonController extends GetxController {
   final ChronicDiseasesController cont = Get.put(ChronicDiseasesController());
   final MyServices controller = Get.put(MyServices());
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+   late TextEditingController descriptionController;
   
   handleButtonBehavior() {
-    bool noneSelected = true;
+    // bool noneSelected = true;
 
-    for (int i = 0; i < cont.checkedItems.length; i++) {
-      if (cont.checkedItems[i]) {
-        noneSelected = false;
-        break;
-      }
-    }
+    // for (int i = 0; i < cont.checkedItems.length; i++) {
+    //   if (cont.checkedItems[i]) {
+    //     noneSelected = false;
+    //     break;
+    //   }
+    // }
 
-    if (noneSelected) {
-      // Automatically choose 'None'
-      cont.handleCheckboxChange(5, true);
-      Get.snackbar('ssd', 'None is Selected');
-    }
+    // if (noneSelected) {
+    //   // Automatically choose 'None'
+    //   cont.handleCheckboxChange(5, true);
+    //   Get.snackbar('ssd', 'None is Selected');
+    // }
   if(formKey.currentState!.validate()){
     if (cont.selected == 'Unkown') {
       controller.AddedCase();
