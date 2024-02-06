@@ -1,6 +1,7 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Controller/FormController.dart';
+import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/RadioList.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -38,27 +39,7 @@ class ChronicDiseasesChecklist extends StatelessWidget {
                   ),
                   if (controller.showPressureChecklist.value &&
                       controller.chronicDiseases[index].title == 'Hypertension')
-                    Column(
-                      children: [
-                        for (var level in controller.pressureLevels)
-                          Padding(
-                            padding: const EdgeInsets.only(left: 20),
-                            child: RadioListTile(
-                              activeColor: AppColors.mainColor,
-                              title: Text(
-                                level,
-                                style: Styles.textStyle16Grey,
-                              ),
-                              value: level,
-                              groupValue:
-                                  controller.selected.value,
-                              onChanged: (value) {
-                                controller.handleSelection(value!);
-                              },
-                            ),
-                          ),
-                      ],
-                    ),
+                    RadioListWidget(cont: controller.pressureLevels),
                 ],
               ),
           ],
