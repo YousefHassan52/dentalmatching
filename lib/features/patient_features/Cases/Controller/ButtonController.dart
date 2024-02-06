@@ -1,5 +1,6 @@
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Controller/FormController.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 // class NextButtonController extends GetxController {
@@ -21,7 +22,8 @@ import 'package:get/get.dart';
 class NextButtonController extends GetxController {
   final ChronicDiseasesController cont = Get.put(ChronicDiseasesController());
   final MyServices controller = Get.put(MyServices());
-
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  
   handleButtonBehavior() {
     bool noneSelected = true;
 
@@ -37,7 +39,7 @@ class NextButtonController extends GetxController {
       cont.handleCheckboxChange(5, true);
       Get.snackbar('ssd', 'None is Selected');
     }
-
+  if(formKey.currentState!.validate()){
     if (cont.selected == 'Unkown') {
       controller.AddedCase();
       Get.snackbar('ssd', 'Cases Counter ${controller.casesCounter}');
@@ -47,5 +49,6 @@ class NextButtonController extends GetxController {
       // Handle other cases as needed
       Get.snackbar('ssd', 'Choooseeee');
     }
-  }
+  }else {return ' write' ;}
+}
 }

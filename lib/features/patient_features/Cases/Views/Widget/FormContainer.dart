@@ -1,3 +1,4 @@
+import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Controller/ButtonController.dart';
@@ -36,13 +37,14 @@ class FormContainer extends GetView<MyServices> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 15),
             child: Form(
+              key: button.formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const FormHeadLine(headline: 'Describe what you feel'),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: DescripBox(),
+                    child: DescripBox(validator: (value) {return AppValidator.textFormFieldValidator(value!, "Description");  },),
                   ),
                   const HDivider(),
                   const FormHeadLine(headline: 'Chronic Diseases'),

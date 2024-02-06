@@ -13,7 +13,7 @@ class CounterBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: Get.width * 0.93,
-      height: 100,
+      // height: 100,
       decoration: BoxDecoration(
         color: AppColors.circleColor,
         borderRadius: BorderRadius.circular(20),
@@ -35,7 +35,6 @@ class CounterBox extends StatelessWidget {
             child: VerticalDivider(
               color: Color.fromARGB(130, 67, 67, 67),
               thickness: 1,
-              // indent: 20,
             ),
           ),
           ApprovalsCounterWidget(

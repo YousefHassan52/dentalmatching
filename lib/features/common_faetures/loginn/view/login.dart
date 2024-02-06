@@ -75,7 +75,7 @@ class LoginScreen extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
-                      onPressed: (){
+                      onPressed: () {
                         externalController.goToForgetPassword();
                       },
                       child: const Text(
@@ -91,47 +91,71 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                 
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical:20),
+                    padding: const EdgeInsets.symmetric(vertical: 20),
                     child: AuthButton(
                         buttonText: "Login",
                         onTap: () {
                           externalController.login();
                         }),
                   ),
-          
-                  SizedBox(
-                    width: Get.width,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          "Don't have an account? ",
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 118, 119, 120),
-                              fontSize: 15),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            // Get.offNamed(AppRoutes.userType);
-                            //externalController.goToSignupScreen();
-                            // externalController.goToPreSignupScreen();
-                            Get.to(CasesScreen());
-                          },
-                          child: const Text(
-                            'Sign Up',
+
+                  TextButton(
+                    onPressed: (){
+                      // Get.offNamed(AppRoutes.userType);
+                  //         //externalController.goToSignupScreen();
+                  //         // externalController.goToPreSignupScreen();
+                          Get.to(CasesScreen());
+                    },
+                    child: RichText(
+                      text: const TextSpan(
+                        text: 'Do not have and account? ',
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 118, 119, 120),
+                            fontSize: 20),
+                        //style: Styles.formTitle,
+                        children: [
+                          TextSpan(
+                            text: ' Sign up.',
                             style: TextStyle(
                               color: AppColors.blueTextColor,
                               fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.underline,
-                              fontSize: 15,
+                              // decoration: TextDecoration.underline,
+                              fontSize: 20,
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     const Text(
+                  //       "Don't have an account? ",
+                  //       style: TextStyle(
+                  //           color: Color.fromARGB(255, 118, 119, 120),
+                  //           fontSize: 13),
+                  //     ),
+                  //     InkWell(
+                  //       onTap: () {
+                  //         // Get.offNamed(AppRoutes.userType);
+                  //         //externalController.goToSignupScreen();
+                  //         // externalController.goToPreSignupScreen();
+                  //         Get.to(CasesScreen());
+                  //       },
+                  //       child: const Text(
+                  //         'Sign Up',
+                  //         style: TextStyle(
+                  //           color: AppColors.blueTextColor,
+                  //           fontWeight: FontWeight.bold,
+                  //           decoration: TextDecoration.underline,
+                  //           fontSize: 13,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                   GetBuilder<LoginControllerImp>(
                     builder: (controller) => Container(
                       margin: const EdgeInsets.symmetric(vertical: 10),
