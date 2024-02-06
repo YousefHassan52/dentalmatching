@@ -15,39 +15,34 @@ class UserProfileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 15, top: 2),
-          child: CircleAvatarWidget(
+        Padding(
+          padding:  EdgeInsets.all(Get.width* 0.03),
+          child: const CircleAvatarWidget(
             imagePath: 'assets/svg/pp.svg',
           ),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 8.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 100),
-                child: Text(
-                  title,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w200,
-                    fontSize: 20,
-                    color: Colors.white,
-                  ),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w200,
+                  fontSize: 20,
+                  color: Colors.white,
                 ),
               ),
               const SizedBox(
                 height: 2,
               ),
-              Padding(
-                padding: EdgeInsets.only(right: Get.width * 0.09),
-                child: Text(
-                  name,
-                  style: const TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+              Text(
+                name,
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
             ],

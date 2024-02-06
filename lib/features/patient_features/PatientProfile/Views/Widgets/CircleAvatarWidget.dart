@@ -11,16 +11,16 @@ class CircleAvatarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        shape: BoxShape.circle,
-        color: Color.fromARGB(218, 255, 255, 255),
-      ),
-      height: Get.width * 0.4,
-      width: Get.width * 0.2,
-      child: Center(
-        child: SvgPicture.asset(
-          imagePath,
+    return CircleAvatar(
+      radius: 50,
+      backgroundColor: Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.all(4.0),
+        child: ClipOval(
+          child: SizedBox.fromSize(
+            size: Size.fromRadius(48),
+            child: SvgPicture.asset(imagePath),
+          ),
         ),
       ),
     );
