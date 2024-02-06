@@ -1,34 +1,33 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Controller/FormController.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Controller/KnownController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class KnownCheckWidget extends StatelessWidget {
-  final KnownController controller = Get.put(KnownController());
+  final ChronicDiseasesController controller = Get.put(ChronicDiseasesController());
 
   KnownCheckWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<KnownController>(
+    return GetBuilder<ChronicDiseasesController>(
       builder: (controller) {
         return Column(
           children: [
-            for (var choise in controller.choise)
+            for (var state in controller.caseStatus)
               Column(
                 children: [
                   RadioListTile(
                     activeColor: AppColors.mainColor,
                     title: Text(
-                      choise,
+                      state,
                       style: Styles.textStyle16Grey,
                     ),
-                    value: choise,
-                    groupValue: controller.selectCase.value,
+                    value: state,
+                    groupValue: controller.selected.value,
                     onChanged: (value) {
-                      controller.handleSelectionChange(value!);
+                      controller.handleSelection(value!);
                     },
                   ),
                 ],

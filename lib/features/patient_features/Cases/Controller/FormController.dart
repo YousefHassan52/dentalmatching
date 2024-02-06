@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class ChronicDiseasesController extends GetxController {
   RxList<bool> checkedItems = List.generate(5, (index) => false).obs;
   RxBool showPressureChecklist = false.obs;
-  RxString selectedPressureLevel = ''.obs;
+  RxString selected = ''.obs;
 
 // List of chronic diseases
   final List<CheckListModel> chronicDiseases = [
@@ -16,7 +16,16 @@ class ChronicDiseasesController extends GetxController {
   ];
 
   // List of pressure levels
-  final List<String> pressureLevels = ['High', 'Low'];
+  final List<String> pressureLevels = [
+    'High',
+    'Low',
+  ];
+
+  //List Of Case Status
+  final List<String> caseStatus = [
+    'Known',
+    'Unkown',
+  ];
 
   void handleCheckboxChange(int index, bool value) {
     checkedItems[index] = value;
@@ -26,10 +35,13 @@ class ChronicDiseasesController extends GetxController {
     update();
   }
 
-  void handlePressureLevelChange(String value) {
-    selectedPressureLevel.value = value;
+  // void handlePressureLevelChange(String value) {
+  //   selected.value = value;
+  //   update();
+  // }
+
+  void handleSelection(String value) {
+    selected.value = value;
     update();
   }
-
-  
 }

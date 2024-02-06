@@ -22,7 +22,7 @@ class ChronicDiseasesChecklist extends StatelessWidget {
                   CheckboxListTile(
                     checkColor: AppColors.blueLightTextColor,
                     activeColor: Colors.transparent,
-                    checkboxShape: OvalBorder(),
+                    checkboxShape: const OvalBorder(),
                     title: Text(
                       controller.chronicDiseases[index].title,
                       style: Styles.textStyle16Grey,
@@ -33,7 +33,7 @@ class ChronicDiseasesChecklist extends StatelessWidget {
                     },
                     controlAffinity: ListTileControlAffinity
                         .leading, // Move the checkbox to the leading position
-                    contentPadding: EdgeInsets.all(0), // Remove default padding
+                    contentPadding: const EdgeInsets.all(0), // Remove default padding
                     dense: true,
                   ),
                   if (controller.showPressureChecklist.value &&
@@ -51,9 +51,9 @@ class ChronicDiseasesChecklist extends StatelessWidget {
                               ),
                               value: level,
                               groupValue:
-                                  controller.selectedPressureLevel.value,
+                                  controller.selected.value,
                               onChanged: (value) {
-                                controller.handlePressureLevelChange(value!);
+                                controller.handleSelection(value!);
                               },
                             ),
                           ),

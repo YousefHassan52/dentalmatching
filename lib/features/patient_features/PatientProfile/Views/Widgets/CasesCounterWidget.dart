@@ -1,6 +1,5 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Controller/CounterController.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/Cases.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

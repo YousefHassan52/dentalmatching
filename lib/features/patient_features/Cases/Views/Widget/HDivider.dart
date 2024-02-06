@@ -9,14 +9,16 @@ class HDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
-    width: 250,
-    height: 10,
-    child: Divider(
-      color: AppColors.mainColor,
-      thickness: 2,
-      // indent: 20,
-    ),
-              );
+    return const Center(
+      child:  SizedBox(
+      width: 250,
+      height: 10,
+      child: Divider(
+        color: AppColors.mainColor,
+        thickness: 2,
+        // indent: 20,
+      ),
+                ),
+    );
   }
 }

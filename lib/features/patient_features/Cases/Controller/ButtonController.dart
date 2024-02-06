@@ -1,15 +1,15 @@
 import 'package:dentalmatching/core/services/my_services.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Controller/KnownController.dart';
+import 'package:dentalmatching/features/patient_features/Cases/Controller/FormController.dart';
 import 'package:get/get.dart';
 
 class NextButtonController extends GetxController {
-  final KnownController cont = Get.put(KnownController());
+  final ChronicDiseasesController cont = Get.put(ChronicDiseasesController());
   final MyServices controller = Get.put(MyServices());
 
   handleButtonBehavior() {
-    if (cont.selectCase == 'Unkown') {
+    if (cont.selected == 'Unkown') {
       controller.AddedCase();
-    } else if (cont.selectCase == 'Known') {
+    } else if (cont.selected == 'Known') {
       Get.snackbar('ssd', 'message');
     } else {
       Get.snackbar('ssd', 'Choooseeee');
