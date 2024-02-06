@@ -2,7 +2,7 @@ import 'package:dentalmatching/features/patient_features/Cases/Model/CheckListMo
 import 'package:get/get.dart';
 
 class ChronicDiseasesController extends GetxController {
-  RxList<bool> checkedItems = List.generate(5, (index) => false).obs;
+  RxList<bool> checkedItems = List.generate(6, (index) => false).obs;
   RxBool showPressureChecklist = false.obs;
   RxString selected = ''.obs;
 
@@ -13,6 +13,7 @@ class ChronicDiseasesController extends GetxController {
     CheckListModel(title: 'Hypertension'),
     CheckListModel(title: 'Asthma'),
     CheckListModel(title: 'Arthritis'),
+    CheckListModel(title: 'None'),
   ];
 
   // List of pressure levels
