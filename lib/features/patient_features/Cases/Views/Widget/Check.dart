@@ -24,7 +24,7 @@ class ChronicDiseasesChecklist extends StatelessWidget {
                     activeColor: Colors.transparent,
                     checkboxShape: OvalBorder(),
                     title: Text(
-                      controller.chronicDiseases[index],
+                      controller.chronicDiseases[index].title,
                       style: Styles.textStyle16Grey,
                     ),
                     value: controller.checkedItems[index],
@@ -37,13 +37,13 @@ class ChronicDiseasesChecklist extends StatelessWidget {
                     dense: true,
                   ),
                   if (controller.showPressureChecklist.value &&
-                      controller.chronicDiseases[index] == 'Hypertension')
+                      controller.chronicDiseases[index].title == 'Hypertension')
                     Column(
                       children: [
                         for (var level in controller.pressureLevels)
                           Padding(
                             padding: const EdgeInsets.only(left: 20),
-                            child: RadioListTile<String>(
+                            child: RadioListTile(
                               activeColor: AppColors.mainColor,
                               title: Text(
                                 level,

@@ -15,7 +15,7 @@ import 'package:get/get.dart';
 
 class FormContainer extends GetView<MyServices> {
   final NextButtonController button = Get.put(NextButtonController());
- FormContainer({
+  FormContainer({
     super.key,
   });
 
@@ -111,7 +111,6 @@ class FormContainer extends GetView<MyServices> {
                 buttonText: 'Next',
                 onTap: () {
                   button.handleButtonBehavior();
-
                 },
               )
             ],

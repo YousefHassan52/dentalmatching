@@ -1,5 +1,6 @@
 
 import 'package:dentalmatching/core/constants/colors.dart';
+import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:flutter/material.dart';
 
 class DescripBox extends StatelessWidget {
@@ -9,12 +10,13 @@ class DescripBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      style:Styles.boxText,
       maxLines: null, 
       decoration: InputDecoration(
         filled: true,
         fillColor: Color.fromARGB(121, 148, 182, 236),
-        hintText: 'Type your notes here...',
+        hintText: 'Type here...',
         border: OutlineInputBorder(
           //borderSide: BorderSide(color: Colors.red),
           borderRadius: BorderRadius.circular(10.0),

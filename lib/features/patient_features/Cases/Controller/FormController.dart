@@ -1,3 +1,4 @@
+import 'package:dentalmatching/features/patient_features/Cases/Model/CheckListModel.dart';
 import 'package:get/get.dart';
 
 class ChronicDiseasesController extends GetxController {
@@ -5,23 +6,21 @@ class ChronicDiseasesController extends GetxController {
   RxBool showPressureChecklist = false.obs;
   RxString selectedPressureLevel = ''.obs;
 
-
-  // List of chronic diseases
-  final List<String> chronicDiseases = [
-    'Heart Disease',
-    'Diabetes',
-    'Hypertension',
-    'Asthma',
-    'Arthritis',
+// List of chronic diseases
+  final List<CheckListModel> chronicDiseases = [
+    CheckListModel(title: 'Heart Disease'),
+    CheckListModel(title: 'Diabetes'),
+    CheckListModel(title: 'Hypertension'),
+    CheckListModel(title: 'Asthma'),
+    CheckListModel(title: 'Arthritis'),
   ];
 
   // List of pressure levels
   final List<String> pressureLevels = ['High', 'Low'];
 
-
   void handleCheckboxChange(int index, bool value) {
     checkedItems[index] = value;
-    if (chronicDiseases[index] == 'Hypertension') {
+    if (chronicDiseases[index].title == 'Hypertension') {
       showPressureChecklist.value = value;
     }
     update();

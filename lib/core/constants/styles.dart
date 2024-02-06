@@ -26,4 +26,7 @@ abstract class Styles {
       color: AppColors.blueLightTextColor,
       fontWeight: FontWeight.w400,
       fontSize: 17);
+
+      static const TextStyle boxText = TextStyle(
+      color: AppColors.mainColor, fontWeight: FontWeight.w700, fontSize: 15);
 }
