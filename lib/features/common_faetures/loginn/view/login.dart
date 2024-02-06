@@ -20,63 +20,62 @@ class LoginScreen extends StatelessWidget {
     LoginControllerImp externalController = Get.put(LoginControllerImp());
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: externalController.formKey,
-            child: Column(
-              children: [
-                const Heading(text: 'Welcome Back'),
-                const CentImg(centeredImg: 'assets/svg/log.svg'),
-                AuthTextFormField(
-                    hint: "Phone",
-                    icon: "assets/svg/Phone_icon.svg",
-                    type: TextInputType.phone,
-                    validator: (value) {
-                      return AppValidator.textFormFieldValidator(
-                          value!, "phone");
-                    },
-                    fieldController: externalController.phoneController),
-                const SizedBox(
-                  height: 20,
-                ),
-                GetBuilder<LoginControllerImp>(
-                  builder: (controller) => AuthTextFormField(
-                    hint: "Password",
-                    icon: "assets/svg/unlock.svg",
-                    type: TextInputType.visiblePassword,
-                    validator: (value) {
-                      return AppValidator.textFormFieldValidator(
-                          value!, "password");
-                    },
-                    fieldController: controller.passwordController,
-                    isPassword: externalController.notVisible,
-                    icon2: IconButton(
-                      onPressed: () {
-                        controller.changePasswordVisibility();
+      body: Expanded(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Form(
+              key: externalController.formKey,
+              child: Column(
+                children: [
+                  const Heading(text: 'Welcome Back'),
+                  const CentImg(centeredImg: 'assets/svg/log.svg'),
+                  AuthTextFormField(
+                      hint: "Phone",
+                      icon: "assets/svg/Phone_icon.svg",
+                      type: TextInputType.phone,
+                      validator: (value) {
+                        return AppValidator.textFormFieldValidator(
+                            value!, "phone");
                       },
-                      icon: controller.notVisible == true
-                          ? const Icon(
-                              Icons.remove_red_eye,
-                              color: AppColors.secondColor,
-                            )
-                          : const Icon(
-                              Icons.visibility_off,
-                              color: AppColors.secondColor,
-                            ),
+                      fieldController: externalController.phoneController),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  GetBuilder<LoginControllerImp>(
+                    builder: (controller) => AuthTextFormField(
+                      hint: "Password",
+                      icon: "assets/svg/unlock.svg",
+                      type: TextInputType.visiblePassword,
+                      validator: (value) {
+                        return AppValidator.textFormFieldValidator(
+                            value!, "password");
+                      },
+                      fieldController: controller.passwordController,
+                      isPassword: externalController.notVisible,
+                      icon2: IconButton(
+                        onPressed: () {
+                          controller.changePasswordVisibility();
+                        },
+                        icon: controller.notVisible == true
+                            ? const Icon(
+                                Icons.remove_red_eye,
+                                color: AppColors.secondColor,
+                              )
+                            : const Icon(
+                                Icons.visibility_off,
+                                color: AppColors.secondColor,
+                              ),
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, right: 20),
-                  child: Align(
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Align(
                     alignment: Alignment.centerRight,
-                    child: InkWell(
-                      onTap: () {
+                    child: TextButton(
+                      onPressed: (){
                         externalController.goToForgetPassword();
                       },
                       child: const Text(
@@ -92,68 +91,62 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                /* 
-                // hajaaaaaaaaaaar 
-                // 2esta3melt hena el auth button el 2na 3amlo ya hager 2orayeb lel 3amleno fe figma
-                // 
-                // */
-                AuthButton(
-                    buttonText: "Login",
-                    onTap: () {
-                      externalController.login();
-                    }),
-                const SizedBox(
-                  height: 15,
-                ),
-                SizedBox(
-                  width: Get.width,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        "Don't have an account? ",
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 118, 119, 120),
-                            fontSize: 10),
-                      ),
-                      InkWell(
+                 
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical:20),
+                    child: AuthButton(
+                        buttonText: "Login",
                         onTap: () {
-                          // Get.offNamed(AppRoutes.userType);
-                          //externalController.goToSignupScreen();
-                          // externalController.goToPreSignupScreen();
-                          Get.to(CasesScreen());
-                        },
-                        child: const Text(
-                          'Sign Up',
+                          externalController.login();
+                        }),
+                  ),
+          
+                  SizedBox(
+                    width: Get.width,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Don't have an account? ",
                           style: TextStyle(
-                            color: AppColors.blueTextColor,
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.underline,
-                            fontSize: 10,
+                              color: Color.fromARGB(255, 118, 119, 120),
+                              fontSize: 15),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            // Get.offNamed(AppRoutes.userType);
+                            //externalController.goToSignupScreen();
+                            // externalController.goToPreSignupScreen();
+                            Get.to(CasesScreen());
+                          },
+                          child: const Text(
+                            'Sign Up',
+                            style: TextStyle(
+                              color: AppColors.blueTextColor,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline,
+                              fontSize: 15,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                GetBuilder<LoginControllerImp>(
-                  builder: (controller) => Container(
-                    margin: const EdgeInsets.symmetric(vertical: 10),
-                    width: double.infinity,
-                    child: controller.requestStatus == RequestStatus.LOADING
-                        ? LinearProgressIndicator(
-                            color: AppColors.mainColor,
-                            backgroundColor:
-                                AppColors.mainColor.withOpacity(0.20),
-                          )
-                        : null,
+                  GetBuilder<LoginControllerImp>(
+                    builder: (controller) => Container(
+                      margin: const EdgeInsets.symmetric(vertical: 10),
+                      width: double.infinity,
+                      child: controller.requestStatus == RequestStatus.LOADING
+                          ? LinearProgressIndicator(
+                              color: AppColors.mainColor,
+                              backgroundColor:
+                                  AppColors.mainColor.withOpacity(0.20),
+                            )
+                          : null,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

@@ -4,13 +4,17 @@ import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:flutter/material.dart';
 
 class DescripBox extends StatelessWidget {
-  const DescripBox({
-    super.key,
-  });
+  //  final String? Function(String?) validator;
+  // final TextEditingController fieldController;
+  // const DescripBox({
+  //   super.key, required this.validator, required this.fieldController,
+  // });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      // controller: fieldController,
+      // validator: validator,
       style:Styles.boxText,
       maxLines: null, 
       decoration: InputDecoration(

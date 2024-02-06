@@ -30,6 +30,7 @@ class UserProfileWidget extends StatelessWidget {
                 child: Text(
                   title,
                   style: const TextStyle(
+                    fontWeight: FontWeight.w200,
                     fontSize: 20,
                     color: Colors.white,
                   ),
@@ -44,6 +45,7 @@ class UserProfileWidget extends StatelessWidget {
                   name,
                   style: const TextStyle(
                     fontSize: 15,
+                    fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),

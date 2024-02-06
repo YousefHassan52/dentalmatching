@@ -6,6 +6,8 @@ abstract class Styles {
       color: AppColors.mainColor, fontWeight: FontWeight.w700, fontSize: 42);
   static const TextStyle mediumTitle = TextStyle(
       color: AppColors.mainColor, fontWeight: FontWeight.w700, fontSize: 26);
+  static const TextStyle formTitle = TextStyle(
+      color: AppColors.mainColor, fontWeight: FontWeight.w700, fontSize: 23);
   static const TextStyle largetitle = TextStyle(
       color: AppColors.mainColor, fontWeight: FontWeight.w700, fontSize: 32);
   static const TextStyle textStyle16 = TextStyle(

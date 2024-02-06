@@ -15,7 +15,7 @@ class OptionalText extends StatelessWidget {
         RichText(
           text: TextSpan(
             text: text,
-            style: Styles.mediumTitle,
+            style: Styles.formTitle,
             children: const [
               TextSpan(
                 text: ' (Optional)',

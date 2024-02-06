@@ -5,6 +5,9 @@ class AppValidator {
     if (value.isEmpty) {
       return "Please enter your $type";
     }
+    if (type == "Description") {
+      return "Please enter your $type";
+    }
     if (type == "email") {
       if (!GetUtils.isEmail(value)) {
         return "invalid Email address";

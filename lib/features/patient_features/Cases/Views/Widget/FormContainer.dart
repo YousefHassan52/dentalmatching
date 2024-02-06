@@ -35,85 +35,96 @@ class FormContainer extends GetView<MyServices> {
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 15),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const FormHeadLine(headline: 'Describe what you feel'),
-                const Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: DescripBox(),
-                ),
-                const HDivider(),
-                const FormHeadLine(headline: 'Chronic Diseases'),
-                ChronicDiseasesChecklist(),
-                const HDivider(),
-                const FormHeadLine(
-                    headline: 'Add a Clear Pictures of your Mouth'),
-                AddImageWidget(
-                  img: 'assets/svg/Bold_Img_load-box.svg',
-                  txt: 'Upload Pictures',
-                  onPressed: () {},
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                AddImageWidget(
-                  img: 'assets/svg/Boldd_Camera.svg',
-                  txt: 'Take Pictures',
-                  onPressed: () {},
-                ),
-                const OptionalText(
-                  text: 'Add X-Ray',
-                ),
-                AddOptionalImg(
-                  img: 'assets/svg/Bold_Img_load-box.svg',
-                  txt: 'Upload Picture',
-                  onPressed: () {},
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                AddOptionalImg(
-                  img: 'assets/svg/Boldd_Camera.svg',
-                  txt: 'Take Picture   ',
-                  onPressed: () {},
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 8.0),
-                  child: HDivider(),
-                ),
-                const OptionalText(
-                  text: 'Add Prescription',
-                ),
-                AddOptionalImg(
-                  img: 'assets/svg/Bold_Img_load-box.svg',
-                  txt: 'Upload Picture',
-                  onPressed: () {},
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                AddOptionalImg(
-                  img: 'assets/svg/Boldd_Camera.svg',
-                  txt: 'Take Picture   ',
-                  onPressed: () {},
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 8.0),
-                  child: HDivider(),
-                ),
-                const FormHeadLine(headline: 'Do you know your case ?'),
-                KnownCheckWidget(),
-                const SizedBox(
-                  height: 8,
-                ),
-                AuthButton(
-                  buttonText: 'Next',
-                  onTap: () {
-                    button.handleButtonBehavior();
-                  },
-                )
-              ],
+            child: Form(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const FormHeadLine(headline: 'Describe what you feel'),
+                  Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: DescripBox(),
+                  ),
+                  const HDivider(),
+                  const FormHeadLine(headline: 'Chronic Diseases'),
+                  ChronicDiseasesChecklist(),
+                  const HDivider(),
+                  const FormHeadLine(
+                      headline: 'Add a Clear Pictures of your Mouth'),
+                  const SizedBox(
+                    height: 9,
+                  ),
+                  AddImageWidget(
+                    img: 'assets/svg/Bold_Img_load-box.svg',
+                    txt: 'Upload Pictures',
+                    onPressed: () {},
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  AddImageWidget(
+                    img: 'assets/svg/Boldd_Camera.svg',
+                    txt: 'Take Pictures',
+                    onPressed: () {},
+                  ),
+                  const OptionalText(
+                    text: 'Add X-Ray',
+                  ),
+                  const SizedBox(
+                    height: 9,
+                  ),
+                  AddOptionalImg(
+                    img: 'assets/svg/Bold_Img_load-box.svg',
+                    txt: 'Upload Picture',
+                    onPressed: () {},
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  AddOptionalImg(
+                    img: 'assets/svg/Boldd_Camera.svg',
+                    txt: 'Take Picture   ',
+                    onPressed: () {},
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 8.0),
+                    child: HDivider(),
+                  ),
+                  const OptionalText(
+                    text: 'Add Prescription',
+                  ),
+                  const SizedBox(
+                    height: 9,
+                  ),
+                  AddOptionalImg(
+                    img: 'assets/svg/Bold_Img_load-box.svg',
+                    txt: 'Upload Picture',
+                    onPressed: () {},
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  AddOptionalImg(
+                    img: 'assets/svg/Boldd_Camera.svg',
+                    txt: 'Take Picture   ',
+                    onPressed: () {},
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 8.0),
+                    child: HDivider(),
+                  ),
+                  const FormHeadLine(headline: 'Do you know your case ?'),
+                  KnownCheckWidget(),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  AuthButton(
+                    buttonText: 'Next',
+                    onTap: () {
+                      button.handleButtonBehavior();
+                    },
+                  )
+                ],
+              ),
             ),
           ),
         ),
