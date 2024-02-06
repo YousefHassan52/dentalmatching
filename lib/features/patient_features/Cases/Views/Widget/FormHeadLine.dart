@@ -10,6 +10,6 @@ class FormHeadLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(headline,style: Styles.textStyle15LightBlue,);
+    return Text(headline,style: Styles.mediumTitle,);
   }
 }

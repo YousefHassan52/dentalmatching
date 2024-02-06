@@ -12,6 +12,10 @@ abstract class Styles {
       color: AppColors.greyTextColor,
       fontWeight: FontWeight.w600,
       fontSize: 18);
+  static const TextStyle textStyleGrey = TextStyle(
+      color: AppColors.greyTextColor,
+      fontWeight: FontWeight.bold,
+      fontSize: 18);
   static const TextStyle textStyle16White =
       TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 16);
   static const TextStyle textStyle16Grey =

@@ -1,4 +1,5 @@
 import 'package:dentalmatching/core/constants/colors.dart';
+import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/Cases.dart';
 import 'package:flutter/material.dart';
@@ -24,15 +25,12 @@ class ApprovalsCounterWidget extends GetView<MyServices> {
         children: [
           Text(
               approvalsCounter,
-              style: const TextStyle(
-                fontSize: 20,
-                color: AppColors.blueTextColor,
-              ),
+              style:Styles.mediumTitle,
             ),
           // ),
           Text(
             status,
-            style: const TextStyle(color: Color.fromARGB(255, 93, 92, 92)),
+            style: Styles.textStyleGrey,
           ),
         ],
       ),
