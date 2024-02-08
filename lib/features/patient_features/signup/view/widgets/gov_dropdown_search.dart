@@ -9,13 +9,12 @@ import 'package:get/get.dart';
 class GovernmentDropdownSearch extends StatelessWidget {
   const GovernmentDropdownSearch({
     super.key,
-    required this.externalController,
   });
-
-  final SignupPatientControllerImpl externalController;
 
   @override
   Widget build(BuildContext context) {
+    SignupPatientControllerImpl externalController = Get.find();
+
     return DropdownSearch<String>(
       popupProps: PopupProps.menu(
         showSearchBox: true,

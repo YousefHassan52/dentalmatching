@@ -3,31 +3,38 @@ import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/textformfield.dart';
-import 'package:dentalmatching/features/patient_features/signup/controller/signup_controller_impl.dart';
-import 'package:dentalmatching/features/patient_features/signup/view/widgets/gender_field.dart';
-import 'package:dentalmatching/features/patient_features/signup/view/widgets/gov_dropdown_search.dart';
+import 'package:dentalmatching/features/doctor_features/signup/controller/signup_doctor_controller_impl.dart';
+import 'package:dentalmatching/features/doctor_features/signup/view/widgets/add_card_image.dart';
+import 'package:dentalmatching/features/doctor_features/signup/view/widgets/doctor_dropdown_gender.dart';
+import 'package:dentalmatching/features/doctor_features/signup/view/widgets/doctor_government_dropdown_search.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
 
-// youm ma te3tal raga3 el body fe SignupScreen we 2e4ta8al 3ady
-class SignupFormBody extends StatelessWidget {
-  const SignupFormBody({
-    super.key,
-    // required this.externalController,
-  });
+class SignupDoctorFormBody extends StatelessWidget {
+  const SignupDoctorFormBody({Key? key}) : super(key: key);
 
-  // final SignupControllerImpl externalController;
-
+/*
+ "fullName": fullname,
+      "email": email,
+      "password": password,
+      "age": age,
+      "gender": gender,
+      "city": city,
+      "phoneNumber": phoneNumber,
+      "role": role,
+      "university": university,
+      "CardImage": fileImage,*/
   @override
   Widget build(BuildContext context) {
-    SignupPatientControllerImpl externalController = Get.find();
+    SignupDoctorControllerImpl externalController = Get.find();
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
         children: [
           AuthTextFormField(
-              hint: "Full Name",
+              hint: "First Name",
               icon: "assets/svg/first_name.svg",
               type: TextInputType.name,
               validator: (value) {
@@ -51,24 +58,24 @@ class SignupFormBody extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          const GovernmentDropdownSearch(),
+          const DocotrGovernmentDropdownSearch(),
           const SizedBox(
             height: 15,
           ),
-          const GenderDropdown(),
+          const DoctorGenderDropdown(),
           const SizedBox(
             height: 15,
           ),
           AuthTextFormField(
-              hint: "Address",
+              hint: "University",
               icon: "assets/svg/🦆 icon _Cardiogram_.svg",
               type: TextInputType.name,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return "Please Enter your address";
+                  return "Please Enter your University";
                 }
               },
-              fieldController: externalController.addressController),
+              fieldController: externalController.universityController),
           const SizedBox(
             height: 15,
           ),
@@ -97,7 +104,7 @@ class SignupFormBody extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          GetBuilder<SignupPatientControllerImpl>(
+          GetBuilder<SignupDoctorControllerImpl>(
             builder: (controller) => AuthTextFormField(
               hint: "Password",
               icon: "assets/svg/unlock.svg",
@@ -126,12 +133,30 @@ class SignupFormBody extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
+          GetBuilder<SignupDoctorControllerImpl>(
+            builder: (controller) => Row(
+              children: [
+                AddCardImage(),
+                Spacer(),
+                CircleAvatar(
+                  radius: ((Get.width * 0.3 - 40) / 2) - 5,
+                  backgroundColor: AppColors.mainColor,
+                  backgroundImage: controller.imageFile != null
+                      ? FileImage(controller.imageFile!)
+                      : null,
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
           AuthButton(
               buttonText: "Signup",
               onTap: () {
                 externalController.signup();
               }),
-          GetBuilder<SignupPatientControllerImpl>(
+          GetBuilder<SignupDoctorControllerImpl>(
             builder: (controller) => Container(
               margin: const EdgeInsets.symmetric(vertical: 10),
               width: double.infinity,
@@ -141,25 +166,6 @@ class SignupFormBody extends StatelessWidget {
                       backgroundColor: AppColors.mainColor.withOpacity(0.20),
                     )
                   : null,
-            ),
-          ),
-          GetBuilder<SignupPatientControllerImpl>(
-            builder: (controller) => Row(
-              children: [
-                ElevatedButton(
-                    onPressed: () {
-                      controller.pickImage();
-                    },
-                    child: Icon(Icons.camera)),
-                const SizedBox(
-                  width: 20,
-                ),
-                CircleAvatar(
-                  backgroundImage: controller.imageFile != null
-                      ? FileImage(controller.imageFile!)
-                      : null,
-                ),
-              ],
             ),
           ),
         ],
