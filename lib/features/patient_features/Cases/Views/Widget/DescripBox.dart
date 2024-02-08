@@ -1,18 +1,21 @@
 
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
+import 'package:dentalmatching/features/patient_features/Cases/Controller/ButtonController.dart';
 import 'package:flutter/material.dart';
 
 class DescripBox extends StatelessWidget {
    final String? Function(String?) validator;
-  //final TextEditingController fieldController;
-  const DescripBox({
+ // final TextEditingController fieldController;
+  
+   const DescripBox({
     super.key, required this.validator
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      //controller: fieldController,
       validator: validator,
       style:Styles.boxText,
       maxLines: null, 

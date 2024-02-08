@@ -39,4 +39,10 @@ class AppValidator {
       return "Passwords don't match ";
     }
   }
+
+  static bool validateCheckbox(List<bool> checkedItems) {
+    return checkedItems.any((item) => item);
+  }
+
+
 }

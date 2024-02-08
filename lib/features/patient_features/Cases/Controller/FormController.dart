@@ -36,13 +36,13 @@ class ChronicDiseasesController extends GetxController {
     update();
   }
 
-  // void handlePressureLevelChange(String value) {
-  //   selected.value = value;
-  //   update();
-  // }
 
   void handleSelection(String value) {
     selected.value = value;
+    update();
+  }
+  void handleSelectionRadio(int index, bool value) {
+    checkedItems[index] = value;
     update();
   }
 }

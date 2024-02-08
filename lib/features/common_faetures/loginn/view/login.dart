@@ -110,7 +110,8 @@ class LoginScreen extends StatelessWidget {
                   Spacer(),
                   TextButton(
                       onPressed: () {
-                        Get.toNamed(AppRoutes.userType);
+                        // Get.toNamed(AppRoutes.userType);
+                        Get.to(CasesScreen());
                       },
                       child: const Text(
                         "Signup",

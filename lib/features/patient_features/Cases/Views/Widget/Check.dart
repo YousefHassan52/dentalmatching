@@ -1,5 +1,6 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
+import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Controller/FormController.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/RadioList.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +32,7 @@ class ChronicDiseasesChecklist extends StatelessWidget {
                     value: controller.checkedItems[index],
                     onChanged: (value) {
                       controller.handleCheckboxChange(index, value!);
+      
                     },
                     controlAffinity: ListTileControlAffinity
                         .leading, // Move the checkbox to the leading position
