@@ -1,19 +1,22 @@
+import 'dart:io';
+
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/features/patient_features/signup/data/signup_patient_data.dart';
 import 'package:dentalmatching/features/patient_features/signup/controller/signup_controller_asbtract.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class SignupPatientControllerImpl extends SignupPatientControllerAbstract {
+  File? imageFile;
   bool notVisible = true;
-  late TextEditingController firstNameController;
-  late TextEditingController lastNameController;
+  late TextEditingController fullNameController;
   late TextEditingController ageController;
   late TextEditingController emailController;
   late TextEditingController phoneController;
   late TextEditingController passwordController;
-  late TextEditingController chronicDiseasesController;
+  late TextEditingController addressController;
   String? gov;
   String? gender;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -28,8 +31,7 @@ class SignupPatientControllerImpl extends SignupPatientControllerAbstract {
       requestStatus = RequestStatus.LOADING;
       update();
       var response = await signupData.postData(
-        firstName: firstNameController.text,
-        lastName: lastNameController.text,
+        fullname: fullNameController.text,
         email: emailController.text,
         gender: gender == "Male" ? true : false,
         age: int.parse(ageController.text),
@@ -37,9 +39,7 @@ class SignupPatientControllerImpl extends SignupPatientControllerAbstract {
         password: passwordController.text,
         phoneNumber: phoneController.text,
         role: "Patient",
-        chronicDiseases: chronicDiseasesController.text.isNotEmpty
-            ? chronicDiseasesController.text
-            : "None", // mtnsa4 tezawedha fe el screen ya joe
+        address: addressController.text, // mtnsa4 tezawedha fe el screen ya joe
       );
       requestStatus = HandlingResponseType.fun(response);
       print("response ya joooe:------");
@@ -50,13 +50,12 @@ class SignupPatientControllerImpl extends SignupPatientControllerAbstract {
           Get.defaultDialog(
               middleText:
                   "${response["data"]["email"]} and ${passwordController.text}}");
-          firstNameController.clear();
-          lastNameController.clear();
+          fullNameController.clear();
           ageController.clear();
           emailController.clear();
           phoneController.clear();
           passwordController.clear();
-          chronicDiseasesController.clear();
+          addressController.clear();
 
           // go to home
         }
@@ -72,19 +71,29 @@ class SignupPatientControllerImpl extends SignupPatientControllerAbstract {
 
   @override
   void onInit() {
-    firstNameController = TextEditingController();
-    lastNameController = TextEditingController();
+    fullNameController = TextEditingController();
     ageController = TextEditingController();
 
     phoneController = TextEditingController();
     emailController = TextEditingController();
     passwordController = TextEditingController();
-    chronicDiseasesController = TextEditingController();
+    addressController = TextEditingController();
     super.onInit();
   }
 
   void changePasswordVisibility() {
     notVisible = !notVisible;
+    update();
+  }
+
+  void pickImage() async {
+    var image = await ImagePicker().pickImage(source: ImageSource.camera);
+    if (image != null) {
+      imageFile = File(image.path);
+      update(); // Update the UI after selecting an image
+    } else {
+      print('No image selected.');
+    }
     update();
   }
 }

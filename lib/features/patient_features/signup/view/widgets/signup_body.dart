@@ -33,21 +33,11 @@ class SignupFormBody extends StatelessWidget {
               validator: (value) {
                 return AppValidator.textFormFieldValidator(value!, "username");
               },
-              fieldController: externalController.firstNameController),
+              fieldController: externalController.fullNameController),
           const SizedBox(
             height: 15,
           ),
-          AuthTextFormField(
-              hint: "Last Name",
-              icon: "assets/svg/first_name.svg",
-              type: TextInputType.name,
-              validator: (value) {
-                return AppValidator.textFormFieldValidator(value!, "username");
-              },
-              fieldController: externalController.lastNameController),
-          const SizedBox(
-            height: 15,
-          ),
+
           AuthTextFormField(
               hint: "age",
               icon: "assets/svg/age.svg",
@@ -70,11 +60,15 @@ class SignupFormBody extends StatelessWidget {
             height: 15,
           ),
           AuthTextFormField(
-              hint: "Chronic Diseases",
+              hint: "Address",
               icon: "assets/svg/🦆 icon _Cardiogram_.svg",
               type: TextInputType.name,
-              validator: (value) {},
-              fieldController: externalController.chronicDiseasesController),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return "Please Enter your address";
+                }
+              },
+              fieldController: externalController.addressController),
           const SizedBox(
             height: 15,
           ),
@@ -94,7 +88,7 @@ class SignupFormBody extends StatelessWidget {
           AuthTextFormField(
               hint: "Email Address",
               icon: "assets/svg/email.svg",
-              type: TextInputType.name,
+              type: TextInputType.emailAddress,
               validator: (value) {
                 return AppValidator.textFormFieldValidator(value!, "email");
               },
@@ -147,6 +141,25 @@ class SignupFormBody extends StatelessWidget {
                       backgroundColor: AppColors.mainColor.withOpacity(0.20),
                     )
                   : null,
+            ),
+          ),
+          GetBuilder<SignupPatientControllerImpl>(
+            builder: (controller) => Row(
+              children: [
+                ElevatedButton(
+                    onPressed: () {
+                      controller.pickImage();
+                    },
+                    child: Icon(Icons.camera)),
+                const SizedBox(
+                  width: 20,
+                ),
+                CircleAvatar(
+                  backgroundImage: controller.imageFile != null
+                      ? FileImage(controller.imageFile!)
+                      : null,
+                ),
+              ],
             ),
           ),
         ],

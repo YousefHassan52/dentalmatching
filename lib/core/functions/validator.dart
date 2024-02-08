@@ -31,7 +31,6 @@ class AppValidator {
         return "invalid password";
       }
     }
-
   }
 
   static chechkPasswordMatching(

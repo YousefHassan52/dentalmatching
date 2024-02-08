@@ -46,7 +46,7 @@ class PreSignup extends StatelessWidget {
                 image: 'assets/svg/doctors.svg',
                 userType: 'Doctor',
                 onTap: () {
-                  Get.toNamed(AppRoutes.signupPatinet);
+                  Get.toNamed(AppRoutes.signupDoctor);
                 },
               ),
               PreSignUpWidget(

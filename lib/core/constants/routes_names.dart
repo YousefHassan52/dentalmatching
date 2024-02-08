@@ -5,6 +5,7 @@ class AppRoutes {
   static const String login = '/login';
 
   static const String signupPatinet = '/signup_patient';
+  static const String signupDoctor = '/signup_doctor';
   static const String homePatient = '/home_patient';
 
   static const String userType = '/userType';

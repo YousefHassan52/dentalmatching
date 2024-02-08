@@ -6,6 +6,7 @@ import 'package:dentalmatching/features/common_faetures/forget_password/reset_pa
 import 'package:dentalmatching/features/common_faetures/forget_password/verify_email_code_for_forget/view/verify_forget_password_code_screen.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/login.dart';
 import 'package:dentalmatching/features/common_faetures/onboarding/view/screens/onboarding.dart';
+import 'package:dentalmatching/features/doctor_features/signup/view/signup_screen.dart';
 import 'package:dentalmatching/features/patient_features/home_patient/view/home_patient_screen.dart';
 import 'package:dentalmatching/features/patient_features/signup/view/signup_screen.dart';
 import 'package:get/get.dart';
@@ -19,6 +20,8 @@ List<GetPage> routes = [
   GetPage(name: AppRoutes.login, page: () => const LoginScreen()),
   GetPage(
       name: AppRoutes.signupPatinet, page: () => const SignupPatientScreen()),
+  GetPage(name: AppRoutes.signupDoctor, page: () => const SignupDoctorScreen()),
+
   GetPage(name: AppRoutes.homePatient, page: () => const HomePatientScreen()),
 
   // forget password
