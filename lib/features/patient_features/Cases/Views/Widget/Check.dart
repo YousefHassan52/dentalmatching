@@ -32,16 +32,22 @@ class ChronicDiseasesChecklist extends StatelessWidget {
                     value: controller.checkedItems[index],
                     onChanged: (value) {
                       controller.handleCheckboxChange(index, value!);
-      
                     },
                     controlAffinity: ListTileControlAffinity
                         .leading, // Move the checkbox to the leading position
-                    contentPadding: const EdgeInsets.all(0), // Remove default padding
+                    contentPadding:
+                        const EdgeInsets.all(0), // Remove default padding
                     dense: true,
                   ),
                   if (controller.showPressureChecklist.value &&
                       controller.chronicDiseases[index].title == 'Hypertension')
-                    RadioListWidget(cont: controller.pressureLevels),
+                    RadioListWidget(
+                      cont: controller.pressureLevels,
+                      onChanged: (value) {
+                        controller.handleSelectionPressure(value!);
+                      },
+                      groupValue: controller.pressure.value,
+                    ),
                 ],
               ),
           ],

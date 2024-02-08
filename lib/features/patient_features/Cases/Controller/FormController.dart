@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 class ChronicDiseasesController extends GetxController {
   RxList<bool> checkedItems = List.generate(6, (index) => false).obs;
   RxBool showPressureChecklist = false.obs;
+  RxString pressure = ''.obs;
   RxString selected = ''.obs;
 
 // List of chronic diseases
@@ -32,17 +33,20 @@ class ChronicDiseasesController extends GetxController {
     checkedItems[index] = value;
     if (chronicDiseases[index].title == 'Hypertension') {
       showPressureChecklist.value = value;
+      
     }
     update();
   }
 
-
-  void handleSelection(String value) {
+  void handleSelectionKnown(String value) {
     selected.value = value;
     update();
   }
-  void handleSelectionRadio(int index, bool value) {
-    checkedItems[index] = value;
+
+  void handleSelectionPressure(String value) {
+    pressure.value = value;
     update();
   }
+
+  
 }

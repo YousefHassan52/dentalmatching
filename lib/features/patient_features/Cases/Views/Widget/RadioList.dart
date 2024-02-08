@@ -8,7 +8,9 @@ class RadioListWidget extends StatelessWidget {
   final ChronicDiseasesController controller = Get.put(ChronicDiseasesController());
  
   final List cont;
-   RadioListWidget({super.key, required this.cont});
+  final void Function(dynamic)? onChanged;
+  final dynamic groupValue;
+   RadioListWidget({super.key, required this.cont ,required this.onChanged, required this.groupValue});
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +27,8 @@ class RadioListWidget extends StatelessWidget {
                       style: Styles.textStyle16Grey,
                     ),
                     value: iterator,
-                    groupValue: controller.selected.value,
-                    onChanged: (value) {
-                      controller.handleSelection(value!);
-                    },
+                    groupValue:groupValue ,
+                    onChanged: onChanged
                   ),
                 ],
               ),
