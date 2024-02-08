@@ -1,6 +1,7 @@
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Controller/FormController.dart';
+import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/Check.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -37,8 +38,16 @@ class NextButtonController extends GetxController {
         controller.AddedCase();
         Get.snackbar('ssd', 'Cases Counter ${controller.casesCounter}');
       } else if (cont.selected == 'Known') {
-        Get.snackbar('ssd', 'Known Case Form');
+        
       } 
+     
     }
+     Get.defaultDialog(
+      middleText: 
+      '${cont.pressure}'
+       '\n'
+      '${cont.selected}'
+      //'${cont.chronicDiseases.}'
+     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Controller/FormController.dart';
+import 'package:dentalmatching/features/patient_features/Cases/Model/CheckListModel.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/RadioList.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,9 @@ class ChronicDiseasesChecklist extends StatelessWidget {
   final ChronicDiseasesController controller =
       Get.put(ChronicDiseasesController());
 
+final List<CheckListModel> list;
+
+   ChronicDiseasesChecklist({super.key, required this.list});
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ChronicDiseasesController>(
@@ -17,7 +21,7 @@ class ChronicDiseasesChecklist extends StatelessWidget {
         return Column(
           children: [
             for (int index = 0;
-                index < controller.chronicDiseases.length;
+                index < list.length;
                 index++)
               Column(
                 children: [
@@ -26,7 +30,7 @@ class ChronicDiseasesChecklist extends StatelessWidget {
                     activeColor: Colors.transparent,
                     checkboxShape: const OvalBorder(),
                     title: Text(
-                      controller.chronicDiseases[index].title,
+                      list[index].title,
                       style: Styles.textStyle16Grey,
                     ),
                     value: controller.checkedItems[index],
@@ -40,7 +44,7 @@ class ChronicDiseasesChecklist extends StatelessWidget {
                     dense: true,
                   ),
                   if (controller.showPressureChecklist.value &&
-                      controller.chronicDiseases[index].title == 'Hypertension')
+                      list[index].title == 'Hypertension')
                     RadioListWidget(
                       cont: controller.pressureLevels,
                       onChanged: (value) {

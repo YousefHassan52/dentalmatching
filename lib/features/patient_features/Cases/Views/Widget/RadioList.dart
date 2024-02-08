@@ -28,7 +28,8 @@ class RadioListWidget extends StatelessWidget {
                     ),
                     value: iterator,
                     groupValue:groupValue ,
-                    onChanged: onChanged
+                    onChanged: onChanged,
+                    
                   ),
                 ],
               ),

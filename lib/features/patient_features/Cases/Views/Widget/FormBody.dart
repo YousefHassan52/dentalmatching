@@ -1,6 +1,7 @@
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Controller/ButtonController.dart';
+import 'package:dentalmatching/features/patient_features/Cases/Controller/FormController.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/AddImg.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/AddOptionalImg.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/Check.dart';
@@ -21,6 +22,8 @@ class FormBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final ChronicDiseasesController controller =
+      Get.put(ChronicDiseasesController());
        NextButtonController button = Get.put(NextButtonController());
     return Form(
       key: button.formKey,
@@ -40,7 +43,7 @@ class FormBody extends StatelessWidget {
           ),
           const HDivider(),
           const FormHeadLine(headline: 'Chronic Diseases'),
-          ChronicDiseasesChecklist(),
+          ChronicDiseasesChecklist(list: controller.chronicDiseases,),
           //MyForm(),
           const HDivider(),
           const FormHeadLine(

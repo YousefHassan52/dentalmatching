@@ -1,6 +1,7 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Controller/FormController.dart';
+import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/Check.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/RadioList.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,10 +17,20 @@ class KnownCheckWidget extends StatelessWidget {
     return GetBuilder<ChronicDiseasesController>(
       builder: (controller) {
         return RadioListWidget(
+          
           cont: controller.caseStatus,
           onChanged: (value) {
             controller.handleSelectionKnown(value!);
-          }, groupValue: controller.selected.value,
+            if (value == 'Known') {
+              Get.defaultDialog(
+                title: '',
+                content: ChronicDiseasesChecklist(
+                  list: controller.knownCases,
+                ),
+              );
+            }
+          },
+          groupValue: controller.selected.value,
         );
         // Column(
         //   children: [

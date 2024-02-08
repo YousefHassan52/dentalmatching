@@ -16,6 +16,14 @@ class ChronicDiseasesController extends GetxController {
     CheckListModel(title: 'Arthritis'),
     CheckListModel(title: 'None'),
   ];
+  final List<CheckListModel> knownCases = [
+    CheckListModel(title: 'Heart Disease'),
+    CheckListModel(title: 'Diabetes'),
+    CheckListModel(title: 'Hypertension'),
+    CheckListModel(title: 'Asthma'),
+    CheckListModel(title: 'Arthritis'),
+    CheckListModel(title: 'None'),
+  ];
 
   // List of pressure levels
   final List<String> pressureLevels = [
