@@ -8,19 +8,19 @@ import 'package:dentalmatching/features/patient_features/Cases/data/staticData.d
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ChronicDiseasesChecklist extends StatelessWidget {
+class CasesChecklist extends StatelessWidget {
   final ChronicDiseasesController controller =
       Get.put(ChronicDiseasesController());
   StaticData list = StaticData();
 
-  ChronicDiseasesChecklist({super.key});
+  CasesChecklist({super.key});
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ChronicDiseasesController>(
       builder: (controller) {
         return Column(
           children: [
-            for (int index = 0; index < list.chronicDiseases.length; index++)
+            for (int index = 0; index < list.knownCases.length; index++)
               Column(
                 children: [
                   CheckboxListTile(
@@ -28,12 +28,12 @@ class ChronicDiseasesChecklist extends StatelessWidget {
                     activeColor: Colors.transparent,
                     checkboxShape: const OvalBorder(),
                     title: Text(
-                      list.chronicDiseases[index].title,
+                      list.knownCases[index].title,
                       style: Styles.textStyle16Grey,
                     ),
-                    value: controller.checkedItems[index],
+                    value: controller.checkedCase[index],
                     onChanged: (value) {
-                      controller.handleCheckboxChange(index, value!);
+                      controller.handleCheckboxChangeCases(index, value!);
                     },
                     controlAffinity: ListTileControlAffinity
                         .leading, // Move the checkbox to the leading position
@@ -41,15 +41,7 @@ class ChronicDiseasesChecklist extends StatelessWidget {
                         const EdgeInsets.all(0), // Remove default padding
                     dense: true,
                   ),
-                  if (controller.showPressureChecklist &&
-                      list.chronicDiseases[index].title == 'Hypertension')
-                    RadioListWidget(
-                      cont: list.pressureLevels,
-                      onChanged: (value) {
-                        controller.handleSelectionPressure(value!);
-                      },
-                      groupValue: controller.pressure,
-                    ),
+                  
                 ],
               ),
           ],

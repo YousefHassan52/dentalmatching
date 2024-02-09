@@ -10,6 +10,7 @@ import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/Form
 import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/HDivider.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/KnownCheckWidget.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/OptionalText.dart';
+import 'package:dentalmatching/features/patient_features/Cases/data/staticData.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,11 +23,12 @@ class FormBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    StaticData list = StaticData();
       final ChronicDiseasesController controller =
       Get.put(ChronicDiseasesController());
-       NextButtonController button = Get.put(NextButtonController());
+      
     return Form(
-      key: button.formKey,
+      key: controller.formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -43,7 +45,7 @@ class FormBody extends StatelessWidget {
           ),
           const HDivider(),
           const FormHeadLine(headline: 'Chronic Diseases'),
-          ChronicDiseasesChecklist(list: controller.chronicDiseases,),
+          ChronicDiseasesChecklist(),
           //MyForm(),
           const HDivider(),
           const FormHeadLine(
@@ -119,7 +121,7 @@ class FormBody extends StatelessWidget {
           AuthButton(
             buttonText: 'Next',
             onTap: () {
-              button.handleButtonBehavior();
+              controller.handleButtonBehavior();
             },
           )
         ],

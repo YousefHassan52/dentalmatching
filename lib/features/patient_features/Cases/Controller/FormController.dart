@@ -1,60 +1,106 @@
+import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/patient_features/Cases/Model/CheckListModel.dart';
+import 'package:dentalmatching/features/patient_features/Cases/data/staticData.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ChronicDiseasesController extends GetxController {
-  RxList<bool> checkedItems = List.generate(6, (index) => false).obs;
-  RxBool showPressureChecklist = false.obs;
-  RxString pressure = ''.obs;
-  RxString selected = ''.obs;
-
-// List of chronic diseases
-  final List<CheckListModel> chronicDiseases = [
-    CheckListModel(title: 'Heart Disease'),
-    CheckListModel(title: 'Diabetes'),
-    CheckListModel(title: 'Hypertension'),
-    CheckListModel(title: 'Asthma'),
-    CheckListModel(title: 'Arthritis'),
-    CheckListModel(title: 'None'),
-  ];
-  final List<CheckListModel> knownCases = [
-    CheckListModel(title: 'Heart Disease'),
-    CheckListModel(title: 'Diabetes'),
-    CheckListModel(title: 'Hypertension'),
-    CheckListModel(title: 'Asthma'),
-    CheckListModel(title: 'Arthritis'),
-    CheckListModel(title: 'None'),
-  ];
-
-  // List of pressure levels
-  final List<String> pressureLevels = [
-    'High',
-    'Low',
-  ];
-
-  //List Of Case Status
-  final List<String> caseStatus = [
-    'Known',
-    'Unkown',
-  ];
+  StaticData list = StaticData();
+  List<String> selectedTitles = [];
+  List<String> selectedCases = [];
+  List<bool> checkedItems = List.generate(6, (index) => false);
+  List<bool> checkedCase = List.generate(6, (index) => false);
+  bool showPressureChecklist = false;
+  String pressure = '';
+  String selected = '';
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   void handleCheckboxChange(int index, bool value) {
     checkedItems[index] = value;
-    if (chronicDiseases[index].title == 'Hypertension') {
-      showPressureChecklist.value = value;
-      
+    if (list.chronicDiseases[index].title == 'Hypertension') {
+      showPressureChecklist = value;
+    }
+    selectedTitles = [];
+    for (int i = 0; i < checkedItems.length; i++) {
+      if (checkedItems[i]) {
+        selectedTitles.add(list.chronicDiseases[i].title);
+      }
     }
     update();
   }
 
+  void handleCheckboxChangeCases(int index, bool value) {
+    checkedCase[index] = value;
+    selectedCases = [];
+    for (int i = 0; i < checkedCase.length; i++) {
+      if (checkedCase[i]) {
+        selectedCases.add(list.knownCases[i].title);
+      }
+    }
+    print('Selected Titles: $selectedCases');
+    update();
+  }
+
   void handleSelectionKnown(String value) {
-    selected.value = value;
+    selected = value;
     update();
   }
 
   void handleSelectionPressure(String value) {
-    pressure.value = value;
+    pressure = value;
     update();
   }
 
-  
+//Validations
+
+  bool pressureValidation() {
+    if (showPressureChecklist && pressure.isEmpty) {
+      Get.defaultDialog(
+        middleText: 'Please select your Pressure Level.',
+        backgroundColor: Colors.red,
+      );
+      return false; // Validation failed
+    }
+    return true; // Validation passed
+  }
+
+  bool checkBoxValidation() {
+    if (!AppValidator.validateCheckbox(checkedItems)) {
+      Get.defaultDialog(
+        middleText: 'Please select at least one item in the checklist.',
+        backgroundColor: Colors.red,
+      );
+      return false; // Validation failed
+    }
+    return true; // Validation passed
+  }
+
+  bool caseValidation() {
+    if (selected.isEmpty) {
+      Get.defaultDialog(
+        middleText: 'Please select your case.',
+        backgroundColor: Colors.red,
+      );
+      return false; // Validation failed
+    }
+    return true; // Validation passed
+  }
+
+  handleButtonBehavior() {
+    if (formKey.currentState!.validate() &&
+        pressureValidation() &&
+        checkBoxValidation() &&
+        caseValidation()) {
+      Get.defaultDialog(
+          middleText: '${pressure}'
+              '\n'
+              '${selected}'
+              '\n'
+              'Checked Items: ${selectedTitles.join(", ")}'
+              '\n'
+              'Checked Items: ${selectedCases.join(", ")}'
+          //'${cont.chronicDiseases.}'
+          );
+    }
+  }
 }
