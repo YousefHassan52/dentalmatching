@@ -1,32 +1,30 @@
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Controller/ButtonController.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Controller/FormController.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/AddImg.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/AddOptionalImg.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/Check.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/DescripBox.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/FormHeadLine.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/HDivider.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/KnownCheckWidget.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/OptionalText.dart';
-import 'package:dentalmatching/features/patient_features/Cases/data/staticData.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Controller/ButtonController.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Controller/FormController.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/AddImg.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/AddOptionalImg.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/Check.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/DescripBox.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/FormHeadLine.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/HDivider.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/KnownCheckWidget.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/OptionalText.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/data/staticData.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FormBody extends StatelessWidget {
-   const FormBody({
+  const FormBody({
     super.key,
   });
-
-   
 
   @override
   Widget build(BuildContext context) {
     StaticData list = StaticData();
-      final ChronicDiseasesController controller =
-      Get.put(ChronicDiseasesController());
-      
+    final ChronicDiseasesController controller =
+        Get.put(ChronicDiseasesController());
+
     return Form(
       key: controller.formKey,
       child: Column(
@@ -40,7 +38,7 @@ class FormBody extends StatelessWidget {
                 return AppValidator.textFormFieldValidator(
                     value!, "Description");
               },
-              //fieldController: button.descriptionController,
+              fieldController: controller.descriptionController,
             ),
           ),
           const HDivider(),
@@ -48,8 +46,7 @@ class FormBody extends StatelessWidget {
           ChronicDiseasesChecklist(),
           //MyForm(),
           const HDivider(),
-          const FormHeadLine(
-              headline: 'Add a Clear Pictures of your Mouth'),
+          const FormHeadLine(headline: 'Add a Clear Pictures of your Mouth'),
           const SizedBox(
             height: 9,
           ),

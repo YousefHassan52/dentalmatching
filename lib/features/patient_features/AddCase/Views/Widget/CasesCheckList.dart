@@ -1,10 +1,10 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Controller/FormController.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Model/CheckListModel.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Views/Widget/RadioList.dart';
-import 'package:dentalmatching/features/patient_features/Cases/data/staticData.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Controller/FormController.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Model/CheckListModel.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/RadioList.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/data/staticData.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

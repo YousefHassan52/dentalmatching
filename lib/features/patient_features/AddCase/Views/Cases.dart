@@ -1,8 +1,11 @@
 import 'package:dentalmatching/core/services/my_services.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Views/AddCase.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Views/AddCase.dart';
 import 'package:dentalmatching/features/patient_features/PatientProfile/Views/PatientProfile.dart';
+import 'package:dentalmatching/features/patient_features/View_Cases/View/HasCases.dart';
+import 'package:dentalmatching/features/patient_features/View_Cases/View/NoCases.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 
 class CasesScreen extends GetView<MyServices> {
   const CasesScreen({super.key});
@@ -44,6 +47,22 @@ class CasesScreen extends GetView<MyServices> {
               controller.Resest();
             },
             child: Text('Reset Counter'),
+            textColor: Colors.black,
+          ),
+          MaterialButton(
+            color: Colors.amber,
+            onPressed: () {
+              Get.to(NoCases());
+            },
+            child: Text('NoCases'),
+            textColor: Colors.black,
+          ),
+          MaterialButton(
+            color: Colors.amber,
+            onPressed: () {
+              Get.to(HasCases());
+            },
+            child: Text('ContainCases'),
             textColor: Colors.black,
           ),
         ],

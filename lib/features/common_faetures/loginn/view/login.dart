@@ -8,7 +8,7 @@ import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/Cent
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/Heading.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/textformfield.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Views/Cases.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Views/Cases.dart';
 import 'package:dentalmatching/features/patient_features/PatientProfile/Views/PatientProfile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -28,7 +28,8 @@ class LoginScreen extends StatelessWidget {
           child: ListView(
             scrollDirection: Axis.vertical,
             children: [
-              const Heading(text: 'Welcome Back'),
+              const FittedBox(
+                  fit: BoxFit.fitWidth, child: Heading(text: 'Welcome Back')),
               const CentImg(centeredImg: 'assets/svg/log.svg'),
               AuthTextFormField(
                   hint: "Phone",
@@ -99,27 +100,33 @@ class LoginScreen extends StatelessWidget {
                     }),
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    "Don't have an account?",
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 118, 119, 120),
-                        fontSize: 20),
+                  const FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(
+                      "Don't have an account?",
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 118, 119, 120),
+                          fontSize: 13),
+                    ),
                   ),
-                  Spacer(),
+                  // const Spacer(),
                   TextButton(
                       onPressed: () {
                         // Get.toNamed(AppRoutes.userType);
-                        Get.to(CasesScreen());
+                        Get.to(const CasesScreen());
                       },
-                      child: const Text(
-                        "Signup",
-                        style: TextStyle(
-                          color: AppColors.blueTextColor,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline,
-                          fontSize: 20,
+                      child: const FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(
+                          "Signup",
+                          style: TextStyle(
+                            color: AppColors.blueTextColor,
+                            fontWeight: FontWeight.bold,
+                            decoration: TextDecoration.underline,
+                            fontSize: 13,
+                          ),
                         ),
                       ))
                 ],

@@ -1,19 +1,30 @@
+import 'dart:io';
+
 import 'package:dentalmatching/core/functions/validator.dart';
-import 'package:dentalmatching/features/patient_features/Cases/Model/CheckListModel.dart';
-import 'package:dentalmatching/features/patient_features/Cases/data/staticData.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/data/staticData.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ChronicDiseasesController extends GetxController {
   StaticData list = StaticData();
-  List<String> selectedTitles = [];
-  List<String> selectedCases = [];
   List<bool> checkedItems = List.generate(6, (index) => false);
   List<bool> checkedCase = List.generate(6, (index) => false);
   bool showPressureChecklist = false;
   String pressure = '';
   String selected = '';
+ late TextEditingController descriptionController;
+ File? imageFile;
+ List<String> selectedTitles = [];
+ List<String> selectedCases = [];
+
+
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  @override
+  void onInit() {
+    descriptionController = TextEditingController();
+
+    super.onInit();
+  }
 
   void handleCheckboxChange(int index, bool value) {
     checkedItems[index] = value;

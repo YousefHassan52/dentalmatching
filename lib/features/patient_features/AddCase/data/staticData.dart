@@ -1,4 +1,4 @@
-import 'package:dentalmatching/features/patient_features/Cases/Model/CheckListModel.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Model/CheckListModel.dart';
 
 class StaticData {
    // List of chronic diseases

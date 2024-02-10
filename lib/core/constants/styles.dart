@@ -35,4 +35,9 @@ abstract class Styles {
 
       static const TextStyle boxText = TextStyle(
       color: AppColors.mainColor, fontWeight: FontWeight.w700, fontSize: 15);
+      static const TextStyle greySpacer =  TextStyle(
+                    color: Color.fromARGB(255, 118, 116, 116),
+                    fontWeight: FontWeight.normal,
+                    fontSize: 16,
+                    letterSpacing: 3);
 }
