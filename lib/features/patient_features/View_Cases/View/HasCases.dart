@@ -1,3 +1,4 @@
+import 'package:dentalmatching/features/patient_features/PatientProfile/Views/Widgets/Upper.dart';
 import 'package:flutter/material.dart';
 
 class HasCases extends StatelessWidget {
@@ -5,6 +6,14 @@ class HasCases extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: Container(
+        child: ListView(
+          children: [
+            UpperWidget(),
+          ],
+        ),
+      ),
+    );
   }
 }

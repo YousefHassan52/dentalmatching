@@ -16,7 +16,7 @@ class UserProfileWidget extends StatelessWidget {
     return Row(
       children: [
         Padding(
-          padding:  EdgeInsets.all(Get.width* 0.03),
+          padding:  EdgeInsets.symmetric(vertical:Get.width* 0.06,horizontal:Get.width* 0.02 ),
           child: const CircleAvatarWidget(
             imagePath: 'assets/svg/pp.svg',
           ),
