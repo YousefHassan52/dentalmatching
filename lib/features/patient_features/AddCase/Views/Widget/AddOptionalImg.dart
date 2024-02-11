@@ -8,7 +8,9 @@ class AddOptionalImg extends StatelessWidget {
   final String img;
   final String txt;
   final void Function()? onPressed;
-  const AddOptionalImg({super.key, required this.img, required this.txt, this.onPressed});
+  const AddOptionalImg(
+      {Key? key, required this.img, required this.txt, this.onPressed})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class AddOptionalImg extends StatelessWidget {
           builder: (context, constraints) {
             return Container(
               width: constraints.maxWidth,
-              height: Get.height*0.06,
+              height: Get.height * 0.06,
               decoration: BoxDecoration(
                 color: AppColors.circleColor,
                 borderRadius: BorderRadius.circular(20),
@@ -35,7 +37,7 @@ class AddOptionalImg extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                   Text(
+                  Text(
                     txt,
                     style: Styles.textStyle16Grey,
                   ),

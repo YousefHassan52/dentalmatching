@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class KnownCheckWidget extends StatelessWidget {
-  const KnownCheckWidget({super.key});
+  const KnownCheckWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

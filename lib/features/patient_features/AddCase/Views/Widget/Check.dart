@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ChronicDiseasesChecklist extends StatelessWidget {
-  const ChronicDiseasesChecklist({super.key});
+  const ChronicDiseasesChecklist({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     StaticData list = StaticData();

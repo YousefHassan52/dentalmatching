@@ -6,9 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FormContainer extends GetView<MyServices> {
-  const FormContainer({
-    super.key,
-  });
+  const FormContainer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

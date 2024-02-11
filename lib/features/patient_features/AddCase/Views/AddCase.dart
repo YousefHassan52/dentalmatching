@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AddCaseScreen extends StatelessWidget {
-  const AddCaseScreen({super.key});
+  const AddCaseScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 
 class FormHeadLine extends StatelessWidget {
   final String headline;
+
   const FormHeadLine({
-    super.key,
+    Key? key,
     required this.headline,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return RichText(
         text: TextSpan(
-      text:headline,
+      text: headline,
       style: Styles.formTitle,
     ));
   }

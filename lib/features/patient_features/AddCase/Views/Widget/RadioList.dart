@@ -6,11 +6,13 @@ class RadioListWidget extends StatelessWidget {
   final List cont;
   final void Function(dynamic)? onChanged;
   final dynamic groupValue;
+
   const RadioListWidget(
-      {super.key,
+      {Key? key,
       required this.cont,
       required this.onChanged,
-      required this.groupValue});
+      required this.groupValue})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

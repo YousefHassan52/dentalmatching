@@ -7,7 +7,8 @@ class DescripBox extends StatelessWidget {
   final TextEditingController fieldController;
 
   const DescripBox(
-      {super.key, required this.validator, required this.fieldController});
+      {Key? key, required this.validator, required this.fieldController})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
