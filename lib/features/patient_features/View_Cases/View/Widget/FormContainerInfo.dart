@@ -20,54 +20,52 @@ class FormContainerInfo extends StatelessWidget {
         color: AppColors.circleColor,
         borderRadius: BorderRadius.all(Radius.circular(26)),
       ),
-      child: Expanded(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              
-              children: [
-                const SizedBox(
-                  height: 70,
-                  child:
-                      CircleAvatarWidget(imagePath: 'assets/svg/pp.svg'),
-                ),
-                const Text('Hajar'),
-                 SizedBox(
-                  width: Get.width * 0.355,
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.double_arrow_outlined,
-                    color: AppColors.mainColor,
-                  ),
-                ),
-              ],
-            ),
-              
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                'It feels like a throbbing sensation,especially when I bite down or apply pressure while chewing.',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400,
-                ),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(
+            height: 10,
+          ),
+          Row(
+            
+            children: [
+              const SizedBox(
+                height: 70,
+                child:
+                    CircleAvatarWidget(imagePath: 'assets/svg/pp.svg'),
               ),
+              const Text('Hajar'),
+               SizedBox(
+                width: Get.width * 0.355,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.double_arrow_outlined,
+                  color: AppColors.mainColor,
+                ),
+              ),
+            ],
+          ),
+            
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              'It feels like a throbbing sensation,especially when I bite down or apply pressure while chewing.',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w400,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
-            SizedBox(
-              height: 130,
-              child: ImageContainer(),
-            )
-          ],
-        ),
+          ),
+          SizedBox(
+            height: 130,
+            child: ImageContainer(),
+          )
+        ],
       ),
     );
   }
