@@ -10,18 +10,16 @@ class AddCaseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(ChronicDiseasesController());
-    return Scaffold(
-      body: Container(
-        height: Get.height,
-        child: ListView(
-          children: [
-            const UpperWidget(),
-            const SizedBox(
-              height: 12,
-            ),
-            FormContainer(),
-          ],
-        ),
+    return Container(
+      height: Get.height,
+      child: ListView(
+        children: [
+          const UpperWidget(),
+          const SizedBox(
+            height: 12,
+          ),
+          FormContainer(),
+        ],
       ),
     );
   }

@@ -13,7 +13,7 @@ class HomePatientScreen extends StatefulWidget {
 
 class _HomePatientScreenState extends State<HomePatientScreen>
     with SingleTickerProviderStateMixin {
-  int _tabIndex = 1;
+  int _tabIndex = 0;
   int get tabIndex => _tabIndex;
   set tabIndex(int v) {
     _tabIndex = v;

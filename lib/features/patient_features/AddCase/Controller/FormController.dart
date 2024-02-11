@@ -3,16 +3,17 @@ import 'dart:io';
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
+import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/data/add_case_data.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/data/staticData.dart';
+import 'package:dentalmatching/features/patient_features/signup/data/model/patient_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ChronicDiseasesController extends GetxController {
-  String testToken =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IHRlc3QiLCJqdGkiOiJiNGJmMGYwNS1lZjAwLTQ2ZDAtOTlmOS0wMzExMjY3MGYzZjAiLCJlbWFpbCI6InlvdUB0ZXNqaGdqa2hnamhnZ2poZ2hnamh0LmNvbSIsInVpZCI6ImZmYTEyMzVjLWZjMTktNGYzZi05ZjEyLTY4ODI1NTc4NTJjNSIsInJvbGVzIjoiUGF0aWVudCIsImV4cCI6MTcxMDIzMTA0MywiaXNzIjoiRGVudGFNYXRjaCIsImF1ZCI6IkRlbnRhTWF0Y2hVc2VycyJ9.hY_B_7TJMOTCvfWndgzSpjAbu-tKhbjfK_-dbFfenOA";
-  List<String> testChronicDiseases = ["test1", "test2", "test3"];
+  MyServices myServices = Get.find();
+  late PatientModel userModel;
   AddCaseData addCaseData = AddCaseData(Get.find());
   RequestStatus? requestStatus;
 
@@ -75,6 +76,7 @@ class ChronicDiseasesController extends GetxController {
   @override
   void onInit() {
     descriptionController = TextEditingController();
+    userModel = PatientModel.fromSharedPref(myServices.sharedPref);
 
     super.onInit();
   }
@@ -215,7 +217,7 @@ class ChronicDiseasesController extends GetxController {
           ...selectedChronicDiseases.asMap().map(
               (index, disease) => MapEntry('chronicDiseases[$index]', disease)),
         },
-        token: testToken,
+        token: userModel.token,
         mouthImages: mouthImages,
         xrayImages: xray,
         prescriptionImages: prescription,
