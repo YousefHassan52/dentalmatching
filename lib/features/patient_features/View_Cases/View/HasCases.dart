@@ -41,17 +41,6 @@ class HasCases extends StatelessWidget {
           ),
         ],
       ),
-      // Container(
-      //   child: ListView(
-      //     children: [
-      //       const UpperWidget(),
-      //       const SizedBox(
-      //         height: 15,
-      //       ),
-
-      //     ],
-      //   ),
-      // ),
     );
   }
 }
