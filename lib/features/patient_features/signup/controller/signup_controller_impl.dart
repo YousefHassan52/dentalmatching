@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:dentalmatching/core/class/request_status.dart';
+import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
+import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/patient_features/signup/data/signup_patient_data.dart';
 import 'package:dentalmatching/features/patient_features/signup/controller/signup_controller_asbtract.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +22,7 @@ class SignupPatientControllerImpl extends SignupPatientControllerAbstract {
   String? gov;
   String? gender;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
+  MyServices myServices = Get.find();
   RequestStatus? requestStatus;
   SignupPatientData signupData =
       SignupPatientData(Get.find()); // get.find related to CRUD
@@ -47,15 +49,9 @@ class SignupPatientControllerImpl extends SignupPatientControllerAbstract {
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response["success"] == true) {
           // user.addAll(response["data"]);
-          Get.defaultDialog(
-              middleText:
-                  "${response["data"]["email"]} and ${passwordController.text}}");
-          fullNameController.clear();
-          ageController.clear();
-          emailController.clear();
-          phoneController.clear();
-          passwordController.clear();
-          addressController.clear();
+
+          myServices.savePatientModelToSharedPrefrence(response);
+          Get.offAllNamed(AppRoutes.homePatient);
 
           // go to home
         }
@@ -78,6 +74,7 @@ class SignupPatientControllerImpl extends SignupPatientControllerAbstract {
     emailController = TextEditingController();
     passwordController = TextEditingController();
     addressController = TextEditingController();
+
     super.onInit();
   }
 

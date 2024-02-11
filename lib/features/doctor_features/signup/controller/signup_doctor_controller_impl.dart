@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'package:dentalmatching/core/class/request_status.dart';
+import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
+import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/doctor_features/signup/controller/signup_doctor_controller_abstract.dart';
 import 'package:dentalmatching/features/doctor_features/signup/data/signup_doctor_data.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +22,7 @@ class SignupDoctorControllerImpl extends SignupDoctorControllerAbstract {
   String? gender;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   //-------------------------------------------------------------
+  MyServices myServices = Get.find();
 
   File? imageFile;
   RequestStatus? requestStatus;
@@ -58,7 +61,8 @@ class SignupDoctorControllerImpl extends SignupDoctorControllerAbstract {
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response["success"] == true) {
           // user.addAll(response["data"]);
-          Get.defaultDialog(middleText: "${response["data"]["email"]} ");
+          myServices.saveDoctorModelToSharedPrefrence(response);
+          Get.offAllNamed(AppRoutes.homeDoctor);
 
           // go to home
         }

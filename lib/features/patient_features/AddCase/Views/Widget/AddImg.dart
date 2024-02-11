@@ -9,7 +9,9 @@ class AddImageWidget extends StatelessWidget {
   final String txt;
   final void Function()? onPressed;
 
-  const AddImageWidget({Key? key, required this.img, required this.txt, required this.onPressed}) : super(key: key);
+  const AddImageWidget(
+      {Key? key, required this.img, required this.txt, required this.onPressed})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class AddImageWidget extends StatelessWidget {
       onPressed: onPressed,
       child: Expanded(
         child: Container(
-          height: Get.height*0.1,
+          height: Get.height * 0.1,
           decoration: BoxDecoration(
             color: AppColors.circleColor,
             borderRadius: BorderRadius.circular(20),
@@ -58,13 +60,13 @@ class AddImageWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               Center(
                 child: Container(
                   height: 60,
-                  width: Get.width*0.18,
+                  width: Get.width * 0.18,
                   child: SvgPicture.asset(img),
                 ),
               ),

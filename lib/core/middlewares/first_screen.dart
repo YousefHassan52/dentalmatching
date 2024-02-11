@@ -8,6 +8,17 @@ class FirstScreen extends GetMiddleware {
   MyServices myServices = Get.find();
   @override
   RouteSettings? redirect(String? route) {
+    if (myServices.sharedPref.getBool("logged") == true) {
+      // talma d5alna hena fa 2ked el role m4 be null
+      if (myServices.sharedPref.getString("role")!.toLowerCase() ==
+          "patient".toLowerCase()) {
+        return const RouteSettings(name: AppRoutes.homePatient);
+      }
+      if (myServices.sharedPref.getString("role")!.toLowerCase() ==
+          "doctor".toLowerCase()) {
+        return const RouteSettings(name: AppRoutes.homeDoctor);
+      }
+    }
     if (myServices.sharedPref.getBool("not_first") != null) {
       return const RouteSettings(name: AppRoutes.login);
     }

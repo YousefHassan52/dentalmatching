@@ -3,6 +3,7 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
+import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/controller/login_controller_abstract.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/data/login_patient.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,8 +17,8 @@ class LoginControllerImp extends LoginControllerAbstract {
   late TextEditingController passwordController;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  // MyServices myServices =
-  //     Get.find(); // ma3molo put fe el main fa 2a2der 2 find_oh hena 3ady
+  MyServices myServices =
+      Get.find(); // ma3molo put fe el main fa 2a2der 2 find_oh hena 3ady
 
   @override
   void changePasswordVisibility() {
@@ -50,31 +51,15 @@ class LoginControllerImp extends LoginControllerAbstract {
       if (requestStatus == RequestStatus.SUCCESS) {
         // handle type kman 34an hayb2a fe doctor and patient
         if (response['success'] == true) {
-          if (response["data"]["role"] == "Doctor") {
-            Get.defaultDialog(
-                title: "Hello ${response["data"]["role"]}",
-                middleText: "${response["data"]["firstName"]}");
-            // save  in sharedPref
-            //    myServices.sharedPref
-            //        .setInt("user_id", response["data"]["user_id"]);
-            //    myServices.sharedPref
-            //        .setString("user_name", response["data"]["user_name"]);
-            //    myServices.sharedPref
-            //        .setString("user_email", response["data"]["user_email"]);
-            //    myServices.sharedPref
-            //        .setString("user_phone", response["data"]["user_phone"]);
-            //    myServices.sharedPref.setBool("logged", true);
-            //    Get.offAllNamed(AppRoutes.home);
-            //  }
-            //else {
-            // 2olna m4 han3mel verify email ... han3mel forget bs
-            //  Get.offAllNamed(AppRoutes.verifyEmailCode,
-            //      arguments: {"email": emailController.text});
+          if (response["data"]["role"].toLowerCase() ==
+              "doctor".toLowerCase()) {
+            myServices.saveDoctorModelToSharedPrefrence(response);
+            Get.offAllNamed(AppRoutes.homeDoctor);
           }
-          if (response["data"]["role"] == "Patient") {
-            Get.defaultDialog(
-                title: "Hello ${response["data"]["role"]}",
-                middleText: "${response["data"]["firstName"]}");
+          if (response["data"]["role"].toLowerCase() ==
+              "Patient".toLowerCase()) {
+            myServices.savePatientModelToSharedPrefrence(response);
+            Get.offAllNamed(AppRoutes.homePatient);
           }
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {

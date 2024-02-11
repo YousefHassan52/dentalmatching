@@ -7,7 +7,6 @@ import 'package:dentalmatching/features/patient_features/View_Cases/View/NoCases
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 class CasesScreen extends GetView<MyServices> {
   const CasesScreen({super.key});
 // CounterController controller = Get.put(CounterController());
@@ -21,7 +20,7 @@ class CasesScreen extends GetView<MyServices> {
           MaterialButton(
             color: Colors.amber,
             onPressed: () {
-              Get.to(PatientProfile());
+              Get.to(const PatientProfile());
             },
             textColor: Colors.black,
             child: const Text('Back'),
@@ -37,43 +36,42 @@ class CasesScreen extends GetView<MyServices> {
           MaterialButton(
             color: Colors.amber,
             onPressed: () {
-              Get.to(AddCaseScreen());
+              Get.to(const AddCaseScreen());
             },
-            child: Text('Form Add cases'),
             textColor: Colors.black,
+            child: const Text('Form Add cases'),
           ),
           MaterialButton(
             color: Colors.amber,
             onPressed: () {
               controller.Resest();
             },
-            child: Text('Reset Counter'),
             textColor: Colors.black,
+            child: const Text('Reset Counter'),
           ),
           MaterialButton(
             color: Colors.amber,
             onPressed: () {
-              Get.to(NoCases());
+              Get.to(const NoCases());
             },
-            child: Text('NoCases'),
             textColor: Colors.black,
-          ),
-         
-          MaterialButton(
-            color: Colors.amber,
-            onPressed: () {
-              Get.to(HasCases());
-            },
-            child: Text('ConCases'),
-            textColor: Colors.black,
+            child: const Text('NoCases'),
           ),
           MaterialButton(
             color: Colors.amber,
             onPressed: () {
-              Get.to(DrProfile());
+              Get.to(const HasCases());
             },
-            child: Text('Dr'),
             textColor: Colors.black,
+            child: const Text('ConCases'),
+          ),
+          MaterialButton(
+            color: Colors.amber,
+            onPressed: () {
+              Get.to(const DrProfile());
+            },
+            textColor: Colors.black,
+            child: const Text('Dr'),
           ),
         ],
       ),

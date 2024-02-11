@@ -1,6 +1,5 @@
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
-import 'package:dentalmatching/features/patient_features/AddCase/Controller/ButtonController.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Controller/FormController.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/AddImg.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/AddOptionalImg.dart';
@@ -10,7 +9,6 @@ import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/Fo
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/HDivider.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/KnownCheckWidget.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/OptionalText.dart';
-import 'package:dentalmatching/features/patient_features/AddCase/data/staticData.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,9 +19,9 @@ class FormBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    StaticData list = StaticData();
-    final ChronicDiseasesController controller =
-        Get.put(ChronicDiseasesController());
+    // StaticData list = StaticData();
+
+    ChronicDiseasesController controller = Get.find();
 
     return Form(
       key: controller.formKey,
@@ -43,7 +41,7 @@ class FormBody extends StatelessWidget {
           ),
           const HDivider(),
           const FormHeadLine(headline: 'Chronic Diseases'),
-          ChronicDiseasesChecklist(),
+          const ChronicDiseasesChecklist(),
           //MyForm(),
           const HDivider(),
           const FormHeadLine(headline: 'Add a Clear Pictures of your Mouth'),

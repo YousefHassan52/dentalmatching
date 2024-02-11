@@ -114,8 +114,8 @@ class LoginScreen extends StatelessWidget {
                   // const Spacer(),
                   TextButton(
                       onPressed: () {
-                        // Get.toNamed(AppRoutes.userType);
-                        Get.to(const CasesScreen());
+                        Get.toNamed(AppRoutes.userType);
+                        // Get.to(const CasesScreen());
                       },
                       child: const FittedBox(
                         fit: BoxFit.fitWidth,

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import 'CircleAvatarWidget.dart';
@@ -16,7 +15,8 @@ class UserProfileWidget extends StatelessWidget {
     return Row(
       children: [
         Padding(
-          padding:  EdgeInsets.symmetric(vertical:Get.width* 0.05,horizontal:Get.width* 0.02 ),
+          padding: EdgeInsets.symmetric(
+              vertical: Get.width * 0.05, horizontal: Get.width * 0.02),
           child: const CircleAvatarWidget(
             imagePath: 'assets/svg/pp.svg',
           ),

@@ -6,6 +6,7 @@ class CircleAvatarWidget extends StatelessWidget {
   final String imagePath;
 
   const CircleAvatarWidget({
+    super.key,
     required this.imagePath,
   });
 
