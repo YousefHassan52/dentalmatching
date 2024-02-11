@@ -28,7 +28,7 @@ class HasCases extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-              shrinkWrap: true,
+              // shrinkWrap: true,
               physics: const BouncingScrollPhysics(),
               itemCount: 3,
               itemBuilder: (context, index) {
