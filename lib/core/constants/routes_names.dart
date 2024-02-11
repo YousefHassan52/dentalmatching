@@ -9,6 +9,7 @@ class AppRoutes {
 
   static const String settingsPatient = '/settings_patient';
   static const String homePatient = '/home_patient';
+  static const String myCasesPatient = '/mycases_patient';
 
   static const String homeDoctor = '/home_doctor';
 

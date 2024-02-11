@@ -8,6 +8,7 @@ import 'package:dentalmatching/features/common_faetures/loginn/view/login.dart';
 import 'package:dentalmatching/features/common_faetures/onboarding/view/screens/onboarding.dart';
 import 'package:dentalmatching/features/doctor_features/home/view/doctor_home.dart';
 import 'package:dentalmatching/features/doctor_features/signup/view/signup_screen.dart';
+import 'package:dentalmatching/features/patient_features/View_Cases/View/HasCases.dart';
 import 'package:dentalmatching/features/patient_features/home/view/home_screen.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/home_patient_screen.dart';
 import 'package:dentalmatching/features/patient_features/signup/view/signup_screen.dart';
@@ -30,6 +31,7 @@ List<GetPage> routes = [
   ),
   GetPage(name: AppRoutes.homePatient, page: () => const HomePatientScreen()),
   GetPage(name: AppRoutes.homeDoctor, page: () => const DoctorHomeScreen()),
+  GetPage(name: AppRoutes.myCasesPatient, page: () => const HasCases()),
 
   // forget password
   GetPage(

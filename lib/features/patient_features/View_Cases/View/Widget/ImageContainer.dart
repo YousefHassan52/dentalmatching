@@ -13,7 +13,7 @@ class ImageContainer extends StatelessWidget {
     ImageModel(image: 'assets/images/signup.png'),
     ImageModel(image: 'assets/images/signup.png'),
   ];
-   ImageContainer({
+  ImageContainer({
     Key? key,
   }) : super(key: key);
 
@@ -23,8 +23,11 @@ class ImageContainer extends StatelessWidget {
       child: ListView.builder(
         itemCount: image.length,
         scrollDirection: Axis.horizontal,
+        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
-          return ImageContainerWidget(model:image[index] ,);
+          return ImageContainerWidget(
+            model: image[index],
+          );
         },
       ),
     );

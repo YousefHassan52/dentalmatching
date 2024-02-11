@@ -1,4 +1,5 @@
 import 'package:dentalmatching/features/patient_features/AddCase/Views/AddCase.dart';
+import 'package:dentalmatching/features/patient_features/View_Cases/View/HasCases.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/home_patient_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -92,15 +93,7 @@ class _HomePatientScreenState extends State<HomePatientScreen>
         onPageChanged: (v) {
           tabIndex = v;
         },
-        children: [
-          const AddCaseScreen(),
-          Container(
-              width: double.infinity,
-              height: double.infinity,
-              color: Colors.white,
-              child: const Center(child: Text("My sds"))),
-          const SettingsPatientScreen()
-        ],
+        children: const [AddCaseScreen(), HasCases(), SettingsPatientScreen()],
       ),
     );
   }
