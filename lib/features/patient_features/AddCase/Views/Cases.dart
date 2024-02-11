@@ -57,12 +57,13 @@ class CasesScreen extends GetView<MyServices> {
             child: Text('NoCases'),
             textColor: Colors.black,
           ),
+         
           MaterialButton(
             color: Colors.amber,
             onPressed: () {
               Get.to(HasCases());
             },
-            child: Text('ContainCases'),
+            child: Text('ConCases'),
             textColor: Colors.black,
           ),
         ],
