@@ -11,4 +11,6 @@ class ApiLinks {
       "https://dentamatch.azurewebsites.net/Auth/ResetPassword";
   static const String signupDoctor =
       "https://dentamatch.azurewebsites.net/DoctorAuth/SignUp";
+  static const String addCasePatient =
+      "https://dentamatch.azurewebsites.net/Patient/DentalCase/AddCase";
 }

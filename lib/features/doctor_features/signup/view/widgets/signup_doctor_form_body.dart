@@ -136,8 +136,8 @@ class SignupDoctorFormBody extends StatelessWidget {
           GetBuilder<SignupDoctorControllerImpl>(
             builder: (controller) => Row(
               children: [
-                AddCardImage(),
-                Spacer(),
+                const AddCardImage(),
+                const Spacer(),
                 CircleAvatar(
                   radius: ((Get.width * 0.3 - 40) / 2) - 5,
                   backgroundColor: AppColors.mainColor,

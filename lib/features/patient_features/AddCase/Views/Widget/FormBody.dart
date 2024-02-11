@@ -53,8 +53,11 @@ class FormBody extends StatelessWidget {
           AddImageWidget(
             img: 'assets/svg/Bold_Img_load-box.svg',
             txt: 'Upload Pictures',
-            onPressed: () {},
+            onPressed: () {
+              controller.pickMouthImages();
+            },
           ),
+
           const SizedBox(
             height: 8,
           ),
@@ -72,7 +75,9 @@ class FormBody extends StatelessWidget {
           AddOptionalImg(
             img: 'assets/svg/Bold_Img_load-box.svg',
             txt: 'Upload Picture',
-            onPressed: () {},
+            onPressed: () {
+              controller.pickXrayImages();
+            },
           ),
           const SizedBox(
             height: 8,
@@ -95,7 +100,9 @@ class FormBody extends StatelessWidget {
           AddOptionalImg(
             img: 'assets/svg/Bold_Img_load-box.svg',
             txt: 'Upload Picture',
-            onPressed: () {},
+            onPressed: () {
+              controller.pickPrescriptionImages();
+            },
           ),
           const SizedBox(
             height: 8,

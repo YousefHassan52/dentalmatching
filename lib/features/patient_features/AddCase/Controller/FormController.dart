@@ -1,22 +1,75 @@
 import 'dart:io';
 
+import 'package:dentalmatching/core/class/request_status.dart';
+import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/data/add_case_data.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/data/staticData.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ChronicDiseasesController extends GetxController {
+  String testToken =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IHRlc3QiLCJqdGkiOiJiNGJmMGYwNS1lZjAwLTQ2ZDAtOTlmOS0wMzExMjY3MGYzZjAiLCJlbWFpbCI6InlvdUB0ZXNqaGdqa2hnamhnZ2poZ2hnamh0LmNvbSIsInVpZCI6ImZmYTEyMzVjLWZjMTktNGYzZi05ZjEyLTY4ODI1NTc4NTJjNSIsInJvbGVzIjoiUGF0aWVudCIsImV4cCI6MTcxMDIzMTA0MywiaXNzIjoiRGVudGFNYXRjaCIsImF1ZCI6IkRlbnRhTWF0Y2hVc2VycyJ9.hY_B_7TJMOTCvfWndgzSpjAbu-tKhbjfK_-dbFfenOA";
+  List<String> testChronicDiseases = ["test1", "test2", "test3"];
+  AddCaseData addCaseData = AddCaseData(Get.find());
+  RequestStatus? requestStatus;
+
   StaticData list = StaticData();
   List<bool> checkedItems = List.generate(6, (index) => false);
   List<bool> checkedCase = List.generate(6, (index) => false);
   bool showPressureChecklist = false;
   String pressure = '';
   String selected = '';
- late TextEditingController descriptionController;
- File? imageFile;
- List<String> selectedTitles = [];
- List<String> selectedCases = [];
+  late TextEditingController descriptionController;
+  File? imageFile;
+  List<String> selectedChronicDiseases = [];
+  List<String> selectedDentalCases = [];
+  List<File>? mouthImages = [];
+  Future<void> pickMouthImages() async {
+    List<XFile>? xFiles = await ImagePicker().pickMultiImage(
+      imageQuality: 70, // Adjust image quality as needed
+    );
 
+    List<File> files = [];
+    for (XFile xFile in xFiles) {
+      files.add(File(xFile.path));
+    }
+
+    mouthImages = files;
+    update();
+  }
+
+  List<File>? xray = [];
+  Future<void> pickXrayImages() async {
+    List<XFile>? xFiles = await ImagePicker().pickMultiImage(
+      imageQuality: 70, // Adjust image quality as needed
+    );
+
+    List<File> files = [];
+    for (XFile xFile in xFiles) {
+      files.add(File(xFile.path));
+    }
+
+    xray = files;
+    update();
+  }
+
+  List<File>? prescription = [];
+  Future<void> pickPrescriptionImages() async {
+    List<XFile>? xFiles = await ImagePicker().pickMultiImage(
+      imageQuality: 70, // Adjust image quality as needed
+    );
+
+    List<File> files = [];
+    for (XFile xFile in xFiles) {
+      files.add(File(xFile.path));
+    }
+
+    prescription = files;
+    update();
+  }
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
@@ -31,10 +84,10 @@ class ChronicDiseasesController extends GetxController {
     if (list.chronicDiseases[index].title == 'Hypertension') {
       showPressureChecklist = value;
     }
-    selectedTitles = [];
+    selectedChronicDiseases = [];
     for (int i = 0; i < checkedItems.length; i++) {
       if (checkedItems[i]) {
-        selectedTitles.add(list.chronicDiseases[i].title);
+        selectedChronicDiseases.add(list.chronicDiseases[i].title);
       }
     }
     update();
@@ -42,13 +95,13 @@ class ChronicDiseasesController extends GetxController {
 
   void handleCheckboxChangeCases(int index, bool value) {
     checkedCase[index] = value;
-    selectedCases = [];
+    selectedDentalCases = [];
     for (int i = 0; i < checkedCase.length; i++) {
       if (checkedCase[i]) {
-        selectedCases.add(list.knownCases[i].title);
+        selectedDentalCases.add(list.knownCases[i].title);
       }
     }
-    print('Selected Titles: $selectedCases');
+    print('Selected Titles: $selectedDentalCases');
     update();
   }
 
@@ -97,21 +150,90 @@ class ChronicDiseasesController extends GetxController {
     return true; // Validation passed
   }
 
-  handleButtonBehavior() {
+  bool mouthImagesValidation() {
+    if (mouthImages != null && mouthImages!.length >= 2) {
+      return true;
+    } else {
+      Get.defaultDialog(
+        middleText: 'Please select more than 2 images for your mouth.',
+        backgroundColor: Colors.red,
+      );
+      return false;
+    }
+  }
+
+  bool xrayValidation() {
+    if (xray != null && xray!.length > 2) {
+      Get.defaultDialog(
+        middleText: 'Maximum Number of X_ray Images is 2',
+        backgroundColor: Colors.red,
+      );
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  bool prescriptionValidation() {
+    if (prescription != null && prescription!.length > 2) {
+      Get.defaultDialog(
+        middleText: 'Maximum Number of Prescription Images is 2',
+        backgroundColor: Colors.red,
+      );
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  handleButtonBehavior() async {
     if (formKey.currentState!.validate() &&
         pressureValidation() &&
         checkBoxValidation() &&
+        mouthImagesValidation() &&
+        xrayValidation() &&
+        prescriptionValidation() &&
         caseValidation()) {
-      Get.defaultDialog(
-          middleText: '${pressure}'
-              '\n'
-              '${selected}'
-              '\n'
-              'Checked Items: ${selectedTitles.join(", ")}'
-              '\n'
-              'Checked Items: ${selectedCases.join(", ")}'
-          //'${cont.chronicDiseases.}'
-          );
+      requestStatus = RequestStatus.LOADING;
+      update();
+      var response = await addCaseData.postData(
+        data: {
+          "description": descriptionController.text,
+
+          //    dental diseases list
+          ...selectedDentalCases.isNotEmpty
+              ? {
+                  ...selectedDentalCases.asMap().map((index, disease) =>
+                      MapEntry('dentalDiseases[$index]', disease)),
+                }
+              : {},
+
+          // known || unknown
+          "isKnown": selectedDentalCases.isNotEmpty ? true : false,
+
+          //   chronic diseases list
+          ...selectedChronicDiseases.asMap().map(
+              (index, disease) => MapEntry('chronicDiseases[$index]', disease)),
+        },
+        token: testToken,
+        mouthImages: mouthImages,
+        xrayImages: xray,
+        prescriptionImages: prescription,
+      );
+      print(response.toString());
+      requestStatus = HandlingResponseType.fun(response);
+      update();
+      print("joe ;${requestStatus.toString()}");
+      if (requestStatus == RequestStatus.SUCCESS) {
+        if (response['success'] == true) {
+          Get.defaultDialog(title: "Hello ", middleText: "$response}");
+          print(response);
+        }
+      } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
+        Get.defaultDialog(middleText: "Unauthorize Error Please Try Again..");
+      } else {
+        Get.defaultDialog(middleText: "Server Error Please Try Again");
+      }
     }
   }
 }
