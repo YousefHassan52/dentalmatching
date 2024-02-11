@@ -12,8 +12,7 @@ class HomePatientScreen extends StatefulWidget {
   State<HomePatientScreen> createState() => _HomePatientScreenState();
 }
 
-class _HomePatientScreenState extends State<HomePatientScreen>
-    with SingleTickerProviderStateMixin {
+class _HomePatientScreenState extends State<HomePatientScreen> {
   int _tabIndex = 0;
   int get tabIndex => _tabIndex;
   set tabIndex(int v) {
@@ -76,8 +75,12 @@ class _HomePatientScreenState extends State<HomePatientScreen>
         circleWidth: 50,
         activeIndex: tabIndex,
         onTap: (index) {
+          // Update the tab index
           tabIndex = index;
-          pageController.jumpToPage(tabIndex);
+          // Navigate to the tapped page
+          pageController.animateToPage(tabIndex,
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut);
         },
         padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
         cornerRadius: const BorderRadius.only(
@@ -93,6 +96,7 @@ class _HomePatientScreenState extends State<HomePatientScreen>
         onPageChanged: (v) {
           tabIndex = v;
         },
+        physics: NeverScrollableScrollPhysics(), // Disable swipe gesture
         children: const [AddCaseScreen(), HasCases(), SettingsPatientScreen()],
       ),
     );
