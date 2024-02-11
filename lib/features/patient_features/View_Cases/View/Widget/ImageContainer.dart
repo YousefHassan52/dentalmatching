@@ -21,7 +21,7 @@ class ImageContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: ListView.builder(
-        itemCount: image.length,
+        itemCount:3,
         scrollDirection: Axis.horizontal,
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {

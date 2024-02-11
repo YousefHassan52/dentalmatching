@@ -14,7 +14,7 @@ class ImageContainerWidget extends StatelessWidget {
     return Row(
       children: [
         Padding(
-          padding: const EdgeInsets.all(3.0),
+          padding: const EdgeInsets.all(8.0),
           child: Container(
             width: 100,
             height: 100,
