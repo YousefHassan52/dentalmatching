@@ -40,7 +40,7 @@ class FormBody extends StatelessWidget {
           const HDivider(),
           const FormHeadLine(headline: 'Chronic Diseases'),
           const ChronicDiseasesChecklist(),
-          //MyForm(),
+          // //MyForm(),
           const HDivider(),
           const FormHeadLine(headline: 'Add a Clear Pictures of your Mouth'),
           const SizedBox(
@@ -117,7 +117,7 @@ class FormBody extends StatelessWidget {
           const SizedBox(
             height: 8,
           ),
-          //CheckboxFormField(),
+          // //CheckboxFormField(),
           AuthButton(
             buttonText: 'Next',
             onTap: () {
