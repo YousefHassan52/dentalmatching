@@ -21,6 +21,8 @@ class GridViewWidget extends StatelessWidget {
       ImageModel(image: 'assets/images/signup.png'),
     ];
     return GridView.builder(
+      shrinkWrap: true,
+      physics:const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
         mainAxisExtent: 100,
