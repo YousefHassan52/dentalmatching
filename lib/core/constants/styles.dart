@@ -42,6 +42,18 @@ abstract class Styles {
       fontWeight: FontWeight.normal,
       fontSize: 16,
       letterSpacing: 3);
+
+
+
+  static const TextStyle Bio = TextStyle(
+      color: Color.fromARGB(255, 118, 116, 116),
+      fontWeight: FontWeight.normal,
+      fontSize: 25,
+      letterSpacing: 3);
+
+
+
+      
   static const TextStyle descripativeText = TextStyle(
     color: AppColors.greyTextColor,
     fontSize: 23,

@@ -43,6 +43,7 @@ class ViewForm extends StatelessWidget {
                 children: [
                   const FormHeadLine(headline: 'Describe what you feel'),
                   Container(
+                    width: double.infinity,
                     margin: const EdgeInsets.all(4),
                     decoration: BoxDecoration(
                         color: Color.fromARGB(62, 73, 119, 192),
