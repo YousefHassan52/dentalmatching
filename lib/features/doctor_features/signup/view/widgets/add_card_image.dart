@@ -19,7 +19,7 @@ class AddCardImage extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(5),
         alignment: Alignment.center,
-        width: Get.width * 0.4,
+        width: Get.width * 0.5,
         height: Get.width * 0.3 - 40,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
@@ -39,15 +39,18 @@ class AddCardImage extends StatelessWidget {
             ),
           ],
         ),
-        child: Row(
-          children: [
-            Text(
-              "ID Photo",
-              style: const TextStyle(color: Colors.white, fontSize: 18),
-            ),
-            Spacer(),
-            SvgPicture.asset(height: 30, "assets/svg/Boldd_Camera.svg")
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Text(
+                "ID Photo",
+                style: const TextStyle(color: Colors.white, fontSize: 18),
+              ),
+              Spacer(),
+              SvgPicture.asset(height: 30, "assets/svg/Boldd_Camera.svg")
+            ],
+          ),
         ),
       ),
     );

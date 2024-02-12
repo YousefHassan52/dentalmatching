@@ -41,6 +41,7 @@ class UpperWidget extends StatelessWidget {
             SizedBox(
               height: upperPartHeight * 0.03,
             ),
+           
           ],
         ),
       ),
