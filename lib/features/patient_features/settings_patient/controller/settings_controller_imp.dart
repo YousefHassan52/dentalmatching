@@ -6,12 +6,12 @@ import 'package:get/get.dart';
 
 class SettingsPatientControllerImp extends SettingsPatientControllerAbstract {
   MyServices myServices = Get.find();
-  late PatientModel userModel;
+  late PatientModel userModel =
+      PatientModel.fromSharedPref(myServices.sharedPref);
 
   @override
   initializeUserData() {
     getData();
-    userModel = PatientModel.fromSharedPref(myServices.sharedPref);
   }
 
   @override

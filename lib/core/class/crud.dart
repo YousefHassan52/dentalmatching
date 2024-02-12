@@ -201,4 +201,47 @@ class CRUD {
       return left(RequestStatus.UNKOWN_FAILURE);
     }
   }
+
+  Future<Either<RequestStatus, Map<String, dynamic>>> get({
+    required String url,
+    String? token, // Add String? parameter for the token
+  }) async {
+    try {
+      if (await CheckInternet.fun()) {
+        Dio dio = Dio();
+
+        // Create headers with Authorization bearer token
+        Options options = Options(
+          headers: {
+            HttpHeaders.authorizationHeader: 'Bearer $token',
+          },
+        );
+        // Disable Dio's default validateStatus behavior
+        dio.options.validateStatus = (status) => true;
+
+        Response response = await dio.get(
+          url,
+          options: options,
+        );
+
+        if (response.statusCode == 200 || response.statusCode == 201) {
+          Map<String, dynamic> json = response.data;
+          return right(json);
+        } else if (response.statusCode == 400) {
+          print(response.data);
+          return left(RequestStatus.UNAUTHORIZED_FAILURE);
+        } else if (response.statusCode == 500) {
+          return left(RequestStatus.INTERNAL_SERVER_ERROR);
+        } else {
+          return left(RequestStatus.SERVER_FAILURE);
+        }
+      } else {
+        return left(RequestStatus.OFFLINE_FAILURE);
+      }
+    } on DioException catch (e) {
+      // Handle other DioError cases or rethrow the exception
+      print(e.toString());
+      return left(RequestStatus.UNKOWN_FAILURE);
+    }
+  }
 }

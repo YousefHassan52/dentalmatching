@@ -1,14 +1,16 @@
-
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/patient_features/PatientProfile/Views/Widgets/CircleAvatarWidget.dart';
+import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/View/Widget/ImageContainer.dart';
+import 'package:dentalmatching/features/patient_features/View_Cases/data/Model/case_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FormContainerInfo extends StatelessWidget {
-  const FormContainerInfo({
-    super.key,
-  });
+  const FormContainerInfo({Key? key, required this.caseModel})
+      : super(key: key);
+
+  final MyCaseModel caseModel;
 
   @override
   Widget build(BuildContext context) {
@@ -28,17 +30,13 @@ class FormContainerInfo extends StatelessWidget {
             height: 10,
           ),
           Row(
-            
             children: [
               const SizedBox(
                 height: 70,
-                child:
-                    CircleAvatarWidget(imagePath: 'assets/svg/pp.svg'),
+                child: CircleAvatarWidget(imagePath: 'assets/svg/pp.svg'),
               ),
-              const Text('Hajar'),
-               SizedBox(
-                width: Get.width * 0.355,
-              ),
+              Text(caseModel.patientName),
+              const Spacer(),
               IconButton(
                 onPressed: () {},
                 icon: const Icon(
@@ -48,12 +46,11 @@ class FormContainerInfo extends StatelessWidget {
               ),
             ],
           ),
-            
-          const Padding(
-            padding: EdgeInsets.all(8.0),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Text(
-              'It feels like a throbbing sensation,especially when I bite down or apply pressure while chewing.',
-              style: TextStyle(
+              caseModel.description,
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w400,
               ),

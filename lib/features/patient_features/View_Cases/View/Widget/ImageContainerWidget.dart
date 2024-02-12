@@ -1,12 +1,12 @@
-
 import 'package:dentalmatching/core/constants/colors.dart';
-import 'package:dentalmatching/features/patient_features/View_Cases/Model/ImageModel.dart';
+import 'package:dentalmatching/features/patient_features/View_Cases/data/Model/ImageModel.dart';
 import 'package:flutter/material.dart';
 
 class ImageContainerWidget extends StatelessWidget {
   final ImageModel model;
   const ImageContainerWidget({
-    super.key, required this.model,
+    super.key,
+    required this.model,
   });
 
   @override

@@ -2,6 +2,7 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/patient_features/PatientProfile/Views/Widgets/EnabledInfo.dart';
 import 'package:dentalmatching/features/patient_features/PatientProfile/Views/Widgets/Upper.dart';
+import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,7 @@ class PatientProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(MyCasesPatientControllerImpl());
     return const Scaffold(
       body: Column(
         children: [

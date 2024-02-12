@@ -1,5 +1,5 @@
 import 'package:dentalmatching/core/constants/colors.dart';
-import 'package:dentalmatching/features/patient_features/View_Cases/Model/ImageModel.dart';
+import 'package:dentalmatching/features/patient_features/View_Cases/data/Model/ImageModel.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/View/Widget/ImageContainerWidget.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +21,7 @@ class ImageContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: ListView.builder(
-        itemCount:3,
+        itemCount: 3,
         scrollDirection: Axis.horizontal,
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {

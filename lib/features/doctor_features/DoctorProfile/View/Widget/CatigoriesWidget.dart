@@ -1,7 +1,7 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/doctor_features/DoctorProfile/Model/CategoriesModel.dart';
-import 'package:dentalmatching/features/patient_features/View_Cases/Model/ImageModel.dart';
+import 'package:dentalmatching/features/patient_features/View_Cases/data/Model/ImageModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -17,30 +17,32 @@ class CategoriesWidget extends StatelessWidget {
     return Row(
       children: [
         Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4),
-            child: 
-                Container(
-                  width: 140,
-                  height: 50,
-                  decoration: const BoxDecoration(
-                    color: Color(0xff526FA6),
-                    borderRadius: BorderRadius.all(Radius.circular(26)),
-                  ),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: SizedBox(
-                          width: 35,
-                          height: 35,
-                          child: SvgPicture.asset('assets/svg/implant.svg')),
-                      ),
-                        FittedBox(
-                          fit: BoxFit.fitWidth,
-                          child: Text(model.text , style: TextStyle(color: Colors.white)))
-                    ],
-                  ),
-                ),),],
+          padding: const EdgeInsets.symmetric(horizontal: 4),
+          child: Container(
+            width: 140,
+            height: 50,
+            decoration: const BoxDecoration(
+              color: Color(0xff526FA6),
+              borderRadius: BorderRadius.all(Radius.circular(26)),
+            ),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: SizedBox(
+                      width: 35,
+                      height: 35,
+                      child: SvgPicture.asset('assets/svg/implant.svg')),
+                ),
+                FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child:
+                        Text(model.text, style: TextStyle(color: Colors.white)))
+              ],
+            ),
+          ),
+        ),
+      ],
     );
     // Row(
     //   children: [
