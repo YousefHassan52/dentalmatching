@@ -14,6 +14,7 @@ class AppRoutes {
   static const String homeDoctor = '/home_doctor';
 
   static const String userType = '/userType';
+  static const String formView = '/formView';
 
   static const String verifyEmailCode = '/verify_email';
   //static const String home = '/home';

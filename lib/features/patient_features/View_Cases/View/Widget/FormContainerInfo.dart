@@ -1,5 +1,6 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/patient_features/PatientProfile/Views/Widgets/CircleAvatarWidget.dart';
+import 'package:dentalmatching/features/patient_features/View%20Form/view/ViewForm.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/View/Widget/ImageContainer.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/data/Model/case_model.dart';
@@ -38,7 +39,7 @@ class FormContainerInfo extends StatelessWidget {
               Text(caseModel.patientName),
               const Spacer(),
               IconButton(
-                onPressed: () {},
+                onPressed: () {Get.to(ViewForm());},
                 icon: const Icon(
                   Icons.double_arrow_outlined,
                   color: AppColors.mainColor,

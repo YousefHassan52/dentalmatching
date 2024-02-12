@@ -1,4 +1,5 @@
 import 'package:dentalmatching/core/constants/colors.dart';
+import 'package:dentalmatching/features/patient_features/View%20Form/view/Widget/InstantImgForm.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/data/Model/ImageModel.dart';
 import 'package:flutter/material.dart';
 
@@ -15,18 +16,19 @@ class ImageContainerWidget extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Container(
-            width: 100,
-            height: 100,
-            decoration: const BoxDecoration(
-              color: AppColors.mainColor,
-              borderRadius: BorderRadius.all(Radius.circular(26)),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(2.0),
-              child: Image.asset(model.image),
-            ),
-          ),
+          child: InstantImageForm(img: model.image),
+          //  Container(
+          //   width: 100,
+          //   height: 100,
+          //   decoration: const BoxDecoration(
+          //     color: AppColors.mainColor,
+          //     borderRadius: BorderRadius.all(Radius.circular(26)),
+          //   ),
+          //   child: Padding(
+          //     padding: const EdgeInsets.all(2.0),
+          //     child: Image.asset(model.image),
+          //   ),
+          // ),
         ),
       ],
     );
