@@ -1,24 +1,25 @@
-import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
-import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
-import 'package:dentalmatching/features/doctor_features/CasesForm/View/Widgets/BioWidget.dart';
-import 'package:dentalmatching/features/doctor_features/CasesForm/View/Widgets/BoxWidget.dart';
-import 'package:dentalmatching/features/doctor_features/CasesForm/View/Widgets/List.dart';
-import 'package:dentalmatching/features/doctor_features/CasesForm/View/Widgets/RequestButton.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/BioWidget.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/BoxWidget.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/RequestButton.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AppUpper.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/FormHeadLine.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/HDivider.dart';
 import 'package:dentalmatching/features/patient_features/PatientProfile/Views/Widgets/CircleAvatarWidget.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/ChronicList.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/GridViewWidget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CaseForm extends StatelessWidget {
-  const CaseForm({super.key});
+class ViewWholeCaseForDoctor extends StatelessWidget {
+  const ViewWholeCaseForDoctor({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ViewWholeCaseDoctorControllerImpl controller =
+        Get.put(ViewWholeCaseDoctorControllerImpl());
     return Scaffold(
       body: ListView(
         children: [
@@ -36,8 +37,8 @@ class CaseForm extends StatelessWidget {
                         child: const CircleAvatarWidget(
                             imagePath: 'assets/svg/profile.svg'),
                       ),
-                      const Text(
-                        'Kamal Ahmed',
+                      Text(
+                        controller.caseModel.patientName,
                         style: Styles.textStyle15LightBlue,
                       ),
                     ],
@@ -45,27 +46,48 @@ class CaseForm extends StatelessWidget {
                 ),
                 Container(
                   margin: const EdgeInsets.all(20),
-                  child: const FittedBox(
+                  child: FittedBox(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         BioWidget(
                           title: 'Address',
-                          subTitle: 'El Safa - Giza',
+                          subTitle: controller.caseModel.patientCity,
                         ),
                         BioWidget(
                           title: 'Age',
-                          subTitle: '22',
+                          subTitle: "${controller.caseModel.patientAge}",
                         ),
                         BioWidget(
                           title: 'Case Status',
-                          subTitle: 'Known',
+                          subTitle: controller.caseModel.isKnown == true
+                              ? "Known"
+                              : "Unkown",
                         ),
-                        BioWidget(
-                          title: 'Phone umber',
-                          subTitle: '01152062902',
-                        ),
-                        
+                        GetBuilder<ViewWholeCaseDoctorControllerImpl>(
+                            builder: (internalController) {
+                          // if loading return circular progress
+                          if (internalController.viewPhone == true) {
+                            return Column(
+                              children: [
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                BioWidget(
+                                  title: 'Phone umber',
+                                  subTitle:
+                                      internalController.caseModel.phoneNumber,
+                                ),
+                              ],
+                            );
+                          } else {
+                            return BioWidget(
+                              isLongText: true,
+                              title: 'Phone umber',
+                              subTitle: "You need to\nrequest\ncase first!",
+                            );
+                          }
+                        }),
                       ],
                     ),
                   ),
@@ -82,10 +104,10 @@ class CaseForm extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                const BoxWidget(
+                BoxWidget(
                   widget: Text(
-                    'It feels like a throbbing sensation,especially when I bite down or apply pressure while chewing.',
-                    style: TextStyle(color: Colors.black, fontSize: 20),
+                    controller.caseModel.description,
+                    style: const TextStyle(color: Colors.black, fontSize: 20),
                   ),
                 ),
                 const SizedBox(
@@ -100,12 +122,13 @@ class CaseForm extends StatelessWidget {
                   height: 20,
                 ),
                 BoxWidget(
-                  widget: ChronicList(list: [
-                    'Diabetes',
-                    'Hypertension',
-                    'Heart Disease',
-                    'Cancer',
-                  ]),
+                  widget: controller.caseModel.chronicDiseases.isNotEmpty
+                      ? ChronicOrDentalList(
+                          list: controller.caseModel.chronicDiseases)
+                      : const Text(
+                          "None",
+                          style: Styles.descripativeText,
+                        ),
                 ),
                 const SizedBox(
                   height: 20,
@@ -118,8 +141,10 @@ class CaseForm extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                const BoxWidget(
-                  widget: Text('Images'),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: GridViewWidget(
+                      imagesList: controller.caseModel.mouthImages),
                 ),
                 const SizedBox(
                   height: 20,
@@ -132,9 +157,17 @@ class CaseForm extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                // const BoxWidget(
-                //   widget: GridViewWidget(imagesList: imagesList),
-                // ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: controller.caseModel.xrayImages.isNotEmpty
+                      ? GridViewWidget(
+                          imagesList: controller.caseModel.xrayImages,
+                        )
+                      : const Text(
+                          "None",
+                          style: Styles.descripativeText,
+                        ),
+                ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -146,10 +179,17 @@ class CaseForm extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                const BoxWidget(
-                  widget: Text('Images'),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: controller.caseModel.prescriptionImages.isNotEmpty
+                      ? GridViewWidget(
+                          imagesList: controller.caseModel.prescriptionImages,
+                        )
+                      : const Text(
+                          "None",
+                          style: Styles.descripativeText,
+                        ),
                 ),
-          
               ],
             ),
           ),

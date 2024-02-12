@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 class BioWidget extends StatelessWidget {
   final String title;
   final String subTitle;
-  const BioWidget({
+  bool isLongText;
+  BioWidget({
     super.key,
     required this.title,
     required this.subTitle,
+    this.isLongText = false,
   });
 
   @override
@@ -20,7 +22,9 @@ class BioWidget extends StatelessWidget {
         ),
         Text(
           subTitle,
-          style: Styles.Bio,
+          style: isLongText == true
+              ? Styles.Bio.copyWith(fontSize: 14)
+              : Styles.Bio,
         ),
       ],
     );

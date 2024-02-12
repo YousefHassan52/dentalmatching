@@ -40,7 +40,8 @@ class CasContainer extends StatelessWidget {
               const Spacer(),
               IconButton(
                 onPressed: () {
-                  Get.toNamed(AppRoutes.caseFormDoctor);
+                  Get.toNamed(AppRoutes.viewWholeCaseForDoctor,
+                      arguments: {"case": caseModel});
                 },
                 icon: const Icon(
                   Icons.double_arrow_outlined,
