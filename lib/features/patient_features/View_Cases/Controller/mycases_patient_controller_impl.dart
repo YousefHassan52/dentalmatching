@@ -22,7 +22,8 @@ class MyCasesPatientControllerImpl extends MyCasesPatientControllerAbstract {
   @override
   void onInit() {
     getCases();
-    patientModel = PatientModel.fromSharedPref(myServices.sharedPref);
+    patientModel =
+        PatientModel.fromSharedPref(myServices.sharedPref); // el mafrod tet4al
     super.onInit();
   }
 
@@ -34,8 +35,8 @@ class MyCasesPatientControllerImpl extends MyCasesPatientControllerAbstract {
     var response =
         await myCasesPatientData.getMyCases(token: patientModel.token);
     print(response.toString());
-    update();
     requestStatus = HandlingResponseType.fun(response);
+    update();
     print("joe ;${requestStatus.toString()}");
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {

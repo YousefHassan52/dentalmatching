@@ -24,7 +24,7 @@ class UnassignedCasesDoctorControllerImpl
   }
 
   @override
-  void getCases() async {
+  Future<void> getCases() async {
     cases = [];
     requestStatus = RequestStatus.LOADING;
     update();

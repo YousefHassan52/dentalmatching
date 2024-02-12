@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 class RequestButton extends StatelessWidget {
   const RequestButton({
     super.key,
+    required this.onPressed,
   });
+  final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: MaterialButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: Container(
           alignment: Alignment.center,
           width: 150,
@@ -35,7 +37,7 @@ class RequestButton extends StatelessWidget {
           child: FittedBox(
             child: Text(
               'Request',
-              style: TextStyle(color: Colors.white,fontSize: 25),
+              style: TextStyle(color: Colors.white, fontSize: 25),
             ),
           ),
         ),

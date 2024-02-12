@@ -1,4 +1,7 @@
+import 'package:dentalmatching/core/class/request_status.dart';
+import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
+import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/BioWidget.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/BoxWidget.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/RequestButton.dart';
@@ -20,6 +23,9 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
   Widget build(BuildContext context) {
     ViewWholeCaseDoctorControllerImpl controller =
         Get.put(ViewWholeCaseDoctorControllerImpl());
+    UnassignedCasesDoctorControllerImpl reloadDataController =
+        Get.put(UnassignedCasesDoctorControllerImpl());
+
     return Scaffold(
       body: ListView(
         children: [
@@ -67,14 +73,26 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                         GetBuilder<ViewWholeCaseDoctorControllerImpl>(
                             builder: (internalController) {
                           // if loading return circular progress
-                          if (internalController.viewPhone == true) {
+                          if (controller.requestStatus ==
+                              RequestStatus.LOADING) {
+                            return SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: const CircularProgressIndicator(
+                                backgroundColor: AppColors.mainColor,
+                                color: AppColors.secondColor,
+                              ),
+                            );
+                          } else if (internalController.viewPhone == true &&
+                              controller.requestStatus ==
+                                  RequestStatus.SUCCESS) {
                             return Column(
                               children: [
                                 const SizedBox(
                                   height: 20,
                                 ),
                                 BioWidget(
-                                  title: 'Phone umber',
+                                  title: 'Phone number',
                                   subTitle:
                                       internalController.caseModel.phoneNumber,
                                 ),
@@ -92,7 +110,15 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                     ),
                   ),
                 ),
-                const RequestButton(),
+                RequestButton(
+                  onPressed: () {
+                    controller
+                        .requestCase(caseId: controller.caseModel.caseId)
+                        .then((value) {
+                      reloadDataController.getCases();
+                    });
+                  },
+                ),
                 const SizedBox(
                   height: 20,
                 ),
