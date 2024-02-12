@@ -1,12 +1,11 @@
+// ignore_for_file: file_names
+
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
-import 'package:dentalmatching/features/patient_features/PatientProfile/Views/Widgets/CircleAvatarWidget.dart';
 import 'package:dentalmatching/features/patient_features/PatientProfile/Views/Widgets/Upper.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/View/Widget/FormContainerInfo.dart';
-import 'package:dentalmatching/features/patient_features/View_Cases/View/Widget/ImageContainer.dart';
-import 'package:dentalmatching/features/patient_features/View_Cases/View/Widget/ImageContainerWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -52,7 +51,7 @@ class HasCases extends StatelessWidget {
               return Expanded(
                 child: ListView.builder(
                   // shrinkWrap: true,
-                  physics: const BouncingScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: externalController.myCases.length,
                   itemBuilder: (context, index) {
                     return Padding(
