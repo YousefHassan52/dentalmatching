@@ -1,12 +1,12 @@
-import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/FormHeadLine.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/HDivider.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/OptionalText.dart';
-import 'package:dentalmatching/features/patient_features/View%20Form/view/Widget/ChronicList.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/view_full_case_patient_controller_impl.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/ChronicList.dart';
 import 'package:flutter/material.dart';
 import 'package:dentalmatching/features/patient_features/PatientProfile/Views/Widgets/Upper.dart';
-import 'package:dentalmatching/features/patient_features/View Form/view/Widget/GridViewWidget.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/GridViewWidget.dart';
 import 'package:get/get.dart';
 
 class ViewForm extends StatelessWidget {
@@ -14,6 +14,8 @@ class ViewForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ViewFullCasePatientControllerImpl controller =
+        Get.put(ViewFullCasePatientControllerImpl());
     return Scaffold(
         body: ListView(
       children: [
@@ -45,9 +47,9 @@ class ViewForm extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: Color.fromARGB(62, 73, 119, 192),
                         borderRadius: BorderRadius.circular(20)),
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text('Descriptionbsbbbbnbnbnbbmnbmnxbnbxnbmbmbm',
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(controller.caseModel.description,
                           style: Styles.descripativeText),
                     ),
                   ),
@@ -56,56 +58,79 @@ class ViewForm extends StatelessWidget {
                     child: HDivider(),
                   ),
                   const FormHeadLine(headline: 'Chronic Diseases'),
-                  ChronicList(),
+                  controller.caseModel.chronicDiseases.isNotEmpty
+                      ? ChronicOrDentalList(
+                          list: controller.caseModel.chronicDiseases)
+                      : const Text(
+                          "None",
+                          style: Styles.descripativeText,
+                        ),
                   const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: HDivider(),
                   ),
                   const FormHeadLine(headline: 'Do you know your case ?'),
-                  const Text(
-                    'Know',
-                    style: Styles.descripativeText,
-                  ),
+                  controller.caseModel.isKnown == true
+                      ? ChronicOrDentalList(
+                          list: controller.caseModel.dentalDiseases)
+                      : const Text(
+                          "None",
+                          style: Styles.descripativeText,
+                        ),
                   const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: HDivider(),
                   ),
-                  const FormHeadLine(
-                      headline: 'Add a Clear Pictures of your Mouth'),
-                  SizedBox(
+                  const FormHeadLine(headline: 'Pictures of your Mouth'),
+                  const SizedBox(
                     height: 10,
                   ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.0),
-                    child: GridViewWidget(),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: HDivider(),
-                  ),
-                  const OptionalText(
-                    text: 'Add X-Ray',
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.0),
-                    child: GridViewWidget(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: GridViewWidget(
+                        imagesList: controller.caseModel.mouthImages),
                   ),
                   const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: HDivider(),
                   ),
                   const OptionalText(
-                    text: 'Add Prescription',
+                    text: 'X-Ray Images',
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: controller.caseModel.xrayImages.isNotEmpty
+                        ? GridViewWidget(
+                            imagesList: controller.caseModel.xrayImages,
+                          )
+                        : const Text(
+                            "None",
+                            style: Styles.descripativeText,
+                          ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: HDivider(),
+                  ),
+                  const OptionalText(
+                    text: 'Prescription Images',
                   ),
                   SizedBox(
                     height: 10,
                   ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.0),
-                    child: GridViewWidget(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: controller.caseModel.prescriptionImages.isNotEmpty
+                        ? GridViewWidget(
+                            imagesList: controller.caseModel.prescriptionImages,
+                          )
+                        : const Text(
+                            "None",
+                            style: Styles.descripativeText,
+                          ),
                   ),
                 ],
               ),

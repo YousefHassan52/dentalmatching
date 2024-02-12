@@ -1,5 +1,3 @@
-import 'package:dentalmatching/features/common_faetures/loginn/view/login.dart';
-import 'package:dentalmatching/features/doctor_features/DoctorProfile/View/DrProfile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -54,10 +52,10 @@ class UserProfileWidget extends StatelessWidget {
         //   onPressed: () {},
         //   icon: SvgPicture.asset("assets/svg/editButton.svg"),
         // )
-         IconButton(onPressed:() {
-              Get.to(DrProfile());
-            },
-             icon: Icon(Icons.gamepad_outlined))
+        //  IconButton(onPressed:() {
+        //       Get.to(DrProfile());
+        //     },
+        //      icon: Icon(Icons.gamepad_outlined))
       ],
     );
   }

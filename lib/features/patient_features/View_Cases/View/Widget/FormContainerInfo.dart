@@ -40,7 +40,8 @@ class FormContainerInfo extends StatelessWidget {
               const Spacer(),
               IconButton(
                 onPressed: () {
-                  Get.toNamed(AppRoutes.formView);
+                  Get.toNamed(AppRoutes.formView,
+                      arguments: {"case": caseModel});
                 },
                 icon: const Icon(
                   Icons.double_arrow_outlined,
@@ -63,7 +64,7 @@ class FormContainerInfo extends StatelessWidget {
           ),
           SizedBox(
             height: 130,
-            child: ImageContainer(),
+            child: ImageContainer(caseModel: caseModel),
           )
         ],
       ),

@@ -1,15 +1,15 @@
 // ignore: unused_import
 // ignore_for_file: file_names
 
-import 'package:dentalmatching/features/patient_features/View%20Form/view/Widget/InstantImgForm.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/InstantImgForm.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/data/Model/ImageModel.dart';
 import 'package:flutter/material.dart';
 
 class ImageContainerWidget extends StatelessWidget {
-  final ImageModel model;
+  final String image;
   const ImageContainerWidget({
     super.key,
-    required this.model,
+    required this.image,
   });
 
   @override
@@ -18,7 +18,7 @@ class ImageContainerWidget extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: InstantImageForm(img: model.image),
+          child: InstantImageForm(img: image),
           //  Container(
           //   width: 100,
           //   height: 100,
