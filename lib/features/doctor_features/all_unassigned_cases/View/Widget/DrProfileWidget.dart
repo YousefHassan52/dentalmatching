@@ -1,4 +1,4 @@
-import 'package:dentalmatching/features/doctor_features/DoctorProfile/View/Widget/AvatarWidget.dart';
+import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AvatarWidget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -15,7 +15,8 @@ class DrProfileWidget extends StatelessWidget {
     return Row(
       children: [
         Padding(
-          padding:  EdgeInsets.symmetric(vertical:Get.width* 0.05,horizontal:Get.width* 0.03 ),
+          padding: EdgeInsets.symmetric(
+              vertical: Get.width * 0.05, horizontal: Get.width * 0.03),
           child: const AvatarWidget(
             imagePath: 'assets/svg/pp.svg',
           ),
@@ -34,15 +35,15 @@ class DrProfileWidget extends StatelessWidget {
             const SizedBox(
               height: 2,
             ),
-            RichText(text: TextSpan(
-              text: 
-              name,
-              style: const TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+            RichText(
+              text: TextSpan(
+                text: name,
+                style: const TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
-            ),
             ),
             // Text(
             //   name,

@@ -28,6 +28,14 @@ class LoginScreen extends StatelessWidget {
           child: ListView(
             scrollDirection: Axis.vertical,
             children: [
+              IconButton(
+                  onPressed: () {
+                    Get.toNamed(AppRoutes.unassignedCasesDoctor);
+                  },
+                  icon: const Icon(
+                    Icons.dangerous,
+                    color: Colors.black,
+                  )),
               const FittedBox(
                   fit: BoxFit.fitWidth, child: Heading(text: 'Welcome Back')),
               const CentImg(centeredImg: 'assets/svg/log.svg'),

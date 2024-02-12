@@ -1,4 +1,3 @@
-
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/features/patient_features/PatientProfile/Views/Widgets/CircleAvatarWidget.dart';
@@ -8,10 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CasContainer extends StatelessWidget {
-  const CasContainer({Key? key, })
-      : super(key: key);
-
-
+  const CasContainer({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +29,13 @@ class CasContainer extends StatelessWidget {
             height: 10,
           ),
           Row(
-            
             children: [
               const SizedBox(
                 height: 70,
-                child:
-                    CircleAvatarWidget(imagePath: 'assets/svg/pp.svg'),
+                child: CircleAvatarWidget(imagePath: 'assets/svg/pp.svg'),
               ),
               const Text('Hajar'),
-               SizedBox(
+              SizedBox(
                 width: Get.width * 0.355,
               ),
               IconButton(
@@ -53,7 +49,7 @@ class CasContainer extends StatelessWidget {
               ),
             ],
           ),
-            
+
           const Padding(
             padding: EdgeInsets.all(8.0),
             child: Text(
@@ -66,11 +62,12 @@ class CasContainer extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
           ),
-          SizedBox(
-            height: 130,
-            child: ImageContainer(),
-          )
+          // SizedBox(
+          //   height: 130,
+          //   child: ImageContainer(),
+          // )
         ],
       ),
     );
-  }}
+  }
+}

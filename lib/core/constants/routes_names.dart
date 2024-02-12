@@ -26,6 +26,5 @@ class AppRoutes {
       '/verify_email_forget_password';
   static const String resetPassword = '/reset_password';
 
-  //
-  // static const String settings = '/settings';
+  static const String unassignedCasesDoctor = "/unassigned_cases";
 }

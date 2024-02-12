@@ -1,5 +1,5 @@
 import 'package:dentalmatching/core/services/my_services.dart';
-import 'package:dentalmatching/features/doctor_features/DoctorProfile/View/DrProfile.dart';
+import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/DrProfile.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/AddCase.dart';
 import 'package:dentalmatching/features/patient_features/PatientProfile/Views/PatientProfile.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/View/HasCases.dart';

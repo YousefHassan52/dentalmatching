@@ -15,4 +15,6 @@ class ApiLinks {
       "https://dentamatch.azurewebsites.net/Patient/DentalCase/AddCase";
   static const String myCasesPatient =
       "https://dentamatch.azurewebsites.net/Patient/DentalCase/GetCases";
+  static const getUnassignedCasesDoctor =
+      "https://dentamatch.azurewebsites.net/Doctor/DentalCase/GetUnassignedCases";
 }

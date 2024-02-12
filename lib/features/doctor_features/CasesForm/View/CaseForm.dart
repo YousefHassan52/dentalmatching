@@ -1,4 +1,4 @@
-import 'package:dentalmatching/features/doctor_features/DoctorProfile/View/Widget/AppUpper.dart';
+import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AppUpper.dart';
 import 'package:flutter/material.dart';
 
 class CaseForm extends StatelessWidget {
@@ -7,12 +7,11 @@ class CaseForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     body: Column(
-      children: [
-        AppUpperWidget(),
-        
-      ],
-     ),
+      body: Column(
+        children: [
+          AppUpperWidget(),
+        ],
+      ),
     );
   }
 }

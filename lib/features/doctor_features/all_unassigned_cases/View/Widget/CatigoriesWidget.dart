@@ -1,6 +1,6 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
-import 'package:dentalmatching/features/doctor_features/DoctorProfile/Model/CategoriesModel.dart';
+import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/Model/CategoriesModel.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/data/Model/ImageModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
