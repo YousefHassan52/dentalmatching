@@ -1,3 +1,5 @@
+import 'package:dentalmatching/core/class/request_status.dart';
+import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Controller/FormController.dart';
@@ -113,7 +115,7 @@ class FormBody extends StatelessWidget {
             child: HDivider(),
           ),
           const FormHeadLine(headline: 'Do you know your case ?'),
-          KnownCheckWidget(),
+          const KnownCheckWidget(),
           const SizedBox(
             height: 8,
           ),
@@ -123,7 +125,19 @@ class FormBody extends StatelessWidget {
             onTap: () {
               controller.handleButtonBehavior();
             },
-          )
+          ),
+          GetBuilder<ChronicDiseasesController>(
+            builder: (controller) => Container(
+              margin: const EdgeInsets.symmetric(vertical: 10),
+              width: double.infinity,
+              child: controller.requestStatus == RequestStatus.LOADING
+                  ? LinearProgressIndicator(
+                      color: AppColors.mainColor,
+                      backgroundColor: AppColors.mainColor.withOpacity(0.20),
+                    )
+                  : null,
+            ),
+          ),
         ],
       ),
     );

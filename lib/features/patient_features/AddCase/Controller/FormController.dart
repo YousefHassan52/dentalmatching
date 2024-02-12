@@ -224,11 +224,12 @@ class ChronicDiseasesController extends GetxController {
       );
       print(response.toString());
       requestStatus = HandlingResponseType.fun(response);
-      update();
       print("joe ;${requestStatus.toString()}");
+      update();
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response['success'] == true) {
-          Get.defaultDialog(title: "Hello ", middleText: "$response}");
+          Get.defaultDialog(
+              title: "Success ", middleText: "Your Case Posted Successfully");
           print(response);
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
