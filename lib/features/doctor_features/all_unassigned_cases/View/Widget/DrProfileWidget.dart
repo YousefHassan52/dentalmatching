@@ -39,7 +39,7 @@ class DrProfileWidget extends StatelessWidget {
               text: TextSpan(
                 text: name,
                 style: const TextStyle(
-                  fontSize: 25,
+                  fontSize: 15,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
