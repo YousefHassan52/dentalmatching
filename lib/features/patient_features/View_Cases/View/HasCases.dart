@@ -51,7 +51,7 @@ class HasCases extends StatelessWidget {
               return Expanded(
                 child: ListView.builder(
                   // shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   itemCount: externalController.myCases.length,
                   itemBuilder: (context, index) {
                     return Padding(

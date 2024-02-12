@@ -34,14 +34,24 @@ class DrProfileWidget extends StatelessWidget {
             const SizedBox(
               height: 2,
             ),
-            Text(
+            RichText(text: TextSpan(
+              text: 
               name,
               style: const TextStyle(
-                fontSize: 15,
+                fontSize: 25,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
+            ),
+            // Text(
+            //   name,
+            //   style: const TextStyle(
+            //     fontSize: 15,
+            //     fontWeight: FontWeight.bold,
+            //     color: Colors.white,
+            //   ),
+            // ),
           ],
         ),
         // IconButton(

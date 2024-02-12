@@ -13,7 +13,7 @@ class DrProfile extends StatelessWidget {
       body: ListView(
         children: [
           AppUpperWidget(),
-          CategoriesListView(),
+          //CategoriesListView(),
           
         ],
       ),

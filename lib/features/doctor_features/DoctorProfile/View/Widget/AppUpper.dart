@@ -33,7 +33,7 @@ class AppUpperWidget extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              const DrProfileWidget(title: 'Welcome',name: 'Hajar Abdelhamed'),
+              const DrProfileWidget(title: 'Welcome',name: 'Dr.Hajar Abdelhamed'),
               SizedBox(
                 height: upperPartHeight * 0.03,
               ),
