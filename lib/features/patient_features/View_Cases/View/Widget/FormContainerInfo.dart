@@ -64,7 +64,7 @@ class FormContainerInfo extends StatelessWidget {
           ),
           SizedBox(
             height: 130,
-            child: ImageContainer(caseModel: caseModel),
+            child: ImageContainer(imagesList: caseModel.mouthImages),
           )
         ],
       ),

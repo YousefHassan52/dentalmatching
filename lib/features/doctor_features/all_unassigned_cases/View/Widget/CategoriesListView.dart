@@ -1,4 +1,4 @@
-import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/Model/CategoriesModel.dart';
+import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/data/Model/CategoriesModel.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/CatigoriesWidget.dart';
 import 'package:flutter/cupertino.dart';
 

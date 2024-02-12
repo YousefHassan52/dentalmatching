@@ -62,7 +62,7 @@ class SignupDoctorControllerImpl extends SignupDoctorControllerAbstract {
         if (response["success"] == true) {
           // user.addAll(response["data"]);
           myServices.saveDoctorModelToSharedPrefrence(response);
-          Get.offAllNamed(AppRoutes.homeDoctor);
+          Get.offAllNamed(AppRoutes.settingsDoctor);
 
           // go to home
         }

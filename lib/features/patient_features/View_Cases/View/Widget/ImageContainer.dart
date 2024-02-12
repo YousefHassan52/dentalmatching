@@ -7,31 +7,22 @@ import 'package:dentalmatching/features/patient_features/View_Cases/data/Model/c
 import 'package:flutter/material.dart';
 
 class ImageContainer extends StatelessWidget {
-  final List<ImageModel> image = [
-    ImageModel(image: 'assets/images/signup.png'),
-    ImageModel(image: 'assets/images/signup.png'),
-    ImageModel(image: 'assets/images/signup.png'),
-    ImageModel(image: 'assets/images/signup.png'),
-    ImageModel(image: 'assets/images/signup.png'),
-    ImageModel(image: 'assets/images/signup.png'),
-    ImageModel(image: 'assets/images/signup.png'),
-  ];
-  ImageContainer({
+  const ImageContainer({
     Key? key,
-    required this.caseModel,
+    required this.imagesList,
   }) : super(key: key);
-  final MyCaseModel caseModel;
+  final List<String> imagesList;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       child: ListView.builder(
-        itemCount: caseModel.mouthImages.length,
+        itemCount: imagesList.length,
         scrollDirection: Axis.horizontal,
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return ImageContainerWidget(
-            image: caseModel.mouthImages[index],
+            image: imagesList[index],
           );
         },
       ),

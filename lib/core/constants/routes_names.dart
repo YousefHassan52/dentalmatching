@@ -11,7 +11,7 @@ class AppRoutes {
   static const String homePatient = '/home_patient';
   static const String myCasesPatient = '/mycases_patient';
 
-  static const String homeDoctor = '/home_doctor';
+  static const String settingsDoctor = '/settings_doctor';
 
   static const String userType = '/userType';
   static const String formView = '/formView';
@@ -27,4 +27,5 @@ class AppRoutes {
   static const String resetPassword = '/reset_password';
 
   static const String unassignedCasesDoctor = "/unassigned_cases";
+  static const String homeDoctor = "/home_doctor";
 }
