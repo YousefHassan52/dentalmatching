@@ -17,11 +17,14 @@ class SettingsPatientControllerImp extends SettingsPatientControllerAbstract {
   @override
   void onInit() {
     initializeUserData();
+
     super.onInit();
   }
 
   @override
-  void getData() async {}
+  void getData() async {
+    // some actions
+  }
 
   logout() {
     myServices.sharedPref.remove("address");

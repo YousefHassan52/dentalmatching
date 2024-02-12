@@ -34,8 +34,8 @@ class MyCasesPatientControllerImpl extends MyCasesPatientControllerAbstract {
     var response =
         await myCasesPatientData.getMyCases(token: patientModel.token);
     print(response.toString());
-    requestStatus = HandlingResponseType.fun(response);
     update();
+    requestStatus = HandlingResponseType.fun(response);
     print("joe ;${requestStatus.toString()}");
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {
@@ -45,9 +45,13 @@ class MyCasesPatientControllerImpl extends MyCasesPatientControllerAbstract {
           MyCaseModel myCase = MyCaseModel.fromJson(data);
           myCases.add(myCase);
         }
+        if (response["message"] == "No Dental Cases Available") {
+          requestStatus = RequestStatus.EMPTY_SUCCESS;
+          update();
+        }
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-      Get.defaultDialog(middleText: "Internet Connection Error. Refresh Data ");
+      Get.defaultDialog(middleText: "Internet Connection Error Refresh Data ");
     } else {
       Get.defaultDialog(middleText: "Server Error Please Try Again");
     }

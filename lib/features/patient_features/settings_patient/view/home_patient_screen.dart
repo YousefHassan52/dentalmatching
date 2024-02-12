@@ -23,7 +23,7 @@ class SettingsPatientScreen extends StatelessWidget {
               onPressed: () {
                 controller.logout();
               },
-              child: Text("logout"))
+              child: Text("logout")),
         ],
       ),
     );

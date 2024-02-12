@@ -19,7 +19,7 @@ class HasCases extends StatelessWidget {
         Get.put(MyCasesPatientControllerImpl());
     return Scaffold(
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const UpperWidget(),
           const SizedBox(
@@ -48,7 +48,7 @@ class HasCases extends StatelessWidget {
           GetBuilder<MyCasesPatientControllerImpl>(builder: (controller) {
             if (controller.requestStatus == RequestStatus.LOADING) {
               return const Center(child: CircularProgressIndicator());
-            } else {
+            } else if (controller.requestStatus == RequestStatus.SUCCESS) {
               return Expanded(
                 child: ListView.builder(
                   // shrinkWrap: true,
@@ -63,6 +63,18 @@ class HasCases extends StatelessWidget {
                     );
                   },
                 ),
+              );
+            } else if (controller.requestStatus ==
+                RequestStatus.EMPTY_SUCCESS) {
+              return const Center(
+                child: Text(
+                  "No Cases Yet",
+                  style: TextStyle(color: Colors.black),
+                ),
+              );
+            } else {
+              return const Center(
+                child: Text("Reload Data"),
               );
             }
           })

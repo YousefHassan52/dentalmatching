@@ -10,8 +10,8 @@ class UpperWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MyCasesPatientControllerImpl controller =
-        Get.find(); // momken te7tag hena controller mo5tlef
+    MyCasesPatientControllerImpl controller = Get.put(
+        MyCasesPatientControllerImpl()); // momken te7tag hena controller mo5tlef
     double upperPartHeight = Get.height * 0.2;
     return Container(
       height: upperPartHeight,
