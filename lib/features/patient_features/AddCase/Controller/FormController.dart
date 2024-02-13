@@ -86,6 +86,7 @@ class ChronicDiseasesController extends GetxController {
     if (list.chronicDiseases[index].title == 'Hypertension') {
       showPressureChecklist = value;
     }
+    //homa 3amlen el selection optional ya jooooo
     selectedChronicDiseases = [];
     for (int i = 0; i < checkedItems.length; i++) {
       if (checkedItems[i]) {
