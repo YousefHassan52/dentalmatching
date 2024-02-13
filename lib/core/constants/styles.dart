@@ -29,6 +29,10 @@ abstract class Styles {
       color: AppColors.blueLightTextColor,
       fontWeight: FontWeight.w400,
       fontSize: 18);
+  static const TextStyle LightBlue = TextStyle(
+      color: AppColors.blueLightTextColor,
+      fontWeight: FontWeight.bold,
+      fontSize: 100);
 
   static const TextStyle textStyle15LightBlue = TextStyle(
       color: AppColors.blueLightTextColor,

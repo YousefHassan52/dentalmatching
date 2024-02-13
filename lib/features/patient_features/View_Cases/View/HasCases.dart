@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
@@ -28,9 +29,14 @@ class HasCases extends StatelessWidget {
             padding: const EdgeInsets.only(left: 8.0),
             child: Row(
               children: [
-                const Text(
-                  'My Cases',
-                  style: Styles.textStyle16LightBlue,
+                Container(
+                  child: const AutoSizeText(
+                    maxFontSize: 17,
+                    minFontSize: 15,
+                    'Recently Added Cases',
+                    style: Styles.LightBlue,
+                  
+                  ),
                 ),
                 const Spacer(),
                 IconButton(
@@ -38,7 +44,7 @@ class HasCases extends StatelessWidget {
                       externalController.getCases();
                     },
                     icon: const Icon(
-                      Icons.replay,
+                      Icons.rocket_launch_outlined,
                       color: AppColors.mainColor,
                     ))
               ],
@@ -50,7 +56,8 @@ class HasCases extends StatelessWidget {
             } else if (controller.requestStatus == RequestStatus.SUCCESS) {
               return Expanded(
                 child: ListView.builder(
-                  // shrinkWrap: true,
+                  padding: EdgeInsets.only(top: 0 , bottom: 70),
+                   shrinkWrap: true,
                   physics: const BouncingScrollPhysics(),
                   itemCount: externalController.myCases.length,
                   itemBuilder: (context, index) {
