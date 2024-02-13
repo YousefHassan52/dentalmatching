@@ -5,14 +5,22 @@ class StaticData {
   final List<CheckListModel> chronicDiseases = [
     CheckListModel(title: 'Heart Disease'),
     CheckListModel(title: 'Diabetes'),
-    CheckListModel(title: 'Hypertension'),
-    CheckListModel(title: 'Asthma'),
-    CheckListModel(title: 'Arthritis'),
+    CheckListModel(title: 'Blood Pressure'),
+    CheckListModel(title: 'Cardiovascular'),
+    CheckListModel(title: 'Cancer'),
     CheckListModel(title: 'None'),
   ];
   final List<CheckListModel> knownCases = [
-    CheckListModel(title: 'خلع'),
-    CheckListModel(title: 'مش خلع'),
+    CheckListModel(title: 'Gumboil'),
+    CheckListModel(title: 'Gingivitis'),
+    CheckListModel(title: 'Edentulous'),
+    CheckListModel(title: 'Displaced tooth'),
+    CheckListModel(title: 'Dental abscess'),
+    CheckListModel(title: 'Orthodontics'),
+    CheckListModel(title: 'Caries'),
+    CheckListModel(title: 'Endodontics'),
+    CheckListModel(title: 'Prosthodontic'),
+    CheckListModel(title: 'Implantology'),
   ];
 
   // List of pressure levels

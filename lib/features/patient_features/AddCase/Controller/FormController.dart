@@ -21,7 +21,7 @@ class AddCaseController extends GetxController {
 
   StaticData list = StaticData();
   List<bool> checkedItems = List.generate(6, (index) => false);
-  List<bool> checkedCase = List.generate(6, (index) => false);
+  List<bool> checkedCase = List.generate(20, (index) => false);
   bool showPressureChecklist = false;
   String pressure = '';
   String selected = '';
@@ -85,9 +85,9 @@ class AddCaseController extends GetxController {
 
   void handleCheckboxChange(int index, bool value) {
     checkedItems[index] = value;
-    if (list.chronicDiseases[index].title == 'Hypertension') {
-      showPressureChecklist = value;
-    }
+    // if (list.chronicDiseases[index].title == 'Hypertension') {
+    //   showPressureChecklist = value;
+    // }
     //homa 3amlen el selection optional ya jooooo
     selectedChronicDiseases = [];
     for (int i = 0; i < checkedItems.length; i++) {

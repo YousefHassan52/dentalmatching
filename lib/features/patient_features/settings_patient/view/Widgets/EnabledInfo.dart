@@ -18,7 +18,11 @@ class EnabledInfo extends StatelessWidget {
           
         ),
         const SizedBox(width: 10,),
-        Text(info,style: const TextStyle(color: Colors.grey, fontSize: 20,),),
+        Container(
+          width: 200,
+          child: FittedBox(
+            fit: BoxFit.contain,
+            child: Text(info,style: const TextStyle(color: Colors.grey, fontSize: 20,),))),
       ],
     );
   }
