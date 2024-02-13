@@ -11,6 +11,7 @@ class FormListView extends StatelessWidget {
     UnassignedCasesDoctorControllerImpl controller = Get.find();
     return Expanded(
       child: ListView.builder(
+        padding: EdgeInsets.only(top: 0,bottom: 60),
         shrinkWrap: true,
         physics: const BouncingScrollPhysics(),
         itemCount: controller.cases.length,

@@ -1,4 +1,6 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dentalmatching/core/class/request_status.dart';
+import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AppUpper.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/FormListView.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
@@ -15,24 +17,36 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
     UnassignedCasesDoctorControllerImpl externalController =
         Get.put(UnassignedCasesDoctorControllerImpl());
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const AppUpperWidget(),
-        //CategoriesListView(),
-        const SizedBox(
-          height: 5,
-        ),
-        MaterialButton(
-          onPressed: () {},
-          child: const Row(
-            children: [
-              Text('Search'),
-              SizedBox(
-                width: 5,
-              ),
-              Icon(Icons.search_outlined)
-            ],
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            child: const AutoSizeText(
+              maxFontSize: 17,
+              minFontSize: 15,
+              'Recently Added Cases',
+              style: Styles.LightBlue,
+            ),
           ),
         ),
+        //CategoriesListView(),
+        // const SizedBox(
+        //   height: 0,
+        // ),
+        // MaterialButton(
+        //   onPressed: () {},
+        //   child: const Row(
+        //     children: [
+        //       Text('Search'),
+        //       SizedBox(
+        //         width: 5,
+        //       ),
+        //       Icon(Icons.search_outlined)
+        //     ],
+        //   ),
+        // ),
         GetBuilder<UnassignedCasesDoctorControllerImpl>(builder: (controller) {
           if (controller.requestStatus == RequestStatus.SUCCESS) {
             return Container(child: const FormListView());
