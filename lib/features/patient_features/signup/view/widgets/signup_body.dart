@@ -61,7 +61,7 @@ class SignupFormBody extends StatelessWidget {
           ),
           AuthTextFormField(
               hint: "Address",
-              icon: "assets/svg/🦆 icon _Cardiogram_.svg",
+              icon: "assets/svg/Home.svg",
               type: TextInputType.name,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -141,25 +141,6 @@ class SignupFormBody extends StatelessWidget {
                       backgroundColor: AppColors.mainColor.withOpacity(0.20),
                     )
                   : null,
-            ),
-          ),
-          GetBuilder<SignupPatientControllerImpl>(
-            builder: (controller) => Row(
-              children: [
-                ElevatedButton(
-                    onPressed: () {
-                      controller.pickImage();
-                    },
-                    child: Icon(Icons.camera)),
-                const SizedBox(
-                  width: 20,
-                ),
-                CircleAvatar(
-                  backgroundImage: controller.imageFile != null
-                      ? FileImage(controller.imageFile!)
-                      : null,
-                ),
-              ],
             ),
           ),
         ],

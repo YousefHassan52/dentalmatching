@@ -1,7 +1,8 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AppUpper.dart';
+import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/settings_doctor/controller/doctor_home_controller_impl.dart';
-import 'package:dentalmatching/features/doctor_features/settings_doctor/view/Widgets/CounterBox.dart';
+import 'package:dentalmatching/features/doctor_features/settings_doctor/view/Widgets/counter_box_doctor.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/EnabledInfo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,8 @@ class SettingsDoctorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SettingsDoctorControllerImpl controller =
         Get.put(SettingsDoctorControllerImpl());
+    GetDocotorCasesControllerImpl casesController =
+        Get.put(GetDocotorCasesControllerImpl());
 
     return Scaffold(
       body: Column(

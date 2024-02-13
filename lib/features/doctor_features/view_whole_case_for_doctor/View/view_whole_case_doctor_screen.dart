@@ -2,6 +2,7 @@ import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
+import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/BioWidget.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/BoxWidget.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/RequestButton.dart';
@@ -23,8 +24,10 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
   Widget build(BuildContext context) {
     ViewWholeCaseDoctorControllerImpl controller =
         Get.put(ViewWholeCaseDoctorControllerImpl());
-    UnassignedCasesDoctorControllerImpl reloadDataController =
+    UnassignedCasesDoctorControllerImpl reloadDataControllerForAllCases =
         Get.put(UnassignedCasesDoctorControllerImpl());
+    GetDocotorCasesControllerImpl reloadDataControllerForDoctorCases =
+        Get.put(GetDocotorCasesControllerImpl());
 
     return Scaffold(
       body: ListView(
@@ -112,15 +115,17 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                     ),
                   ),
                 ),
-                RequestButton(
-                  onPressed: () {
-                    controller
-                        .requestCase(caseId: controller.caseModel.caseId)
-                        .then((value) {
-                      reloadDataController.getCases();
-                    });
-                  },
-                ),
+                if (controller.caseModel.isAssigned == false)
+                  RequestButton(
+                    onPressed: () {
+                      controller
+                          .requestCase(caseId: controller.caseModel.caseId)
+                          .then((value) {
+                        reloadDataControllerForAllCases.getCases();
+                        reloadDataControllerForDoctorCases.getCases();
+                      });
+                    },
+                  ),
                 const SizedBox(
                   height: 20,
                 ),

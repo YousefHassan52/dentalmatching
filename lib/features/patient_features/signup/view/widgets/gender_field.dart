@@ -16,9 +16,8 @@ class GenderDropdown extends StatelessWidget {
     SignupPatientControllerImpl externalController = Get.find();
 
     return DropdownSearch<String>(
-      popupProps: PopupProps.menu(
+      popupProps: const PopupProps.menu(
         showSelectedItems: true,
-        disabledItemFn: (String s) => s.startsWith('I'),
       ),
       items: gender,
       dropdownDecoratorProps: DropDownDecoratorProps(

@@ -1,4 +1,5 @@
 import 'package:dentalmatching/core/constants/colors.dart';
+import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
 
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/CasesCounterWidget.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ class CounterBoxDoctor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // MyCasesPatientControllerImpl myCases = Get.find();
+    GetDocotorCasesControllerImpl myCases = Get.find();
     return Container(
       width: Get.width * 0.93,
       // height: 100,
@@ -26,10 +27,13 @@ class CounterBoxDoctor extends StatelessWidget {
           ),
         ],
       ),
-      child: const Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CasesCounterWidget(counter: "0", status: 'Cases'),
+          GetBuilder<GetDocotorCasesControllerImpl>(
+            builder: (controller) => CasesCounterWidget(
+                counter: controller.cases.length.toString(), status: 'Cases'),
+          ),
           // SizedBox(
           //   width: 100,
           //   height: 50,

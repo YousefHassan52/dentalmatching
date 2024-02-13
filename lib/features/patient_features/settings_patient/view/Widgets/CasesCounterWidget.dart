@@ -1,9 +1,5 @@
-import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
-import 'package:dentalmatching/core/services/my_services.dart';
-import 'package:dentalmatching/features/patient_features/AddCase/Views/Cases.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class CasesCounterWidget extends StatelessWidget {
   final String counter;

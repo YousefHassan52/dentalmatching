@@ -68,7 +68,7 @@ class SignupDoctorFormBody extends StatelessWidget {
           ),
           AuthTextFormField(
               hint: "University",
-              icon: "assets/svg/🦆 icon _Cardiogram_.svg",
+              icon: "assets/svg/Home.svg",
               type: TextInputType.name,
               validator: (value) {
                 if (value == null || value.isEmpty) {

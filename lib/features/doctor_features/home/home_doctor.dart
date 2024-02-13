@@ -1,4 +1,5 @@
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/all_unassigned_cases_doctor_screen.dart';
+import 'package:dentalmatching/features/doctor_features/get_doctor_cases/View/get_doctor_cases_screen.dart';
 import 'package:dentalmatching/features/doctor_features/settings_doctor/view/profile_doctor_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -100,13 +101,11 @@ class _HomeDoctorScreenState extends State<HomeDoctorScreen> {
         onPageChanged: (v) {
           tabIndex = v;
         },
-        physics: NeverScrollableScrollPhysics(), // Disable swipe gesture
-        children: [
-          Container(
-            child: const Text("jjjjj"),
-          ),
-          const AllUnassignedCasesDoctorScreen(),
-          const SettingsDoctorScreen()
+        physics: const NeverScrollableScrollPhysics(), // Disable swipe gesture
+        children: const [
+          GetDoctorCasesScreen(),
+          AllUnassignedCasesDoctorScreen(),
+          SettingsDoctorScreen()
         ],
       ),
     );
