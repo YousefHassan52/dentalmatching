@@ -52,7 +52,7 @@ class ViewForm extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(controller.caseModel.description,
-                          style: Styles.descripativeText),
+                          style: Styles.textStyle16Grey),
                     ),
                   ),
                   const Padding(
@@ -65,7 +65,7 @@ class ViewForm extends StatelessWidget {
                           list: controller.caseModel.chronicDiseases)
                       : const Text(
                           "None",
-                          style: Styles.descripativeText,
+                          style: Styles.textStyleGrey,
                         ),
                   const Padding(
                     padding: EdgeInsets.all(8.0),
@@ -77,7 +77,7 @@ class ViewForm extends StatelessWidget {
                           list: controller.caseModel.dentalDiseases)
                       : const Text(
                           "None",
-                          style: Styles.descripativeText,
+                          style: Styles.textStyle16Grey,
                         ),
                   const Padding(
                     padding: EdgeInsets.all(8.0),
@@ -110,7 +110,7 @@ class ViewForm extends StatelessWidget {
                           )
                         : const Text(
                             "None",
-                            style: Styles.descripativeText,
+                            style: Styles.textStyle16Grey,
                           ),
                   ),
                   const Padding(
@@ -131,7 +131,7 @@ class ViewForm extends StatelessWidget {
                           )
                         : const Text(
                             "None",
-                            style: Styles.descripativeText,
+                            style: Styles.textStyle16Grey,
                           ),
                   ),
                 ],

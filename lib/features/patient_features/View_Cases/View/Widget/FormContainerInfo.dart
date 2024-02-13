@@ -1,5 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
+import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/patient_features/PatientProfile/Views/Widgets/CircleAvatarWidget.dart';
 
 import 'package:dentalmatching/features/patient_features/View_Cases/View/Widget/ImageContainer.dart';
@@ -19,9 +21,18 @@ class FormContainerInfo extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 10),
       //height: 320,
       width: 20,
-      decoration: const BoxDecoration(
-        color: AppColors.circleColor,
+      decoration:  BoxDecoration(
+        //color: AppColors.circleColor,
         borderRadius: BorderRadius.all(Radius.circular(26)),
+        image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage('assets/images/oo.png'),
+            colorFilter: ColorFilter.mode(
+              Color.fromARGB(255, 7, 66, 162)
+                  .withOpacity(0.2), // Adjust the opacity (0.0 to 1.0)
+              BlendMode.dstATop,
+            ),
+          ),
       ),
 
       child: Column(
@@ -38,6 +49,7 @@ class FormContainerInfo extends StatelessWidget {
                 child: CircleAvatarWidget(imagePath: 'assets/svg/pp.svg'),
               ),
               Container(
+                width: 150,
                 alignment: Alignment.centerLeft,
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
@@ -68,12 +80,13 @@ class FormContainerInfo extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(
+            child: AutoSizeText(
               caseModel.description,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w400,
-              ),
+              style: Styles.textStyle16Grey,
+              //  const TextStyle(
+              //   fontSize: 20,
+              //   fontWeight: FontWeight.w400,
+              // ),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),

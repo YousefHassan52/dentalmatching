@@ -14,13 +14,13 @@ class ChronicOrDentalList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(1.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: list
             .map((disease) => Text(
                   disease,
-                  style: Styles.descripativeText,
+                  style: Styles.textStyle16Grey,
                 ))
             .toList(),
       ),

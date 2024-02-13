@@ -26,6 +26,7 @@ class LoginScreen extends StatelessWidget {
         child: Form(
           key: externalController.formKey,
           child: ListView(
+            padding: const EdgeInsets.only(top: 0),
             scrollDirection: Axis.vertical,
             children: [
               const FittedBox(
@@ -128,7 +129,7 @@ class LoginScreen extends StatelessWidget {
                             fontSize: 13,
                           ),
                         ),
-                      ))
+                      ),),
                 ],
               ),
               // TextButton(
