@@ -1,10 +1,7 @@
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/all_unassigned_cases_doctor_screen.dart';
-import 'package:dentalmatching/features/doctor_features/settings_doctor/view/settings_doctor.dart';
-import 'package:dentalmatching/features/patient_features/AddCase/Views/AddCase.dart';
-import 'package:dentalmatching/features/patient_features/View_Cases/View/HasCases.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/profile_patient_screen.dart';
+import 'package:dentalmatching/features/doctor_features/settings_doctor/view/profile_doctor_screen.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:circle_nav_bar/circle_nav_bar.dart';
 
 class HomeDoctorScreen extends StatefulWidget {
@@ -39,18 +36,23 @@ class _HomeDoctorScreenState extends State<HomeDoctorScreen> {
         activeIcons: [
           Transform.scale(
               scale: 0.6,
-              child: SvgPicture.asset("assets/svg/gender.svg",
-                  color: Colors.white)),
-          Transform.scale(
-              scale: 0.6,
-              child: SvgPicture.asset(
-                "assets/svg/check_email.svg",
+              child: const Icon(
+                Icons.check_circle_outline_rounded,
+                size: 50,
                 color: Colors.white,
               )),
           Transform.scale(
               scale: 0.6,
-              child: SvgPicture.asset(
-                "assets/svg/add.svg",
+              child: const Icon(
+                Icons.article_rounded,
+                size: 50,
+                color: Colors.white,
+              )),
+          Transform.scale(
+              scale: 0.6,
+              child: const Icon(
+                Icons.person_2_outlined,
+                size: 50,
                 color: Colors.white,
               )),
         ],
@@ -59,7 +61,7 @@ class _HomeDoctorScreenState extends State<HomeDoctorScreen> {
             "My Cases",
             style: TextStyle(color: Colors.white),
           ),
-          Text("Add Case", style: TextStyle(color: Colors.white)),
+          Text("All Cases", style: TextStyle(color: Colors.white)),
           Text("Profile", style: TextStyle(color: Colors.white)),
         ],
         color: Colors.white,

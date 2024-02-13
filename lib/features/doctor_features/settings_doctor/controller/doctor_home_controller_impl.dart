@@ -6,15 +6,11 @@ import 'package:get/get.dart';
 
 class SettingsDoctorControllerImpl extends SettingsDoctorControllerAbstract {
   MyServices myServices = Get.find();
-  late DoctorModel userModel;
-
-  initializeUserData() {
-    userModel = DoctorModel.fromSharedPref(myServices.sharedPref);
-  }
+  late DoctorModel userModel =
+      DoctorModel.fromSharedPref(myServices.sharedPref);
 
   @override
   void onInit() {
-    initializeUserData();
     super.onInit();
   }
 
