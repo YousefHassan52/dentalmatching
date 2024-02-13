@@ -22,7 +22,9 @@ class FormContainerInfo extends StatelessWidget {
       decoration: const BoxDecoration(
         color: AppColors.circleColor,
         borderRadius: BorderRadius.all(Radius.circular(26)),
+        
       ),
+      
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,7 +38,23 @@ class FormContainerInfo extends StatelessWidget {
                 height: 70,
                 child: CircleAvatarWidget(imagePath: 'assets/svg/pp.svg'),
               ),
-              Text(caseModel.patientName),
+               Container(
+              width: 200,
+              alignment: Alignment.centerLeft,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: RichText(
+                  text: TextSpan(
+                    text: caseModel.patientName,
+                    style: const TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.mainColor,
+                    ),
+                  ),
+                ),
+              ),
+            ),
               const Spacer(),
               IconButton(
                 onPressed: () {

@@ -25,13 +25,22 @@ class AddOptionalImg extends StatelessWidget {
               decoration: BoxDecoration(
                 color: AppColors.circleColor,
                 borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColors.blueLightTextColor.withOpacity(0.2),
-                    spreadRadius: 1,
-                    blurRadius: 3,
+                // boxShadow: [
+                //   BoxShadow(
+                //     color: AppColors.blueLightTextColor.withOpacity(0.2),
+                //     spreadRadius: 1,
+                //     blurRadius: 3,
+                //   ),
+                // ],
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage('assets/images/G.png'),
+                  colorFilter: ColorFilter.mode(
+                    Color.fromARGB(255, 7, 66, 162)
+                        .withOpacity(0.2), // Adjust the opacity (0.0 to 1.0)
+                    BlendMode.dstATop,
                   ),
-                ],
+                ),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

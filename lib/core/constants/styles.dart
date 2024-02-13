@@ -21,7 +21,11 @@ abstract class Styles {
   static const TextStyle textStyle16White =
       TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 16);
   static const TextStyle textStyle16Grey = TextStyle(
-      color: Color.fromARGB(255, 118, 116, 116),
+      color: Color.fromARGB(255, 70, 69, 69),
+      fontWeight: FontWeight.normal,
+      fontSize: 16);
+static const TextStyle containerImage = TextStyle(
+      color: Color.fromARGB(255, 0, 28, 81),
       fontWeight: FontWeight.normal,
       fontSize: 16);
 

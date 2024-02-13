@@ -55,15 +55,14 @@ class FormBody extends StatelessWidget {
               controller.pickMouthImages();
             },
           ),
-
-          const SizedBox(
-            height: 8,
-          ),
-          AddImageWidget(
-            img: 'assets/svg/Boldd_Camera.svg',
-            txt: 'Take Pictures',
-            onPressed: () {},
-          ),
+          // const SizedBox(
+          //   height: 8,
+          // ),
+          // AddImageWidget(
+          //   img: 'assets/svg/Boldd_Camera.svg',
+          //   txt: 'Take Pictures',
+          //   onPressed: () {},
+          // ),
           const OptionalText(
             text: 'Add X-Ray',
           ),
@@ -77,14 +76,14 @@ class FormBody extends StatelessWidget {
               controller.pickXrayImages();
             },
           ),
-          const SizedBox(
-            height: 8,
-          ),
-          AddOptionalImg(
-            img: 'assets/svg/Boldd_Camera.svg',
-            txt: 'Take Picture   ',
-            onPressed: () {},
-          ),
+          // const SizedBox(
+          //   height: 8,
+          // ),
+          // AddOptionalImg(
+          //   img: 'assets/svg/Boldd_Camera.svg',
+          //   txt: 'Take Picture   ',
+          //   onPressed: () {},
+          // ),
           const Padding(
             padding: EdgeInsets.only(top: 8.0),
             child: HDivider(),
@@ -102,14 +101,14 @@ class FormBody extends StatelessWidget {
               controller.pickPrescriptionImages();
             },
           ),
-          const SizedBox(
-            height: 8,
-          ),
-          AddOptionalImg(
-            img: 'assets/svg/Boldd_Camera.svg',
-            txt: 'Take Picture   ',
-            onPressed: () {},
-          ),
+          // const SizedBox(
+          //   height: 8,
+          // ),
+          // AddOptionalImg(
+          //   img: 'assets/svg/Boldd_Camera.svg',
+          //   txt: 'Take Picture   ',
+          //   onPressed: () {},
+          // ),
           const Padding(
             padding: EdgeInsets.only(top: 8.0),
             child: HDivider(),
