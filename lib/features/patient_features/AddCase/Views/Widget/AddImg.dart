@@ -60,7 +60,7 @@ class AddImageWidget extends StatelessWidget {
                     ),
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'select at least 4 pictures',
+                        text: 'select at least 2 pictures',
                         style: Styles.textStyle16Grey,
                       ),
                     ],
