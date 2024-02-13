@@ -1,8 +1,7 @@
 import 'package:dentalmatching/features/patient_features/AddCase/Views/AddCase.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/View/HasCases.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/home_patient_screen.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/profile_patient_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:circle_nav_bar/circle_nav_bar.dart';
 
 class HomePatientScreen extends StatefulWidget {
@@ -37,27 +36,32 @@ class _HomePatientScreenState extends State<HomePatientScreen> {
         activeIcons: [
           Transform.scale(
               scale: 0.6,
-              child: SvgPicture.asset("assets/svg/gender.svg",
-                  color: Colors.white)),
-          Transform.scale(
-              scale: 0.6,
-              child: SvgPicture.asset(
-                "assets/svg/check_email.svg",
+              child: const Icon(
+                Icons.post_add_rounded,
+                size: 50,
                 color: Colors.white,
               )),
           Transform.scale(
               scale: 0.6,
-              child: SvgPicture.asset(
-                "assets/svg/add.svg",
+              child: const Icon(
+                Icons.article_rounded,
+                size: 50,
+                color: Colors.white,
+              )),
+          Transform.scale(
+              scale: 0.6,
+              child: const Icon(
+                Icons.person_2_outlined,
+                size: 50,
                 color: Colors.white,
               )),
         ],
         inactiveIcons: const [
           Text(
-            "My Cases",
+            "Add Case",
             style: TextStyle(color: Colors.white),
           ),
-          Text("Add Case", style: TextStyle(color: Colors.white)),
+          Text("My Cases", style: TextStyle(color: Colors.white)),
           Text("Profile", style: TextStyle(color: Colors.white)),
         ],
         color: Colors.white,
@@ -65,9 +69,9 @@ class _HomePatientScreenState extends State<HomePatientScreen> {
           begin: Alignment.topLeft,
           end: Alignment(0.8, 1),
           colors: <Color>[
-            Color(0xFF193F8A),
             Color(0xFF67A4D3),
             Color(0xFF4464A0),
+            Color(0xFF193F8A),
           ], // Gradient from https://learnui.design/tools/gradient-generator.html
           tileMode: TileMode.mirror,
         ),

@@ -11,7 +11,7 @@ class ChronicDiseasesChecklist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     StaticData list = StaticData();
-    return GetBuilder<ChronicDiseasesController>(
+    return GetBuilder<AddCaseController>(
       builder: (controller) {
         return Column(
           children: [

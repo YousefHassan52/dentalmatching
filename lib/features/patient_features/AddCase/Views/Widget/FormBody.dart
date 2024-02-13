@@ -11,6 +11,7 @@ import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/Fo
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/HDivider.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/KnownCheckWidget.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/OptionalText.dart';
+import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,7 +22,8 @@ class FormBody extends StatelessWidget {
   Widget build(BuildContext context) {
     // StaticData list = StaticData();
 
-    ChronicDiseasesController controller = Get.find();
+    AddCaseController controller = Get.find();
+    MyCasesPatientControllerImpl reloadController = Get.find();
 
     return Form(
       key: controller.formKey,
@@ -120,12 +122,14 @@ class FormBody extends StatelessWidget {
           ),
           // //CheckboxFormField(),
           AuthButton(
-            buttonText: 'Next',
+            buttonText: 'Submit',
             onTap: () {
-              controller.handleButtonBehavior();
+              controller.postCase().then((value) {
+                reloadController.getCases();
+              });
             },
           ),
-          GetBuilder<ChronicDiseasesController>(
+          GetBuilder<AddCaseController>(
             builder: (controller) => Container(
               margin: const EdgeInsets.symmetric(vertical: 10),
               width: double.infinity,

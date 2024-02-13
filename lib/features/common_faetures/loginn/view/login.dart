@@ -8,8 +8,6 @@ import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/Cent
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/Heading.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/textformfield.dart';
-import 'package:dentalmatching/features/patient_features/AddCase/Views/Cases.dart';
-import 'package:dentalmatching/features/patient_features/PatientProfile/Views/PatientProfile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -114,22 +112,23 @@ class LoginScreen extends StatelessWidget {
                   ),
                   // const Spacer(),
                   TextButton(
-                      onPressed: () {
-                        Get.toNamed(AppRoutes.userType);
-                        // Get.to(const CasesScreen());
-                      },
-                      child: const FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text(
-                          "Signup",
-                          style: TextStyle(
-                            color: AppColors.blueTextColor,
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.underline,
-                            fontSize: 13,
-                          ),
+                    onPressed: () {
+                      Get.toNamed(AppRoutes.userType);
+                      // Get.to(const CasesScreen());
+                    },
+                    child: const FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(
+                        "Signup",
+                        style: TextStyle(
+                          color: AppColors.blueTextColor,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.underline,
+                          fontSize: 13,
                         ),
-                      ),),
+                      ),
+                    ),
+                  ),
                 ],
               ),
               // TextButton(

@@ -72,7 +72,7 @@
 
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
-import 'package:dentalmatching/features/patient_features/PatientProfile/Views/Widgets/Upper.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/Upper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';

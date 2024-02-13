@@ -30,6 +30,7 @@ class MyCasesPatientControllerImpl extends MyCasesPatientControllerAbstract {
   @override
   void getCases() async {
     myCases = [];
+    update();
     requestStatus = RequestStatus.LOADING;
     update();
     var response =
@@ -45,6 +46,7 @@ class MyCasesPatientControllerImpl extends MyCasesPatientControllerAbstract {
         for (var data in responseData) {
           MyCaseModel myCase = MyCaseModel.fromJson(data);
           myCases.add(myCase);
+          update();
         }
         if (response["message"] == "No Dental Cases Available") {
           requestStatus = RequestStatus.EMPTY_SUCCESS;

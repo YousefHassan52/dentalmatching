@@ -11,7 +11,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
-class ChronicDiseasesController extends GetxController {
+class AddCaseController extends GetxController {
+  late PatientModel patientModel =
+      PatientModel.fromSharedPref(myServices.sharedPref);
   MyServices myServices = Get.find();
   late PatientModel userModel;
   AddCaseData addCaseData = AddCaseData(Get.find());
@@ -189,7 +191,7 @@ class ChronicDiseasesController extends GetxController {
     }
   }
 
-  handleButtonBehavior() async {
+  Future<void> postCase() async {
     if (formKey.currentState!.validate() &&
         pressureValidation() &&
         checkBoxValidation() &&

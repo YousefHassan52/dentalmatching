@@ -14,7 +14,7 @@ import 'package:dentalmatching/features/doctor_features/signup/view/signup_scree
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/ViewForm.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/View/HasCases.dart';
 import 'package:dentalmatching/features/patient_features/home/view/home_screen.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/home_patient_screen.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/profile_patient_screen.dart';
 import 'package:dentalmatching/features/patient_features/signup/view/signup_screen.dart';
 import 'package:get/get.dart';
 

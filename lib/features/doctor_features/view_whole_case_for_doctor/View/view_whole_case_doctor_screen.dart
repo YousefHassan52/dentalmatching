@@ -9,7 +9,7 @@ import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/Vie
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/FormHeadLine.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/HDivider.dart';
-import 'package:dentalmatching/features/patient_features/PatientProfile/Views/Widgets/CircleAvatarWidget.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/CircleAvatarWidget.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/ChronicList.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/GridViewWidget.dart';
 
@@ -28,7 +28,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
 
     return Scaffold(
       body: ListView(
-        padding: EdgeInsets.only(top: 0 ,bottom: 5),
+        padding: EdgeInsets.only(top: 0, bottom: 5),
         children: [
           const AppUpperWidget(),
           Padding(
@@ -72,42 +72,41 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                               : "Unkown",
                         ),
                         GetBuilder<ViewWholeCaseDoctorControllerImpl>(
-                            builder: (internalController) {
-                          // if loading return circular progress
-                          if (controller.requestStatus ==
-                              RequestStatus.LOADING) {
-                            return const SizedBox(
-                              height: 20,
-                              width: 20,
-                              child: CircularProgressIndicator(
-                                backgroundColor: AppColors.mainColor,
-                                color: AppColors.secondColor,
-                              ),
-                            );
-                          } else if (internalController.viewPhone == true &&
-                              controller.requestStatus ==
-                                  RequestStatus.SUCCESS) {
-                            return Column(
-                              children: [
-                                const SizedBox(
-                                  height: 20,
+                          builder: (internalController) {
+                            // if loading return circular progress
+                            if (controller.requestStatus ==
+                                RequestStatus.LOADING) {
+                              return const SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: CircularProgressIndicator(
+                                  backgroundColor: AppColors.mainColor,
+                                  color: AppColors.secondColor,
                                 ),
-                                BioWidget(
-                                  title: 'Phone number',
-                                  subTitle:
-                                      internalController.caseModel.phoneNumber,
-                                ),
-                              ],
-                            );
-                          } 
-                          else {
-                            return BioWidget(
-                              isLongText: true,
-                              title: 'Phone Number',
-                              subTitle: "None",
-                            );
-                          }
-                        },
+                              );
+                            } else if (internalController.viewPhone == true &&
+                                controller.requestStatus ==
+                                    RequestStatus.SUCCESS) {
+                              return Column(
+                                children: [
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  BioWidget(
+                                    title: 'Phone number',
+                                    subTitle: internalController
+                                        .caseModel.phoneNumber,
+                                  ),
+                                ],
+                              );
+                            } else {
+                              return BioWidget(
+                                isLongText: true,
+                                title: 'Phone Number',
+                                subTitle: "None",
+                              );
+                            }
+                          },
                         ),
                       ],
                     ),
@@ -136,7 +135,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                 BoxWidget(
                   widget: Text(
                     controller.caseModel.description,
-                    style:  Styles.textStyle16Grey,
+                    style: Styles.textStyle16Grey,
                   ),
                 ),
                 const SizedBox(
@@ -156,7 +155,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                           list: controller.caseModel.chronicDiseases)
                       : const Text(
                           "None",
-                          style:Styles.textStyle16Grey,
+                          style: Styles.textStyle16Grey,
                         ),
                 ),
                 const SizedBox(

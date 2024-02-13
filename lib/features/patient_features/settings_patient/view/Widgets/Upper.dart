@@ -1,5 +1,5 @@
 import 'package:dentalmatching/core/constants/colors.dart';
-import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Controller/FormController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,8 +10,8 @@ class UpperWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MyCasesPatientControllerImpl controller = Get.put(
-        MyCasesPatientControllerImpl()); // momken te7tag hena controller mo5tlef
+    AddCaseController controller =
+        Get.put(AddCaseController()); // momken te7tag hena controller mo5tlef
     double upperPartHeight = Get.height * 0.2;
     return Container(
       height: upperPartHeight,
@@ -41,7 +41,6 @@ class UpperWidget extends StatelessWidget {
             SizedBox(
               height: upperPartHeight * 0.03,
             ),
-           
           ],
         ),
       ),

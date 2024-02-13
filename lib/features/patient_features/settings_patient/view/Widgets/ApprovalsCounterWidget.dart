@@ -5,12 +5,12 @@ import 'package:dentalmatching/features/patient_features/AddCase/Views/Cases.dar
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CasesCounterWidget extends GetView<MyServices> {
-  final String counter;
+class ApprovalsCounterWidget extends GetView<MyServices> {
+  final String approvalsCounter;
   final String status;
-  const CasesCounterWidget({
+  const ApprovalsCounterWidget({
     super.key,
-    required this.counter,
+    required this.approvalsCounter,
     required this.status,
   });
 
@@ -18,24 +18,22 @@ class CasesCounterWidget extends GetView<MyServices> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.to(CasesScreen());
+        // Get.to(CasesScreen());
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [ 
-          GetX<MyServices>(builder: (controller) => Text(
-              '${controller.casesCounter}',
-              style: Styles.mediumTitle,
-            ),),
+        children: [
+          Text(
+            approvalsCounter,
+            style: Styles.mediumTitle,
+          ),
+          // ),
           Text(
             status,
             style: Styles.textStyleGrey,
-            //  const TextStyle(color: Color.fromARGB(255, 93, 92, 92)),
           ),
         ],
       ),
     );
   }
-
-  
 }

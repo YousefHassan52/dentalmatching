@@ -1,14 +1,14 @@
 // import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
-import 'package:dentalmatching/features/patient_features/PatientProfile/Views/Widgets/EnabledInfo.dart';
-import 'package:dentalmatching/features/patient_features/PatientProfile/Views/Widgets/Upper.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/EnabledInfo.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/Upper.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import 'Widgets/CounterBox.dart';
-import 'Widgets/CasesCounterWidget.dart';
+import '../../settings_patient/view/Widgets/CounterBox.dart';
+import '../../settings_patient/view/Widgets/CasesCounterWidget.dart';
 
 class PatientProfile extends StatelessWidget {
   const PatientProfile({Key? key}) : super(key: key);

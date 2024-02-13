@@ -25,7 +25,7 @@ class InstantImageForm extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           color: AppColors.mainColor,
-          borderRadius: BorderRadius.all(Radius.circular(26)),
+          borderRadius: const BorderRadius.all(Radius.circular(26)),
         ),
       ),
     );

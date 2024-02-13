@@ -2,7 +2,7 @@ import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/Vie
 import 'package:dentalmatching/features/doctor_features/settings_doctor/view/settings_doctor.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/AddCase.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/View/HasCases.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/home_patient_screen.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/profile_patient_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:circle_nav_bar/circle_nav_bar.dart';

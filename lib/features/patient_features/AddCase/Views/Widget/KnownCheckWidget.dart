@@ -12,7 +12,7 @@ class KnownCheckWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     StaticData list = StaticData();
 
-    return GetBuilder<ChronicDiseasesController>(
+    return GetBuilder<AddCaseController>(
       builder: (controller) {
         return RadioListWidget(
           cont: list.caseStatus,

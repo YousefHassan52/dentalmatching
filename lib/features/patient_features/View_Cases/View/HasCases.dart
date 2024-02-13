@@ -4,11 +4,13 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
-import 'package:dentalmatching/features/patient_features/PatientProfile/Views/Widgets/Upper.dart';
+import 'package:dentalmatching/core/shared/shimmer.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/Upper.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/View/Widget/FormContainerInfo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shimmer/shimmer.dart';
 
 class HasCases extends StatelessWidget {
   const HasCases({super.key});
@@ -35,7 +37,6 @@ class HasCases extends StatelessWidget {
                     minFontSize: 15,
                     'Recently Added Cases',
                     style: Styles.LightBlue,
-                  
                   ),
                 ),
                 const Spacer(),
@@ -52,12 +53,12 @@ class HasCases extends StatelessWidget {
           ),
           GetBuilder<MyCasesPatientControllerImpl>(builder: (controller) {
             if (controller.requestStatus == RequestStatus.LOADING) {
-              return const Center(child: CircularProgressIndicator());
+              return Expanded(child: ShimmerList());
             } else if (controller.requestStatus == RequestStatus.SUCCESS) {
               return Expanded(
                 child: ListView.builder(
-                  padding: EdgeInsets.only(top: 0 , bottom: 70),
-                   shrinkWrap: true,
+                  padding: EdgeInsets.only(top: 0, bottom: 70),
+                  shrinkWrap: true,
                   physics: const BouncingScrollPhysics(),
                   itemCount: externalController.myCases.length,
                   itemBuilder: (context, index) {
