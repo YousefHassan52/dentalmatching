@@ -24,24 +24,38 @@ class DrProfileWidget extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontWeight: FontWeight.w200,
-                fontSize: 20,
-                color: Colors.white,
+           Container(
+              width: 250,
+              alignment: Alignment.centerLeft,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: RichText(
+                  text: TextSpan(
+                    text: title,
+                    style: const TextStyle(
+                      fontSize:25 ,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
               ),
             ),
-            const SizedBox(
-              height: 2,
-            ),
-            RichText(
-              text: TextSpan(
-                text: name,
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+            SizedBox(height: 5,),
+            Container(
+              width: 250,
+              alignment: Alignment.centerLeft,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: RichText(
+                  text: TextSpan(
+                    text: name,
+                    style: const TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ),

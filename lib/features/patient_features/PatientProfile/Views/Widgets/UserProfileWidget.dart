@@ -25,25 +25,37 @@ class UserProfileWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontWeight: FontWeight.w200,
-                fontSize: 20,
-                color: Colors.white,
-              ),
-            ),
             Container(
               width: 250,
               alignment: Alignment.centerLeft,
               child: FittedBox(
-               fit: BoxFit.scaleDown,
-                child: Text(
-                  name,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
+                fit: BoxFit.scaleDown,
+                child: RichText(
+                  text: TextSpan(
+                    text: title,
+                    style: const TextStyle(
+                      fontSize:25 ,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 5,),
+            Container(
+              width: 250,
+              alignment: Alignment.centerLeft,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: RichText(
+                  text: TextSpan(
+                    text: name,
+                    style: const TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
