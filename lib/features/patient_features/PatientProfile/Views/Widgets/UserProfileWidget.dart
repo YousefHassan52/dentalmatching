@@ -21,32 +21,34 @@ class UserProfileWidget extends StatelessWidget {
             imagePath: 'assets/svg/pp.svg',
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w200,
-                  fontSize: 20,
-                  color: Colors.white,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: const TextStyle(
+                fontWeight: FontWeight.w200,
+                fontSize: 20,
+                color: Colors.white,
+              ),
+            ),
+            Container(
+              width: 250,
+              alignment: Alignment.centerLeft,
+              child: FittedBox(
+               fit: BoxFit.scaleDown,
+                child: Text(
+                  name,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
                 ),
               ),
-              const SizedBox(
-                height: 2,
-              ),
-              Text(
-                name,
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
         // IconButton(
         //   onPressed: () {},
