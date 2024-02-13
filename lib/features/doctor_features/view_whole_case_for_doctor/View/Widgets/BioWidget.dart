@@ -15,6 +15,8 @@ class BioWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           '${title} : ',
@@ -23,7 +25,7 @@ class BioWidget extends StatelessWidget {
         Text(
           subTitle,
           style: isLongText == true
-              ? Styles.Bio.copyWith(fontSize: 14)
+              ? Styles.Bio
               : Styles.Bio,
         ),
       ],

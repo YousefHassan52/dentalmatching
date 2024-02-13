@@ -56,8 +56,8 @@ static const TextStyle containerImage = TextStyle(
   static const TextStyle Bio = TextStyle(
       color: Color.fromARGB(255, 118, 116, 116),
       fontWeight: FontWeight.normal,
-      fontSize: 25,
-      letterSpacing: 3);
+      fontSize: 20,
+      letterSpacing: 2);
 
 
 

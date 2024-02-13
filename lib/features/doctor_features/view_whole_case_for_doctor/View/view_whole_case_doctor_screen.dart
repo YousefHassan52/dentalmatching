@@ -28,6 +28,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
 
     return Scaffold(
       body: ListView(
+        padding: EdgeInsets.only(top: 0 ,bottom: 5),
         children: [
           const AppUpperWidget(),
           Padding(
@@ -75,10 +76,10 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                           // if loading return circular progress
                           if (controller.requestStatus ==
                               RequestStatus.LOADING) {
-                            return SizedBox(
+                            return const SizedBox(
                               height: 20,
                               width: 20,
-                              child: const CircularProgressIndicator(
+                              child: CircularProgressIndicator(
                                 backgroundColor: AppColors.mainColor,
                                 color: AppColors.secondColor,
                               ),
@@ -98,14 +99,16 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                                 ),
                               ],
                             );
-                          } else {
+                          } 
+                          else {
                             return BioWidget(
                               isLongText: true,
-                              title: 'Phone umber',
-                              subTitle: "You need to\nrequest\ncase first!",
+                              title: 'Phone Number',
+                              subTitle: "None",
                             );
                           }
-                        }),
+                        },
+                        ),
                       ],
                     ),
                   ),
@@ -133,7 +136,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                 BoxWidget(
                   widget: Text(
                     controller.caseModel.description,
-                    style: const TextStyle(color: Colors.black, fontSize: 20),
+                    style:  Styles.textStyle16Grey,
                   ),
                 ),
                 const SizedBox(
@@ -153,7 +156,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                           list: controller.caseModel.chronicDiseases)
                       : const Text(
                           "None",
-                          style: Styles.descripativeText,
+                          style:Styles.textStyle16Grey,
                         ),
                 ),
                 const SizedBox(
@@ -191,7 +194,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                         )
                       : const Text(
                           "None",
-                          style: Styles.descripativeText,
+                          style: Styles.textStyle16Grey,
                         ),
                 ),
                 const SizedBox(
@@ -213,7 +216,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                         )
                       : const Text(
                           "None",
-                          style: Styles.descripativeText,
+                          style: Styles.textStyle16Grey,
                         ),
                 ),
               ],
