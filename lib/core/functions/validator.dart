@@ -2,10 +2,6 @@ import 'package:get/get.dart';
 
 class AppValidator {
   static textFormFieldValidator(String value, String type) {
-    if (value.isEmpty) {
-      return "Please enter your $type";
-    }
-
     if (type == "email") {
       if (!GetUtils.isEmail(value)) {
         return "invalid Email address";
@@ -31,6 +27,11 @@ class AppValidator {
         return "invalid password";
       }
     }
+    if (type == "Description") {
+      if (value.length < 20) {
+        return "Your description must be more than 20 letters";
+      }
+    }
   }
 
   static chechkPasswordMatching(
@@ -43,6 +44,4 @@ class AppValidator {
   static bool validateCheckbox(List<bool> checkedItems) {
     return checkedItems.any((item) => item);
   }
-
-
 }
