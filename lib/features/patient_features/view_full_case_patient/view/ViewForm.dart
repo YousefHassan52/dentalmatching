@@ -18,6 +18,7 @@ class ViewForm extends StatelessWidget {
         Get.put(ViewFullCasePatientControllerImpl());
     return Scaffold(
         body: ListView(
+      padding: EdgeInsets.only(top: 0, bottom: 70),
       children: [
         const UpperWidget(),
         const SizedBox(
