@@ -40,7 +40,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                   child: Row(
                     children: [
                       Container(
-                        height: 80,
+                        height: 60,
                         child: const CircleAvatarWidget(
                             imagePath: 'assets/svg/profile.svg'),
                       ),
