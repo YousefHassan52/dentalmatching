@@ -19,7 +19,8 @@ class KnownCheckWidget extends StatelessWidget {
           onChanged: (value) {
             controller.handleSelectionKnown(value!);
             if (value == 'Known') {
-              Get.defaultDialog(title: '', content: CasesChecklist());
+              Get.defaultDialog(
+                  title: 'Dental Case:', content: CasesChecklist());
             }
           },
           groupValue: controller.selected,
