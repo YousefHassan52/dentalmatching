@@ -66,6 +66,12 @@ class FormContainerInfo extends StatelessWidget {
                 ),
               ),
               const Spacer(),
+              if (caseModel.isAssigned == true)
+                const Icon(
+                  Icons.check_circle_rounded,
+                  color: Colors.green,
+                ),
+              const Spacer(),
               IconButton(
                 onPressed: () {
                   Get.toNamed(AppRoutes.formView,
