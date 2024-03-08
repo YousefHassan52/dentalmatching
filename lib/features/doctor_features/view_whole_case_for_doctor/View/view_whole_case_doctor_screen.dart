@@ -76,7 +76,20 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                         ),
                         GetBuilder<ViewWholeCaseDoctorControllerImpl>(
                           builder: (internalController) {
-                            // if loading return circular progress
+                            if (controller.caseModel.isAssigned == true) {
+                              return Column(
+                                children: [
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  BioWidget(
+                                    title: 'Phone number',
+                                    subTitle: internalController
+                                        .caseModel.phoneNumber,
+                                  ),
+                                ],
+                              );
+                            }
                             if (controller.requestStatus ==
                                 RequestStatus.LOADING) {
                               return const SizedBox(

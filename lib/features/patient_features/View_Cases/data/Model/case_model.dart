@@ -12,6 +12,8 @@ class MyCaseModel {
   final List<String> mouthImages;
   final List<String> xrayImages;
   final List<String> prescriptionImages;
+  final String doctorName;
+  final String doctorUniversity;
 
   MyCaseModel({
     required this.caseId,
@@ -27,6 +29,8 @@ class MyCaseModel {
     required this.mouthImages,
     required this.xrayImages,
     required this.prescriptionImages,
+    required this.doctorName,
+    required this.doctorUniversity,
   });
 
   factory MyCaseModel.fromJson(Map<String, dynamic> json) {
@@ -39,6 +43,8 @@ class MyCaseModel {
       description: json['description'],
       isKnown: json['isKnown'],
       isAssigned: json['isAssigned'],
+      doctorName: json['doctorName'],
+      doctorUniversity: json['doctorUniversity'],
       chronicDiseases: List<String>.from(json['chronicDiseases']),
       dentalDiseases: List<String>.from(json['dentalDiseases']),
       mouthImages: List<String>.from(json['mouthImages']),

@@ -36,7 +36,7 @@ class HasCases extends StatelessWidget {
                   child: const AutoSizeText(
                     maxFontSize: 17,
                     minFontSize: 15,
-                    'Recently Added Cases',
+                    'Your Cases',
                     style: Styles.LightBlue,
                   ),
                 ),
