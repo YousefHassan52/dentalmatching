@@ -10,7 +10,6 @@ import 'package:dentalmatching/features/patient_features/View_Cases/Controller/m
 import 'package:dentalmatching/features/patient_features/View_Cases/View/Widget/FormContainerInfo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shimmer/shimmer.dart';
 
 class HasCases extends StatelessWidget {
   const HasCases({super.key});
@@ -53,11 +52,11 @@ class HasCases extends StatelessWidget {
           ),
           GetBuilder<MyCasesPatientControllerImpl>(builder: (controller) {
             if (controller.requestStatus == RequestStatus.LOADING) {
-              return Expanded(child: ShimmerList());
+              return const Expanded(child: ShimmerList());
             } else if (controller.requestStatus == RequestStatus.SUCCESS) {
               return Expanded(
                 child: ListView.builder(
-                  padding: EdgeInsets.only(top: 0, bottom: 70),
+                  padding: const EdgeInsets.only(top: 0, bottom: 70),
                   shrinkWrap: true,
                   physics: const BouncingScrollPhysics(),
                   itemCount: externalController.myCases.length,

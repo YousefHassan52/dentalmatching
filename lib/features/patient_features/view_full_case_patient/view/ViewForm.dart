@@ -1,12 +1,10 @@
+// ignore: file_names
 import 'package:dentalmatching/core/constants/styles.dart';
-import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/BioWidget.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/FormHeadLine.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/HDivider.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/OptionalText.dart';
-import 'package:dentalmatching/features/patient_features/View_Cases/data/Model/case_model.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/view_full_case_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/ChronicList.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/doctor_info_if_case_assigned.dart';
 import 'package:flutter/material.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/Upper.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/GridViewWidget.dart';

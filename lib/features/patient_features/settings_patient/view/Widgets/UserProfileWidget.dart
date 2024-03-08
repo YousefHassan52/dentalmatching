@@ -74,10 +74,8 @@
 //     );
 //   }
 // }
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'CircleAvatarWidget.dart';
 
 class UserProfileWidget extends StatelessWidget {
@@ -89,7 +87,6 @@ class UserProfileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double avatarSize = Get.width * 0.15;
     double paddingVertical = Get.width * 0.05;
     double paddingHorizontal = Get.width * 0.02;
 
@@ -100,7 +97,7 @@ class UserProfileWidget extends StatelessWidget {
             vertical: paddingVertical,
             horizontal: paddingHorizontal,
           ),
-          child: CircleAvatarWidget(
+          child: const CircleAvatarWidget(
             imagePath: 'assets/svg/pp.svg',
           ),
         ),
@@ -125,7 +122,7 @@ class UserProfileWidget extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Container(
               width: Get.width * 0.5,
               alignment: Alignment.centerLeft,
