@@ -1,5 +1,9 @@
+import 'package:dentalmatching/core/constants/api_links.dart';
+import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class CasesCounterWidget extends StatelessWidget {
   final String counter;
@@ -14,7 +18,7 @@ class CasesCounterWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // Get.to(CasesScreen());
+       // Get.toNamed(AppRoutes.myCasesPatient);
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

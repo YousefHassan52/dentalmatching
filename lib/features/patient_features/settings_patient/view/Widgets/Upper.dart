@@ -39,7 +39,7 @@ class UpperWidget extends StatelessWidget {
             UserProfileWidget(
                 title: 'Welcome', name: controller.patientModel.fullName),
             SizedBox(
-              height: upperPartHeight * 0.03,
+              height: upperPartHeight * 0.1,
             ),
           ],
         ),

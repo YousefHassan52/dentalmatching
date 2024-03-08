@@ -21,6 +21,7 @@ class UserProfileWidget extends StatelessWidget {
             imagePath: 'assets/svg/pp.svg',
           ),
         ),
+       
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -42,7 +43,7 @@ class UserProfileWidget extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 5,),
+            const SizedBox(height: 5,),
             Container(
               width: 250,
               alignment: Alignment.centerLeft,

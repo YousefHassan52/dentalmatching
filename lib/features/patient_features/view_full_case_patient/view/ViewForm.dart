@@ -24,118 +24,115 @@ class ViewForm extends StatelessWidget {
         const SizedBox(
           height: 2,
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            width: Get.width * 0.93,
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(77, 207, 216, 220),
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(
-                color: const Color(0xff4A6BAD),
-              ),
-            ),
-            margin: EdgeInsets.all(10),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const FormHeadLine(headline: 'Describe what you feel'),
-                  Container(
-                    width: double.infinity,
-                    margin: const EdgeInsets.all(4),
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(62, 73, 119, 192),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(controller.caseModel.description,
-                          style: Styles.textStyle16Grey),
-                    ),
+        Container(
+          width: Get.width * 0.93,
+          // decoration: BoxDecoration(
+          //   color: const Color.fromARGB(77, 207, 216, 220),
+          //   borderRadius: BorderRadius.circular(20),
+          //   border: Border.all(
+          //     color: const Color(0xff4A6BAD),
+          //   ),
+          // ),
+          margin: EdgeInsets.all(10),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const FormHeadLine(headline: 'Describe what you feel'),
+                Container(
+                  width: double.infinity,
+                  margin: const EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(62, 73, 119, 192),
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(controller.caseModel.description,
+                        style: Styles.textStyle16Grey),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: HDivider(),
-                  ),
-                  const FormHeadLine(headline: 'Chronic Diseases'),
-                  controller.caseModel.chronicDiseases.isNotEmpty
-                      ? ChronicOrDentalList(
-                          list: controller.caseModel.chronicDiseases)
-                      : const Text(
-                          "None",
-                          style: Styles.textStyleGrey,
-                        ),
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: HDivider(),
-                  ),
-                  const FormHeadLine(headline: 'Do you know your case ?'),
-                  controller.caseModel.isKnown == true
-                      ? ChronicOrDentalList(
-                          list: controller.caseModel.dentalDiseases)
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: HDivider(),
+                ),
+                const FormHeadLine(headline: 'Chronic Diseases'),
+                controller.caseModel.chronicDiseases.isNotEmpty
+                    ? ChronicOrDentalList(
+                        list: controller.caseModel.chronicDiseases)
+                    : const Text(
+                        "None",
+                        style: Styles.textStyleGrey,
+                      ),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: HDivider(),
+                ),
+                const FormHeadLine(headline: 'Do you know your case ?'),
+                controller.caseModel.isKnown == true
+                    ? ChronicOrDentalList(
+                        list: controller.caseModel.dentalDiseases)
+                    : const Text(
+                        "None",
+                        style: Styles.textStyle16Grey,
+                      ),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: HDivider(),
+                ),
+                const FormHeadLine(headline: 'Pictures of your Mouth'),
+                const SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: GridViewWidget(
+                      imagesList: controller.caseModel.mouthImages),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: HDivider(),
+                ),
+                const OptionalText(
+                  text: 'X-Ray Images',
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: controller.caseModel.xrayImages.isNotEmpty
+                      ? GridViewWidget(
+                          imagesList: controller.caseModel.xrayImages,
+                        )
                       : const Text(
                           "None",
                           style: Styles.textStyle16Grey,
                         ),
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: HDivider(),
-                  ),
-                  const FormHeadLine(headline: 'Pictures of your Mouth'),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: GridViewWidget(
-                        imagesList: controller.caseModel.mouthImages),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: HDivider(),
-                  ),
-                  const OptionalText(
-                    text: 'X-Ray Images',
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: controller.caseModel.xrayImages.isNotEmpty
-                        ? GridViewWidget(
-                            imagesList: controller.caseModel.xrayImages,
-                          )
-                        : const Text(
-                            "None",
-                            style: Styles.textStyle16Grey,
-                          ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: HDivider(),
-                  ),
-                  const OptionalText(
-                    text: 'Prescription Images',
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: controller.caseModel.prescriptionImages.isNotEmpty
-                        ? GridViewWidget(
-                            imagesList: controller.caseModel.prescriptionImages,
-                          )
-                        : const Text(
-                            "None",
-                            style: Styles.textStyle16Grey,
-                          ),
-                  ),
-                ],
-              ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: HDivider(),
+                ),
+                const OptionalText(
+                  text: 'Prescription Images',
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: controller.caseModel.prescriptionImages.isNotEmpty
+                      ? GridViewWidget(
+                          imagesList: controller.caseModel.prescriptionImages,
+                        )
+                      : const Text(
+                          "None",
+                          style: Styles.textStyle16Grey,
+                        ),
+                ),
+              ],
             ),
           ),
         ),
