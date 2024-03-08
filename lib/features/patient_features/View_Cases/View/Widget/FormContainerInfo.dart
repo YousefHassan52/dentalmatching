@@ -43,11 +43,12 @@ class FormContainerInfo extends StatelessWidget {
             height: 10,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 50,
-                child: CircleAvatarWidget(imagePath: 'assets/svg/pp.svg'),
-              ),
+              // const SizedBox(
+              //   height: 50,
+              //   child: CircleAvatarWidget(imagePath: 'assets/svg/pp.svg'),
+              // ),
               Container(
                 width: 150,
                 alignment: Alignment.centerLeft,
