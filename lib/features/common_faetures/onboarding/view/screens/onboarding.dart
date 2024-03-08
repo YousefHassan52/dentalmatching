@@ -17,7 +17,10 @@ class OnboardingScreen extends StatelessWidget {
             height: 40,
           ),
           Expanded(flex: 5, child: OnboardingPageBuilder()),
-          const Expanded(flex: 1, child: OnboardingLowerWidgets())
+          const Expanded(
+              flex: 1,
+              child: FittedBox(
+                  fit: BoxFit.scaleDown, child: OnboardingLowerWidgets()))
         ],
       ),
     );
