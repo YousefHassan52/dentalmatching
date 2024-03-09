@@ -4,46 +4,36 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class PreSignUpWidget extends StatelessWidget {
-  const PreSignUpWidget({super.key, required this.image, required this.userType,required this.onTap});
-
+  const PreSignUpWidget({
+    super.key,
+    required this.role,
+    required this.image,
+    required this.onTap,
+  });
+  final String role;
   final String image;
-  final String userType;
   final void Function() onTap;
 
   @override
   Widget build(BuildContext context) {
-    
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.only(top: Get.width * 0.2),
-          child: GestureDetector(
-            onTap: onTap,
-            child: Container(
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: AppColors.circleColor,
-              ),
-              height: Get.width * 0.4,
-              width: Get.width * 0.8,
-              child: Center(
-                child: SvgPicture.asset(
-                  image,
-                  height: Get.width * 0.36,
-                ),
-              ),
+    return IconButton(
+      onPressed: onTap,
+      icon: FittedBox(
+        child: Column(
+          children: [
+            Container(
+              height: Get.height * 0.5,
+              margin: EdgeInsets.symmetric(vertical: 4),
+              decoration: const BoxDecoration(),
+              child: SvgPicture.asset(image),
             ),
-          ),
+            Text(
+              role,
+              style: TextStyle(fontSize: 80, color: AppColors.blueTextColor),
+            )
+          ],
         ),
-        Text(
-          userType,
-          style: TextStyle(
-            fontSize: Get.width * 0.07,
-            fontWeight: FontWeight.bold,
-            color: AppColors.blueTextColor,
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
