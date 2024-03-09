@@ -14,7 +14,6 @@ class UpperWidget extends StatelessWidget {
         Get.put(AddCaseController()); // momken te7tag hena controller mo5tlef
     double upperPartHeight = Get.height * 0.2;
     return Container(
-      height: upperPartHeight,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(20),
@@ -39,7 +38,7 @@ class UpperWidget extends StatelessWidget {
             UserProfileWidget(
                 title: 'Welcome', name: controller.patientModel.fullName),
             SizedBox(
-              height: upperPartHeight * 0.03,
+              height: 10,
             ),
           ],
         ),

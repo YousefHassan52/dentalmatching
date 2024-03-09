@@ -17,54 +17,71 @@ class SettingsPatientScreen extends StatelessWidget {
     MyCasesPatientControllerImpl myCasesController =
         Get.put(MyCasesPatientControllerImpl());
     return Scaffold(
-      body: Column(
-        children: [
-          UpperWidget(),
-          Padding(
-            padding: EdgeInsets.only(left: 20, top: 25),
-            child: EnabledInfo(
-                icon: Icons.phone_rounded,
-                info: controller.userModel.phoneNumber),
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 20, top: 15),
-            child:
-                EnabledInfo(icon: Icons.mail, info: controller.userModel.email),
-          ),
-          const SizedBox(
-            height: 25,
-          ),
-          const CounterBox(),
-          // InkWell(
-          //   child: Text('Settings',style: TextStyle(color: AppColors.blueLightTextColor),),
-          // )
-          const SizedBox(
-            height: 25,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Row(
-              children: [
-                const Text(
-                  "Log out",
-                  style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.mainColor),
-                ),
-                Spacer(),
-                TextButton(
-                    onPressed: () {
-                      controller.logout();
-                    },
-                    child: Icon(
-                      Icons.logout,
-                      color: AppColors.mainColor,
-                    )),
-              ],
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            UpperWidget(),
+            Padding(
+              padding: EdgeInsets.only(left: 20, top: 25),
+              child: FittedBox(
+                child: EnabledInfo(
+                    icon: Icons.phone_rounded,
+                    info: controller.userModel.phoneNumber),
+              ),
             ),
-          )
-        ],
+            Padding(
+              padding: EdgeInsets.only(left: 20, top: 15),
+              child: FittedBox(
+                child: EnabledInfo(
+                    icon: Icons.mail, info: controller.userModel.email),
+              ),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            Center(child: const CounterBox()),
+            // InkWell(
+            //   child: Text('Settings',style: TextStyle(color: AppColors.blueLightTextColor),),
+            // )
+            const SizedBox(
+              height: 25,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: const FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        "Log out",
+                        style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.mainColor),
+                      ),
+                    ),
+                  ),
+                  Flexible(
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: TextButton(
+                          onPressed: () {
+                            controller.logout();
+                          },
+                          child: Icon(
+                            Icons.logout,
+                            color: AppColors.mainColor,
+                          )),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

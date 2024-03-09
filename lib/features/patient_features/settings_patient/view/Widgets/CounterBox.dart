@@ -13,7 +13,8 @@ class CounterBox extends StatelessWidget {
   Widget build(BuildContext context) {
     MyCasesPatientControllerImpl myCases = Get.find();
     return Container(
-      width: Get.width * 0.93,
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      width: double.infinity,
       // height: 100,
       decoration: BoxDecoration(
         color: AppColors.circleColor,
