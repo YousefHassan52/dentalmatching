@@ -18,7 +18,9 @@ class AddImageWidget extends StatelessWidget {
     return TextButton(
       onPressed: onPressed,
       child: Container(
+        padding: const EdgeInsets.all(5),
         height: Get.height * 0.1,
+        width: double.infinity,
         decoration: BoxDecoration(
           color: AppColors.circleColor,
           borderRadius: BorderRadius.circular(20),
@@ -39,46 +41,49 @@ class AddImageWidget extends StatelessWidget {
             ),
           ),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  txt,
-                  style: Styles.textStyle16Grey,
-                ),
-                RichText(
-                  text: const TextSpan(
-                    text: '*',
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: 'select at least 2 pictures',
-                        style: Styles.textStyle16Grey,
-                      ),
-                    ],
+        child: FittedBox(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    txt,
+                    style: Styles.textStyle16Grey,
+                    textAlign: TextAlign.start,
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              width: 20,
-            ),
-            Center(
-              child: Container(
-                height: 60,
-                width: Get.width * 0.18,
-                child: SvgPicture.asset(img),
+                  RichText(
+                    text: const TextSpan(
+                      text: '*',
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: 'select at least 2 pictures',
+                          style: Styles.textStyle16Grey,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ],
+              const SizedBox(
+                width: 20,
+              ),
+              Center(
+                child: Container(
+                  height: 60,
+                  width: Get.width * 0.18,
+                  child: SvgPicture.asset(img),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
