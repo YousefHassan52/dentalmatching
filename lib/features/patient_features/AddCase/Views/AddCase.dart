@@ -14,7 +14,6 @@ class AddCaseScreen extends StatelessWidget {
     Get.put(MyCasesPatientControllerImpl());
     return Scaffold(
       body: SizedBox(
-        height: Get.height,
         child: ListView(
           padding: EdgeInsets.only(top: 0, bottom: 55),
           children: [

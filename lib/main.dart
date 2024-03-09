@@ -13,7 +13,7 @@ void main() async {
   await initialServices();
   // sharedPref = await SharedPreferences.getInstance();
   runApp(
-    // const MyApp()
+    //const MyApp()
     DevicePreview(
       builder: (context) => const MyApp(),
     ),
