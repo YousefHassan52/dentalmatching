@@ -14,7 +14,6 @@ class UpperSignupWidget extends StatelessWidget {
     double upperPartHeight = Get.height * 0.2;
 
     return Container(
-      height: upperPartHeight,
       decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(20),
@@ -52,7 +51,7 @@ class UpperSignupWidget extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: upperPartHeight * 0.03,
+              height: 10,
             )
           ],
         ),
