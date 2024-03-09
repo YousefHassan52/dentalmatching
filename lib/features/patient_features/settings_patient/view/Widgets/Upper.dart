@@ -32,15 +32,62 @@ class UpperWidget extends StatelessWidget {
           ),
           color: AppColors.mainColor.withOpacity(0.8),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            UserProfileWidget(
-                title: 'Welcome', name: controller.patientModel.fullName),
-            SizedBox(
-              height: 10,
-            ),
-          ],
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          height: upperPartHeight,
+          child: Row(
+            // row take size of the parent container = upperPartHeight
+            children: [
+              const Flexible(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: CircleAvatar(
+                    radius: 40,
+                    backgroundImage: AssetImage(
+                      "assets/images/profilepicture.png",
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Flexible(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          "WELCOME",
+                          style: TextStyle(
+                            fontSize: 27,
+                            fontWeight: FontWeight.w300,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          controller.userModel.fullName.split(' ')[0],
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
