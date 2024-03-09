@@ -101,92 +101,39 @@ class LoginScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Text(
-                      "Don't have an account?",
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 118, 119, 120),
-                          fontSize: 13),
-                    ),
-                  ),
-                  // const Spacer(),
-                  TextButton(
-                    onPressed: () {
-                      Get.toNamed(AppRoutes.userType);
-                      // Get.to(const CasesScreen());
-                    },
-                    child: const FittedBox(
+                  const Flexible(
+                    child: FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(
-                        "Signup",
+                        "Don't have an account?",
                         style: TextStyle(
-                          color: AppColors.blueTextColor,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline,
-                          fontSize: 13,
+                            color: Color.fromARGB(255, 118, 119, 120),
+                            fontSize: 16),
+                      ),
+                    ),
+                  ),
+                  Flexible(
+                    child: TextButton(
+                      onPressed: () {
+                        Get.toNamed(AppRoutes.userType);
+                        // Get.to(const CasesScreen());
+                      },
+                      child: const FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(
+                          "Signup",
+                          style: TextStyle(
+                            color: AppColors.blueTextColor,
+                            fontWeight: FontWeight.bold,
+                            decoration: TextDecoration.underline,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ],
               ),
-              // TextButton(
-              //   onPressed: () {
-              //     // Get.offNamed(AppRoutes.userType);
-              //     //         //externalController.goToSignupScreen();
-              //     //         // externalController.goToPreSignupScreen();
-              //     Get.to(CasesScreen());
-              //   },
-              //   child: RichText(
-              //     text: const TextSpan(
-              //       text: "Don't have and account?",
-              //       style: TextStyle(
-              //           color: Color.fromARGB(255, 118, 119, 120),
-              //           fontSize: 20),
-              //       //style: Styles.formTitle,
-              //       children: [
-              //         TextSpan(
-              //           text: ' Sign up.',
-              //           style: TextStyle(
-              //             color: AppColors.blueTextColor,
-              //             fontWeight: FontWeight.bold,
-              //             // decoration: TextDecoration.underline,
-              //             fontSize: 20,
-              //           ),
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children: [
-              //     const Text(
-              //       "Don't have an account? ",
-              //       style: TextStyle(
-              //           color: Color.fromARGB(255, 118, 119, 120),
-              //           fontSize: 13),
-              //     ),
-              //     InkWell(
-              //       onTap: () {
-              //         // Get.offNamed(AppRoutes.userType);
-              //         //externalController.goToSignupScreen();
-              //         // externalController.goToPreSignupScreen();
-              //         Get.to(CasesScreen());
-              //       },
-              //       child: const Text(
-              //         'Sign Up',
-              //         style: TextStyle(
-              //           color: AppColors.blueTextColor,
-              //           fontWeight: FontWeight.bold,
-              //           decoration: TextDecoration.underline,
-              //           fontSize: 13,
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
               GetBuilder<LoginControllerImp>(
                 builder: (controller) => Container(
                   margin: const EdgeInsets.symmetric(vertical: 10),
@@ -207,102 +154,3 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-//   const LoginScreen({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     //  LoginControllerImp externalController = Get.put(LoginControllerImp());
-//     // TranslationController translationController =
-//     //     Get.put(TranslationController());
-//     return Scaffold(
-//       appBar: AppBar(),
-//       body: SafeArea(
-//           child: Container(
-//         width: double.infinity,
-//         child: Column(
-//           crossAxisAlignment: CrossAxisAlignment.center,
-//           children: [
-//             ElevatedButton(
-//               onPressed: () {
-//                 Get.offAllNamed(AppRoutes.checkEmailForgetPassword);
-//               },
-//               child: const Text("Reset Password"),
-//             ),
-//             Row(
-//               children: [
-//                 ElevatedButton(
-//                     onPressed: () {
-//                       translationController.changeLang(langCode: "ar");
-//                     },
-//                     child: const Text("arabic")),
-//                 const SizedBox(height: 20),
-//                 ElevatedButton(
-//                     onPressed: () {
-//                       translationController.changeLang(langCode: "en");
-//                     },
-//                     child: const Text(
-//                       "english",
-//                     )),
-//               ],
-//             ),
-//             Text(
-//               "1".tr,
-//               style: TextStyle(
-//                 fontSize: 36,
-//                 fontWeight: FontWeight.w200,
-//               ),
-//             ),
-//             Text(
-//               "1".tr,
-//               style: TextStyle(
-//                 fontSize: 36,
-//                 fontWeight: FontWeight.w300,
-//               ),
-//             ),
-//             Text(
-//               "1".tr,
-//               style: TextStyle(
-//                 fontSize: 36,
-//                 fontWeight: FontWeight.w400,
-//               ),
-//             ),
-//             Text(
-//               "1".tr,
-//               style: TextStyle(
-//                 fontSize: 36,
-//                 fontWeight: FontWeight.w500,
-//               ),
-//             ),
-//             Text(
-//               "1".tr,
-//               style: TextStyle(
-//                 fontSize: 36,
-//                 fontWeight: FontWeight.w600,
-//               ),
-//             ),
-//             Text(
-//               "1".tr,
-//               style: TextStyle(
-//                 fontSize: 36,
-//                 fontWeight: FontWeight.w700,
-//               ),
-//             ),
-//             Text(
-//               "1".tr,
-//               style: TextStyle(
-//                 fontSize: 36,
-//                 fontWeight: FontWeight.w800,
-//               ),
-//             ),
-//             Text(
-//               "1".tr,
-//               style: TextStyle(
-//                 fontSize: 36,
-//                 fontWeight: FontWeight.w900,
-//               ),
-//             ),
-//           ],
-//         ),
-//       )),
-//     );
-//   }

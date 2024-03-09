@@ -1,7 +1,5 @@
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AvatarWidget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class DrProfileWidget extends StatelessWidget {
@@ -24,7 +22,7 @@ class DrProfileWidget extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-           Container(
+            Container(
               width: 250,
               alignment: Alignment.centerLeft,
               child: FittedBox(
@@ -33,7 +31,7 @@ class DrProfileWidget extends StatelessWidget {
                   text: TextSpan(
                     text: title,
                     style: const TextStyle(
-                      fontSize:25 ,
+                      fontSize: 25,
                       fontWeight: FontWeight.w300,
                       color: Colors.white,
                     ),
@@ -41,7 +39,9 @@ class DrProfileWidget extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 5,),
+            const SizedBox(
+              height: 5,
+            ),
             Container(
               width: 250,
               alignment: Alignment.centerLeft,

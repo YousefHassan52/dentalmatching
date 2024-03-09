@@ -28,7 +28,7 @@ class SettingsDoctorScreen extends StatelessWidget {
                 info: controller.userModel.phoneNumber),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 20, top: 15),
+            padding: const EdgeInsets.only(left: 20, top: 15),
             child:
                 EnabledInfo(icon: Icons.mail, info: controller.userModel.email),
           ),
