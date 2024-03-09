@@ -42,25 +42,28 @@ class AddOptionalImg extends StatelessWidget {
                   ),
                 ),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    txt,
-                    style: Styles.textStyle16Grey,
-                  ),
-                  const SizedBox(
-                    width: 2,
-                  ),
-                  Center(
-                    child: Container(
-                      height: 50,
-                      width: Get.width * 0.18,
-                      child: SvgPicture.asset(img),
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      txt,
+                      style: Styles.textStyle16Grey,
                     ),
-                  ),
-                ],
+                    const SizedBox(
+                      width: 2,
+                    ),
+                    Center(
+                      child: Container(
+                        height: 50,
+                        width: Get.width * 0.18,
+                        child: SvgPicture.asset(img),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             );
           },
