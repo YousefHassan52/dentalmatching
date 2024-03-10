@@ -9,6 +9,7 @@ import 'package:dentalmatching/features/patient_features/settings_patient/view/W
 import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/View/Widget/FormContainerInfo.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class HasCases extends StatelessWidget {
@@ -27,15 +28,19 @@ class HasCases extends StatelessWidget {
             height: 9,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 8.0),
+            padding: const EdgeInsets.only(left: 8.0 , right: 20),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  child: const AutoSizeText(
-                    maxFontSize: 17,
-                    minFontSize: 15,
-                    'Your Cases',
-                    style: Styles.LightBlue,
+                const Flexible(
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: AutoSizeText(
+                      maxFontSize: 25,
+                      minFontSize: 15,
+                      'Recently Added Cases',
+                      style: Styles.LightBlue,
+                    ),
                   ),
                 ),
                 const Spacer(),
@@ -72,15 +77,20 @@ class HasCases extends StatelessWidget {
               );
             } else if (controller.requestStatus ==
                 RequestStatus.EMPTY_SUCCESS) {
-              return const Center(
-                child: Text(
-                  "No Cases Yet",
-                  style: TextStyle(color: Colors.black),
-                ),
+              return Center(
+                child: SvgPicture.asset('assets/svg/NoCasesss.svg'),
               );
             } else {
-              return const Center(
-                child: Text("Reload Data"),
+              return Center(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 350,
+                      width: 270,
+                      child: SvgPicture.asset('assets/svg/GroupRRR.svg'),
+                    ),
+                  ],
+                ),
               );
             }
           })

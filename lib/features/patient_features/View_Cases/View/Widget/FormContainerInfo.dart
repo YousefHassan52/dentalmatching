@@ -7,6 +7,8 @@ import 'package:dentalmatching/features/patient_features/View_Cases/data/Model/c
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../settings_patient/view/Widgets/CircleAvatarWidget.dart';
+
 class FormContainerInfo extends StatelessWidget {
   const FormContainerInfo({Key? key, required this.caseModel})
       : super(key: key);
@@ -21,12 +23,12 @@ class FormContainerInfo extends StatelessWidget {
       width: 20,
       decoration: BoxDecoration(
         //color: AppColors.circleColor,
-        borderRadius: BorderRadius.all(Radius.circular(26)),
+        borderRadius: const BorderRadius.all(Radius.circular(26)),
         image: DecorationImage(
           fit: BoxFit.cover,
-          image: AssetImage('assets/images/oo.png'),
+          image: const AssetImage('assets/images/oo.png'),
           colorFilter: ColorFilter.mode(
-            Color.fromARGB(255, 7, 66, 162)
+            const Color.fromARGB(255, 7, 66, 162)
                 .withOpacity(0.2), // Adjust the opacity (0.0 to 1.0)
             BlendMode.dstATop,
           ),
@@ -41,25 +43,22 @@ class FormContainerInfo extends StatelessWidget {
             height: 10,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // const SizedBox(
-              //   height: 50,
-              //   child: CircleAvatarWidget(imagePath: 'assets/svg/pp.svg'),
-              // ),
-              Container(
-                width: 150,
-                alignment: Alignment.centerLeft,
+              const SizedBox(
+                height: 50,
+                child: CircleAvatarWidget(imagePath: 'assets/svg/pp.svg'),
+              ),
+              Flexible(
+                flex: 4,
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
-                  child: RichText(
-                    text: TextSpan(
-                      text: caseModel.patientName,
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.mainColor,
-                      ),
+                  child: Text(
+                    caseModel.patientName,
+                    style: const TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.mainColor,
                     ),
                   ),
                 ),
@@ -71,14 +70,19 @@ class FormContainerInfo extends StatelessWidget {
                   color: Colors.green,
                 ),
               const Spacer(),
-              IconButton(
-                onPressed: () {
-                  Get.toNamed(AppRoutes.formView,
-                      arguments: {"case": caseModel});
-                },
-                icon: const Icon(
-                  Icons.double_arrow_outlined,
-                  color: AppColors.mainColor,
+              Flexible(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: IconButton(
+                    onPressed: () {
+                      Get.toNamed(AppRoutes.formView,
+                          arguments: {"case": caseModel});
+                    },
+                    icon: const Icon(
+                      Icons.double_arrow_outlined,
+                      color: AppColors.mainColor,
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -88,10 +92,6 @@ class FormContainerInfo extends StatelessWidget {
             child: AutoSizeText(
               caseModel.description,
               style: Styles.textStyle16Grey,
-              //  const TextStyle(
-              //   fontSize: 20,
-              //   fontWeight: FontWeight.w400,
-              // ),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),

@@ -1,9 +1,8 @@
+// ignore: file_names
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Controller/FormController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'UserProfileWidget.dart';
 
 class UpperWidget extends StatelessWidget {
   const UpperWidget({super.key});
@@ -38,18 +37,29 @@ class UpperWidget extends StatelessWidget {
           child: Row(
             // row take size of the parent container = upperPartHeight
             children: [
-              const Flexible(
+              Flexible(
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: CircleAvatar(
-                    radius: 40,
-                    backgroundImage: AssetImage(
-                      "assets/images/profilepicture.png",
+                    radius: 37,
+                    backgroundColor: Colors.white,
+                    child: ClipOval(
+                      child: SizedBox.fromSize(
+                          size: const Size.fromRadius(50),
+                          child: Image.asset(
+                            "assets/images/profilepicture.png",
+                          )),
                     ),
                   ),
+                  // child: CircleAvatar(
+                  //   radius: 40,
+                  //   backgroundImage: AssetImage(
+                  //     "assets/images/profilepicture.png",
+                  //   ),
+                  // ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Expanded(
@@ -75,7 +85,7 @@ class UpperWidget extends StatelessWidget {
                         fit: BoxFit.scaleDown,
                         child: Text(
                           controller.userModel.fullName.split(' ')[0],
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
