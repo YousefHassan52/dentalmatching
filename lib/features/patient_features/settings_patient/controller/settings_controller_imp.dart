@@ -25,7 +25,7 @@ class SettingsPatientControllerImp extends SettingsPatientControllerAbstract {
   void getData() async {
     // some actions
   }
-
+  @override
   logout() {
     myServices.sharedPref.remove("address");
     myServices.sharedPref.remove("token");
@@ -40,4 +40,7 @@ class SettingsPatientControllerImp extends SettingsPatientControllerAbstract {
     myServices.sharedPref.remove("logged");
     Get.offAllNamed(AppRoutes.login);
   }
+
+  @override
+  deleteAccount() {}
 }

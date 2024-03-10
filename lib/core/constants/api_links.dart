@@ -21,4 +21,7 @@ class ApiLinks {
       "https://dentamatch.azurewebsites.net/Doctor/CaseAppointment/RequestCase?caseId=";
   static const getDoctorCases =
       "https://dentamatch.azurewebsites.net/Doctor/DentalCase/Getassignedcases";
+
+  static const String deleteAccount =
+      "https://dentamatch.azurewebsites.net/Auth/DeleteAccount";
 }
