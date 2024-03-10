@@ -1,21 +1,19 @@
-import 'package:dentalmatching/core/class/request_status.dart';
-import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
-import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/BioWidget.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/BoxWidget.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/RequestButton.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AppUpper.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/FormHeadLine.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/HDivider.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/CircleAvatarWidget.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/ChronicList.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/GridViewWidget.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'Widgets/BioBoxWidget.dart';
 
 class ViewWholeCaseForDoctor extends StatelessWidget {
   const ViewWholeCaseForDoctor({super.key});
@@ -39,187 +37,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  margin: const EdgeInsets.only(bottom: 10),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: AppColors.circleColor,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.blueLightTextColor.withOpacity(0.2),
-                        spreadRadius: 1,
-                        blurRadius: 3,
-                      ),
-                    ],
-                  ),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          const Flexible(
-                            child: FittedBox(
-                              fit: BoxFit.scaleDown,
-                              child: SizedBox(
-                                height: 60,
-                                child: CircleAvatarWidget(
-                                    imagePath: 'assets/svg/profile.svg'),
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            child: FittedBox(
-                              fit: BoxFit.scaleDown,
-                              child: Text(
-                                controller.caseModel.patientName,
-                                style: Styles.textStyle15LightBlue,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      BioWidget(
-                        title: 'Address',
-                        subTitle: controller.caseModel.patientCity,
-                      ),
-                      BioWidget(
-                        title: 'Age',
-                        subTitle: "${controller.caseModel.patientAge}",
-                      ),
-                      BioWidget(
-                        title: 'Case Status',
-                        subTitle: controller.caseModel.isKnown == true
-                            ? "Known"
-                            : "Unkown",
-                      ),
-                      GetBuilder<ViewWholeCaseDoctorControllerImpl>(
-                        builder: (internalController) {
-                          if (controller.caseModel.isAssigned == true) {
-                            return Column(
-                              children: [
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                BioWidget(
-                                  title: 'Phone number',
-                                  subTitle:
-                                      internalController.caseModel.phoneNumber,
-                                ),
-                              ],
-                            );
-                          }
-                          if (controller.requestStatus ==
-                              RequestStatus.LOADING) {
-                            return const SizedBox(
-                              height: 20,
-                              width: 20,
-                              child: CircularProgressIndicator(
-                                backgroundColor: AppColors.mainColor,
-                                color: AppColors.secondColor,
-                              ),
-                            );
-                          } else if (internalController.viewPhone == true &&
-                              controller.requestStatus ==
-                                  RequestStatus.SUCCESS) {
-                            return Column(
-                              children: [
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                BioWidget(
-                                  title: 'Phone number',
-                                  subTitle:
-                                      internalController.caseModel.phoneNumber,
-                                ),
-                              ],
-                            );
-                          } else {
-                            return BioWidget(
-                              isLongText: true,
-                              title: 'Phone Number',
-                              subTitle: "None",
-                            );
-                          }
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-                // Container(
-                //   margin: const EdgeInsets.all(20),
-                //   child: FittedBox(
-                //     child: Column(
-                //       crossAxisAlignment: CrossAxisAlignment.start,
-                //       children: [
-                //         BioWidget(
-                //           title: 'Address',
-                //           subTitle: controller.caseModel.patientCity,
-                //         ),
-                //         BioWidget(
-                //           title: 'Age',
-                //           subTitle: "${controller.caseModel.patientAge}",
-                //         ),
-                //         BioWidget(
-                //           title: 'Case Status',
-                //           subTitle: controller.caseModel.isKnown == true
-                //               ? "Known"
-                //               : "Unkown",
-                //         ),
-                //         GetBuilder<ViewWholeCaseDoctorControllerImpl>(
-                //           builder: (internalController) {
-                //             if (controller.caseModel.isAssigned == true) {
-                //               return Column(
-                //                 children: [
-                //                   const SizedBox(
-                //                     height: 20,
-                //                   ),
-                //                   BioWidget(
-                //                     title: 'Phone number',
-                //                     subTitle: internalController
-                //                         .caseModel.phoneNumber,
-                //                   ),
-                //                 ],
-                //               );
-                //             }
-                //             if (controller.requestStatus ==
-                //                 RequestStatus.LOADING) {
-                //               return const SizedBox(
-                //                 height: 20,
-                //                 width: 20,
-                //                 child: CircularProgressIndicator(
-                //                   backgroundColor: AppColors.mainColor,
-                //                   color: AppColors.secondColor,
-                //                 ),
-                //               );
-                //             } else if (internalController.viewPhone == true &&
-                //                 controller.requestStatus ==
-                //                     RequestStatus.SUCCESS) {
-                //               return Column(
-                //                 children: [
-                //                   const SizedBox(
-                //                     height: 20,
-                //                   ),
-                //                   BioWidget(
-                //                     title: 'Phone number',
-                //                     subTitle: internalController
-                //                         .caseModel.phoneNumber,
-                //                   ),
-                //                 ],
-                //               );
-                //             } else {
-                //               return BioWidget(
-                //                 isLongText: true,
-                //                 title: 'Phone Number',
-                //                 subTitle: "None",
-                //               );
-                //             }
-                //           },
-                //         ),
-                //       ],
-                //     ),
-                //   ),
-                // ),
+                BioBoxWidget(controller: controller),
                 if (controller.caseModel.isAssigned == false)
                   RequestButton(
                     onPressed: () {
@@ -336,3 +154,82 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+                // Container(
+                //   margin: const EdgeInsets.all(20),
+                //   child: FittedBox(
+                //     child: Column(
+                //       crossAxisAlignment: CrossAxisAlignment.start,
+                //       children: [
+                //         BioWidget(
+                //           title: 'Address',
+                //           subTitle: controller.caseModel.patientCity,
+                //         ),
+                //         BioWidget(
+                //           title: 'Age',
+                //           subTitle: "${controller.caseModel.patientAge}",
+                //         ),
+                //         BioWidget(
+                //           title: 'Case Status',
+                //           subTitle: controller.caseModel.isKnown == true
+                //               ? "Known"
+                //               : "Unkown",
+                //         ),
+                //         GetBuilder<ViewWholeCaseDoctorControllerImpl>(
+                //           builder: (internalController) {
+                //             if (controller.caseModel.isAssigned == true) {
+                //               return Column(
+                //                 children: [
+                //                   const SizedBox(
+                //                     height: 20,
+                //                   ),
+                //                   BioWidget(
+                //                     title: 'Phone number',
+                //                     subTitle: internalController
+                //                         .caseModel.phoneNumber,
+                //                   ),
+                //                 ],
+                //               );
+                //             }
+                //             if (controller.requestStatus ==
+                //                 RequestStatus.LOADING) {
+                //               return const SizedBox(
+                //                 height: 20,
+                //                 width: 20,
+                //                 child: CircularProgressIndicator(
+                //                   backgroundColor: AppColors.mainColor,
+                //                   color: AppColors.secondColor,
+                //                 ),
+                //               );
+                //             } else if (internalController.viewPhone == true &&
+                //                 controller.requestStatus ==
+                //                     RequestStatus.SUCCESS) {
+                //               return Column(
+                //                 children: [
+                //                   const SizedBox(
+                //                     height: 20,
+                //                   ),
+                //                   BioWidget(
+                //                     title: 'Phone number',
+                //                     subTitle: internalController
+                //                         .caseModel.phoneNumber,
+                //                   ),
+                //                 ],
+                //               );
+                //             } else {
+                //               return BioWidget(
+                //                 isLongText: true,
+                //                 title: 'Phone Number',
+                //                 subTitle: "None",
+                //               );
+                //             }
+                //           },
+                //         ),
+                //       ],
+                //     ),
+                //   ),
+                // ),
