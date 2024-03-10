@@ -15,13 +15,13 @@ class AddCaseScreen extends StatelessWidget {
     return Scaffold(
       body: SizedBox(
         child: ListView(
-          padding: EdgeInsets.only(top: 0, bottom: 55),
+          padding: const EdgeInsets.only(top: 0, bottom: 55),
           children: [
             const UpperWidget(),
             const SizedBox(
               height: 12,
             ),
-            FormContainer(),
+            const FormContainer(),
           ],
         ),
       ),

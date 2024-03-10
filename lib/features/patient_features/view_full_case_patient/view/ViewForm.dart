@@ -26,17 +26,17 @@ class ViewForm extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
             onPressed: () {},
             child: PopupMenuButton(
-              child: Icon(
+              child: const Icon(
                 Icons.edit,
                 color: AppColors.mainColor,
               ),
               itemBuilder: (context) => [
                 PopupMenuItem(
-                  child: Text("Edit"),
+                  child: const Text("Edit"),
                   onTap: () {},
                 ),
                 PopupMenuItem(
-                  child: Text("Delete"),
+                  child: const Text("Delete"),
                   onTap: () {
                     controller.deleteCase().then((value) {
                       casesController.getCases();
@@ -46,7 +46,7 @@ class ViewForm extends StatelessWidget {
               ],
             )),
         body: ListView(
-          padding: EdgeInsets.only(top: 0),
+          padding: const EdgeInsets.only(top: 0),
           children: [
             const UpperWidget(),
             const SizedBox(
@@ -63,7 +63,7 @@ class ViewForm extends StatelessWidget {
                     color: const Color(0xff4A6BAD),
                   ),
                 ),
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -75,7 +75,7 @@ class ViewForm extends StatelessWidget {
                         width: double.infinity,
                         margin: const EdgeInsets.all(4),
                         decoration: BoxDecoration(
-                            color: Color.fromARGB(62, 73, 119, 192),
+                            color: const Color.fromARGB(62, 73, 119, 192),
                             borderRadius: BorderRadius.circular(20)),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -148,7 +148,7 @@ class ViewForm extends StatelessWidget {
                       const OptionalText(
                         text: 'Prescription Images',
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Padding(

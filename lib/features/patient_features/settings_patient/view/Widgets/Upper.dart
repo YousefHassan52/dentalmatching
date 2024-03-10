@@ -35,8 +35,10 @@ class UpperWidget extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           height: upperPartHeight,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             // row take size of the parent container = upperPartHeight
             children: [
+             
               Flexible(
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
@@ -95,7 +97,19 @@ class UpperWidget extends StatelessWidget {
                     ),
                   ],
                 ),
+                
               ),
+              // Spacer(),
+              //  IconButton(
+              //   onPressed: () {
+              //     Get.back();
+              //   },
+              //   icon: Icon(
+              //     Icons.keyboard_double_arrow_left_outlined,
+              //     size: 30,
+              //     color: Colors.white,
+              //   ),
+              // ),
             ],
           ),
         ),

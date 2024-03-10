@@ -21,7 +21,7 @@ class AddCaseController extends GetxController {
 
   StaticData list = StaticData();
   List<bool> checkedItems = List.generate(6, (index) => false);
-  List<bool> checkedCase = List.generate(20, (index) => false);
+  List<bool> checkedCase = List.generate(10, (index) => false);
   bool showPressureChecklist = false;
   String pressure = '';
   String selected = '';
