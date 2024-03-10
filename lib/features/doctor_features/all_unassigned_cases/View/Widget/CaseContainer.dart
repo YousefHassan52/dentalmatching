@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
@@ -16,23 +17,24 @@ class CasContainer extends StatelessWidget {
   final CaseDoctorModel caseModel;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return  Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
       //height: 320,
       width: 20,
       decoration: BoxDecoration(
         //color: AppColors.circleColor,
-        borderRadius: BorderRadius.all(Radius.circular(26)),
+        borderRadius: const BorderRadius.all(Radius.circular(26)),
         image: DecorationImage(
           fit: BoxFit.cover,
-          image: AssetImage('assets/images/oo.png'),
+          image: const AssetImage('assets/images/oo.png'),
           colorFilter: ColorFilter.mode(
-            Color.fromARGB(255, 7, 66, 162)
+            const Color.fromARGB(255, 7, 66, 162)
                 .withOpacity(0.2), // Adjust the opacity (0.0 to 1.0)
             BlendMode.dstATop,
           ),
         ),
       ),
+
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,45 +43,53 @@ class CasContainer extends StatelessWidget {
             height: 10,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const SizedBox(
-                height: 55,
+                height: 50,
                 child: CircleAvatarWidget(imagePath: 'assets/svg/pp.svg'),
               ),
-              Container(
-                width: 150,
-                alignment: Alignment.centerLeft,
+              Flexible(
+                flex: 4,
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
-                  child: RichText(
-                    text: TextSpan(
-                      text: caseModel.patientName,
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.mainColor,
-                      ),
+                  child: Text(
+                    caseModel.patientName,
+                    style: const TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.mainColor,
                     ),
                   ),
                 ),
               ),
-              //Text(caseModel.patientName),
               const Spacer(),
-              IconButton(
-                onPressed: () {
-                  Get.toNamed(AppRoutes.viewWholeCaseForDoctor,
-                      arguments: {"case": caseModel});
-                },
-                icon: const Icon(
-                  Icons.double_arrow_outlined,
-                  color: AppColors.mainColor,
+              if (caseModel.isAssigned == true)
+                const Icon(
+                  Icons.check_circle_rounded,
+                  color: Colors.green,
+                ),
+              const Spacer(),
+              Flexible(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: IconButton(
+                    onPressed: () {
+                      Get.toNamed(AppRoutes.formView,
+                          arguments: {"case": caseModel});
+                    },
+                    icon: const Icon(
+                      Icons.double_arrow_outlined,
+                      color: AppColors.mainColor,
+                    ),
+                  ),
                 ),
               ),
             ],
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(
+            child: AutoSizeText(
               caseModel.description,
               style: Styles.textStyle16Grey,
               maxLines: 2,

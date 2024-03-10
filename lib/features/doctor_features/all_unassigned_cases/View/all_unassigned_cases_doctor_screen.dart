@@ -25,13 +25,17 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 8.0),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                child: const AutoSizeText(
-                  maxFontSize: 17,
-                  minFontSize: 15,
-                  'Recently Added Cases',
-                  style: Styles.LightBlue,
+              const Flexible(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: AutoSizeText(
+                    maxFontSize: 25,
+                    minFontSize: 15,
+                    'Recently Added Cases',
+                    style: Styles.LightBlue,
+                  ),
                 ),
               ),
               const Spacer(),
@@ -42,7 +46,7 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
                   icon: const Icon(
                     Icons.rocket_launch_outlined,
                     color: AppColors.mainColor,
-                  ))
+                  ),),
             ],
           ),
         ),
