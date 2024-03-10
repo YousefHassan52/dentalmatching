@@ -52,6 +52,19 @@ class MyServices extends GetxService {
     sharedPref.setString("phoneNumber", response["data"]["phoneNumber"]);
     sharedPref.setString("role", response["data"]["role"]);
   }
+
+  void updatePatientModelToSharedPrefrence(response) {
+    sharedPref.setString("address", response["data"]["address"]);
+    sharedPref.setString(
+        "profileImage", response["data"]["profileImage"] ?? '');
+    sharedPref.setString("fullName", response["data"]["fullName"]);
+    sharedPref.setString("email", response["data"]["email"]);
+    sharedPref.setInt("age", response["data"]["age"]);
+    sharedPref.setBool("gender", response["data"]["gender"]);
+    sharedPref.setString("city", response["data"]["city"]);
+    sharedPref.setString("phoneNumber", response["data"]["phoneNumber"]);
+    sharedPref.setString("role", response["data"]["role"]);
+  }
 }
 
 initialServices() async {

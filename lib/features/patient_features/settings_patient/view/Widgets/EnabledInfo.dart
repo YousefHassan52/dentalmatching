@@ -1,28 +1,36 @@
-
 import 'package:flutter/material.dart';
 
 class EnabledInfo extends StatelessWidget {
-   final String info ;
-   final IconData icon ;
+  final String info;
+  final IconData icon;
   const EnabledInfo({
-    super.key, required this.info, required this.icon,
+    super.key,
+    required this.info,
+    required this.icon,
   });
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       children: [
         Icon(
           icon,
           color: Colors.grey,
-          
         ),
-        const SizedBox(width: 10,),
+        const SizedBox(
+          width: 10,
+        ),
         Container(
-          width: 200,
-          child: FittedBox(
-            fit: BoxFit.contain,
-            child: Text(info,style: const TextStyle(color: Colors.grey, fontSize: 20,),))),
+            width: 200,
+            child: FittedBox(
+                fit: BoxFit.contain,
+                child: Text(
+                  info,
+                  style: const TextStyle(
+                    color: Colors.grey,
+                    fontSize: 20,
+                  ),
+                ))),
       ],
     );
   }

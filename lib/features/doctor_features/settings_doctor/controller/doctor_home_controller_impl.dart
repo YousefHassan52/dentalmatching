@@ -27,7 +27,7 @@ class SettingsDoctorControllerImpl extends SettingsDoctorControllerAbstract {
     myServices.sharedPref.remove("phoneNumber");
     myServices.sharedPref.remove("role");
 
-    myServices.sharedPref.remove("logged");
+    myServices.sharedPref.remove("logged_doctor");
     Get.offAllNamed(AppRoutes.login);
   }
 }

@@ -1,4 +1,3 @@
-import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:flutter/material.dart';
 
 class ChronicList extends StatelessWidget {
@@ -20,7 +19,7 @@ class ChronicList extends StatelessWidget {
         children: list
             .map((disease) => Text(
                   disease,
-                  style: TextStyle(color: Colors.black, fontSize: 20),
+                  style: const TextStyle(color: Colors.black, fontSize: 20),
                 ))
             .toList(),
       ),
