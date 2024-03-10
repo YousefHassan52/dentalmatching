@@ -18,15 +18,23 @@ class BioWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          '${title} : ',
-          style: Styles.Bio,
+        Flexible(
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              '${title} : ',
+              style: Styles.Bio,
+            ),
+          ),
         ),
-        Text(
-          subTitle,
-          style: isLongText == true
-              ? Styles.Bio
-              : Styles.Bio,
+        Flexible(
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              subTitle,
+              style: isLongText == true ? Styles.Bio : Styles.Bio,
+            ),
+          ),
         ),
       ],
     );
