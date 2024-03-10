@@ -5,10 +5,10 @@ import 'package:flutter/cupertino.dart';
 class CategoriesListView extends StatelessWidget {
   CategoriesListView({super.key});
   final List<CategoriesModel> categories = [
+    CategoriesModel('Implajdsjdnjt', icon: 'assets/svg/implant.svg'),
     CategoriesModel('Implant', icon: 'assets/svg/implant.svg'),
     CategoriesModel('Implant', icon: 'assets/svg/implant.svg'),
-    CategoriesModel('Implant', icon: 'assets/svg/implant.svg'),
-    CategoriesModel('Implant', icon: 'assets/svg/implant.svg'),
+    CategoriesModel('Implansndnsjdsjdnjt', icon: 'assets/svg/implant.svg'),
   ];
 
   @override
@@ -18,6 +18,7 @@ class CategoriesListView extends StatelessWidget {
       child: ListView.builder(
         itemCount: categories.length,
         scrollDirection: Axis.horizontal,
+        physics: AlwaysScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return CategoriesWidget(
             model: categories[index],

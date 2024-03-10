@@ -31,10 +31,15 @@ class CategoriesWidget extends StatelessWidget {
                       height: 35,
                       child: SvgPicture.asset('assets/svg/implant.svg')),
                 ),
-                FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child:
-                        Text(model.text, style: TextStyle(color: Colors.white)))
+                Flexible(
+                  child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child:
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(model.text, style: TextStyle(color: Colors.white)),
+                          )),
+                )
               ],
             ),
           ),
