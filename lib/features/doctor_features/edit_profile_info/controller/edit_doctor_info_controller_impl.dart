@@ -1,31 +1,34 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
-import 'package:dentalmatching/features/patient_features/edit_profile_info/controller/edit_patient_info_controller_abstract.dart';
+import 'package:dentalmatching/features/doctor_features/doctor_data_viewer/doctor_data_controller.dart';
+import 'package:dentalmatching/features/doctor_features/edit_profile_info/controller/edit_doctor_info_controller_abstract.dart';
+import 'package:dentalmatching/features/doctor_features/edit_profile_info/data/edit_doctor_info_data.dart';
+import 'package:dentalmatching/features/doctor_features/signup/data/models/doctor_model.dart';
 import 'package:dentalmatching/features/patient_features/edit_profile_info/data/edit_patient_info_data.dart';
 import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
 import 'package:dentalmatching/features/patient_features/signup/data/model/patient_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class EditPatientInfoControllerImp extends EditPatientInfoControllerAbstract {
+class EditDoctorInfoControllerImp extends EditDoctortInfoControllerAbstract {
   MyServices myServices = Get.find();
-  late PatientModel userModel =
-      PatientModel.fromSharedPref(myServices.sharedPref);
-  EditPatientInfoData data = EditPatientInfoData(Get.find());
+  late DoctorModel userModel =
+      DoctorModel.fromSharedPref(myServices.sharedPref);
+  EditDoctorInfoData data = EditDoctorInfoData(Get.find());
 
   late TextEditingController fullNameController;
   late TextEditingController ageController;
   late TextEditingController emailController;
   late TextEditingController phoneController;
-  late TextEditingController addressController;
+  late TextEditingController universityController;
   String? gov;
   String? gender;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   RequestStatus? requestStatus;
 
   @override
-  Future<void> editPatientInfo() async {
+  Future<void> editDoctorInfo() async {
     requestStatus = RequestStatus.LOADING;
     update();
     var response = await data.postData(
@@ -37,7 +40,8 @@ class EditPatientInfoControllerImp extends EditPatientInfoControllerAbstract {
       age: int.parse(ageController.text),
       government: gov!,
       phoneNumber: phoneController.text,
-      address: addressController.text, // mtnsa4 tezawedha fe el screen ya joe
+      university:
+          universityController.text, // mtnsa4 tezawedha fe el screen ya joe
     );
     requestStatus = HandlingResponseType.fun(response);
     print("response ya joooe:------ $response");
@@ -47,9 +51,9 @@ class EditPatientInfoControllerImp extends EditPatientInfoControllerAbstract {
         Get.snackbar("Updated Successfully",
             "Your account info has been updatedd successfully");
 
-        userModel = PatientModel(
+        userModel = DoctorModel(
+            university: universityController.text,
             userName: userModel.userName,
-            address: addressController.text,
             token: userModel.token,
             fullName: fullNameController.text,
             email: emailController.text,
@@ -57,11 +61,10 @@ class EditPatientInfoControllerImp extends EditPatientInfoControllerAbstract {
             gender: gender == "Male" ? true : false,
             city: gov!,
             phoneNumber: phoneController.text,
-            role: "Patient");
-        PatientDataController pateintDataController =
-            Get.put(PatientDataController());
-        // if success
-        pateintDataController.updatePatientdata(userModel.toJson());
+            role: userModel.role);
+        DoctorDataController doctorDataController =
+            Get.put(DoctorDataController());
+        doctorDataController.updateDoctordata(userModel.toJson());
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
       Get.defaultDialog(middleText: "Email or Phone Already exists before");
@@ -93,7 +96,7 @@ class EditPatientInfoControllerImp extends EditPatientInfoControllerAbstract {
     ageController = TextEditingController(text: userModel.age.toString());
     phoneController = TextEditingController(text: userModel.phoneNumber);
     emailController = TextEditingController(text: userModel.email);
-    addressController = TextEditingController(text: userModel.address);
+    universityController = TextEditingController(text: userModel.university);
     super.onInit();
   }
 }

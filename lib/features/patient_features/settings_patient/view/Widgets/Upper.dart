@@ -1,7 +1,7 @@
 // ignore: file_names
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Controller/FormController.dart';
-import 'package:dentalmatching/features/patient_features/patient_data/pateint_data_controller.dart';
+import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,7 +11,7 @@ class UpperWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    PateintDataController controller = Get.put(PateintDataController());
+    PatientDataController controller = Get.put(PatientDataController());
     // momken te7tag hena controller mo5tlef
     double upperPartHeight = Get.height * 0.2;
     return Container(
@@ -107,7 +107,7 @@ class UpperWidget extends StatelessWidget {
                     Flexible(
                       child: FittedBox(
                           fit: BoxFit.scaleDown,
-                          child: GetBuilder<PateintDataController>(
+                          child: GetBuilder<PatientDataController>(
                             builder: (internallController) => Text(
                               internallController.userModel.fullName
                                   .split(' ')[0],

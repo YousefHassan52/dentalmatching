@@ -12,6 +12,7 @@ class DoctorModel {
   final String city;
   final String phoneNumber;
   final String role;
+  final String userName;
 
   DoctorModel({
     required this.university,
@@ -23,12 +24,14 @@ class DoctorModel {
     required this.city,
     required this.phoneNumber,
     required this.role,
+    required this.userName,
     this.cardImage,
     this.profileImage,
   });
 
   factory DoctorModel.fromJson(Map<String, dynamic> json) {
     return DoctorModel(
+      userName: json['userName'],
       university: json['university'],
       cardImage: json['cardImage'],
       token: json['token'],
@@ -56,6 +59,23 @@ class DoctorModel {
       city: sharedPref.getString("city")!,
       phoneNumber: sharedPref.getString("phoneNumber")!,
       role: sharedPref.getString("role")!,
+      userName: sharedPref.getString("userName")!,
     );
+  }
+  Map<String, dynamic> toJson() {
+    return {
+      'university': university,
+      'cardImage': cardImage,
+      'token': token,
+      'profileImage': profileImage,
+      'fullName': fullName,
+      'email': email,
+      'age': age,
+      'gender': gender,
+      'city': city,
+      'phoneNumber': phoneNumber,
+      'role': role,
+      'userName': userName,
+    };
   }
 }

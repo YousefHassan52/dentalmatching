@@ -2,7 +2,7 @@ import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/features/common_faetures/delete_account/controller/delete_account_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
-import 'package:dentalmatching/features/patient_features/patient_data/pateint_data_controller.dart';
+import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/controller/settings_controller_imp.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/CounterBox.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/EnabledInfo.dart';
@@ -16,8 +16,8 @@ class SettingsPatientScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    PateintDataController pateintDataController =
-        Get.put(PateintDataController());
+    PatientDataController pateintDataController =
+        Get.put(PatientDataController());
     SettingsPatientControllerImp settingsPatientControllerImp =
         Get.put(SettingsPatientControllerImp());
     DeleteAccountControllerImp deleteController =
@@ -27,7 +27,7 @@ class SettingsPatientScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: GetBuilder<PateintDataController>(
+        child: GetBuilder<PatientDataController>(
           builder: (controller) => Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

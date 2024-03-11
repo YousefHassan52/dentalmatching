@@ -14,8 +14,8 @@ class CounterBoxDoctor extends StatelessWidget {
   Widget build(BuildContext context) {
     GetDocotorCasesControllerImpl myCases = Get.find();
     return Container(
-      width: Get.width * 0.93,
-      // height: 100,
+      width: double.infinity,
+      margin: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         color: AppColors.circleColor,
         borderRadius: BorderRadius.circular(20),

@@ -1,6 +1,6 @@
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
-import 'package:dentalmatching/features/doctor_features/settings_doctor/controller/doctor_home_controller_abstract%20copy.dart';
+import 'package:dentalmatching/features/doctor_features/settings_doctor/controller/doctor_settings_controller_abstract.dart';
 import 'package:dentalmatching/features/doctor_features/signup/data/models/doctor_model.dart';
 import 'package:get/get.dart';
 
@@ -27,7 +27,7 @@ class SettingsDoctorControllerImpl extends SettingsDoctorControllerAbstract {
     myServices.sharedPref.remove("phoneNumber");
     myServices.sharedPref.remove("role");
 
-    myServices.sharedPref.remove("logged_doctor");
+    myServices.sharedPref.remove("logged");
     Get.offAllNamed(AppRoutes.login);
   }
 }
