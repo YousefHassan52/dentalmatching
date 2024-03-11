@@ -28,4 +28,6 @@ class AppRoutes {
 
   static const String unassignedCasesDoctor = "/unassigned_cases";
   static const String homeDoctor = "/home_doctor";
+
+  static const String editPatientInfo = "/edit_patient_info";
 }

@@ -1,16 +1,18 @@
 // ignore: file_names
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Controller/FormController.dart';
+import 'package:dentalmatching/features/patient_features/patient_data/pateint_data_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class UpperWidget extends StatelessWidget {
-  const UpperWidget({super.key});
+  const UpperWidget({super.key, this.needBackButton = false});
+  final bool needBackButton;
 
   @override
   Widget build(BuildContext context) {
-    AddCaseController controller =
-        Get.put(AddCaseController()); // momken te7tag hena controller mo5tlef
+    PateintDataController controller = Get.put(PateintDataController());
+    // momken te7tag hena controller mo5tlef
     double upperPartHeight = Get.height * 0.2;
     return Container(
       decoration: const BoxDecoration(
@@ -38,7 +40,27 @@ class UpperWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             // row take size of the parent container = upperPartHeight
             children: [
-             
+              if (needBackButton == true)
+                Flexible(
+                  child: Container(
+                    margin:
+                        const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+                    height: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: IconButton(
+                          onPressed: () {
+                            Get.back();
+                          },
+                          icon: const Icon(Icons.arrow_back)),
+                    ),
+                  ),
+                ),
+
               Flexible(
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
@@ -84,20 +106,21 @@ class UpperWidget extends StatelessWidget {
                     ),
                     Flexible(
                       child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          controller.userModel.fullName.split(' ')[0],
-                          style: const TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                          fit: BoxFit.scaleDown,
+                          child: GetBuilder<PateintDataController>(
+                            builder: (internallController) => Text(
+                              internallController.userModel.fullName
+                                  .split(' ')[0],
+                              style: const TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          )),
                     ),
                   ],
                 ),
-                
               ),
               // Spacer(),
               //  IconButton(

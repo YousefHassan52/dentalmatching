@@ -11,8 +11,10 @@ class PatientModel {
   final String city;
   final String phoneNumber;
   final String role;
+  final String userName;
 
   PatientModel({
+    required this.userName,
     required this.address,
     required this.token,
     required this.fullName,
@@ -28,6 +30,7 @@ class PatientModel {
   factory PatientModel.fromJson(Map<String, dynamic> json) {
     return PatientModel(
       address: json['address'],
+      userName: json['userName'],
       token: json['token'],
       profileImage: json['profileImage'],
       fullName: json['fullName'],
@@ -43,6 +46,7 @@ class PatientModel {
   factory PatientModel.fromSharedPref(SharedPreferences sharedPref) {
     return PatientModel(
       address: sharedPref.getString("address")!,
+      userName: sharedPref.getString("userName")!,
       token: sharedPref.getString("token")!,
       profileImage: sharedPref.getString("profileImage"),
       fullName: sharedPref.getString("fullName")!,
@@ -58,15 +62,13 @@ class PatientModel {
   Map<String, dynamic> toJson() {
     return {
       'address': address,
-      'token': token,
-      'profileImage': profileImage,
+      'userName': userName,
       'fullName': fullName,
       'email': email,
       'age': age,
       'gender': gender,
       'city': city,
       'phoneNumber': phoneNumber,
-      'role': role,
     };
   }
 
@@ -80,6 +82,7 @@ class PatientModel {
         'age: $age, '
         'gender: $gender, '
         'city: $city, '
+        'userName: $userName, '
         'phoneNumber: $phoneNumber, '
         'role: $role'
         '}';

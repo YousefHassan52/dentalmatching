@@ -35,7 +35,7 @@ class AuthTextFormField extends StatelessWidget {
       keyboardType: type,
       style: TextStyle(
         color: AppColors.userTextColor,
-        fontSize: screenWidth * 0.04,
+        fontSize: 16,
       ),
       decoration: InputDecoration(
         prefixIcon: CustomSvgPicture(icon: icon),

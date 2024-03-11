@@ -24,6 +24,8 @@ class MyServices extends GetxService {
 
   void saveDoctorModelToSharedPrefrence(response) {
     sharedPref.setBool("logged", true);
+    sharedPref.setString("userName", response["data"]["userName"]);
+
     sharedPref.setString("university", response["data"]["university"]);
     sharedPref.setString("cardImage", response["data"]["cardImage"] ?? '');
     sharedPref.setString("token", response["data"]["token"]);
@@ -41,6 +43,7 @@ class MyServices extends GetxService {
   void savePatientModelToSharedPrefrence(response) {
     sharedPref.setBool("logged", true);
     sharedPref.setString("address", response["data"]["address"]);
+    sharedPref.setString("userName", response["data"]["userName"]);
     sharedPref.setString("token", response["data"]["token"]);
     sharedPref.setString(
         "profileImage", response["data"]["profileImage"] ?? '');
@@ -51,6 +54,18 @@ class MyServices extends GetxService {
     sharedPref.setString("city", response["data"]["city"]);
     sharedPref.setString("phoneNumber", response["data"]["phoneNumber"]);
     sharedPref.setString("role", response["data"]["role"]);
+  }
+
+  void updatePatientModelToSharedPrefrence(response) {
+    sharedPref.setString("userName", response["userName"]);
+
+    sharedPref.setString("address", response["address"]);
+    sharedPref.setString("fullName", response["fullName"]);
+    sharedPref.setString("email", response["email"]);
+    sharedPref.setInt("age", response["age"]);
+    sharedPref.setBool("gender", response["gender"]);
+    sharedPref.setString("city", response["city"]);
+    sharedPref.setString("phoneNumber", response["phoneNumber"]);
   }
 }
 

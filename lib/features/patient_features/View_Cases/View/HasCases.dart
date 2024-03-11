@@ -28,7 +28,7 @@ class HasCases extends StatelessWidget {
             height: 9,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 8.0 , right: 20),
+            padding: const EdgeInsets.only(left: 8.0, right: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -46,7 +46,8 @@ class HasCases extends StatelessWidget {
                 const Spacer(),
                 IconButton(
                     onPressed: () {
-                      externalController.getCases();
+                      print(externalController.patientModel.fullName);
+                      // externalController.getCases();
                     },
                     icon: const Icon(
                       Icons.rocket_launch_outlined,
