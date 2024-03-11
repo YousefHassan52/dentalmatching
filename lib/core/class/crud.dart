@@ -9,15 +9,24 @@ class CRUD {
   Future<Either<RequestStatus, Map<String, dynamic>>> post({
     required String url,
     required Map<String, dynamic> data,
+    String? token,
   }) async {
     try {
       if (await CheckInternet.fun()) {
         Dio dio = Dio();
-
+        Options options = Options(
+          headers: {
+            HttpHeaders.authorizationHeader: 'Bearer $token',
+          },
+        );
         // Disable Dio's default validateStatus behavior
         dio.options.validateStatus = (status) => true;
 
-        Response response = await dio.post(url, data: data);
+        Response response = await dio.post(
+          url,
+          data: data,
+          options: options,
+        );
 
         if (response.statusCode == 200 || response.statusCode == 201) {
           Map<String, dynamic> json = response.data;
@@ -125,6 +134,7 @@ class CRUD {
         } else if (response.statusCode == 500) {
           return left(RequestStatus.INTERNAL_SERVER_ERROR);
         } else {
+          print(response.data);
           return left(RequestStatus.SERVER_FAILURE);
         }
       } else {
