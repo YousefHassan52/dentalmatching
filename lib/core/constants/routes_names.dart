@@ -30,4 +30,5 @@ class AppRoutes {
   static const String homeDoctor = "/home_doctor";
 
   static const String editPatientInfo = "/edit_patient_info";
+  static const String editDoctorInfo = "/edit_doctor_info";
 }

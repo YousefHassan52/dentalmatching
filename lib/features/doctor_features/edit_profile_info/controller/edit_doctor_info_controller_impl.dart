@@ -5,9 +5,7 @@ import 'package:dentalmatching/features/doctor_features/doctor_data_viewer/docto
 import 'package:dentalmatching/features/doctor_features/edit_profile_info/controller/edit_doctor_info_controller_abstract.dart';
 import 'package:dentalmatching/features/doctor_features/edit_profile_info/data/edit_doctor_info_data.dart';
 import 'package:dentalmatching/features/doctor_features/signup/data/models/doctor_model.dart';
-import 'package:dentalmatching/features/patient_features/edit_profile_info/data/edit_patient_info_data.dart';
-import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
-import 'package:dentalmatching/features/patient_features/signup/data/model/patient_model.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -106,18 +106,19 @@ class UpperWidget extends StatelessWidget {
                     ),
                     Flexible(
                       child: FittedBox(
-                          fit: BoxFit.scaleDown,
-                          child: GetBuilder<PatientDataController>(
-                            builder: (internallController) => Text(
-                              internallController.userModel.fullName
-                                  .split(' ')[0],
-                              style: const TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
+                        fit: BoxFit.scaleDown,
+                        child: GetBuilder<PatientDataController>(
+                          builder: (internallController) => Text(
+                            internallController.userModel.fullName
+                                .split(' ')[0],
+                            style: const TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
                             ),
-                          )),
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),

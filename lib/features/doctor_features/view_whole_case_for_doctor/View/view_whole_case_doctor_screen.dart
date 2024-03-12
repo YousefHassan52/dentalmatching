@@ -31,7 +31,9 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.only(top: 0, bottom: 5),
         children: [
-          const AppUpperWidget(),
+          const AppUpperWidget(
+            needBackButton: true,
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(

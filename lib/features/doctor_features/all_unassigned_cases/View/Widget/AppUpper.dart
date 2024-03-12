@@ -49,18 +49,18 @@
 // }
 // ignore: file_names
 import 'package:dentalmatching/core/constants/colors.dart';
-import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
+import 'package:dentalmatching/features/doctor_features/doctor_data_viewer/doctor_data_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AppUpperWidget extends StatelessWidget {
-  const AppUpperWidget({super.key});
+  const AppUpperWidget({super.key, this.needBackButton = false});
+  final bool needBackButton;
 
   @override
   Widget build(BuildContext context) {
-    UnassignedCasesDoctorControllerImpl controller = Get.put(
-         UnassignedCasesDoctorControllerImpl()); // momkn 2a7ot controller 8ero
-   double upperPartHeight = Get.height * 0.2;
+    Get.put(DoctorDataController()); // momkn 2a7ot controller 8ero
+    double upperPartHeight = Get.height * 0.2;
     return Container(
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
@@ -87,7 +87,26 @@ class AppUpperWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             // row take size of the parent container = upperPartHeight
             children: [
-             
+              if (needBackButton == true)
+                Flexible(
+                  child: Container(
+                    margin:
+                        const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+                    height: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: IconButton(
+                          onPressed: () {
+                            Get.back();
+                          },
+                          icon: const Icon(Icons.arrow_back)),
+                    ),
+                  ),
+                ),
               Flexible(
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
@@ -134,19 +153,20 @@ class AppUpperWidget extends StatelessWidget {
                     Flexible(
                       child: FittedBox(
                         fit: BoxFit.scaleDown,
-                        child: Text(
-                         'Dr.${ controller.doctorModel.fullName.split(' ')[0]}',
-                          style: const TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                        child: GetBuilder<DoctorDataController>(
+                          builder: (internallController) => Text(
+                            "Dr. ${internallController.doctorModel.fullName.split(' ')[0]}",
+                            style: const TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ],
                 ),
-                
               ),
               // Spacer(),
               //  IconButton(
@@ -166,4 +186,3 @@ class AppUpperWidget extends StatelessWidget {
     );
   }
 }
-

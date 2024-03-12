@@ -4,11 +4,11 @@ import 'package:get/get.dart';
 
 class DoctorDataController extends GetxController {
   MyServices myServices = Get.find();
-  late DoctorModel userModel =
+  late DoctorModel doctorModel =
       DoctorModel.fromSharedPref(myServices.sharedPref);
   updateDoctordata(response) {
     myServices.updateDoctorModelToSharedPrefrence(response);
-    userModel = DoctorModel.fromSharedPref(myServices.sharedPref);
+    doctorModel = DoctorModel.fromSharedPref(myServices.sharedPref);
     update();
   }
 }

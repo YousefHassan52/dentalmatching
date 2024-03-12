@@ -17,7 +17,7 @@ class CasContainer extends StatelessWidget {
   final CaseDoctorModel caseModel;
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
       //height: 320,
       width: 20,
@@ -75,7 +75,7 @@ class CasContainer extends StatelessWidget {
                   fit: BoxFit.scaleDown,
                   child: IconButton(
                     onPressed: () {
-                      Get.toNamed(AppRoutes.formView,
+                      Get.toNamed(AppRoutes.viewWholeCaseForDoctor,
                           arguments: {"case": caseModel});
                     },
                     icon: const Icon(
