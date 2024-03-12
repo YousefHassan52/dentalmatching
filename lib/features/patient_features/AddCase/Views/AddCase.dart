@@ -16,12 +16,12 @@ class AddCaseScreen extends StatelessWidget {
       body: SizedBox(
         child: ListView(
           padding: const EdgeInsets.only(top: 0, bottom: 55),
-          children: [
-            const UpperWidget(),
-            const SizedBox(
+          children: const [
+            UpperWidget(),
+            SizedBox(
               height: 12,
             ),
-            const FormContainer(),
+            FormContainer(),
           ],
         ),
       ),

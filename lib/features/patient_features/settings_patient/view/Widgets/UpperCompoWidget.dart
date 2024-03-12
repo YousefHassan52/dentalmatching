@@ -1,9 +1,10 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/doctor_features/doctor_data_viewer/doctor_data_controller.dart';
+import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-class BarCompoWidget extends StatelessWidget {
-  const BarCompoWidget({
+class UpperCompoWidget extends StatelessWidget {
+  const UpperCompoWidget({
     super.key,
      this.welcome = true,
      this.needBackButton = false,
@@ -16,6 +17,7 @@ class BarCompoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    PatientDataController controller = Get.put(PatientDataController());
     double upperPartHeight = Get.height * 0.2;
     return Container(
       padding: const EdgeInsets.all(16),
@@ -24,26 +26,6 @@ class BarCompoWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         // row take size of the parent container = upperPartHeight
         children: [
-          // if (needBackButton == true)
-          //   Flexible(
-          //     child: Container(
-          //       margin:
-          //           const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-          //       height: double.infinity,
-          //       decoration: BoxDecoration(
-          //         color: const Color.fromARGB(255, 255, 255, 255),
-          //         borderRadius: BorderRadius.circular(10),
-          //       ),
-          //       child: FittedBox(
-          //         fit: BoxFit.scaleDown,
-          //         child: IconButton(
-          //             onPressed: () {
-          //               Get.back();
-          //             },
-          //             icon: const Icon(Icons.arrow_back)),
-          //       ),
-          //     ),
-          //   ),
           if (welcome == true)
             Flexible(
               child: FittedBox(
@@ -91,21 +73,22 @@ class BarCompoWidget extends StatelessWidget {
                     ),
                   ),
                    if (welcome == true)
-                  Flexible(
-                    child: FittedBox(
-                      fit: BoxFit.scaleDown,
-                      child: GetBuilder<DoctorDataController>(
-                        builder: (internallController) => Text(
-                          "Dr. ${internallController.doctorModel.fullName.split(' ')[0]}",
-                          style: const TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                    Flexible(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: GetBuilder<PatientDataController>(
+                          builder: (internallController) => Text(
+                            internallController.userModel.fullName
+                                .split(' ')[0],
+                            style: const TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
                   
                     Column(
                       // crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,7 +98,7 @@ class BarCompoWidget extends StatelessWidget {
                         if (needBackButton == true)
                           Padding(
                             padding: const EdgeInsets.only(
-                                top: 35, left: 5, bottom: 35),
+                                top: 35, left: 5, bottom: 10),
                             child: Row(
                               children: [
                                 IconButton(

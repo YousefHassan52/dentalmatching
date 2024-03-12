@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/Upper.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/GridViewWidget.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:popover/popover.dart';
 
 class ViewForm extends StatelessWidget {
@@ -48,7 +49,7 @@ class ViewForm extends StatelessWidget {
         body: ListView(
           padding: const EdgeInsets.only(top: 0),
           children: [
-            const UpperWidget(needBackButton: true),
+            const UpperWidget(needBackButton: true ,welcome: false , text: 'Case Detailes      ',),
             const SizedBox(
               height: 2,
             ),
