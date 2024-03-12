@@ -78,6 +78,10 @@ class MyServices extends GetxService {
     sharedPref.setString("city", response["city"]);
     sharedPref.setString("phoneNumber", response["phoneNumber"]);
   }
+  void deleteSharedPref() async {
+    await sharedPref.clear();
+    print('clearrr');
+  }
 }
 
 initialServices() async {

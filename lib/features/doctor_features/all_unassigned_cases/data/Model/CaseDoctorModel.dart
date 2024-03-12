@@ -6,7 +6,7 @@ class CaseDoctorModel {
   final String patientCity;
   final String description;
   final bool isKnown;
-  final bool isAssigned;
+  late bool isAssigned;
   final List<String> chronicDiseases;
   final List<String> dentalDiseases;
   final List<String> mouthImages;
