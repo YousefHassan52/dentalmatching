@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
@@ -29,7 +30,6 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
     ScrollController scrollController = ScrollController();
 
     return Scaffold(
-
       body: Column(
         children: [
           Expanded(
@@ -63,7 +63,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                       // const SizedBox(
                       //   height: 20,
                       // ),
-                     // const HDivider(),
+                      // const HDivider(),
                       const SizedBox(
                         height: 20,
                       ),
@@ -179,21 +179,36 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                         controller.updateAssignmentStatus(true);
                         reloadDataControllerForAllCases.getCases();
                         reloadDataControllerForDoctorCases.getCases();
-                        Get.dialog(
-                          AlertDialog(
-                            title: const Text("Success"),
-                            content: const Text("Case assigned successfully!"),
-                            actions: [
-                              MaterialButton(
-                                child: const Text("OK"),
-                                onPressed: () {
-                                  Get.back(); // Close the dialog
-                                  scrollController.animateTo(0, duration: const Duration(milliseconds: 500), curve: Curves.easeInOut); // Scroll to the top
-                                },
-                              ),
-                            ],
-                          ),
-                        );
+
+                      
+                        AwesomeDialog(
+                          context: context,
+                          dialogType: DialogType.success,
+                          animType: AnimType.topSlide,
+                          title: 'Success',
+                          desc: 'Case assigned successfully!',
+                          btnOkOnPress: () {
+                            //Get.back(); // Close the dialog
+                            scrollController.animateTo(0,
+                                duration: const Duration(milliseconds: 500),
+                                curve: Curves.easeInOut); // Scroll to the top
+                          },
+                        ).show();   
+                        // Get.dialog(
+                        //   AlertDialog(
+                        //     title: const Text("Success"),
+                        //     content: const Text("Case assigned successfully!"),
+                        //     actions: [
+                        //       MaterialButton(
+                        //         child: const Text("OK"),
+                        //         onPressed: () {
+                        //           Get.back(); // Close the dialog
+                        //           scrollController.animateTo(0, duration: const Duration(milliseconds: 500), curve: Curves.easeInOut); // Scroll to the top
+                        //         },
+                        //       ),
+                        //     ],
+                        //   ),
+                        // );// Add this line to show the dialog
                       });
                     },
                   ),
