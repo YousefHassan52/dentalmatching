@@ -12,9 +12,11 @@ class AddCaseScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(AddCaseController());
     Get.put(MyCasesPatientControllerImpl());
+    ScrollController scrollController = ScrollController();
     return Scaffold(
       body: SizedBox(
         child: ListView(
+          controller: scrollController,
           padding: const EdgeInsets.only(top: 0, bottom: 55),
           children: const [
             UpperWidget(),

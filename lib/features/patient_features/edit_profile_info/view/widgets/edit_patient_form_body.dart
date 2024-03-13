@@ -103,7 +103,7 @@ class EditPatientFormBody extends StatelessWidget {
           AuthButton(
               buttonText: "Update",
               onTap: () {
-                externalController.editPatientInfo().then((value) {
+                externalController.editPatientInfo(context).then((value) {
                   myCasesController.getCases();
                 });
               }),

@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
@@ -25,7 +26,7 @@ class EditPatientInfoControllerImp extends EditPatientInfoControllerAbstract {
   RequestStatus? requestStatus;
 
   @override
-  Future<void> editPatientInfo() async {
+  Future<void> editPatientInfo(BuildContext context) async {
     requestStatus = RequestStatus.LOADING;
     update();
     var response = await data.postData(
@@ -44,9 +45,17 @@ class EditPatientInfoControllerImp extends EditPatientInfoControllerAbstract {
     // print(response);
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {
-        Get.snackbar("Updated Successfully",
-            "Your account info has been updatedd successfully");
-
+         // ignore: use_build_context_synchronously
+         AwesomeDialog(
+            context: context,
+            dialogType: DialogType.success,
+            animType: AnimType.topSlide,
+            title: 'Success',
+            desc: 'Your Updated Successfully',
+            btnOkOnPress: () {
+              Get.back();
+            },
+          ).show();
         userModel = PatientModel(
             userName: userModel.userName,
             address: addressController.text,
