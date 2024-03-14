@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+// test commit
   await initialServices();
   runApp(
     //const MyApp()
