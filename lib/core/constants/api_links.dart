@@ -32,4 +32,6 @@ class ApiLinks {
       "https://dentamatch.azurewebsites.net/DoctorAuth/UpdateAccount";
   static const String payment =
       "https://dentamatch.azurewebsites.net/Paymob/paymob";
+  static const String editCase =
+      "https://dentamatch.azurewebsites.net/Patient/DentalCase/UpdateCase?caseId=";
 }

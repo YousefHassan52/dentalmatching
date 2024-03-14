@@ -29,7 +29,7 @@ class ViewWholeCaseDoctorControllerImpl
     requestStatus = RequestStatus.LOADING;
     update();
     var response =
-        await data.getCases(caseId: caseId, token: doctorModel.token);
+        await data.requestCase(caseId: caseId, token: doctorModel.token);
     print(response.toString());
     requestStatus = HandlingResponseType.fun(response);
     update();

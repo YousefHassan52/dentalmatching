@@ -5,7 +5,7 @@ class RequestCaseData {
   final CRUD crud;
 
   RequestCaseData(this.crud);
-  getCases({
+  requestCase({
     required String caseId,
     required String token,
   }) async {

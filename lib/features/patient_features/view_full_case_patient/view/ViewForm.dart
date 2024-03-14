@@ -1,6 +1,7 @@
 // ignore: file_names
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
+import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/FormHeadLine.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/HDivider.dart';
@@ -12,7 +13,6 @@ import 'package:flutter/material.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/Upper.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/GridViewWidget.dart';
 import 'package:get/get.dart';
-import 'package:popover/popover.dart';
 
 class ViewForm extends StatelessWidget {
   const ViewForm({super.key});
@@ -33,7 +33,10 @@ class ViewForm extends StatelessWidget {
               itemBuilder: (context) => [
                 PopupMenuItem(
                   child: const Text("Edit"),
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(AppRoutes.editCase,
+                        arguments: {"edit_case": controller.caseModel});
+                  },
                 ),
                 PopupMenuItem(
                   child: const Text("Delete"),

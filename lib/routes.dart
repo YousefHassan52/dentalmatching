@@ -6,12 +6,13 @@ import 'package:dentalmatching/features/common_faetures/forget_password/reset_pa
 import 'package:dentalmatching/features/common_faetures/forget_password/verify_email_code_for_forget/view/verify_forget_password_code_screen.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/login.dart';
 import 'package:dentalmatching/features/common_faetures/onboarding/view/screens/onboarding.dart';
-import 'package:dentalmatching/features/doctor_features/edit_profile_info/view/edit_doctor_info_screen.dart';
+import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/edit_profile_info/view/edit_doctor_info_screen.dart';
 import 'package:dentalmatching/features/doctor_features/settings_doctor/view/profile_doctor_screen.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/view_whole_case_doctor_screen.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/all_unassigned_cases_doctor_screen.dart';
 import 'package:dentalmatching/features/doctor_features/home/home_doctor.dart';
 import 'package:dentalmatching/features/doctor_features/signup/view/signup_screen.dart';
+import 'package:dentalmatching/features/patient_features/edit_case/view/edit_screen.dart';
 import 'package:dentalmatching/features/patient_features/edit_profile_info/view/edit_patient_info_screen.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/ViewForm.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/View/HasCases.dart';
@@ -66,6 +67,7 @@ List<GetPage> routes = [
       page: () => const EditPatientInfoScreen()),
   GetPage(
       name: AppRoutes.editDoctorInfo, page: () => const EditDoctorInfoScreen()),
+  GetPage(name: AppRoutes.editCase, page: () => const EditCaseScreen()),
 
   // GetPage(
   //     name: AppRoutes.verifyEmailCode,
