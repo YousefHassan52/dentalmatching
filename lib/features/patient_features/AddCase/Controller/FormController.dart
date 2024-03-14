@@ -1,9 +1,6 @@
 import 'dart:io';
 
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:dentalmatching/core/class/request_status.dart';
-import 'package:dentalmatching/core/constants/colors.dart';
-import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
@@ -136,123 +133,72 @@ class AddCaseController extends GetxController {
     return true; // Validation passed
   }
 
-  bool checkBoxValidation(BuildContext context) {
+  bool checkBoxValidation() {
     if (!AppValidator.validateCheckbox(checkedItems)) {
-      AwesomeDialog(
-        context: context,
-        closeIcon: Icon(Icons.close),
-        showCloseIcon: true,
-        dialogType: DialogType.error,
-        animType: AnimType.rightSlide,
-        title: 'Error',
-        desc: 'Please select at least one item in the checklist.',
-        // btnCancelText: 'Cancel',
-        // btnCancelColor: Color(0xffD93D47),
-        // btnCancelOnPress: (){
-
-        // }
-        // btnOkOnPress: () {
-        //   // Get.toNamed(AppRoutes.editPatientInfo);
-
-        // },
-      ).show();
+      Get.defaultDialog(
+        middleText: 'Please select at least one item in the checklist.',
+        backgroundColor: Colors.red,
+      );
       return false; // Validation failed
     }
     return true; // Validation passed
   }
 
-  bool caseValidation(BuildContext context) {
+  bool caseValidation() {
     if (selected.isEmpty) {
-      // Get.defaultDialog(
-      //   middleText: 'Please select your case.',
-      //   backgroundColor: Colors.red,
-      // );
-      AwesomeDialog(
-        context: context,
-        closeIcon: Icon(Icons.close),
-        showCloseIcon: true,
-        dialogType: DialogType.error,
-        animType: AnimType.rightSlide,
-        title: 'Error',
-        desc: 'Please select your case.',
-      ).show();
+      Get.defaultDialog(
+        middleText: 'Please select your case.',
+        backgroundColor: Colors.red,
+      );
       return false; // Validation failed
     }
     return true; // Validation passed
   }
 
-  bool mouthImagesValidation(BuildContext context) {
+  bool mouthImagesValidation() {
     if (mouthImages != null && mouthImages!.length >= 2) {
       return true;
     } else {
-      AwesomeDialog(
-        context: context,
-        closeIcon: Icon(Icons.close),
-        showCloseIcon: true,
-        dialogType: DialogType.error,
-        animType: AnimType.rightSlide,
-        title: 'Error',
-        desc: 'Please select more than 2 images for your mouth.',
-      ).show();
-      // Get.defaultDialog(
-      //   middleText: 'Please select more than 2 images for your mouth.',
-      //   backgroundColor: Colors.red,
-      // );
+      Get.defaultDialog(
+        middleText: 'Please select more than 2 images for your mouth.',
+        backgroundColor: Colors.red,
+      );
       return false;
     }
   }
 
-  bool xrayValidation(BuildContext context) {
+  bool xrayValidation() {
     if (xray != null && xray!.length > 2) {
-      // Get.defaultDialog(
-      //   middleText: 'Maximum Number of X_ray Images is 2',
-      //   backgroundColor: Colors.red,
-      // );
-      AwesomeDialog(
-        context: context,
-        closeIcon: Icon(Icons.close),
-        showCloseIcon: true,
-        dialogType: DialogType.error,
-        animType: AnimType.rightSlide,
-        title: 'Error',
-        desc: 'Maximum Number of X_ray Images is 2',
-      ).show();
+      Get.defaultDialog(
+        middleText: 'Maximum Number of X_ray Images is 2',
+        backgroundColor: Colors.red,
+      );
       return false;
     } else {
       return true;
     }
   }
 
-  bool prescriptionValidation(BuildContext context) {
+  bool prescriptionValidation() {
     if (prescription != null && prescription!.length > 2) {
-      // Get.defaultDialog(
-      //   middleText: 'Maximum Number of Prescription Images is 2',
-      //   backgroundColor: Colors.red,
-      // );
-      AwesomeDialog(
-        context: context,
-        closeIcon: Icon(Icons.close),
-        showCloseIcon: true,
-        dialogType: DialogType.error,
-        animType: AnimType.rightSlide,
-        title: 'Error',
-        desc: 'Maximum Number of Prescription Images is 2',
-      ).show();
+      Get.defaultDialog(
+        middleText: 'Maximum Number of Prescription Images is 2',
+        backgroundColor: Colors.red,
+      );
       return false;
     } else {
       return true;
     }
   }
-  
 
-  Future<void> postCase(BuildContext context) async {
+  Future<void> postCase() async {
     if (formKey.currentState!.validate() &&
         pressureValidation() &&
-        checkBoxValidation(context) &&
-        mouthImagesValidation(context) &&
-        xrayValidation(context) &&
-        prescriptionValidation(context) &&
-        caseValidation(context)) {
+        checkBoxValidation() &&
+        mouthImagesValidation() &&
+        xrayValidation() &&
+        prescriptionValidation() &&
+        caseValidation()) {
       requestStatus = RequestStatus.LOADING;
       update();
       var response = await addCaseData.postData(
@@ -285,38 +231,14 @@ class AddCaseController extends GetxController {
       update();
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response['success'] == true) {
-          // ignore: use_build_context_synchronously
-          AwesomeDialog(
-            context: context,
-            dialogType: DialogType.success,
-            animType: AnimType.topSlide,
-            title: 'Success',
-            desc: 'Your Case Posted Successfully',
-            btnOkOnPress: () {
-              // Get.toNamed(AppRoutes.editPatientInfo);
-              Get.back();
-            },
-          ).show();
+          Get.defaultDialog(
+              title: "Success ", middleText: "Your Case Posted Successfully");
           print(response);
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-        AwesomeDialog(
-          context: context,
-          dialogType: DialogType.error,
-          animType: AnimType.topSlide,
-          title: 'Unauthorized Error',
-          desc: 'Please Try Again..',
-          btnOkOnPress: () {},
-        ).show();
+        Get.defaultDialog(middleText: "Unauthorize Error Please Try Again..");
       } else {
-        AwesomeDialog(
-          context: context,
-          dialogType: DialogType.error,
-          animType: AnimType.topSlide,
-          title: 'Server Error',
-          desc: 'Please Try Again',
-          btnOkOnPress: () {},
-        ).show();
+        Get.defaultDialog(middleText: "Server Error Please Try Again");
       }
     }
   }

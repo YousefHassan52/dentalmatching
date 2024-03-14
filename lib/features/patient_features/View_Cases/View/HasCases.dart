@@ -47,16 +47,6 @@ class HasCases extends StatelessWidget {
                 IconButton(
                     onPressed: () {
                       print(externalController.patientModel.fullName);
-                      // final loadingAlert = _buildButton(
-                      //   onTap: () {
-                      //     CoolAlert.show(
-                      //       context: context,
-                      //       type: CoolAlertType.loading,
-                      //     );
-                      //   },
-                      //   text: 'Loading',
-                      //   color: Colors.grey,
-                      // );
                       // externalController.getCases();
                     },
                     icon: const Icon(
