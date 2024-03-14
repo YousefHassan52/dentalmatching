@@ -70,9 +70,9 @@ class _HomeDoctorScreenState extends State<HomeDoctorScreen> {
           begin: Alignment.topLeft,
           end: Alignment(0.8, 1),
           colors: <Color>[
+            Color(0xFF193F8A),
             Color(0xFF67A4D3),
             Color(0xFF4464A0),
-            Color(0xFF193F8A),
           ], // Gradient from https://learnui.design/tools/gradient-generator.html
           tileMode: TileMode.mirror,
         ),

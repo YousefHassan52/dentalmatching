@@ -115,7 +115,7 @@ class BarCompoWidget extends StatelessWidget {
                         if (needBackButton == true)
                           Padding(
                             padding: const EdgeInsets.only(
-                                top: 35, left: 5, bottom: 35),
+                                top: 35, left: 5, bottom: 10),
                             child: Row(
                               children: [
                                 IconButton(

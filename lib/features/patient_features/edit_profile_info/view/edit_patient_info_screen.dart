@@ -14,7 +14,7 @@ class EditPatientInfoScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            UpperWidget(needBackButton: true ,welcome: false , text: 'Edit Profile      ',),
+            UpperWidget(needBackButton: true),
             EditPatientFormBody(),
           ],
         ),
