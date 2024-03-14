@@ -27,63 +27,65 @@ class EditDoctorInfoControllerImp extends EditDoctortInfoControllerAbstract {
 
   @override
   Future<void> editDoctorInfo() async {
-    requestStatus = RequestStatus.LOADING;
-    update();
-    var response = await data.postData(
-      token: userModel.token,
-      fullname: fullNameController.text,
-      userName: userModel.userName,
-      email: emailController.text,
-      gender: gender == "Male" ? true : false,
-      age: int.parse(ageController.text),
-      government: gov!,
-      phoneNumber: phoneController.text,
-      university:
-          universityController.text, // mtnsa4 tezawedha fe el screen ya joe
-    );
-    requestStatus = HandlingResponseType.fun(response);
-    print("response ya joooe:------ $response");
-    // print(response);
-    if (requestStatus == RequestStatus.SUCCESS) {
-      if (response["success"] == true) {
-        Get.snackbar("Updated Successfully",
-            "Your account info has been updatedd successfully");
+    if (formKey.currentState!.validate()) {
+      requestStatus = RequestStatus.LOADING;
+      update();
+      var response = await data.postData(
+        token: userModel.token,
+        fullname: fullNameController.text,
+        userName: userModel.userName,
+        email: emailController.text,
+        gender: gender == "Male" ? true : false,
+        age: int.parse(ageController.text),
+        government: gov!,
+        phoneNumber: phoneController.text,
+        university:
+            universityController.text, // mtnsa4 tezawedha fe el screen ya joe
+      );
+      requestStatus = HandlingResponseType.fun(response);
+      print("response ya joooe:------ $response");
+      // print(response);
+      if (requestStatus == RequestStatus.SUCCESS) {
+        if (response["success"] == true) {
+          Get.snackbar("Updated Successfully",
+              "Your account info has been updatedd successfully");
 
-        userModel = DoctorModel(
-            university: universityController.text,
-            userName: userModel.userName,
-            token: userModel.token,
-            fullName: fullNameController.text,
-            email: emailController.text,
-            age: int.parse(ageController.text),
-            gender: gender == "Male" ? true : false,
-            city: gov!,
-            phoneNumber: phoneController.text,
-            role: userModel.role);
-        DoctorDataController doctorDataController =
-            Get.put(DoctorDataController());
-        doctorDataController.updateDoctordata(userModel.toJson());
+          userModel = DoctorModel(
+              university: universityController.text,
+              userName: userModel.userName,
+              token: userModel.token,
+              fullName: fullNameController.text,
+              email: emailController.text,
+              age: int.parse(ageController.text),
+              gender: gender == "Male" ? true : false,
+              city: gov!,
+              phoneNumber: phoneController.text,
+              role: userModel.role);
+          DoctorDataController doctorDataController =
+              Get.put(DoctorDataController());
+          doctorDataController.updateDoctordata(userModel.toJson());
+        }
+      } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
+        Get.defaultDialog(middleText: "Email or Phone Already exists before");
+      } else {
+        Get.defaultDialog(middleText: "Server Error Please Try Again");
       }
-    } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-      Get.defaultDialog(middleText: "Email or Phone Already exists before");
-    } else {
-      Get.defaultDialog(middleText: "Server Error Please Try Again");
+
+      update();
+      // print(fullNameController.text);
+      // print(emailController.text);
+      // print(phoneController.text);
+      // print(ageController.text);
+      // print(addressController.text);
+      // print(gender);
+      // print(gov);
+      // print(userModel.userName);
+
+      // print(myServices.sharedPref.getString("phoneNumber"));
+      // print(myServices.sharedPref.getBool("logged"));
+      // print("--------------------------------------");
+      // print(userModel.email);
     }
-
-    update();
-    // print(fullNameController.text);
-    // print(emailController.text);
-    // print(phoneController.text);
-    // print(ageController.text);
-    // print(addressController.text);
-    // print(gender);
-    // print(gov);
-    // print(userModel.userName);
-
-    // print(myServices.sharedPref.getString("phoneNumber"));
-    // print(myServices.sharedPref.getBool("logged"));
-    // print("--------------------------------------");
-    // print(userModel.email);
   }
 
   @override

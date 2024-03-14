@@ -30,4 +30,6 @@ class ApiLinks {
       "https://dentamatch.azurewebsites.net/PatientAuth/UpdateAccount";
   static const String updateDoctor =
       "https://dentamatch.azurewebsites.net/DoctorAuth/UpdateAccount";
+  static const String payment =
+      "https://dentamatch.azurewebsites.net/Paymob/paymob";
 }

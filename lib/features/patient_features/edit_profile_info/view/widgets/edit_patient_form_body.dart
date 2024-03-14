@@ -23,103 +23,107 @@ class EditPatientFormBody extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: Column(
-        children: [
-          AuthTextFormField(
-              hint: "Full Name",
-              icon: "assets/svg/first_name.svg",
-              type: TextInputType.name,
-              validator: (value) {
-                return AppValidator.textFormFieldValidator(value!, "username");
-              },
-              fieldController: externalController.fullNameController),
-          const SizedBox(
-            height: 15,
-          ),
-
-          AuthTextFormField(
-              hint: "age",
-              icon: "assets/svg/age.svg",
-              type: TextInputType.number,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return "required";
-                }
-              },
-              fieldController: externalController.ageController),
-          const SizedBox(
-            height: 15,
-          ),
-          const EditPatientGovernmentDropdownSearch(),
-          const SizedBox(
-            height: 15,
-          ),
-          const EditPatientGenderDropdown(),
-          const SizedBox(
-            height: 15,
-          ),
-          AuthTextFormField(
-              hint: "Address",
-              icon: "assets/svg/Home.svg",
-              type: TextInputType.name,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return "Please Enter your address";
-                }
-              },
-              fieldController: externalController.addressController),
-          const SizedBox(
-            height: 15,
-          ),
-          // phone----------------------------
-          AuthTextFormField(
-              hint: "Phone",
-              icon: "assets/svg/phone.svg",
-              type: TextInputType.phone,
-              validator: (value) {
-                return AppValidator.textFormFieldValidator(value!, "phone");
-              },
-              fieldController: externalController.phoneController),
-          const SizedBox(
-            height: 15,
-          ),
-          // email-------------------------------
-          AuthTextFormField(
-              hint: "Email Address",
-              icon: "assets/svg/email.svg",
-              type: TextInputType.emailAddress,
-              validator: (value) {
-                return AppValidator.textFormFieldValidator(value!, "email");
-              },
-              fieldController: externalController.emailController),
-          // password----------------------------------
-          const SizedBox(
-            height: 15,
-          ),
-
-          const SizedBox(
-            height: 30,
-          ),
-          AuthButton(
-              buttonText: "Update",
-              onTap: () {
-                externalController.editPatientInfo().then((value) {
-                  myCasesController.getCases();
-                });
-              }),
-          GetBuilder<EditPatientInfoControllerImp>(
-            builder: (controller) => Container(
-              margin: const EdgeInsets.symmetric(vertical: 10),
-              width: double.infinity,
-              child: controller.requestStatus == RequestStatus.LOADING
-                  ? LinearProgressIndicator(
-                      color: AppColors.mainColor,
-                      backgroundColor: AppColors.mainColor.withOpacity(0.20),
-                    )
-                  : null,
+      child: Form(
+        key: externalController.formKey,
+        child: Column(
+          children: [
+            AuthTextFormField(
+                hint: "Full Name",
+                icon: "assets/svg/first_name.svg",
+                type: TextInputType.name,
+                validator: (value) {
+                  return AppValidator.textFormFieldValidator(
+                      value!, "username");
+                },
+                fieldController: externalController.fullNameController),
+            const SizedBox(
+              height: 15,
             ),
-          ),
-        ],
+
+            AuthTextFormField(
+                hint: "age",
+                icon: "assets/svg/age.svg",
+                type: TextInputType.number,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "required";
+                  }
+                },
+                fieldController: externalController.ageController),
+            const SizedBox(
+              height: 15,
+            ),
+            const EditPatientGovernmentDropdownSearch(),
+            const SizedBox(
+              height: 15,
+            ),
+            const EditPatientGenderDropdown(),
+            const SizedBox(
+              height: 15,
+            ),
+            AuthTextFormField(
+                hint: "Address",
+                icon: "assets/svg/Home.svg",
+                type: TextInputType.name,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Please Enter your address";
+                  }
+                },
+                fieldController: externalController.addressController),
+            const SizedBox(
+              height: 15,
+            ),
+            // phone----------------------------
+            AuthTextFormField(
+                hint: "Phone",
+                icon: "assets/svg/phone.svg",
+                type: TextInputType.phone,
+                validator: (value) {
+                  return AppValidator.textFormFieldValidator(value!, "phone");
+                },
+                fieldController: externalController.phoneController),
+            const SizedBox(
+              height: 15,
+            ),
+            // email-------------------------------
+            AuthTextFormField(
+                hint: "Email Address",
+                icon: "assets/svg/email.svg",
+                type: TextInputType.emailAddress,
+                validator: (value) {
+                  return AppValidator.textFormFieldValidator(value!, "email");
+                },
+                fieldController: externalController.emailController),
+            // password----------------------------------
+            const SizedBox(
+              height: 15,
+            ),
+
+            const SizedBox(
+              height: 30,
+            ),
+            AuthButton(
+                buttonText: "Update",
+                onTap: () {
+                  externalController.editPatientInfo().then((value) {
+                    myCasesController.getCases();
+                  });
+                }),
+            GetBuilder<EditPatientInfoControllerImp>(
+              builder: (controller) => Container(
+                margin: const EdgeInsets.symmetric(vertical: 10),
+                width: double.infinity,
+                child: controller.requestStatus == RequestStatus.LOADING
+                    ? LinearProgressIndicator(
+                        color: AppColors.mainColor,
+                        backgroundColor: AppColors.mainColor.withOpacity(0.20),
+                      )
+                    : null,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

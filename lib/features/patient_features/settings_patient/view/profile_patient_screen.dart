@@ -1,8 +1,10 @@
+import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/features/common_faetures/delete_account/controller/delete_account_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
+import 'package:dentalmatching/features/patient_features/payment/controller/payment_contoller_imp.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/controller/settings_controller_imp.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/CounterBox.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/EnabledInfo.dart';
@@ -10,20 +12,20 @@ import 'package:dentalmatching/features/patient_features/settings_patient/view/W
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/setting_row_component.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsPatientScreen extends StatelessWidget {
   const SettingsPatientScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    PatientDataController pateintDataController =
-        Get.put(PatientDataController());
+    PaymentControllerImp payment = Get.put(PaymentControllerImp());
+    Get.put(PatientDataController());
     SettingsPatientControllerImp settingsPatientControllerImp =
         Get.put(SettingsPatientControllerImp());
     DeleteAccountControllerImp deleteController =
         Get.put(DeleteAccountControllerImp());
-    MyCasesPatientControllerImpl myCasesController =
-        Get.put(MyCasesPatientControllerImpl());
+    Get.put(MyCasesPatientControllerImpl());
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -31,9 +33,9 @@ class SettingsPatientScreen extends StatelessWidget {
           builder: (controller) => Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              UpperWidget(),
+              const UpperWidget(),
               Padding(
-                padding: EdgeInsets.only(left: 20, top: 25),
+                padding: const EdgeInsets.only(left: 20, top: 25),
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: EnabledInfo(
@@ -42,12 +44,12 @@ class SettingsPatientScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 20, top: 15),
+                padding: const EdgeInsets.only(left: 20, top: 15),
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.mail,
                         color: Colors.grey,
                       ),
@@ -72,7 +74,7 @@ class SettingsPatientScreen extends StatelessWidget {
               const SizedBox(
                 height: 25,
               ),
-              Center(child: const CounterBox()),
+              const Center(child: CounterBox()),
               // InkWell(
               //   child: Text('Settings',style: TextStyle(color: AppColors.blueLightTextColor),),
               // )
@@ -113,6 +115,27 @@ class SettingsPatientScreen extends StatelessWidget {
                       textConfirm: "Delete",
                     );
                   }),
+              SettingsRowComponent(
+                  icon: Icons.payment,
+                  iconColor: const Color.fromARGB(255, 1, 100, 75),
+                  text: "Paymob",
+                  textColor: const Color.fromARGB(255, 1, 100, 75),
+                  onTap: () {
+                    payment.makePayment();
+                  }),
+              GetBuilder<PaymentControllerImp>(
+                builder: (controller) => Container(
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  width: double.infinity,
+                  child: controller.requestStatus == RequestStatus.LOADING
+                      ? LinearProgressIndicator(
+                          color: AppColors.mainColor,
+                          backgroundColor:
+                              AppColors.mainColor.withOpacity(0.20),
+                        )
+                      : null,
+                ),
+              )
             ],
           ),
         ),
