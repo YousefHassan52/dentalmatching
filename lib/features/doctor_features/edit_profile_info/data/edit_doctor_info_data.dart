@@ -16,8 +16,8 @@ class EditDoctorInfoData {
     required String university,
     required String token,
   }) async {
-    var response =
-        await crud.post(token: token, url: ApiLinks.updateDoctor, data: {
+    var response = await crud
+        .postWithToken(token: token, url: ApiLinks.updateDoctor, data: {
       "fullName": fullname,
       "email": email,
       "age": age,

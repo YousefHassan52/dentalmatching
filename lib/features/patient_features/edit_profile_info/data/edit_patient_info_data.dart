@@ -16,8 +16,8 @@ class EditPatientInfoData {
     required String userName,
     required String token,
   }) async {
-    var response =
-        await crud.post(token: token, url: ApiLinks.updatePatient, data: {
+    var response = await crud
+        .postWithToken(token: token, url: ApiLinks.updatePatient, data: {
       "fullName": fullname,
       "email": email,
       "age": age,
