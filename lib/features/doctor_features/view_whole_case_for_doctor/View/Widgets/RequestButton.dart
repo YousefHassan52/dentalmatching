@@ -14,7 +14,7 @@ class RequestButton extends StatelessWidget {
         onPressed: onPressed,
         child: Container(
           alignment: Alignment.center,
-          width: double.infinity,
+          width: 150,
           height: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
@@ -34,8 +34,7 @@ class RequestButton extends StatelessWidget {
               ),
             ],
           ),
-          child: const FittedBox(
-          
+          child: FittedBox(
             child: Text(
               'Request',
               style: TextStyle(color: Colors.white, fontSize: 25),

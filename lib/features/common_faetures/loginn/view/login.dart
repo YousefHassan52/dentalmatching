@@ -99,15 +99,6 @@ class LoginScreen extends StatelessWidget {
                       externalController.login();
                     }),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: AuthButton(
-                    buttonText: "clear",
-                    onTap: () {
-                      // Call this wherever you want to clear the shared preferences
-                      Get.find<MyServices>().deleteSharedPref();
-                    }),
-              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

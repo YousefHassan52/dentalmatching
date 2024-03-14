@@ -48,10 +48,4 @@ class ViewWholeCaseDoctorControllerImpl
 
     update();
   }
-
-  void updateAssignmentStatus(bool isAssigned) {
-    caseModel.isAssigned = isAssigned;
-    // Trigger a rebuild of the widget that uses this controller
-    update();
-  }
 }
