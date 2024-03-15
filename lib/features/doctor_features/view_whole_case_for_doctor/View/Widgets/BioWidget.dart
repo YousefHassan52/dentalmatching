@@ -23,7 +23,11 @@ class BioWidget extends StatelessWidget {
             fit: BoxFit.scaleDown,
             child: Text(
               '${title} : ',
-              style: Styles.Bio,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w300,
+                fontSize: 20
+              ),
             ),
           ),
         ),
@@ -32,7 +36,15 @@ class BioWidget extends StatelessWidget {
             fit: BoxFit.scaleDown,
             child: Text(
               subTitle,
-              style: isLongText == true ? Styles.Bio : Styles.Bio,
+              style: isLongText == true ? const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w800,
+                fontSize: 20
+              ): const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w800,
+                fontSize: 20
+              ),
             ),
           ),
         ),
