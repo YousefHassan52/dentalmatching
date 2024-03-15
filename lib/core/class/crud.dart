@@ -37,6 +37,7 @@ class CRUD {
         } else if (response.statusCode == 500) {
           return left(RequestStatus.INTERNAL_SERVER_ERROR);
         } else {
+          print(response);
           return left(RequestStatus.SERVER_FAILURE);
         }
       } else {

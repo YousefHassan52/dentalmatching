@@ -1,30 +1,25 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
-import 'package:dentalmatching/features/patient_features/payment/controller/payment_contoller_abstract.dart';
-import 'package:dentalmatching/features/patient_features/payment/data/payment_data.dart';
+import 'package:dentalmatching/features/patient_features/paybal/controller/payment_contoller_abstract.dart';
+import 'package:dentalmatching/features/patient_features/paybal/data/data.dart';
+
 import 'package:dentalmatching/features/patient_features/signup/data/model/patient_model.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class PaymentControllerImp extends PaymentControllerAbstract {
+class PaybalControllerImp extends PaypalControllerAbstract {
   MyServices myServices = Get.find();
   late PatientModel patient =
       PatientModel.fromSharedPref(myServices.sharedPref);
 
-  PaymentData paymentData = PaymentData(Get.find());
+  PaypalData paymentData = PaypalData(Get.find());
   RequestStatus? requestStatus;
   @override
   makePayment() async {
     requestStatus = RequestStatus.LOADING;
     update();
-    var response = await paymentData.payment(
-      email: patient.email, // fsdk;jfs@fasdf
-      fullName: patient.email,
-      userName: patient.userName,
-      phone: patient.phoneNumber,
-      price: 200,
-    );
+    var response = await paymentData.payment();
     print(response.toString());
     requestStatus = HandlingResponseType.fun(response);
     update();
@@ -35,7 +30,7 @@ class PaymentControllerImp extends PaymentControllerAbstract {
         throw Exception('Could not launch $_url');
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-      Get.defaultDialog(middleText: "Internet Connection Error Refresh Data ");
+      Get.defaultDialog(middleText: "Unexpected error");
     } else {
       Get.defaultDialog(middleText: "Server Error Please Try Again");
     }

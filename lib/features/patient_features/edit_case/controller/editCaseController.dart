@@ -212,9 +212,6 @@ class EditCaseController extends GetxController {
     if (formKey.currentState!.validate() &&
         pressureValidation() &&
         checkBoxValidation() &&
-        mouthImagesValidation() &&
-        xrayValidation() &&
-        prescriptionValidation() &&
         caseValidation()) {
       requestStatus = RequestStatus.LOADING;
       update();

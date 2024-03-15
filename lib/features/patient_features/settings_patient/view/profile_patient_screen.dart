@@ -4,6 +4,7 @@ import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/features/common_faetures/delete_account/controller/delete_account_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
+import 'package:dentalmatching/features/patient_features/paybal/controller/payment_contoller_imp.dart';
 import 'package:dentalmatching/features/patient_features/payment/controller/payment_contoller_imp.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/controller/settings_controller_imp.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/CounterBox.dart';
@@ -19,6 +20,7 @@ class SettingsPatientScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    PaybalControllerImp paypalController = Get.put(PaybalControllerImp());
     PaymentControllerImp payment = Get.put(PaymentControllerImp());
     Get.put(PatientDataController());
     SettingsPatientControllerImp settingsPatientControllerImp =
@@ -123,6 +125,27 @@ class SettingsPatientScreen extends StatelessWidget {
                   onTap: () {
                     payment.makePayment();
                   }),
+              SettingsRowComponent(
+                  icon: Icons.paypal,
+                  iconColor: const Color.fromARGB(255, 7, 39, 179),
+                  text: "PayPal",
+                  textColor: const Color.fromARGB(255, 7, 39, 179),
+                  onTap: () {
+                    paypalController.makePayment();
+                  }),
+              GetBuilder<PaybalControllerImp>(
+                builder: (controller) => Container(
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  width: double.infinity,
+                  child: controller.requestStatus == RequestStatus.LOADING
+                      ? LinearProgressIndicator(
+                          color: AppColors.mainColor,
+                          backgroundColor:
+                              AppColors.mainColor.withOpacity(0.20),
+                        )
+                      : null,
+                ),
+              ),
               GetBuilder<PaymentControllerImp>(
                 builder: (controller) => Container(
                   margin: const EdgeInsets.symmetric(vertical: 10),
@@ -135,7 +158,7 @@ class SettingsPatientScreen extends StatelessWidget {
                         )
                       : null,
                 ),
-              )
+              ),
             ],
           ),
         ),
