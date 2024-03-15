@@ -9,11 +9,8 @@ import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/Fo
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/HDivider.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/ChronicList.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/GridViewWidget.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'Widgets/BioBoxWidget.dart';
 
 class ViewWholeCaseForDoctor extends StatelessWidget {
   const ViewWholeCaseForDoctor({super.key});
