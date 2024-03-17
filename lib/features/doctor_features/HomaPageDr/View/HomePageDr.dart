@@ -5,18 +5,16 @@ import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/Vie
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 class HomePageDr extends StatelessWidget {
   const HomePageDr({super.key});
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       body: ListView(
         padding: const EdgeInsets.only(top: 0),
-        children:  const [
-           Column(
+        children: const [
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppUpperWidget(),
@@ -37,21 +35,26 @@ class HomePageDr extends StatelessWidget {
                   'assets/svg/implant.svg'
                 ],
                 txt: [
-                  'Implant',
-                  'Implant',
-                  'Implant',
-                  'Implant',
-                  'Implant',
-                  'Implant',
+                  'Gumboil',
+                  'Gingivitis',
+                  'Edentulous',
+                  'Displaced tooth',
+                  'Dental abscess',
+                  'Orthodontics',
+                  'Caries',
+                  'Endodontics',
+                  'Prosthodontic',
+                  'Implantology',
                 ],
               ),
               TextTitle(
                 txtt: 'Appointments',
               ),
               AppointmentCardWidget(),
-              TextTitle(txtt: 'General Cases',),
-            
-
+              TextTitle(
+                txtt: 'General Cases',
+              ),
+              
             ],
           ),
         ],

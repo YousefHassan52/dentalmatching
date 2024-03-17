@@ -5,11 +5,12 @@ class CategoriesBuilder extends StatelessWidget {
   const CategoriesBuilder({super.key, required this.images, required this.txt});
   final List<String> images;
   final List<String> txt;
+  
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: EdgeInsets.only(top: 0),
+      padding: const EdgeInsets.only(top: 0),
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
