@@ -11,11 +11,12 @@ class HomePageDr extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: ListView(
         padding: const EdgeInsets.only(top: 0),
-        children: [
-           const Column(
+        children:  const [
+           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppUpperWidget(),
@@ -48,6 +49,9 @@ class HomePageDr extends StatelessWidget {
                 txtt: 'Appointments',
               ),
               AppointmentCardWidget(),
+              TextTitle(txtt: 'General Cases',),
+            
+
             ],
           ),
         ],
