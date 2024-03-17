@@ -6,39 +6,54 @@ class CategoriesContainer extends StatelessWidget {
     super.key,
     required this.img,
     required this.txt,
+    required this.color,
   });
+  
   final String img;
   final String txt;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {},
       icon: Container(
-        width: 100,
-        height: 90,
-        decoration: const BoxDecoration(
-          color: Color(0xff526FA6),
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          color: color,
           borderRadius: BorderRadius.all(Radius.circular(26)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.3), // Shadow color
+              spreadRadius: 2,
+              blurRadius: 7,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              height: 55,
-              width: 45,
-              child: SvgPicture.asset(img),
+            Flexible(
+              child: SizedBox(
+                height: 55,
+                width: 45,
+                child: SvgPicture.asset(img),
+              ),
             ),
             Flexible(
               child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                    child: Text(txt,
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                            fontWeight: FontWeight.w300)),
-                  )),
+                fit: BoxFit.scaleDown,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  child: Text(txt,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w300)),
+                ),
+              ),
             )
           ],
         ),
