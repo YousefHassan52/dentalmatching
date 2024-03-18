@@ -21,6 +21,8 @@ class EditCaseScreen extends StatelessWidget {
           children: const [
             UpperWidget(
               needBackButton: true,
+              text: 'Edit Case        ',
+              welcome: false,
             ),
             SizedBox(
               height: 12,

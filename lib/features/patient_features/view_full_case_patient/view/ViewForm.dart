@@ -51,7 +51,7 @@ class ViewForm extends StatelessWidget {
         body: ListView(
           padding: const EdgeInsets.only(top: 0),
           children: [
-            const UpperWidget(needBackButton: true),
+              const UpperWidget(needBackButton: true , text: 'Case Detailes        ', welcome: false,),
             const SizedBox(
               height: 2,
             ),
