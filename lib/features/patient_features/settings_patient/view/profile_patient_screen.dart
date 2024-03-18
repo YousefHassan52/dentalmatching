@@ -1,6 +1,7 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
+import 'package:dentalmatching/core/localization/translation_controller.dart';
 import 'package:dentalmatching/features/common_faetures/delete_account/controller/delete_account_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
@@ -28,6 +29,9 @@ class SettingsPatientScreen extends StatelessWidget {
     DeleteAccountControllerImp deleteController =
         Get.put(DeleteAccountControllerImp());
     Get.put(MyCasesPatientControllerImpl());
+    TranslationController translationController =
+        Get.put(TranslationController());
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -86,7 +90,7 @@ class SettingsPatientScreen extends StatelessWidget {
               SettingsRowComponent(
                   icon: Icons.edit,
                   iconColor: AppColors.mainColor,
-                  text: "Edit Profile Info",
+                  text: "Edit Profile Info".tr,
                   textColor: AppColors.mainColor,
                   onTap: () {
                     Get.toNamed(AppRoutes.editPatientInfo);
@@ -94,7 +98,7 @@ class SettingsPatientScreen extends StatelessWidget {
               SettingsRowComponent(
                   icon: Icons.logout,
                   iconColor: AppColors.mainColor,
-                  text: "Log out",
+                  text: "Log out".tr,
                   textColor: AppColors.mainColor,
                   onTap: () {
                     settingsPatientControllerImp.logout();
@@ -102,25 +106,25 @@ class SettingsPatientScreen extends StatelessWidget {
               SettingsRowComponent(
                   icon: Icons.delete_forever,
                   iconColor: const Color.fromARGB(255, 148, 17, 7),
-                  text: "Delete Account",
+                  text: "Delete Account".tr,
                   textColor: const Color.fromARGB(255, 148, 17, 7),
                   onTap: () {
                     Get.defaultDialog(
-                      backgroundColor: Colors.white,
-                      onConfirm: () {
-                        deleteController
-                            .deleteAccount(token: controller.userModel.token)
-                            .then((value) =>
-                                settingsPatientControllerImp.logout());
-                      },
-                      onCancel: () {},
-                      textConfirm: "Delete",
-                    );
+                        backgroundColor: Colors.white,
+                        onConfirm: () {
+                          deleteController
+                              .deleteAccount(token: controller.userModel.token)
+                              .then((value) =>
+                                  settingsPatientControllerImp.logout());
+                        },
+                        onCancel: () {},
+                        textConfirm: "Delete".tr,
+                        textCancel: "Cancel".tr);
                   }),
               SettingsRowComponent(
                   icon: Icons.payment,
                   iconColor: const Color.fromARGB(255, 1, 100, 75),
-                  text: "Paymob",
+                  text: "Paymob".tr,
                   textColor: const Color.fromARGB(255, 1, 100, 75),
                   onTap: () {
                     payment.makePayment();
@@ -128,10 +132,26 @@ class SettingsPatientScreen extends StatelessWidget {
               SettingsRowComponent(
                   icon: Icons.paypal,
                   iconColor: const Color.fromARGB(255, 7, 39, 179),
-                  text: "PayPal",
+                  text: "PayPal".tr,
                   textColor: const Color.fromARGB(255, 7, 39, 179),
                   onTap: () {
                     paypalController.makePayment();
+                  }),
+              SettingsRowComponent(
+                  icon: Icons.language_rounded,
+                  iconColor: const Color.fromARGB(255, 7, 39, 179),
+                  text: "Language".tr,
+                  textColor: const Color.fromARGB(255, 7, 39, 179),
+                  onTap: () {
+                    translationController.changeLang(langCode: "en");
+                  }),
+              SettingsRowComponent(
+                  icon: Icons.language_rounded,
+                  iconColor: const Color.fromARGB(255, 7, 39, 179),
+                  text: "arabic",
+                  textColor: const Color.fromARGB(255, 7, 39, 179),
+                  onTap: () {
+                    translationController.changeLang(langCode: "ar");
                   }),
               GetBuilder<PaybalControllerImp>(
                 builder: (controller) => Container(
@@ -159,6 +179,9 @@ class SettingsPatientScreen extends StatelessWidget {
                       : null,
                 ),
               ),
+              const SizedBox(
+                height: 100,
+              )
             ],
           ),
         ),

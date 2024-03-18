@@ -13,6 +13,7 @@ import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doct
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/all_unassigned_cases_doctor_screen.dart';
 import 'package:dentalmatching/features/doctor_features/home/home_doctor.dart';
 import 'package:dentalmatching/features/doctor_features/signup/view/signup_screen.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Views/AddCase.dart';
 import 'package:dentalmatching/features/patient_features/edit_case/view/edit_screen.dart';
 import 'package:dentalmatching/features/patient_features/edit_profile_info/view/edit_patient_info_screen.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/ViewForm.dart';
@@ -70,6 +71,10 @@ List<GetPage> routes = [
       name: AppRoutes.editDoctorInfo, page: () => const EditDoctorInfoScreen()),
   GetPage(name: AppRoutes.editCase, page: () => const EditCaseScreen()),
   GetPage(name: AppRoutes.fullCategories, page: () => const FullCategories()),
+  GetPage(
+    name: AppRoutes.addCaseScreen,
+    page: () => const AddCaseScreen(),
+  ),
 
   // GetPage(
   //     name: AppRoutes.verifyEmailCode,

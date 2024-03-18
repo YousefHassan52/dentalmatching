@@ -12,11 +12,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 // test commit
   await initialServices();
-  runApp(
-    //const MyApp()
-      DevicePreview(
-        builder: (context) => const MyApp(),
-      ),
+  runApp(const MyApp()
+      // DevicePreview(
+      //   builder: (context) => const MyApp(),
+      // ),
       );
 }
 

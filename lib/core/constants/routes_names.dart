@@ -33,4 +33,5 @@ class AppRoutes {
   static const String editDoctorInfo = "/edit_doctor_info";
   static const String editCase = "/edit_case";
   static const String fullCategories = "/fullCategories";
+  static const String addCaseScreen = "/add_case";
 }
