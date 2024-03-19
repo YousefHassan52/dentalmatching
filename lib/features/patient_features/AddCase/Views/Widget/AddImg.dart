@@ -33,9 +33,9 @@ class AddImageWidget extends StatelessWidget {
           // ],
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: AssetImage('assets/images/G.png'),
+            image: const AssetImage('assets/images/G.png'),
             colorFilter: ColorFilter.mode(
-              Color.fromARGB(255, 7, 66, 162)
+              const Color.fromARGB(255, 7, 66, 162)
                   .withOpacity(0.2), // Adjust the opacity (0.0 to 1.0)
               BlendMode.dstATop,
             ),

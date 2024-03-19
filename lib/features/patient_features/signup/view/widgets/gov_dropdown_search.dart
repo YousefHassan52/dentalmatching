@@ -16,7 +16,7 @@ class GovernmentDropdownSearch extends StatelessWidget {
     SignupPatientControllerImpl externalController = Get.find();
 
     return DropdownSearch<String>(
-      popupProps: PopupProps.menu(
+      popupProps: const PopupProps.menu(
         showSearchBox: true,
         showSelectedItems: true,
       ),

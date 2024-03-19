@@ -8,7 +8,7 @@ class CategoriesContainer extends StatelessWidget {
     required this.txt,
     required this.color,
   });
-  
+
   final String img;
   final String txt;
   final Color color;
@@ -22,13 +22,13 @@ class CategoriesContainer extends StatelessWidget {
         height: double.infinity,
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.all(Radius.circular(26)),
+          borderRadius: const BorderRadius.all(Radius.circular(26)),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.3), // Shadow color
               spreadRadius: 2,
               blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3), // changes position of shadow
             ),
           ],
         ),

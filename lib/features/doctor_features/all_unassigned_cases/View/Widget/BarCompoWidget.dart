@@ -1,13 +1,13 @@
-import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/doctor_features/doctor_data_viewer/doctor_data_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 class BarCompoWidget extends StatelessWidget {
   const BarCompoWidget({
     super.key,
-     this.welcome = true,
-     this.needBackButton = false,
-     this.text = '',
+    this.welcome = true,
+    this.needBackButton = false,
+    this.text = '',
   });
 
   final bool welcome;
@@ -70,13 +70,13 @@ class BarCompoWidget extends StatelessWidget {
           const SizedBox(
             width: 10,
           ),
-         
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                 if (welcome == true)
+
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (welcome == true)
                   const Flexible(
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
@@ -90,7 +90,7 @@ class BarCompoWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                   if (welcome == true)
+                if (welcome == true)
                   Flexible(
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
@@ -106,28 +106,27 @@ class BarCompoWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  
-                    Column(
-                      // crossAxisAlignment: CrossAxisAlignment.start,
-                      // mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        if (welcome == false)
-                        if (needBackButton == true)
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 35, left: 5, bottom: 10),
-                            child: Row(
-                              children: [
-                                IconButton(
-                                  onPressed: () {
-                                    Get.back();
-                                  },
-                                  icon: const Icon(
-                                    Icons.arrow_back,
-                                    color: Colors.white,
-                                  ),
+                Column(
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  // mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    if (welcome == false)
+                      if (needBackButton == true)
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 35, left: 5, bottom: 10),
+                          child: Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  Get.back();
+                                },
+                                icon: const Icon(
+                                  Icons.arrow_back,
+                                  color: Colors.white,
                                 ),
-                                if (welcome == false)
+                              ),
+                              if (welcome == false)
                                 Expanded(
                                   child: Container(
                                     alignment: Alignment.center,
@@ -141,14 +140,14 @@ class BarCompoWidget extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
+                            ],
                           ),
-                      ],
-                    ),
-                ],
-              ),
+                        ),
+                  ],
+                ),
+              ],
             ),
+          ),
           // Spacer(),
           //  IconButton(
           //   onPressed: () {

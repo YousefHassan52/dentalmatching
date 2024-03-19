@@ -23,13 +23,14 @@ class PreSignUpWidget extends StatelessWidget {
           children: [
             Container(
               height: Get.height * 0.5,
-              margin: EdgeInsets.symmetric(vertical: 4),
+              margin: const EdgeInsets.symmetric(vertical: 4),
               decoration: const BoxDecoration(),
               child: SvgPicture.asset(image),
             ),
             Text(
               role,
-              style: TextStyle(fontSize: 80, color: AppColors.blueTextColor),
+              style:
+                  const TextStyle(fontSize: 80, color: AppColors.blueTextColor),
             )
           ],
         ),

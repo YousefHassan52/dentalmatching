@@ -69,7 +69,7 @@ class _HomePatientScreenState extends State<HomePatientScreen> {
                 fit: BoxFit.fitHeight,
                 child: Text(
                   'Add Case'.tr,
-                  style: TextStyle(fontSize: 14, color: Colors.white),
+                  style: const TextStyle(fontSize: 14, color: Colors.white),
                 )),
             activeItem: const Icon(
               Icons.add,
@@ -81,7 +81,7 @@ class _HomePatientScreenState extends State<HomePatientScreen> {
                 fit: BoxFit.fitHeight,
                 child: Text(
                   "My Cases".tr,
-                  style: TextStyle(fontSize: 14, color: Colors.white),
+                  style: const TextStyle(fontSize: 14, color: Colors.white),
                 )),
             activeItem: const Icon(
               Icons.list,
@@ -93,7 +93,7 @@ class _HomePatientScreenState extends State<HomePatientScreen> {
                 fit: BoxFit.fitHeight,
                 child: Text(
                   'Settings'.tr,
-                  style: TextStyle(fontSize: 14, color: Colors.white),
+                  style: const TextStyle(fontSize: 14, color: Colors.white),
                 )),
             activeItem: const Icon(
               Icons.settings,

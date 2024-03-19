@@ -34,11 +34,11 @@ class CategoriesWidget extends StatelessWidget {
                 Flexible(
                   child: FittedBox(
                       fit: BoxFit.scaleDown,
-                      child:
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(model.text, style: TextStyle(color: Colors.white)),
-                          )),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(model.text,
+                            style: const TextStyle(color: Colors.white)),
+                      )),
                 )
               ],
             ),

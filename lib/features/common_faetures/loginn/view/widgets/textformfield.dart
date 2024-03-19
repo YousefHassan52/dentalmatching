@@ -25,7 +25,7 @@ class AuthTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   // double screenWidth = MediaQuery.of(context).size.width;
+    // double screenWidth = MediaQuery.of(context).size.width;
 
     return TextFormField(
       controller: fieldController,
@@ -33,7 +33,7 @@ class AuthTextFormField extends StatelessWidget {
       obscureText: isPassword,
       cursorColor: AppColors.secondColor,
       keyboardType: type,
-      style: TextStyle(
+      style: const TextStyle(
         color: AppColors.userTextColor,
         fontSize: 16,
       ),
@@ -41,8 +41,8 @@ class AuthTextFormField extends StatelessWidget {
         prefixIcon: CustomSvgPicture(icon: icon),
         suffixIcon: icon2,
         hintText: hint,
-        hintStyle: TextStyle(
-          color: const Color.fromARGB(100, 94, 148, 195),
+        hintStyle: const TextStyle(
+          color: Color.fromARGB(100, 94, 148, 195),
           fontSize: 16,
         ),
         enabledBorder: const UnderlineInputBorder(
@@ -71,7 +71,7 @@ class CustomSvgPicture extends StatelessWidget {
       child: SvgPicture.asset(
         height: 10,
         icon,
-        color: Color(0xFF67A4D3),
+        color: const Color(0xFF67A4D3),
       ),
     );
   }

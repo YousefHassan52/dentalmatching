@@ -41,7 +41,7 @@ class DoctorInfoIfCaseAssigned extends StatelessWidget {
                 ),
                 BioWidget(
                   title: 'University: ',
-                  subTitle: "${caseModel.doctorUniversity}",
+                  subTitle: caseModel.doctorUniversity,
                 ),
                 const Padding(
                   padding: EdgeInsets.all(8.0),

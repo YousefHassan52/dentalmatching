@@ -70,7 +70,7 @@ class _HomeDoctorScreenState extends State<HomeDoctorScreen> {
                 fit: BoxFit.fitHeight,
                 child: Text(
                   'My Cases'.tr,
-                  style: TextStyle(fontSize: 14, color: Colors.white),
+                  style: const TextStyle(fontSize: 14, color: Colors.white),
                 )),
             activeItem: const Icon(
               Icons.check_circle,
@@ -82,7 +82,7 @@ class _HomeDoctorScreenState extends State<HomeDoctorScreen> {
                 fit: BoxFit.fitHeight,
                 child: Text(
                   "Home".tr,
-                  style: TextStyle(fontSize: 14, color: Colors.white),
+                  style: const TextStyle(fontSize: 14, color: Colors.white),
                 )),
             activeItem: const Icon(
               Icons.list,
@@ -94,7 +94,7 @@ class _HomeDoctorScreenState extends State<HomeDoctorScreen> {
                 fit: BoxFit.fitHeight,
                 child: Text(
                   'Settings'.tr,
-                  style: TextStyle(fontSize: 14, color: Colors.white),
+                  style: const TextStyle(fontSize: 14, color: Colors.white),
                 )),
             activeItem: const Icon(
               Icons.settings,

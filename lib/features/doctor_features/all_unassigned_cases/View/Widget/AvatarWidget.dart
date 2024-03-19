@@ -17,7 +17,7 @@ class AvatarWidget extends StatelessWidget {
         padding: const EdgeInsets.all(4.0),
         child: ClipOval(
           child: SizedBox.fromSize(
-            size: Size.fromRadius(48),
+            size: const Size.fromRadius(48),
             child: SvgPicture.asset(imagePath),
           ),
         ),

@@ -19,7 +19,7 @@ class ImageContainer extends StatelessWidget {
       child: ListView.builder(
         itemCount: imagesList.length,
         scrollDirection: Axis.horizontal,
-      physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) {
           return ImageContainerWidget(
             image: imagesList[index],

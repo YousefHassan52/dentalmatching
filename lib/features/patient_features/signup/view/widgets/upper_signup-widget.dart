@@ -50,7 +50,7 @@ class UpperSignupWidget extends StatelessWidget {
                 style: Styles.largetitle.copyWith(color: Colors.white),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             )
           ],

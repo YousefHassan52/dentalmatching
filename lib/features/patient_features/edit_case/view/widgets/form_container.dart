@@ -21,6 +21,6 @@ class EditCaseFormContainer extends GetView<MyServices> {
         //     color: const Color(0xff4A6BAD),
         //   ),
         // ),
-        child: EditFormBody());
+        child: const EditFormBody());
   }
 }

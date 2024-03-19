@@ -43,11 +43,11 @@ class AddCardImage extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              Text(
+              const Text(
                 "ID Photo",
-                style: const TextStyle(color: Colors.white, fontSize: 18),
+                style: TextStyle(color: Colors.white, fontSize: 18),
               ),
-              Spacer(),
+              const Spacer(),
               SvgPicture.asset(height: 30, "assets/svg/Boldd_Camera.svg")
             ],
           ),
