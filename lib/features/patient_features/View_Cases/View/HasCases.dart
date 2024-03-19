@@ -33,8 +33,9 @@ class HasCases extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Flexible(
+                  flex: 200,
+                  fit: FlexFit.loose,
                   child: FittedBox(
-                    fit: BoxFit.scaleDown,
                     child: AutoSizeText(
                       maxFontSize: 25,
                       minFontSize: 15,

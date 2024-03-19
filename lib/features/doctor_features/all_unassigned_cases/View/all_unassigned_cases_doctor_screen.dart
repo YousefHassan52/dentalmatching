@@ -9,6 +9,7 @@ import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/Vie
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class AllUnassignedCasesDoctorScreen extends StatelessWidget {
@@ -28,8 +29,9 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Flexible(
+                flex: 200,
+                fit: FlexFit.loose,
                 child: FittedBox(
-                  fit: BoxFit.scaleDown,
                   child: AutoSizeText(
                     maxFontSize: 25,
                     minFontSize: 15,
@@ -40,21 +42,23 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
               ),
               const Spacer(),
               IconButton(
-                  onPressed: () {
-                    externalController.getCases();
-                  },
-                  icon: const Icon(
-                    Icons.rocket_launch_outlined,
-                    color: AppColors.mainColor,
-                  ),),
+                onPressed: () {
+                  externalController.getCases();
+                },
+                icon: const Icon(
+                  Icons.rocket_launch_outlined,
+                  color: AppColors.mainColor,
+                ),
+              ),
               IconButton(
-                  onPressed: () {
+                onPressed: () {
                   Get.to(const HomePageDr());
-                  },
-                  icon: const Icon(
-                    Icons.abc_sharp,
-                    color: AppColors.mainColor,
-                  ),),
+                },
+                icon: const Icon(
+                  Icons.abc_sharp,
+                  color: AppColors.mainColor,
+                ),
+              ),
             ],
           ),
         ),
@@ -81,15 +85,31 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
           } else if (controller.requestStatus == RequestStatus.LOADING) {
             return const Expanded(child: ShimmerList());
           } else if (controller.requestStatus == RequestStatus.EMPTY_SUCCESS) {
-            return const Center(
-              child: Text(
-                "No Cases Yet",
-                style: TextStyle(color: Colors.black),
+            return Center(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 350,
+                    width: 270,
+                    child: SvgPicture.asset('assets/svg/Empty-pana.svg'),
+                  ),
+                ],
               ),
             );
           } else {
-            return const Center(
-              child: Text("Reload Data"),
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top:30),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 350,
+                      width: 270,
+                      child: SvgPicture.asset('assets/svg/GroupRRR.svg'),
+                    ),
+                  ],
+                ),
+              ),
             );
           }
         }),

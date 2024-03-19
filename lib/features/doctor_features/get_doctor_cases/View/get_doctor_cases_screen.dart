@@ -25,15 +25,20 @@ class GetDoctorCasesScreen extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 8.0),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                child: const AutoSizeText(
-                  maxFontSize: 17,
-                  minFontSize: 15,
-                  'Requested Cases',
-                  style: Styles.LightBlue,
+             const Flexible(
+                  flex: 200,
+                  fit: FlexFit.loose,
+                  child: FittedBox(
+                    child: AutoSizeText(
+                      maxFontSize: 25,
+                      minFontSize: 15,
+                      'Requested Cases',
+                      style: Styles.LightBlue,
+                    ),
+                  ),
                 ),
-              ),
               const Spacer(),
               IconButton(
                   onPressed: () {

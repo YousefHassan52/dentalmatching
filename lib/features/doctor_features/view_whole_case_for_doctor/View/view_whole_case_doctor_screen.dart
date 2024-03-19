@@ -1,10 +1,13 @@
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/AppointmentScreen.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/BoxWidget.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/RequestButton.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/UpperNot.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/AppointmentController.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_impl.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/CasesCheckList.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/FormHeadLine.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/HDivider.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/ChronicList.dart';
@@ -13,7 +16,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ViewWholeCaseForDoctor extends StatelessWidget {
-  const ViewWholeCaseForDoctor({super.key});
+  ViewWholeCaseForDoctor({super.key});
+  final AppointmentController appointmentController =
+      Get.put(AppointmentController());
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +28,9 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
         Get.put(UnassignedCasesDoctorControllerImpl());
     GetDocotorCasesControllerImpl reloadDataControllerForDoctorCases =
         Get.put(GetDocotorCasesControllerImpl());
-         ScrollController scrollController = ScrollController();
+    ScrollController scrollController = ScrollController();
 
     return Scaffold(
-
       body: Column(
         children: [
           Expanded(
@@ -60,7 +64,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                       // const SizedBox(
                       //   height: 20,
                       // ),
-                     // const HDivider(),
+                      // const HDivider(),
                       const SizedBox(
                         height: 20,
                       ),
@@ -176,21 +180,29 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                         controller.updateAssignmentStatus(true);
                         reloadDataControllerForAllCases.getCases();
                         reloadDataControllerForDoctorCases.getCases();
-                        Get.dialog(
-                          AlertDialog(
-                            title: const Text("Success"),
-                            content: const Text("Case assigned successfully!"),
-                            actions: [
-                              MaterialButton(
-                                child: const Text("OK"),
-                                onPressed: () {
-                                  Get.back(); // Close the dialog
-                                  scrollController.animateTo(0, duration: const Duration(milliseconds: 500), curve: Curves.easeInOut); // Scroll to the top
-                                },
-                              ),
-                            ],
-                          ),
+                        showModalBottomSheet(
+                          isScrollControlled: true,
+                          context: context,
+                          builder: (context) {
+                            return Center(child: AppointmentScreen());
+                          },
                         );
+
+                        // Get.dialog(
+                        //   AlertDialog(
+                        //     title: const Text("Success"),
+                        //     content: const Text("Case assigned successfully!"),
+                        //     actions: [
+                        //       MaterialButton(
+                        //         child: const Text("OK"),
+                        //         onPressed: () {
+                        //           Get.back(); // Close the dialog
+                        //           scrollController.animateTo(0, duration: const Duration(milliseconds: 500), curve: Curves.easeInOut); // Scroll to the top
+                        //         },
+                        //       ),
+                        //     ],
+                        //   ),
+                        // );
                       });
                     },
                   ),
