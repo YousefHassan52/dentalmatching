@@ -65,37 +65,40 @@ class _HomePatientScreenState extends State<HomePatientScreen> {
         elevation: 1,
         bottomBarItems: [
           BottomBarItem(
-            inActiveItem: const Icon(
-              Icons.add,
-              color: Colors.white,
-            ),
+            inActiveItem: FittedBox(
+                fit: BoxFit.fitHeight,
+                child: Text(
+                  'Add Case'.tr,
+                  style: TextStyle(fontSize: 14, color: Colors.white),
+                )),
             activeItem: const Icon(
               Icons.add,
               color: Colors.white,
             ),
-            itemLabel: 'Add Case'.tr,
           ),
           BottomBarItem(
-            inActiveItem: const Icon(
-              Icons.list,
-              color: Colors.white,
-            ),
+            inActiveItem: FittedBox(
+                fit: BoxFit.fitHeight,
+                child: Text(
+                  "My Cases".tr,
+                  style: TextStyle(fontSize: 14, color: Colors.white),
+                )),
             activeItem: const Icon(
               Icons.list,
               color: Colors.white,
             ),
-            itemLabel: "My Cases".tr,
           ),
           BottomBarItem(
-            inActiveItem: const Icon(
-              Icons.settings,
-              color: Colors.white,
-            ),
+            inActiveItem: FittedBox(
+                fit: BoxFit.fitHeight,
+                child: Text(
+                  'Settings'.tr,
+                  style: TextStyle(fontSize: 14, color: Colors.white),
+                )),
             activeItem: const Icon(
               Icons.settings,
               color: Colors.white,
             ),
-            itemLabel: 'Settings'.tr,
           ),
         ],
         onTap: (index) {

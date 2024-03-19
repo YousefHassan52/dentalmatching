@@ -1,5 +1,6 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
+import 'package:dentalmatching/core/localization/translation_controller.dart';
 import 'package:dentalmatching/features/common_faetures/delete_account/controller/delete_account_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AppUpper.dart';
 import 'package:dentalmatching/features/doctor_features/doctor_data_viewer/doctor_data_controller.dart';
@@ -23,6 +24,8 @@ class SettingsDoctorScreen extends StatelessWidget {
     Get.put(DoctorDataController());
     DeleteAccountControllerImp deleteController =
         Get.put(DeleteAccountControllerImp());
+    TranslationController translationController =
+        Get.put(TranslationController());
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -32,7 +35,7 @@ class SettingsDoctorScreen extends StatelessWidget {
             children: [
               const AppUpperWidget(),
               Padding(
-                padding: EdgeInsets.only(left: 20, top: 25),
+                padding: const EdgeInsets.only(left: 20, top: 25),
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: EnabledInfo(
@@ -41,12 +44,12 @@ class SettingsDoctorScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 20, top: 15),
+                padding: const EdgeInsets.only(left: 20, top: 15),
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.mail,
                         color: Colors.grey,
                       ),
@@ -113,6 +116,25 @@ class SettingsDoctorScreen extends StatelessWidget {
                       textConfirm: "Delete",
                     );
                   }),
+              SettingsRowComponent(
+                  icon: Icons.language_rounded,
+                  iconColor: const Color.fromARGB(255, 7, 39, 179),
+                  text: "Language".tr,
+                  textColor: const Color.fromARGB(255, 7, 39, 179),
+                  onTap: () {
+                    translationController.changeLang(langCode: "en");
+                  }),
+              SettingsRowComponent(
+                  icon: Icons.language_rounded,
+                  iconColor: const Color.fromARGB(255, 7, 39, 179),
+                  text: "arabic",
+                  textColor: const Color.fromARGB(255, 7, 39, 179),
+                  onTap: () {
+                    translationController.changeLang(langCode: "ar");
+                  }),
+              const SizedBox(
+                height: 50,
+              )
             ],
           ),
         ),
