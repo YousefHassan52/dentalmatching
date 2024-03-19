@@ -8,6 +8,8 @@ class MyTranslation implements Translations {
           "Settings": "اعدادات",
           "Add Case": "اضف حالة",
           "My Cases": "حالاتي",
+          "Home": "الرئيسية",
+
           "1": "عربي",
           "First Title": "هدفنا",
           "Second Title": "كيف",
@@ -28,6 +30,7 @@ class MyTranslation implements Translations {
           "Settings": "Setting",
           "Add Case": "Add Case",
           "My Cases": "My Cases",
+          "Home": "Home",
           "1": "English",
           "First Title": "Our Goal",
           "Second Title": "How",

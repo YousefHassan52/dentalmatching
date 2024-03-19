@@ -1,9 +1,11 @@
+import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
+import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/all_unassigned_cases_doctor_screen.dart';
 import 'package:dentalmatching/features/doctor_features/get_doctor_cases/View/get_doctor_cases_screen.dart';
 import 'package:dentalmatching/features/doctor_features/settings_doctor/view/profile_doctor_screen.dart';
 
 import 'package:flutter/material.dart';
-import 'package:circle_nav_bar/circle_nav_bar.dart';
+import 'package:get/get.dart';
 
 class HomeDoctorScreen extends StatefulWidget {
   const HomeDoctorScreen({Key? key}) : super(key: key);
@@ -13,100 +15,99 @@ class HomeDoctorScreen extends StatefulWidget {
 }
 
 class _HomeDoctorScreenState extends State<HomeDoctorScreen> {
-  int _tabIndex = 1;
-  int get tabIndex => _tabIndex;
-  set tabIndex(int v) {
-    _tabIndex = v;
-    setState(() {});
-  }
+  /// Controller to handle PageView and also handles initial page
+  final _pageController = PageController(initialPage: 0);
 
-  late PageController pageController;
+  /// Controller to handle bottom nav bar and also handles initial page
+  final _controller = NotchBottomBarController(index: 0);
+
+  int maxCount = 3;
 
   @override
-  void initState() {
-    super.initState();
-    pageController = PageController(initialPage: _tabIndex);
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
   }
+
+  /// widget list
+  final List<Widget> bottomBarPages = const [
+    GetDoctorCasesScreen(),
+    AllUnassignedCasesDoctorScreen(),
+    SettingsDoctorScreen()
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      extendBody: true,
-      bottomNavigationBar: CircleNavBar(
-        activeIcons: [
-          Transform.scale(
-              scale: 0.6,
-              child: const Icon(
-                Icons.check_circle_outline_rounded,
-                size: 50,
-                color: Colors.white,
-              )),
-          Transform.scale(
-              scale: 0.6,
-              child: const Icon(
-                Icons.article_rounded,
-                size: 50,
-                color: Colors.white,
-              )),
-          Transform.scale(
-              scale: 0.6,
-              child: const Icon(
-                Icons.person_2_outlined,
-                size: 50,
-                color: Colors.white,
-              )),
-        ],
-        inactiveIcons: const [
-          Text(
-            "My Cases",
-            style: TextStyle(color: Colors.white),
-          ),
-          Text("All Cases", style: TextStyle(color: Colors.white)),
-          Text("Profile", style: TextStyle(color: Colors.white)),
-        ],
-        color: Colors.white,
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment(0.8, 1),
-          colors: <Color>[
-            Color(0xFF67A4D3),
-            Color(0xFF4464A0),
-            Color(0xFF193F8A),
-          ], // Gradient from https://learnui.design/tools/gradient-generator.html
-          tileMode: TileMode.mirror,
-        ),
-        height: 60,
-        circleWidth: 50,
-        activeIndex: tabIndex,
-        onTap: (index) {
-          // Update the tab index
-          tabIndex = index;
-          // Navigate to the tapped page
-          pageController.animateToPage(tabIndex,
-              duration: const Duration(milliseconds: 300),
-              curve: Curves.easeInOut);
-        },
-        padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
-        cornerRadius: const BorderRadius.only(
-          topLeft: Radius.circular(8),
-          topRight: Radius.circular(8),
-          bottomRight: Radius.circular(24),
-          bottomLeft: Radius.circular(24),
-        ),
-        elevation: 10,
-      ),
       body: PageView(
-        controller: pageController,
-        onPageChanged: (v) {
-          tabIndex = v;
-        },
-        physics: const NeverScrollableScrollPhysics(), // Disable swipe gesture
-        children: const [
-          GetDoctorCasesScreen(),
-          AllUnassignedCasesDoctorScreen(),
-          SettingsDoctorScreen()
+        controller: _pageController,
+        physics: const NeverScrollableScrollPhysics(),
+        children: List.generate(
+            bottomBarPages.length, (index) => bottomBarPages[index]),
+      ),
+      extendBody: true,
+      bottomNavigationBar: AnimatedNotchBottomBar(
+        /// Provide NotchBottomBarController
+        notchBottomBarController: _controller,
+        color: AppColors.mainColor,
+        showLabel: false,
+        shadowElevation: 5,
+        kBottomRadius: 10.0,
+        notchColor: AppColors.mainColor,
+        itemLabelStyle: TextStyle(
+            overflow: TextOverflow.fade,
+            color: Colors.white,
+            fontSize: MediaQuery.sizeOf(context).width *
+                0.020), // Set fixed font size
+        removeMargins: false,
+        bottomBarWidth: MediaQuery.sizeOf(context).width,
+        showShadow: false,
+        durationInMilliSeconds: 300,
+        elevation: 1,
+        bottomBarItems: [
+          BottomBarItem(
+            inActiveItem: FittedBox(
+                fit: BoxFit.fitHeight,
+                child: Text(
+                  'My Cases'.tr,
+                  style: TextStyle(fontSize: 14, color: Colors.white),
+                )),
+            activeItem: const Icon(
+              Icons.check_circle,
+              color: Colors.white,
+            ),
+          ),
+          BottomBarItem(
+            inActiveItem: FittedBox(
+                fit: BoxFit.fitHeight,
+                child: Text(
+                  "Home".tr,
+                  style: TextStyle(fontSize: 14, color: Colors.white),
+                )),
+            activeItem: const Icon(
+              Icons.list,
+              color: Colors.white,
+            ),
+          ),
+          BottomBarItem(
+            inActiveItem: FittedBox(
+                fit: BoxFit.fitHeight,
+                child: Text(
+                  'Settings'.tr,
+                  style: TextStyle(fontSize: 14, color: Colors.white),
+                )),
+            activeItem: const Icon(
+              Icons.settings,
+              color: Colors.white,
+            ),
+          ),
         ],
+        onTap: (index) {
+          /// perform action on tab change and to update pages you can update pages without pages
+          print('current selected index $index');
+          _pageController.jumpToPage(index);
+        },
+        kIconSize: 24.0,
       ),
     );
   }
