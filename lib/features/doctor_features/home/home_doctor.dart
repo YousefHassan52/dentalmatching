@@ -1,5 +1,6 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
+import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/HomePageDr.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/all_unassigned_cases_doctor_screen.dart';
 import 'package:dentalmatching/features/doctor_features/get_doctor_cases/View/get_doctor_cases_screen.dart';
 import 'package:dentalmatching/features/doctor_features/settings_doctor/view/profile_doctor_screen.dart';
@@ -16,10 +17,10 @@ class HomeDoctorScreen extends StatefulWidget {
 
 class _HomeDoctorScreenState extends State<HomeDoctorScreen> {
   /// Controller to handle PageView and also handles initial page
-  final _pageController = PageController(initialPage: 0);
+  final _pageController = PageController(initialPage: 1);
 
   /// Controller to handle bottom nav bar and also handles initial page
-  final _controller = NotchBottomBarController(index: 0);
+  final _controller = NotchBottomBarController(index: 1);
 
   int maxCount = 3;
 
@@ -32,7 +33,7 @@ class _HomeDoctorScreenState extends State<HomeDoctorScreen> {
   /// widget list
   final List<Widget> bottomBarPages = const [
     GetDoctorCasesScreen(),
-    AllUnassignedCasesDoctorScreen(),
+    HomePageDr(),
     SettingsDoctorScreen()
   ];
 

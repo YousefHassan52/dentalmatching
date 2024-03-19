@@ -46,7 +46,7 @@ List<GetPage> routes = [
       page: () => const AllUnassignedCasesDoctorScreen()),
   GetPage(
       name: AppRoutes.viewWholeCaseForDoctor,
-      page: () =>  ViewWholeCaseForDoctor()),
+      page: () => const ViewWholeCaseForDoctor()),
   GetPage(name: AppRoutes.homeDoctor, page: () => const HomeDoctorScreen()),
 
   GetPage(name: AppRoutes.homePatient, page: () => const HomePatientScreen()),

@@ -15,12 +15,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ViewWholeCaseForDoctor extends StatelessWidget {
-  ViewWholeCaseForDoctor({super.key});
-  final AppointmentController appointmentController =
-      Get.put(AppointmentController());
+  const ViewWholeCaseForDoctor({super.key});
 
   @override
   Widget build(BuildContext context) {
+    AppointmentController appointmentController =
+        Get.put(AppointmentController());
     ViewWholeCaseDoctorControllerImpl controller =
         Get.put(ViewWholeCaseDoctorControllerImpl());
     UnassignedCasesDoctorControllerImpl reloadDataControllerForAllCases =

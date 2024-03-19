@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 class TextTitle extends StatelessWidget {
   const TextTitle({
     super.key,
-    required this.txtt,  this.onPressed,
+    required this.txtt,
+    required this.onPressed,
   });
   final String txtt;
-  final void Function()? onPressed;
+  final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {

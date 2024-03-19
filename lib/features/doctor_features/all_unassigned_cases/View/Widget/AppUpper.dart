@@ -92,12 +92,10 @@ class AppUpperWidget extends StatelessWidget {
           //  height: upperPartHeight + 100,
           child: Center(
             child: Column(
-               
               // crossAxisAlignment: CrossAxisAlignment.start,
               // mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                if (welcome == true)
-                const BarCompoWidget(),
+                if (welcome == true) const BarCompoWidget(),
                 if (welcome == false)
                   if (needBackButton == true)
                     Padding(

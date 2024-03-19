@@ -55,27 +55,34 @@ class HomePageDr extends StatelessWidget {
                   'Implantology',
                   'General',
                 ],
-                itemCount: 6,  color: [
-              Color(0xff526FA6),
-              Color(0xFF103579),
-              Color(0xff526FA6),
-              Color(0xFF103579),
-              Color(0xff526FA6),
-              Color(0xFF103579),
-              Color(0xff526FA6),
-              Color(0xFF103579),
-              Color(0xff526FA6),
-              Color(0xFF103579),
-              Color(0xff526FA6),
-            ],
+                itemCount: 6,
+                color: [
+                  Color(0xff526FA6),
+                  Color(0xFF103579),
+                  Color(0xff526FA6),
+                  Color(0xFF103579),
+                  Color(0xff526FA6),
+                  Color(0xFF103579),
+                  Color(0xff526FA6),
+                  Color(0xFF103579),
+                  Color(0xff526FA6),
+                  Color(0xFF103579),
+                  Color(0xff526FA6),
+                ],
               ),
-              const TextTitle(
+              TextTitle(
                 txtt: 'Appointments',
+                onPressed: () {},
               ),
               const AppointmentCardWidget(),
-              const TextTitle(
-                txtt: 'General Cases',
-              ),
+              TextTitle(
+                  txtt: 'General Cases',
+                  onPressed: () {
+                    Get.toNamed(AppRoutes.unassignedCasesDoctor);
+                  }),
+              SizedBox(
+                height: 100,
+              )
             ],
           ),
         ],

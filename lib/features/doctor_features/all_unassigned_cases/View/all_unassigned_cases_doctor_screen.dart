@@ -19,101 +19,107 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     UnassignedCasesDoctorControllerImpl externalController =
         Get.put(UnassignedCasesDoctorControllerImpl());
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const AppUpperWidget(),
-        Padding(
-          padding: const EdgeInsets.only(left: 8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Flexible(
-                flex: 200,
-                fit: FlexFit.loose,
-                child: FittedBox(
-                  child: AutoSizeText(
-                    maxFontSize: 25,
-                    minFontSize: 15,
-                    'Recently Added Cases',
-                    style: Styles.LightBlue,
-                  ),
-                ),
-              ),
-              const Spacer(),
-              IconButton(
-                onPressed: () {
-                  externalController.getCases();
-                },
-                icon: const Icon(
-                  Icons.rocket_launch_outlined,
-                  color: AppColors.mainColor,
-                ),
-              ),
-              IconButton(
-                onPressed: () {
-                  Get.to(const HomePageDr());
-                },
-                icon: const Icon(
-                  Icons.abc_sharp,
-                  color: AppColors.mainColor,
-                ),
-              ),
-            ],
+    return Scaffold(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const AppUpperWidget(
+            needBackButton: true,
           ),
-        ),
-        //CategoriesListView(),
-        //CategoriesListView(),
-        // const SizedBox(
-        //   height: 0,
-        // ),
-        // MaterialButton(
-        //   onPressed: () {},
-        //   child: const Row(
-        //     children: [
-        //       Text('Search'),
-        //       SizedBox(
-        //         width: 5,
-        //       ),
-        //       Icon(Icons.search_outlined)
-        //     ],
-        //   ),
-        // ),
-        GetBuilder<UnassignedCasesDoctorControllerImpl>(builder: (controller) {
-          if (controller.requestStatus == RequestStatus.SUCCESS) {
-            return const FormListView();
-          } else if (controller.requestStatus == RequestStatus.LOADING) {
-            return const Expanded(child: ShimmerList());
-          } else if (controller.requestStatus == RequestStatus.EMPTY_SUCCESS) {
-            return Center(
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 350,
-                    width: 270,
-                    child: SvgPicture.asset('assets/svg/Empty-pana.svg'),
+          Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Flexible(
+                  flex: 200,
+                  fit: FlexFit.loose,
+                  child: FittedBox(
+                    child: AutoSizeText(
+                      maxFontSize: 25,
+                      minFontSize: 15,
+                      'Recently Added Cases',
+                      style: Styles.LightBlue,
+                    ),
                   ),
-                ],
-              ),
-            );
-          } else {
-            return Center(
-              child: Padding(
-                padding: const EdgeInsets.only(top:30),
+                ),
+                const Spacer(),
+                IconButton(
+                  onPressed: () {
+                    externalController.getCases();
+                  },
+                  icon: const Icon(
+                    Icons.rocket_launch_outlined,
+                    color: AppColors.mainColor,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    Get.to(const HomePageDr());
+                  },
+                  icon: const Icon(
+                    Icons.abc_sharp,
+                    color: AppColors.mainColor,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          //CategoriesListView(),
+          //CategoriesListView(),
+          // const SizedBox(
+          //   height: 0,
+          // ),
+          // MaterialButton(
+          //   onPressed: () {},
+          //   child: const Row(
+          //     children: [
+          //       Text('Search'),
+          //       SizedBox(
+          //         width: 5,
+          //       ),
+          //       Icon(Icons.search_outlined)
+          //     ],
+          //   ),
+          // ),
+          GetBuilder<UnassignedCasesDoctorControllerImpl>(
+              builder: (controller) {
+            if (controller.requestStatus == RequestStatus.SUCCESS) {
+              return const FormListView();
+            } else if (controller.requestStatus == RequestStatus.LOADING) {
+              return const Expanded(child: ShimmerList());
+            } else if (controller.requestStatus ==
+                RequestStatus.EMPTY_SUCCESS) {
+              return Center(
                 child: Column(
                   children: [
                     SizedBox(
                       height: 350,
                       width: 270,
-                      child: SvgPicture.asset('assets/svg/GroupRRR.svg'),
+                      child: SvgPicture.asset('assets/svg/Empty-pana.svg'),
                     ),
                   ],
                 ),
-              ),
-            );
-          }
-        }),
-      ],
+              );
+            } else {
+              return Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 30),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 350,
+                        width: 270,
+                        child: SvgPicture.asset('assets/svg/GroupRRR.svg'),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            }
+          }),
+        ],
+      ),
     );
   }
 }
