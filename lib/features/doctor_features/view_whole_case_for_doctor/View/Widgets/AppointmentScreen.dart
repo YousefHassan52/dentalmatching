@@ -67,19 +67,19 @@ class AppointmentScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              GetBuilder<AppointmentController>(
-                builder: (controller) => Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.access_time),
-                    const SizedBox(width: 10),
-                    Text(
-                      'Appointment booked for: ${appointmentController.selectedTime.hour}:${appointmentController.selectedTime.minute}',
-                      style: const TextStyle(fontSize: 20),
-                    ),
-                  ],
-                ),
-              ),
+              // GetBuilder<AppointmentController>(
+              //   builder: (controller) => Row(
+              //     mainAxisAlignment: MainAxisAlignment.center,
+              //     children: [
+              //       const Icon(Icons.access_time),
+              //       const SizedBox(width: 10),
+              //       Text(
+              //         'Appointment booked for: ${appointmentController.selectedTime.hour}:${appointmentController.selectedTime.minute}',
+              //         style: const TextStyle(fontSize: 20),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               const SizedBox(
                 height: 15,
               ),
