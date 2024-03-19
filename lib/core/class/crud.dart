@@ -242,8 +242,12 @@ class CRUD {
           print(response.data);
           return left(RequestStatus.UNAUTHORIZED_FAILURE);
         } else if (response.statusCode == 500) {
+          print(response.data);
+
           return left(RequestStatus.INTERNAL_SERVER_ERROR);
         } else {
+          print(response.data);
+
           return left(RequestStatus.SERVER_FAILURE);
         }
       } else {

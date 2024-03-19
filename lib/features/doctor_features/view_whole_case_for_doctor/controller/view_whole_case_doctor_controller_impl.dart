@@ -48,9 +48,34 @@ class ViewWholeCaseDoctorControllerImpl
 
     update();
   }
-    void updateAssignmentStatus(bool isAssigned) {
+
+  void updateAssignmentStatus(bool isAssigned) {
     caseModel.isAssigned = isAssigned;
     // Trigger a rebuild of the widget that uses this controller
+    update();
+  }
+
+  @override
+  Future<void> cancelCase({required String caseId}) async {
+    requestStatus = RequestStatus.LOADING;
+    update();
+    var response =
+        await data.cancelCase(caseId: caseId, token: doctorModel.token);
+    print(response.toString());
+    requestStatus = HandlingResponseType.fun(response);
+    update();
+    print("joe ;${requestStatus.toString()}");
+    if (requestStatus == RequestStatus.SUCCESS) {
+      if (response["success"] == true) {
+        Get.snackbar(
+            "Case Cancelled", "You are not responsible for this case any more");
+      }
+    } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
+      Get.defaultDialog(middleText: "Case is already not assigned to you");
+    } else {
+      Get.defaultDialog(middleText: "Server Error Please Try Again");
+    }
+
     update();
   }
 }

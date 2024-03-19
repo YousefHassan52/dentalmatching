@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-class RequestButton extends StatelessWidget {
-  const RequestButton({
+class RequestAndCancelButton extends StatelessWidget {
+  const RequestAndCancelButton({
     super.key,
     required this.onPressed,
+    this.isCancelButton = false,
   });
   final void Function() onPressed;
+  final bool isCancelButton;
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +20,18 @@ class RequestButton extends StatelessWidget {
           height: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            gradient: const LinearGradient(
+            gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [
-                  Color(0xFF4A6BAD),
-                  Color.fromRGBO(25, 63, 138, 0.48),
-                ]),
+                colors: isCancelButton
+                    ? [
+                        const Color.fromARGB(255, 209, 88, 7),
+                        const Color.fromRGBO(228, 99, 40, 0.475),
+                      ]
+                    : [
+                        const Color(0xFF4A6BAD),
+                        const Color.fromRGBO(25, 63, 138, 0.48),
+                      ]),
             boxShadow: const [
               BoxShadow(
                 color: Color(0xffC3C3C3),
@@ -34,10 +41,10 @@ class RequestButton extends StatelessWidget {
               ),
             ],
           ),
-          child: const FittedBox(
+          child: FittedBox(
             child: Text(
-              'Request',
-              style: TextStyle(color: Colors.white, fontSize: 25),
+              isCancelButton ? 'Cancel' : 'Request',
+              style: const TextStyle(color: Colors.white, fontSize: 25),
             ),
           ),
         ),

@@ -185,7 +185,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
               if (!controller.caseModel.isAssigned) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: RequestButton(
+                  child: RequestAndCancelButton(
                     onPressed: () {
                       controller
                           .requestCase(caseId: controller.caseModel.caseId)
@@ -222,7 +222,25 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                   ),
                 );
               } else {
-                return const SizedBox(); // Return an empty SizedBox to hide the button
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RequestAndCancelButton(
+                    isCancelButton: true,
+                    onPressed: () {
+                      Get.defaultDialog(
+                          title: "Cancel Case Request",
+                          middleText:
+                              "are you sure that you want to cancel request of this case",
+                          onConfirm: () {
+                            print(controller.caseModel.caseId);
+
+                            controller.cancelCase(
+                                caseId: controller.caseModel.caseId);
+                          },
+                          onCancel: () {});
+                    },
+                  ),
+                ); // Return an empty SizedBox to hide the button
               }
             },
           ),
