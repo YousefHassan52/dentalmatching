@@ -11,7 +11,7 @@ class UpperSignupWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double upperPartHeight = Get.height * 0.2;
+    //double upperPartHeight = Get.height * 0.2;
 
     return Container(
       decoration: const BoxDecoration(

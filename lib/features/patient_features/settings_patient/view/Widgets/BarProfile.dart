@@ -1,5 +1,3 @@
-import 'package:dentalmatching/core/constants/colors.dart';
-import 'package:dentalmatching/features/doctor_features/doctor_data_viewer/doctor_data_controller.dart';
 import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

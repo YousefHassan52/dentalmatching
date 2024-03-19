@@ -25,7 +25,7 @@ class AuthTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+   // double screenWidth = MediaQuery.of(context).size.width;
 
     return TextFormField(
       controller: fieldController,

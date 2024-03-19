@@ -12,7 +12,7 @@ class CounterBoxDoctor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GetDocotorCasesControllerImpl myCases = Get.find();
+    //GetDocotorCasesControllerImpl myCases = Get.find();
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.symmetric(horizontal: 16),

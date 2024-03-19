@@ -36,9 +36,7 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'package:photo_view/photo_view.dart';
-import 'package:photo_view/photo_view_gallery.dart';
 
 class InstantImageForm extends StatelessWidget {
   final String img;

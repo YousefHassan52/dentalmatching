@@ -14,7 +14,6 @@ import 'package:dentalmatching/features/patient_features/settings_patient/view/W
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/setting_row_component.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SettingsPatientScreen extends StatelessWidget {
   const SettingsPatientScreen({Key? key}) : super(key: key);

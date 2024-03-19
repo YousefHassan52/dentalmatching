@@ -1,7 +1,6 @@
 
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class BoxWidget extends StatelessWidget {
   final Widget widget;

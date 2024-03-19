@@ -141,8 +141,6 @@
 //   }
 // }
 import 'package:dentalmatching/core/constants/colors.dart';
-import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/BarCompoWidget.dart';
-import 'package:dentalmatching/features/doctor_features/doctor_data_viewer/doctor_data_controller.dart';
 import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/BarProfile.dart';
 import 'package:flutter/material.dart';
@@ -162,7 +160,7 @@ class UpperWidget extends StatelessWidget {
   Widget build(BuildContext context) {
    Get.put(PatientDataController());
     // momken te7tag hena controller mo5tlef
-    double upperPartHeight = Get.height * 0.2;
+    //double upperPartHeight = Get.height * 0.2;
     return Container(
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
