@@ -7,18 +7,20 @@ import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/HomePage
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AppUpper.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/FormListView.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
+import 'package:dentalmatching/features/doctor_features/category_cases/controller/category_cases_controller_impl.dart';
+import 'package:dentalmatching/features/doctor_features/category_cases/view/widgets/category_form_list_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-class AllUnassignedCasesDoctorScreen extends StatelessWidget {
-  const AllUnassignedCasesDoctorScreen({super.key});
+class CategoryCasesScreen extends StatelessWidget {
+  const CategoryCasesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    UnassignedCasesDoctorControllerImpl externalController =
-        Get.put(UnassignedCasesDoctorControllerImpl());
+    CategoryCasesControllerImpl externalController =
+        Get.put(CategoryCasesControllerImpl());
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,14 +33,14 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Flexible(
+                Flexible(
                   flex: 200,
                   fit: FlexFit.loose,
                   child: FittedBox(
                     child: AutoSizeText(
                       maxFontSize: 25,
                       minFontSize: 15,
-                      'Recently Added Cases',
+                      '${externalController.category} Cases',
                       style: Styles.LightBlue,
                     ),
                   ),
@@ -56,10 +58,9 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
               ],
             ),
           ),
-          GetBuilder<UnassignedCasesDoctorControllerImpl>(
-              builder: (controller) {
+          GetBuilder<CategoryCasesControllerImpl>(builder: (controller) {
             if (controller.requestStatus == RequestStatus.SUCCESS) {
-              return const FormListView();
+              return const CategoryFormListView();
             } else if (controller.requestStatus == RequestStatus.LOADING) {
               return const Expanded(child: ShimmerList());
             } else if (controller.requestStatus ==

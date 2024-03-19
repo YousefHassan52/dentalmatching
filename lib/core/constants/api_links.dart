@@ -36,4 +36,6 @@ class ApiLinks {
       "https://dentamatch.azurewebsites.net/Patient/DentalCase/UpdateCase?caseId=";
   static const String paypal =
       "https://dentamatch.azurewebsites.net/Paypal/create-payment?amount=10&description=Case";
+  static const String categoryCases =
+      "https://dentamatch.azurewebsites.net/Doctor/DentalCase/filterByDisease?diseasename=";
 }

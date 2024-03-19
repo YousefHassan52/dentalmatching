@@ -1,5 +1,7 @@
+import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class CategoriesContainer extends StatelessWidget {
   const CategoriesContainer({
@@ -16,7 +18,14 @@ class CategoriesContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () {},
+      onPressed: () {
+        if (txt == "General") {
+          Get.toNamed(AppRoutes.unassignedCasesDoctor);
+        } else {
+          Get.toNamed(AppRoutes.categoryCasesScreen,
+              arguments: {"category": txt});
+        }
+      },
       icon: Container(
         width: double.infinity,
         height: double.infinity,

@@ -104,6 +104,21 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
+                      const FormHeadLine(headline: 'Dental Diseases'),
+                      BoxWidget(
+                        widget: controller.caseModel.isKnown == true
+                            ? ChronicOrDentalList(
+                                list: controller.caseModel.dentalDiseases)
+                            : const Text(
+                                "None",
+                                style: Styles.textStyle16Grey,
+                              ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const HDivider(),
+
                       const FormHeadLine(headline: 'Pictures Of Mouth'),
                       const SizedBox(
                         height: 20,
