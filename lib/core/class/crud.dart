@@ -256,6 +256,7 @@ class CRUD {
     } on DioException catch (e) {
       // Handle other DioError cases or rethrow the exception
       print(e.toString());
+      print("unkown error ya joe");
       return left(RequestStatus.UNKOWN_FAILURE);
     }
   }

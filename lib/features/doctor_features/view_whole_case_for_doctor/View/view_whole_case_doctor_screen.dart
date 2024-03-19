@@ -234,8 +234,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                           onConfirm: () {
                             print(controller.caseModel.caseId);
 
-                            controller.cancelCase(
-                                caseId: controller.caseModel.caseId);
+                            controller.cancelCase();
                           },
                           onCancel: () {});
                     },

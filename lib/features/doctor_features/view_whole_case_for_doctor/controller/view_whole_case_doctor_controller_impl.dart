@@ -56,11 +56,11 @@ class ViewWholeCaseDoctorControllerImpl
   }
 
   @override
-  Future<void> cancelCase({required String caseId}) async {
+  Future<void> cancelCase() async {
     requestStatus = RequestStatus.LOADING;
     update();
-    var response =
-        await data.cancelCase(caseId: caseId, token: doctorModel.token);
+    var response = await data.cancelCase(
+        caseId: caseModel.caseId, token: doctorModel.token);
     print(response.toString());
     requestStatus = HandlingResponseType.fun(response);
     update();

@@ -19,8 +19,8 @@ class RequestCaseData {
     required String caseId,
     required String token,
   }) async {
-    var response =
-        await crud.get(url: "${ApiLinks.cancelCase}$caseId", token: token);
+    var response = await crud.postWithToken(
+        url: "${ApiLinks.cancelCase}$caseId", token: token, data: {});
 
     return response.fold((l) => l, (r) => r);
   }
