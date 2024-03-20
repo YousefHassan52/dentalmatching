@@ -12,8 +12,8 @@ class MyCaseModel {
   final List<String> mouthImages;
   final List<String> xrayImages;
   final List<String> prescriptionImages;
-  final String doctorName;
-  final String doctorUniversity;
+  final String? doctorName;
+  final String? doctorUniversity;
 
   MyCaseModel({
     required this.caseId,
@@ -29,8 +29,8 @@ class MyCaseModel {
     required this.mouthImages,
     required this.xrayImages,
     required this.prescriptionImages,
-    required this.doctorName,
-    required this.doctorUniversity,
+    this.doctorName,
+    this.doctorUniversity,
   });
 
   factory MyCaseModel.fromJson(Map<String, dynamic> json) {

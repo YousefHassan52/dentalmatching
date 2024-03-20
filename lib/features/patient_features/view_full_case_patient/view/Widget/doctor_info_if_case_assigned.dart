@@ -37,11 +37,11 @@ class DoctorInfoIfCaseAssigned extends StatelessWidget {
               children: [
                 BioWidget(
                   title: 'Dr Name: ',
-                  subTitle: caseModel.doctorName,
+                  subTitle: caseModel.doctorName!,
                 ),
                 BioWidget(
                   title: 'University: ',
-                  subTitle: caseModel.doctorUniversity,
+                  subTitle: caseModel.doctorUniversity!,
                 ),
                 const Padding(
                   padding: EdgeInsets.all(8.0),

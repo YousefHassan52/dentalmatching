@@ -191,16 +191,16 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                           .requestCase(caseId: controller.caseModel.caseId)
                           .then((value) {
                         // Update the state to reflect that the case is now assigned
-                        controller.updateAssignmentStatus(true);
+                        // controller.updateAssignmentStatus(true);
                         reloadDataControllerForAllCases.getCases();
                         reloadDataControllerForDoctorCases.getCases();
-                        showModalBottomSheet(
-                          isScrollControlled: true,
-                          context: context,
-                          builder: (context) {
-                            return Center(child: AppointmentScreen());
-                          },
-                        );
+                        // showModalBottomSheet(
+                        //   isScrollControlled: true,
+                        //   context: context,
+                        //   builder: (context) {
+                        //     return Center(child: AppointmentScreen());
+                        //   },
+                        // );
 
                         // Get.dialog(
                         //   AlertDialog(

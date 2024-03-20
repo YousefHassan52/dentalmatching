@@ -8,6 +8,7 @@ import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/Op
 import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/view_full_case_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/ChronicList.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/doctor_info_if_case_assigned.dart';
 import 'package:flutter/material.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/Upper.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/GridViewWidget.dart';
@@ -50,7 +51,11 @@ class ViewForm extends StatelessWidget {
         body: ListView(
           padding: const EdgeInsets.only(top: 0),
           children: [
-              const UpperWidget(needBackButton: true , text: 'Case Detailes        ', welcome: false,),
+            const UpperWidget(
+              needBackButton: true,
+              text: 'Case Detailes        ',
+              welcome: false,
+            ),
             const SizedBox(
               height: 2,
             ),
@@ -72,6 +77,18 @@ class ViewForm extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // if (controller.caseModel.isAssigned == true)
+                      //   DoctorInfoIfCaseAssigned(
+                      //     caseModel: controller.caseModel,
+                      //   ),
+                      if (controller.caseModel.isAssigned ==
+                          true) // yeb2a 24t8al hena we 23mel el widget mn gded
+                        Column(
+                          children: [
+                            Text(controller.caseModel.doctorName!),
+                            Text(controller.caseModel.doctorUniversity!),
+                          ],
+                        ),
                       const FormHeadLine(headline: 'Describe what you feel'),
                       Container(
                         width: double.infinity,

@@ -32,8 +32,12 @@ class CRUD {
           Map<String, dynamic> json = response.data;
           return right(json);
         } else if (response.statusCode == 400) {
-          print(response.data);
-          return left(RequestStatus.UNAUTHORIZED_FAILURE);
+          if (response.data['message'] ==
+              "Please Wait for Identity Verification") {
+            return left(RequestStatus.UNVERIFIED_DOCTOR_FAILURE);
+          } else {
+            return left(RequestStatus.UNAUTHORIZED_FAILURE);
+          }
         } else if (response.statusCode == 500) {
           return left(RequestStatus.INTERNAL_SERVER_ERROR);
         } else {
