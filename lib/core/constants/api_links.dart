@@ -41,4 +41,6 @@ class ApiLinks {
 
   static const String cancelCase =
       "https://dentamatch.azurewebsites.net/Doctor/CaseAppointment/CancelRequest?caseId=";
+  static const String getCasesByDescription =
+      "https://dentamatch.azurewebsites.net/Doctor/DentalCase/searchByDescription?query=";
 }

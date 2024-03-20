@@ -13,6 +13,11 @@ class AppValidator {
         return "invalid username";
       }
     }
+    if (type == "search") {
+      if (value.isEmpty) {
+        return "Write a word to search";
+      }
+    }
 
     if (type == "phone") {
       if (!RegExp(r'^\d{11}$').hasMatch(value)) {

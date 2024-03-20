@@ -3,10 +3,7 @@ import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/shared/shimmer.dart';
-import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/HomePageDr.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AppUpper.dart';
-import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/FormListView.dart';
-import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/category_cases/controller/category_cases_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/category_cases/view/widgets/category_form_list_view.dart';
 
@@ -25,22 +22,24 @@ class CategoryCasesScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const AppUpperWidget(
+          AppUpperWidget(
+            welcome: false,
             needBackButton: true,
+            text: "${externalController.category} Cases",
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Flexible(
+                const Flexible(
                   flex: 200,
                   fit: FlexFit.loose,
                   child: FittedBox(
                     child: AutoSizeText(
                       maxFontSize: 25,
                       minFontSize: 15,
-                      '${externalController.category} Cases',
+                      'Recently Added Cases',
                       style: Styles.LightBlue,
                     ),
                   ),

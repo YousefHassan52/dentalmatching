@@ -24,7 +24,9 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const AppUpperWidget(
+            welcome: false,
             needBackButton: true,
+            text: "All Cases",
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8.0),

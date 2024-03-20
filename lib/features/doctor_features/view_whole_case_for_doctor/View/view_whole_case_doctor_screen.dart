@@ -191,7 +191,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                           .requestCase(caseId: controller.caseModel.caseId)
                           .then((value) {
                         // Update the state to reflect that the case is now assigned
-                        // controller.updateAssignmentStatus(true);
+                        controller.updateAssignmentStatus(true);
                         reloadDataControllerForAllCases.getCases();
                         reloadDataControllerForDoctorCases.getCases();
                         // showModalBottomSheet(
@@ -234,7 +234,10 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                           onConfirm: () {
                             print(controller.caseModel.caseId);
 
-                            controller.cancelCase();
+                            controller.cancelCase().then((value) {
+                              reloadDataControllerForAllCases.getCases();
+                              reloadDataControllerForDoctorCases.getCases();
+                            });
                           },
                           onCancel: () {});
                     },

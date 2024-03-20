@@ -60,11 +60,11 @@ class SignupDoctorControllerImpl extends SignupDoctorControllerAbstract {
       // print(response);
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response["success"] == true) {
-          // user.addAll(response["data"]);
-          myServices.saveDoctorModelToSharedPrefrence(response);
-          Get.offAllNamed(AppRoutes.homeDoctor);
-
-          // go to home
+          Get.defaultDialog(
+            title: "Success Signup",
+            middleText:
+                "Your Account Has Been Created Successfully\nPlease Wait For Identity Verification",
+          );
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
         Get.defaultDialog(middleText: "Email or Phone Already exists before");

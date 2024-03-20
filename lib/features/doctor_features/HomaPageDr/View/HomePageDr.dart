@@ -1,4 +1,5 @@
 import 'package:dentalmatching/core/constants/routes_names.dart';
+import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/Widgets/AppointmentCardWidget.dart';
 import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/Widgets/Categories.dart';
 import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/Widgets/TextTitle.dart';
@@ -20,10 +21,40 @@ class HomePageDr extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const AppUpperWidget(),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: CupertinoSearchTextField(
-                  borderRadius: BorderRadius.all(Radius.circular(100)),
+              const SizedBox(
+                height: 10,
+              ),
+              IconButton(
+                onPressed: () {
+                  Get.toNamed(AppRoutes.searchCasesScreen);
+                },
+                icon: Container(
+                  padding: const EdgeInsets.all(10),
+                  alignment: Alignment.centerLeft,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.grey),
+                  child: FittedBox(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Icon(
+                          Icons.search_rounded,
+                          color: Colors.white,
+                          size: 32,
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          "Search",
+                          style:
+                              Styles.textStyle16.copyWith(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
               TextTitle(
