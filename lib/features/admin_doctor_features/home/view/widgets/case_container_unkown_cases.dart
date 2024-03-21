@@ -9,8 +9,8 @@ import 'package:dentalmatching/features/patient_features/View_Cases/View/Widget/
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CasContainer extends StatelessWidget {
-  const CasContainer({
+class UnkownCasContainer extends StatelessWidget {
+  const UnkownCasContainer({
     Key? key,
     required this.caseModel,
   }) : super(key: key);
@@ -75,8 +75,8 @@ class CasContainer extends StatelessWidget {
                   fit: BoxFit.scaleDown,
                   child: IconButton(
                     onPressed: () {
-                      Get.toNamed(AppRoutes.viewWholeCaseForDoctor,
-                          arguments: {"case": caseModel});
+                      // Get.toNamed(AppRoutes.viewWholeCaseForDoctor,
+                      //     arguments: {"case": caseModel});
                     },
                     icon: const Icon(
                       Icons.double_arrow_outlined,

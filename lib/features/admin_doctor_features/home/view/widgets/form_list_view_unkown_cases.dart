@@ -1,5 +1,5 @@
 import 'package:dentalmatching/features/admin_doctor_features/home/controller/home_controller_impl.dart';
-import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/CaseContainer.dart';
+import 'package:dentalmatching/features/admin_doctor_features/home/view/widgets/case_container_unkown_cases.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +18,7 @@ class UnkownCasesFormListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(8.0),
-            child: CasContainer(caseModel: controller.cases[index]),
+            child: UnkownCasContainer(caseModel: controller.cases[index]),
           );
         },
       ),
