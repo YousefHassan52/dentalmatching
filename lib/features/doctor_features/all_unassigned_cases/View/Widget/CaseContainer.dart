@@ -7,7 +7,6 @@ import 'package:dentalmatching/features/patient_features/settings_patient/view/W
 import 'package:dentalmatching/features/patient_features/View_Cases/View/Widget/ImageContainer.dart';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class CasContainer extends StatelessWidget {
   const CasContainer({
@@ -69,16 +68,14 @@ class CasContainer extends StatelessWidget {
                   Icons.check_circle_rounded,
                   color: Colors.green,
                 ),
-                
-                
               const Spacer(),
               Flexible(
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: IconButton(
                     onPressed: () {
-                      Get.toNamed(AppRoutes.viewWholeCaseForDoctor,
-                          arguments: {"case": caseModel});
+                      // Get.toNamed(AppRoutes.viewWholeCaseForDoctor,
+                      //     arguments: {"case": caseModel});
                     },
                     icon: const Icon(
                       Icons.double_arrow_outlined,

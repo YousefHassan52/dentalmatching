@@ -36,4 +36,5 @@ class AppRoutes {
   static const String addCaseScreen = "/add_case";
   static const String categoryCasesScreen = "/category_cases";
   static const String searchCasesScreen = "/search_cases";
+  static const String adminDoctorHome = "/admin_home";
 }

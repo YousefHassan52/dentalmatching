@@ -61,6 +61,11 @@ class LoginControllerImp extends LoginControllerAbstract {
             myServices.savePatientModelToSharedPrefrence(response);
             Get.offAllNamed(AppRoutes.homePatient);
           }
+          if (response["data"]["role"].toLowerCase() ==
+              "AdminDoctor".toLowerCase()) {
+            myServices.saveAdminDoctorModelToSharedPrefrence(response);
+            Get.offAllNamed(AppRoutes.adminDoctorHome);
+          }
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
         Get.defaultDialog(middleText: "Incorrect Phone or Password");

@@ -56,6 +56,21 @@ class MyServices extends GetxService {
     sharedPref.setString("role", response["data"]["role"]);
   }
 
+  void saveAdminDoctorModelToSharedPrefrence(response) {
+    sharedPref.setBool("logged", true);
+    sharedPref.setString("userName", response["data"]["userName"]);
+    sharedPref.setString("token", response["data"]["token"]);
+    sharedPref.setString(
+        "profileImage", response["data"]["profileImage"] ?? '');
+    sharedPref.setString("fullName", response["data"]["fullName"]);
+    sharedPref.setString("email", response["data"]["email"]);
+    sharedPref.setInt("age", response["data"]["age"]);
+    sharedPref.setBool("gender", response["data"]["gender"]);
+    sharedPref.setString("city", response["data"]["city"]);
+    sharedPref.setString("phoneNumber", response["data"]["phoneNumber"]);
+    sharedPref.setString("role", response["data"]["role"]);
+  }
+
   void updatePatientModelToSharedPrefrence(response) {
     sharedPref.setString("userName", response["userName"]);
 

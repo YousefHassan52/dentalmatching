@@ -18,6 +18,10 @@ class FirstScreen extends GetMiddleware {
           "doctor".toLowerCase()) {
         return const RouteSettings(name: AppRoutes.homeDoctor);
       }
+      if (myServices.sharedPref.getString("role")!.toLowerCase() ==
+          "AdminDoctor".toLowerCase()) {
+        return const RouteSettings(name: AppRoutes.adminDoctorHome);
+      }
     }
     if (myServices.sharedPref.getBool("not_first") != null) {
       return const RouteSettings(name: AppRoutes.login);

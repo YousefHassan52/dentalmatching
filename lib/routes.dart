@@ -1,5 +1,6 @@
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/middlewares/first_screen.dart';
+import 'package:dentalmatching/features/admin_doctor_features/home/view/admin_doctor_home.dart';
 import 'package:dentalmatching/features/common_faetures/Pre%20SignUp/PreSignUpPage.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/check_email/view/check_email_for_forget.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/reset_password/view/reset_password_screen.dart';
@@ -84,6 +85,10 @@ List<GetPage> routes = [
   GetPage(
     name: AppRoutes.searchCasesScreen,
     page: () => const SearchCasesScreen(),
+  ),
+  GetPage(
+    name: AppRoutes.adminDoctorHome,
+    page: () => const AdminDoctorHome(),
   ),
 
   // GetPage(
