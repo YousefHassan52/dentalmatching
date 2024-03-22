@@ -1,4 +1,4 @@
-class MyCaseModel {
+class PatientCaseModel {
   final String caseId;
   final String patientName;
   final String phoneNumber;
@@ -15,7 +15,7 @@ class MyCaseModel {
   final String? doctorName;
   final String? doctorUniversity;
 
-  MyCaseModel({
+  PatientCaseModel({
     required this.caseId,
     required this.patientName,
     required this.phoneNumber,
@@ -33,8 +33,8 @@ class MyCaseModel {
     this.doctorUniversity,
   });
 
-  factory MyCaseModel.fromJson(Map<String, dynamic> json) {
-    return MyCaseModel(
+  factory PatientCaseModel.fromJson(Map<String, dynamic> json) {
+    return PatientCaseModel(
       caseId: json['caseId'],
       patientName: json['patientName'],
       phoneNumber: json['phoneNumber'],

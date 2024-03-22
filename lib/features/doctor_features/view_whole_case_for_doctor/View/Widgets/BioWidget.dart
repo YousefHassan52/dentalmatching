@@ -5,12 +5,13 @@ class BioWidget extends StatelessWidget {
   final String title;
   final String subTitle;
   bool isLongText;
-  BioWidget({
-    super.key,
-    required this.title,
-    required this.subTitle,
-    this.isLongText = false,
-  });
+  Color textColor;
+  BioWidget(
+      {super.key,
+      required this.title,
+      required this.subTitle,
+      this.isLongText = false,
+      this.textColor = Colors.white});
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +24,8 @@ class BioWidget extends StatelessWidget {
             fit: BoxFit.scaleDown,
             child: Text(
               '${title} : ',
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w300,
-                fontSize: 20
-              ),
+              style: TextStyle(
+                  color: textColor, fontWeight: FontWeight.w300, fontSize: 20),
             ),
           ),
         ),
@@ -36,15 +34,15 @@ class BioWidget extends StatelessWidget {
             fit: BoxFit.scaleDown,
             child: Text(
               subTitle,
-              style: isLongText == true ? const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w800,
-                fontSize: 20
-              ): const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w800,
-                fontSize: 20
-              ),
+              style: isLongText == true
+                  ? TextStyle(
+                      color: textColor,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 20)
+                  : TextStyle(
+                      color: textColor,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 20),
             ),
           ),
         ),

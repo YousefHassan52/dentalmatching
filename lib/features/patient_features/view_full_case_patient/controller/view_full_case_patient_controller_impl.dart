@@ -12,7 +12,7 @@ class ViewFullCasePatientControllerImpl
   MyServices myServices = Get.find();
   late PatientModel patient =
       PatientModel.fromSharedPref(myServices.sharedPref);
-  late MyCaseModel caseModel;
+  late PatientCaseModel caseModel;
   ViewFullCasePatientData data = ViewFullCasePatientData(Get.find());
   RequestStatus? requestStatus;
   @override

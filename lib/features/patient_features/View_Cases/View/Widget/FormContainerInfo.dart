@@ -13,7 +13,7 @@ class FormContainerInfo extends StatelessWidget {
   const FormContainerInfo({Key? key, required this.caseModel})
       : super(key: key);
 
-  final MyCaseModel caseModel;
+  final PatientCaseModel caseModel;
 
   @override
   Widget build(BuildContext context) {

@@ -57,21 +57,24 @@ import 'package:get/get.dart';
 
 class UpperFullCaseWidget extends StatelessWidget {
   const UpperFullCaseWidget(
-      {super.key, this.needBackButton = false,this.CaseDesc= false, required this.text});
+      {super.key,
+      this.needBackButton = false,
+      this.CaseDesc = false,
+      required this.text});
   final bool needBackButton;
   final bool CaseDesc;
   final String text;
- 
 
   @override
   Widget build(BuildContext context) {
-    Get.put(DoctorDataController()); 
-       // Register the controller if not registered yet
+    Get.put(DoctorDataController());
+    // Register the controller if not registered yet
     if (!Get.isRegistered<ViewWholeCaseDoctorControllerImpl>()) {
       Get.put(ViewWholeCaseDoctorControllerImpl());
     }
 
-    final controller = Get.find<ViewWholeCaseDoctorControllerImpl>();// momkn 2a7ot controller 8ero
+    final controller = Get.find<
+        ViewWholeCaseDoctorControllerImpl>(); // momkn 2a7ot controller 8ero
     return Container(
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
@@ -117,7 +120,7 @@ class UpperFullCaseWidget extends StatelessWidget {
                         Expanded(
                           child: Container(
                             alignment: Alignment.center,
-                            child:  Text(
+                            child: Text(
                               text,
                               style: const TextStyle(
                                 fontSize: 25,
@@ -130,109 +133,10 @@ class UpperFullCaseWidget extends StatelessWidget {
                       ],
                     ),
                   ),
-             if(CaseDesc == true)     
-                BioBarWidget(controller: controller),
+                if (CaseDesc == true) BioBarWidget(controller: controller),
               ],
             ),
           ),
-          //  Row(
-          //   mainAxisAlignment: MainAxisAlignment.start,
-          //   // row take size of the parent container = upperPartHeight
-          //   children: [
-          //     if (needBackButton == true)
-          //       Flexible(
-          //         child: Container(
-          //           margin:
-          //               const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-          //           height: double.infinity,
-          //           decoration: BoxDecoration(
-          //             color: const Color.fromARGB(255, 255, 255, 255),
-          //             borderRadius: BorderRadius.circular(10),
-          //           ),
-          //           child: FittedBox(
-          //             fit: BoxFit.scaleDown,
-          //             child: IconButton(
-          //                 onPressed: () {
-          //                   Get.back();
-          //                 },
-          //                 icon: const Icon(Icons.arrow_back)),
-          //           ),
-          //         ),
-          //       ),
-          //     Flexible(
-          //       child: FittedBox(
-          //         fit: BoxFit.scaleDown,
-          //         child: CircleAvatar(
-          //           radius: 37,
-          //           backgroundColor: Colors.white,
-          //           child: ClipOval(
-          //             child: SizedBox.fromSize(
-          //                 size: const Size.fromRadius(50),
-          //                 child: Image.asset(
-          //                   "assets/images/profilepicture.png",
-          //                 )),
-          //           ),
-          //         ),
-          //         // child: CircleAvatar(
-          //         //   radius: 40,
-          //         //   backgroundImage: AssetImage(
-          //         //     "assets/images/profilepicture.png",
-          //         //   ),
-          //         // ),
-          //       ),
-          //     ),
-          //     const SizedBox(
-          //       width: 10,
-          //     ),
-          //     Expanded(
-          //       child: Column(
-          //         mainAxisAlignment: MainAxisAlignment.center,
-          //         crossAxisAlignment: CrossAxisAlignment.start,
-          //         children: [
-          //           const Flexible(
-          //             child: FittedBox(
-          //               fit: BoxFit.scaleDown,
-          //               child: Text(
-          //                 "WELCOME",
-          //                 style: TextStyle(
-          //                   fontSize: 27,
-          //                   fontWeight: FontWeight.w300,
-          //                   color: Colors.white,
-          //                 ),
-          //               ),
-          //             ),
-          //           ),
-          //           Flexible(
-          //             child: FittedBox(
-          //               fit: BoxFit.scaleDown,
-          //               child: GetBuilder<DoctorDataController>(
-          //                 builder: (internallController) => Text(
-          //                   "Dr. ${internallController.doctorModel.fullName.split(' ')[0]}",
-          //                   style: const TextStyle(
-          //                     fontSize: 25,
-          //                     fontWeight: FontWeight.bold,
-          //                     color: Colors.white,
-          //                   ),
-          //                 ),
-          //               ),
-          //             ),
-          //           ),
-          //         ],
-          //       ),
-          //     ),
-          //     // Spacer(),
-          //     //  IconButton(
-          //     //   onPressed: () {
-          //     //     Get.back();
-          //     //   },
-          //     //   icon: Icon(
-          //     //     Icons.keyboard_double_arrow_left_outlined,
-          //     //     size: 30,
-          //     //     color: Colors.white,
-          //     //   ),
-          //     // ),
-          //   ],
-          // ),
         ),
       ),
     );

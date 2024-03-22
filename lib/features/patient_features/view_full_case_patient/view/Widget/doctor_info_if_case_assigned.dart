@@ -10,7 +10,7 @@ class DoctorInfoIfCaseAssigned extends StatelessWidget {
     required this.caseModel,
   });
 
-  final MyCaseModel caseModel;
+  final PatientCaseModel caseModel;
 
   @override
   Widget build(BuildContext context) {

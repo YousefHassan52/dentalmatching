@@ -75,8 +75,8 @@ class UnkownCasContainer extends StatelessWidget {
                   fit: BoxFit.scaleDown,
                   child: IconButton(
                     onPressed: () {
-                      // Get.toNamed(AppRoutes.viewWholeCaseForDoctor,
-                      //     arguments: {"case": caseModel});
+                      Get.toNamed(AppRoutes.viewWholeCaseAdmin,
+                          arguments: {"case_admin": caseModel});
                     },
                     icon: const Icon(
                       Icons.double_arrow_outlined,

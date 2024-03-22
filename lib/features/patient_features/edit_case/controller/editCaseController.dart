@@ -19,7 +19,7 @@ class EditCaseController extends GetxController {
   late PatientModel userModel;
   EditCaseData editCaseData = EditCaseData(Get.find());
   RequestStatus? requestStatus;
-  late MyCaseModel caseModel;
+  late PatientCaseModel caseModel;
 
   StaticData list = StaticData();
   List<bool> checkedItems = List.generate(6, (index) => false);

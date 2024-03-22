@@ -1,6 +1,7 @@
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/middlewares/first_screen.dart';
 import 'package:dentalmatching/features/admin_doctor_features/home/view/admin_doctor_home.dart';
+import 'package:dentalmatching/features/admin_doctor_features/view_whole_case/view/view_whole_case_admin.dart';
 import 'package:dentalmatching/features/common_faetures/Pre%20SignUp/PreSignUpPage.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/check_email/view/check_email_for_forget.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/reset_password/view/reset_password_screen.dart';
@@ -90,12 +91,8 @@ List<GetPage> routes = [
     name: AppRoutes.adminDoctorHome,
     page: () => const AdminDoctorHome(),
   ),
-
-  // GetPage(
-  //     name: AppRoutes.verifyEmailCode,
-  //     page: () => const VerifyEmailCodeScreen()),
-
-  // GetPage(name: AppRoutes.home, page: () => const HomeScreen()),
-
-  // GetPage(name: AppRoutes.settings, page: () => const SettingsScreen()),
+  GetPage(
+    name: AppRoutes.viewWholeCaseAdmin,
+    page: () => const ViewWholeCaseForAdmin(),
+  ),
 ];

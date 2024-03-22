@@ -13,7 +13,7 @@ class MyCasesPatientControllerImpl extends MyCasesPatientControllerAbstract {
   RequestStatus? requestStatus;
   late PatientModel patientModel =
       PatientModel.fromSharedPref(myServices.sharedPref);
-  List<MyCaseModel> myCases = [];
+  List<PatientCaseModel> myCases = [];
 
   initializeUserData() {
     getCases();
@@ -44,7 +44,7 @@ class MyCasesPatientControllerImpl extends MyCasesPatientControllerAbstract {
 // Iterate over the response data and create MyCaseModel objects
         List<dynamic> responseData = response["data"];
         for (var data in responseData) {
-          MyCaseModel myCase = MyCaseModel.fromJson(data);
+          PatientCaseModel myCase = PatientCaseModel.fromJson(data);
           myCases.add(myCase);
           update();
         }
