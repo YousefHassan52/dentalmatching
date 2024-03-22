@@ -18,12 +18,18 @@ class MyTranslation implements Translations {
 
           // setting screen
           "Language": "اللغة",
-          "PayPal": "بايبال",
-          "Paymob": "Paymob",
+          '- English': "- الانجليزية",
+          '- Arabic': "- العربية",
+          "PayPal": "PayPal",
+          "PayMob": "PayMob",
           "Delete": "Delete",
           "Cancel": "Cancel",
-          "Delete Account": "Delete Account",
-          "Edit Profile Info": "Edit Profile Info",
+          "Delete Account": "حذف الحساب",
+          "Edit Profile Info": "تعديل البيانات ",
+          'Edit Profile        ': "تعديل البيانات     ",
+          'Pay': "الدفع",
+          'Log out': "الخروج",
+          'Case': "حالة",
         },
         "en": {
           "WELCOME": "WELCOME",
@@ -39,11 +45,13 @@ class MyTranslation implements Translations {
           // setting screen patient
           "Language": "Language",
           "PayPal": "PayPal",
-          "Paymob": "Paymob",
+          "PayMob": "PayMob",
           "Delete": "Delete",
           "Cancel": "Cancel",
           "Delete Account": "Delete Account",
           "Edit Profile Info": "Edit Profile Info",
+          '- English': '- English',
+          '- Arabic': "- Arabic",
         },
       };
 }

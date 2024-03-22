@@ -32,7 +32,7 @@ class CounterBox extends StatelessWidget {
         children: [
           GetBuilder<MyCasesPatientControllerImpl>(builder: (controller) {
             return CasesCounterWidget(
-                counter: "${myCases.myCases.length}", status: 'Cases');
+                counter: "${myCases.myCases.length}", status: 'Case'.tr);
           }),
           // SizedBox(
           //   width: 100,

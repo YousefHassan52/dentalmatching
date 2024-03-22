@@ -76,12 +76,12 @@ class BarProfileWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                  if (welcome == true)
-                  const Flexible(
+                   Flexible(
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
                       child: Text(
-                        "WELCOME",
-                        style: TextStyle(
+                        "WELCOME".tr,
+                        style: const TextStyle(
                           fontSize: 27,
                           fontWeight: FontWeight.w300,
                           color: Colors.white,

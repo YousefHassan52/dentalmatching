@@ -10,6 +10,8 @@ import 'package:dentalmatching/features/patient_features/payment/controller/paym
 import 'package:dentalmatching/features/patient_features/settings_patient/controller/settings_controller_imp.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/CounterBox.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/EnabledInfo.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/LanguageSelection.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/PaySelection.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/Upper.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/setting_row_component.dart';
 import 'package:flutter/material.dart';
@@ -39,43 +41,18 @@ class SettingsPatientScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const UpperWidget(),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, top: 25),
-                child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: EnabledInfo(
-                      icon: Icons.phone_rounded,
-                      info: controller.userModel.phoneNumber),
-                ),
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: EnabledInfo(
+                    icon: Icons.phone_rounded,
+                    info: controller.userModel.phoneNumber),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, top: 15),
-                child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Row(
-                    children: [
-                      const Icon(
-                        Icons.mail,
-                        color: Colors.grey,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                          width: 200,
-                          child: FittedBox(
-                              fit: BoxFit.contain,
-                              child: Text(
-                                controller.userModel.email,
-                                style: const TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 20,
-                                ),
-                              ))),
-                    ],
-                  ),
-                ),
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: EnabledInfo(
+                    icon: Icons.mail, info: controller.userModel.email),
               ),
+
               const SizedBox(
                 height: 25,
               ),
@@ -94,6 +71,52 @@ class SettingsPatientScreen extends StatelessWidget {
                   onTap: () {
                     Get.toNamed(AppRoutes.editPatientInfo);
                   }),
+
+              // SettingsRowComponent(
+              //     icon: Icons.language_rounded,
+              //     iconColor: const Color.fromARGB(255, 7, 39, 179),
+              //     text: "Language".tr,
+              //     textColor: const Color.fromARGB(255, 7, 39, 179),
+              //     onTap: () {
+              //       translationController.changeLang(langCode: "en");
+              //     }),
+              // SettingsRowComponent(
+              //     icon: Icons.language_rounded,
+              //     iconColor: const Color.fromARGB(255, 7, 39, 179),
+              //     text: "arabic",
+              //     textColor: const Color.fromARGB(255, 7, 39, 179),
+              //     onTap: () {
+              //       translationController.changeLang(langCode: "ar");
+              //     }),
+              LanguageSelection(
+                txt: 'Language',
+                txt1: '- Arabic',
+                txt2: '- English',
+                onPressed: () {
+                  settingsPatientControllerImp.trueVisibilityLanguage();
+                },
+                onPressed1: () {
+                  translationController.changeLang(langCode: "ar");
+                },
+                onPressed2: () {
+                  translationController.changeLang(langCode: "en");
+                },
+              ),
+              PaySelection(
+                txt: 'Pay',
+                txt1: '- PayPal',
+                txt2: '- PayMob',
+                onPressed: () {
+                  settingsPatientControllerImp.trueVisibilityPay();
+                },
+                onPressed1: () {
+                  paypalController.makePayment();
+                },
+                onPressed2: () {
+                  
+                   payment.makePayment();
+                },
+              ),
               SettingsRowComponent(
                   icon: Icons.logout,
                   iconColor: AppColors.mainColor,
@@ -120,38 +143,74 @@ class SettingsPatientScreen extends StatelessWidget {
                         textConfirm: "Delete".tr,
                         textCancel: "Cancel".tr);
                   }),
-              SettingsRowComponent(
-                  icon: Icons.payment,
-                  iconColor: const Color.fromARGB(255, 1, 100, 75),
-                  text: "Paymob".tr,
-                  textColor: const Color.fromARGB(255, 1, 100, 75),
-                  onTap: () {
-                    payment.makePayment();
-                  }),
-              SettingsRowComponent(
-                  icon: Icons.paypal,
-                  iconColor: const Color.fromARGB(255, 7, 39, 179),
-                  text: "PayPal".tr,
-                  textColor: const Color.fromARGB(255, 7, 39, 179),
-                  onTap: () {
-                    paypalController.makePayment();
-                  }),
-              SettingsRowComponent(
-                  icon: Icons.language_rounded,
-                  iconColor: const Color.fromARGB(255, 7, 39, 179),
-                  text: "Language".tr,
-                  textColor: const Color.fromARGB(255, 7, 39, 179),
-                  onTap: () {
-                    translationController.changeLang(langCode: "en");
-                  }),
-              SettingsRowComponent(
-                  icon: Icons.language_rounded,
-                  iconColor: const Color.fromARGB(255, 7, 39, 179),
-                  text: "arabic",
-                  textColor: const Color.fromARGB(255, 7, 39, 179),
-                  onTap: () {
-                    translationController.changeLang(langCode: "ar");
-                  }),
+              // SettingsRowComponent(
+              //     icon: Icons.payment,
+              //     iconColor: const Color.fromARGB(255, 1, 100, 75),
+              //     text: "Paymob".tr,
+              //     textColor: const Color.fromARGB(255, 1, 100, 75),
+              //     onTap: () {
+              //       payment.makePayment();
+              //     }),
+              // SettingsRowComponent(
+              //     icon: Icons.paypal,
+              //     iconColor: const Color.fromARGB(255, 1, 100, 75),
+              //     text: "PayPal".tr,
+              //     textColor: const Color.fromARGB(255, 1, 100, 75),
+              //     onTap: () {
+              //       paypalController.makePayment();
+              //     }),
+              // MaterialButton(
+              //   onPressed: () {
+              //     visible = true;
+              //   },
+              //   child: const Row(
+              //     children: [
+              //       Flexible(
+              //         child: FittedBox(
+              //           fit: BoxFit.scaleDown,
+              //           child: Text(
+              //             'Language',
+              //             style: TextStyle(
+              //                 fontSize: 24,
+              //                 fontWeight: FontWeight.w400,
+              //                 color: AppColors.blueLightTextColor),
+              //           ),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
+              // if (visible == true)
+              //   MaterialButton(
+              //     onPressed: () {
+              //       // visible = true;
+              //     },
+              //     child: const Column(
+              //       children: [
+              //         FittedBox(
+              //           fit: BoxFit.scaleDown,
+              //           child: Text(
+              //             'Arabic',
+              //             style: TextStyle(
+              //                 fontSize: 24,
+              //                 fontWeight: FontWeight.w400,
+              //                 color: AppColors.blueLightTextColor),
+              //           ),
+              //         ),
+              //         FittedBox(
+              //           fit: BoxFit.scaleDown,
+              //           child: Text(
+              //             'English',
+              //             style: TextStyle(
+              //                 fontSize: 24,
+              //                 fontWeight: FontWeight.w400,
+              //                 color: AppColors.blueLightTextColor),
+              //           ),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+
               GetBuilder<PaybalControllerImp>(
                 builder: (controller) => Container(
                   margin: const EdgeInsets.symmetric(vertical: 10),

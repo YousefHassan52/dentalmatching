@@ -8,7 +8,8 @@ class SettingsPatientControllerImp extends SettingsPatientControllerAbstract {
   MyServices myServices = Get.find();
   late PatientModel userModel =
       PatientModel.fromSharedPref(myServices.sharedPref);
-
+  RxBool visibleLanguage = false.obs;
+  RxBool visiblePay = false.obs;
   @override
   initializeUserData() {
     getData();
@@ -45,4 +46,13 @@ class SettingsPatientControllerImp extends SettingsPatientControllerAbstract {
 
   @override
   deleteAccount() {}
+
+  void trueVisibilityLanguage() {
+     visibleLanguage.toggle();
+    update();
+  }
+  void trueVisibilityPay() {
+     visiblePay.toggle();
+    update();
+  }
 }
