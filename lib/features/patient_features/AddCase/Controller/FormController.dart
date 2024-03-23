@@ -93,6 +93,7 @@ class AddCaseController extends GetxController {
     for (int i = 0; i < checkedItems.length; i++) {
       if (checkedItems[i]) {
         selectedChronicDiseases.add(list.chronicDiseases[i].title);
+        print('Selected Titles: $selectedChronicDiseases');
       }
     }
     update();

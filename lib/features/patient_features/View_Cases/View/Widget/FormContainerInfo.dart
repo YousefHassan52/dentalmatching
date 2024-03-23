@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
+import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/View/Widget/ImageContainer.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/data/Model/case_model.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class FormContainerInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyServices languageController = Get.find();
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
       //height: 320,
@@ -78,10 +80,16 @@ class FormContainerInfo extends StatelessWidget {
                       Get.toNamed(AppRoutes.formView,
                           arguments: {"case": caseModel});
                     },
-                    icon: const Icon(
-                      Icons.double_arrow_outlined,
-                      color: AppColors.mainColor,
-                    ),
+                    icon:
+                        languageController.sharedPref.getString("lang") == "en"
+                            ? const Icon(
+                                Icons.keyboard_double_arrow_right_outlined,
+                                color: AppColors.mainColor,
+                              )
+                            : const Icon(
+                                Icons.keyboard_double_arrow_left_outlined,
+                                color: AppColors.mainColor,
+                              ),
                   ),
                 ),
               ),
