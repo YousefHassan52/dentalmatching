@@ -8,9 +8,8 @@ import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/Op
 import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/view_full_case_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/ChronicList.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/doctor_info_if_case_assigned.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/upperAssigned.dart';
 import 'package:flutter/material.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/Upper.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/GridViewWidget.dart';
 import 'package:get/get.dart';
 
@@ -32,14 +31,14 @@ class ViewForm extends StatelessWidget {
               ),
               itemBuilder: (context) => [
                 PopupMenuItem(
-                  child: const Text("Edit"),
+                  child: Text("Edit".tr),
                   onTap: () {
                     Get.toNamed(AppRoutes.editCase,
                         arguments: {"edit_case": controller.caseModel});
                   },
                 ),
                 PopupMenuItem(
-                  child: const Text("Delete"),
+                  child: Text("Delete".tr),
                   onTap: () {
                     controller.deleteCase().then((value) {
                       casesController.getCases();
@@ -51,9 +50,14 @@ class ViewForm extends StatelessWidget {
         body: ListView(
           padding: const EdgeInsets.only(top: 0),
           children: [
-            const UpperWidget(
+            //  UpperWidget(
+            //   needBackButton: true,
+            //   text: 'Case Detailes        '.tr,
+            //   welcome: false,
+            // ),
+            UpperAssigned(
+              text: 'Case Detailes        '.tr,
               needBackButton: true,
-              text: 'Case Detailes        ',
               welcome: false,
             ),
             const SizedBox(
@@ -81,15 +85,15 @@ class ViewForm extends StatelessWidget {
                       //   DoctorInfoIfCaseAssigned(
                       //     caseModel: controller.caseModel,
                       //   ),
-                      if (controller.caseModel.isAssigned ==
-                          true) // yeb2a 24t8al hena we 23mel el widget mn gded
-                        Column(
-                          children: [
-                            Text(controller.caseModel.doctorName!),
-                            Text(controller.caseModel.doctorUniversity!),
-                          ],
-                        ),
-                      const FormHeadLine(headline: 'Describe what you feel'),
+                      // if (controller.caseModel.isAssigned ==
+                      //     true) // yeb2a 24t8al hena we 23mel el widget mn gded
+                      //   Column(
+                      //     children: [
+                      //       Text(controller.caseModel.doctorName!),
+                      //       Text(controller.caseModel.doctorUniversity!),
+                      //     ],
+                      //   ),
+                      FormHeadLine(headline: 'Describe what you feel'.tr),
                       Container(
                         width: double.infinity,
                         margin: const EdgeInsets.all(4),
@@ -106,31 +110,31 @@ class ViewForm extends StatelessWidget {
                         padding: EdgeInsets.all(8.0),
                         child: HDivider(),
                       ),
-                      const FormHeadLine(headline: 'Chronic Diseases'),
+                      FormHeadLine(headline: 'Chronic Diseases'.tr),
                       controller.caseModel.chronicDiseases.isNotEmpty
                           ? ChronicOrDentalList(
                               list: controller.caseModel.chronicDiseases)
-                          : const Text(
-                              "None",
+                          : Text(
+                              "None".tr,
                               style: Styles.textStyleGrey,
                             ),
                       const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: HDivider(),
                       ),
-                      const FormHeadLine(headline: 'Do you know your case ?'),
+                      FormHeadLine(headline: 'Do you know your case ?'.tr),
                       controller.caseModel.isKnown == true
                           ? ChronicOrDentalList(
                               list: controller.caseModel.dentalDiseases)
-                          : const Text(
-                              "None",
+                          : Text(
+                              "None".tr,
                               style: Styles.textStyle16Grey,
                             ),
                       const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: HDivider(),
                       ),
-                      const FormHeadLine(headline: 'Pictures of your Mouth'),
+                      FormHeadLine(headline: 'Pictures of your Mouth'.tr),
                       const SizedBox(
                         height: 10,
                       ),
@@ -143,8 +147,8 @@ class ViewForm extends StatelessWidget {
                         padding: EdgeInsets.all(8.0),
                         child: HDivider(),
                       ),
-                      const OptionalText(
-                        text: 'X-Ray Images',
+                      OptionalText(
+                        text: 'X-Ray Images'.tr,
                       ),
                       const SizedBox(
                         height: 10,
@@ -155,8 +159,8 @@ class ViewForm extends StatelessWidget {
                             ? GridViewWidget(
                                 imagesList: controller.caseModel.xrayImages,
                               )
-                            : const Text(
-                                "None",
+                            : Text(
+                                "None".tr,
                                 style: Styles.textStyle16Grey,
                               ),
                       ),
@@ -164,8 +168,8 @@ class ViewForm extends StatelessWidget {
                         padding: EdgeInsets.all(8.0),
                         child: HDivider(),
                       ),
-                      const OptionalText(
-                        text: 'Prescription Images',
+                      OptionalText(
+                        text: 'Prescription Images'.tr,
                       ),
                       const SizedBox(
                         height: 10,
@@ -178,8 +182,8 @@ class ViewForm extends StatelessWidget {
                                     imagesList:
                                         controller.caseModel.prescriptionImages,
                                   )
-                                : const Text(
-                                    "None",
+                                : Text(
+                                    "None".tr,
                                     style: Styles.textStyle16Grey,
                                   ),
                       ),

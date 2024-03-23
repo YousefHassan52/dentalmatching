@@ -1,6 +1,7 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class DescripBox extends StatelessWidget {
   final String? Function(String?) validator;
@@ -20,7 +21,7 @@ class DescripBox extends StatelessWidget {
       decoration: InputDecoration(
         filled: true,
         fillColor: const Color.fromARGB(121, 148, 182, 236),
-        hintText: 'Type here...',
+        hintText: 'Type here...'.tr,
         border: OutlineInputBorder(
           //borderSide: BorderSide(color: Colors.red),
           borderRadius: BorderRadius.circular(10.0),
