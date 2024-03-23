@@ -1,6 +1,5 @@
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class OptionalText extends StatelessWidget {
   final String text;
@@ -17,9 +16,9 @@ class OptionalText extends StatelessWidget {
           text: TextSpan(
             text: text,
             style: Styles.formTitle,
-            children:  [
+            children: const [
               TextSpan(
-                text: ' (Optional)'.tr,
+                text: ' (Optional)',
                 style: Styles.textStyle16Grey,
               ),
             ],

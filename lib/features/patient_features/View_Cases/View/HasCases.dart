@@ -32,14 +32,14 @@ class HasCases extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                 Flexible(
+                const Flexible(
                   flex: 200,
                   fit: FlexFit.loose,
                   child: FittedBox(
                     child: AutoSizeText(
                       maxFontSize: 25,
                       minFontSize: 15,
-                      'Recently Added Cases'.tr,
+                      'Recently Added Cases',
                       style: Styles.LightBlue,
                     ),
                   ),
