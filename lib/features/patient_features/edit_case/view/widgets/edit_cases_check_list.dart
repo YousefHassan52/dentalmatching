@@ -24,7 +24,7 @@ class EditCasesChecklist extends StatelessWidget {
                     activeColor: Colors.transparent,
                     checkboxShape: const OvalBorder(),
                     title: Text(
-                      list.knownCases[index].title,
+                      list.knownCases[index].title.tr,
                       style: Styles.textStyle16Grey,
                     ),
                     value: controller.checkedCase[index],

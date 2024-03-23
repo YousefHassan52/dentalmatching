@@ -30,6 +30,8 @@ class MyTranslation implements Translations {
           'Log out': "الخروج",
           'Case': "حالة",
           "Update": 'تحديث',
+          "Are you sure you want to delete your Acoount?":"هل انت متأكد انك تريد حذف حسابك؟",
+          'Alert':'انتبه',
 
           //MyCases
           'Recently Added Cases': "الحالات المضافة مؤخرًا",
@@ -65,12 +67,20 @@ class MyTranslation implements Translations {
           'Dental Cases': "حالات الأسنان",
           'Known': 'اعلم',
           'Unknown': 'لا اعلم',
+          "Success ":"نجحت",
+          "Your Case Posted Successfully":"تم اضفة الحالة بنجاح",
+          "Your description must be more than 20 letters":"يجب أن يكون الوصف الخاص بك أكثر من 20 حرفًا",
+          'Please select at least one item in the checklist.':"الرجاء تحديد عنصر واحد على الأقل في القائمة .",
+          'Please select your case.':"الرجاء تحديد حالتك.",
+          'Maximum Number of X_ray Images is 2':"الحد الأقصى لعدد صور الأشعة هو 2",
+          'Maximum Number of Prescription Images is 2':"الحد الأقصى لعدد صور الروشتة هو 2",
+          'Please select more than 2 images for your mouth.':"يرجى اختيار أكثر من صورتين لفمك.",
 
           //whole case
           'Case Detailes        ': "تفاصيل الحالة     ",
           "Edit": 'تعديل',
           "Delete": 'حذف',
-          'Pictures of your Mouth': 'صور فمك',
+          'Pictures of your Mouth': 'صور لفمك',
           'X-Ray Images': 'صور الأشعة',
           'Prescription Images': 'صور الروشتة',
 
@@ -78,6 +88,9 @@ class MyTranslation implements Translations {
           'Dr.':"د.",
           'Location :':"المكان :",
           'Phone Number :':'رقم الهاتف :',
+
+          //EditPatient
+          'Edit Case        ':"تعديل الحالة     ",
 
 
         },
@@ -102,9 +115,19 @@ class MyTranslation implements Translations {
           "Edit Profile Info": "Edit Profile Info",
           '- English': '- English',
           '- Arabic': "- Arabic",
+          'Alert':'Alert',
+          "Are you sure you want to delete your Acoount?":"Are you sure you want to delete your Acoount?",
+         
           //All Cases
           'Recently Added Cases': 'Recently Added Cases',
           //Add Case
+          "Your description must be more than 20 letters":"Your description must be more than 20 letters",
+          "Your Case Posted Successfully":"Your Case Posted Successfully",
+          "Success ":"Success ",
+          'Maximum Number of Prescription Images is 2':'Maximum Number of Prescription Images is 2',
+          'Maximum Number of X_ray Images is 2':'Maximum Number of X_ray Images is 2',
+          'Please select more than 2 images for your mouth.':'Please select more than 2 images for your mouth.',
+          'Please select your case.':'Please select your case.',
           'Describe what you feel': 'Describe what you feel',
           'Chronic Diseases': 'Chronic Diseases',
           'Add a Clear Pictures of your Mouth':
@@ -138,6 +161,8 @@ class MyTranslation implements Translations {
           'Unknown': 'Unknown',
           "Update": "Update",
 
+          'Please select at least one item in the checklist.':'Please select at least one item in the checklist.',
+
           //whole Case
           "Edit": "Edit",
           'Case Detailes        ': 'Case Detailes        ',
@@ -148,6 +173,9 @@ class MyTranslation implements Translations {
           //Assigned Case Patient
           'Dr.': 'Dr.',
           'Location :':'Location :',
+
+          //edit case patient
+          'Edit Case        ':'Edit Case        ',
         },
       };
 }

@@ -16,16 +16,16 @@ class EditCaseScreen extends StatelessWidget {
       body: SizedBox(
         child: ListView(
           padding: const EdgeInsets.only(top: 0, bottom: 55),
-          children: const [
+          children:  [
             UpperWidget(
               needBackButton: true,
-              text: 'Edit Case        ',
+              text: 'Edit Case        '.tr,
               welcome: false,
             ),
-            SizedBox(
+            const SizedBox(
               height: 12,
             ),
-            EditCaseFormContainer(),
+            const EditCaseFormContainer(),
           ],
         ),
       ),

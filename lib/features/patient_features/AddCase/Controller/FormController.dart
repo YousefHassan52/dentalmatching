@@ -126,6 +126,7 @@ class AddCaseController extends GetxController {
   bool pressureValidation() {
     if (showPressureChecklist && pressure.isEmpty) {
       Get.defaultDialog(
+        title: 'Alert',
         middleText: 'Please select your Pressure Level.',
         backgroundColor: Colors.red,
       );
@@ -137,7 +138,8 @@ class AddCaseController extends GetxController {
   bool checkBoxValidation() {
     if (!AppValidator.validateCheckbox(checkedItems)) {
       Get.defaultDialog(
-        middleText: 'Please select at least one item in the checklist.',
+        title: 'Alert',
+        middleText: 'Please select at least one item in the checklist.'.tr,
         backgroundColor: Colors.red,
       );
       return false; // Validation failed
@@ -148,7 +150,8 @@ class AddCaseController extends GetxController {
   bool caseValidation() {
     if (selected.isEmpty) {
       Get.defaultDialog(
-        middleText: 'Please select your case.',
+        title: 'Alert',
+        middleText: 'Please select your case.'.tr,
         backgroundColor: Colors.red,
       );
       return false; // Validation failed
@@ -161,7 +164,8 @@ class AddCaseController extends GetxController {
       return true;
     } else {
       Get.defaultDialog(
-        middleText: 'Please select more than 2 images for your mouth.',
+        title: 'Alert',
+        middleText: 'Please select more than 2 images for your mouth.'.tr,
         backgroundColor: Colors.red,
       );
       return false;
@@ -171,7 +175,8 @@ class AddCaseController extends GetxController {
   bool xrayValidation() {
     if (xray != null && xray!.length > 2) {
       Get.defaultDialog(
-        middleText: 'Maximum Number of X_ray Images is 2',
+        title: 'Alert',
+        middleText: 'Maximum Number of X_ray Images is 2'.tr,
         backgroundColor: Colors.red,
       );
       return false;
@@ -183,7 +188,8 @@ class AddCaseController extends GetxController {
   bool prescriptionValidation() {
     if (prescription != null && prescription!.length > 2) {
       Get.defaultDialog(
-        middleText: 'Maximum Number of Prescription Images is 2',
+        title: 'Alert',
+        middleText: 'Maximum Number of Prescription Images is 2'.tr,
         backgroundColor: Colors.red,
       );
       return false;
@@ -233,7 +239,8 @@ class AddCaseController extends GetxController {
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response['success'] == true) {
           Get.defaultDialog(
-              title: "Success ", middleText: "Your Case Posted Successfully");
+              title: "Success ".tr,
+              middleText: "Your Case Posted Successfully".tr);
           print(response);
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {

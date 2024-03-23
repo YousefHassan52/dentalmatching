@@ -30,7 +30,7 @@ class EditFormBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const FormHeadLine(headline: 'Describe what you feel'),
+           FormHeadLine(headline: 'Describe what you feel'.tr),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: DescripBox(
@@ -42,17 +42,17 @@ class EditFormBody extends StatelessWidget {
             ),
           ),
           const HDivider(),
-          const FormHeadLine(headline: 'Chronic Diseases'),
+           FormHeadLine(headline: 'Chronic Diseases'.tr),
           const EditChronicDiseasesChecklist(),
           // //MyForm(),
           const HDivider(),
-          const FormHeadLine(headline: 'Add a Clear Pictures of your Mouth'),
+           FormHeadLine(headline: 'Add a Clear Pictures of your Mouth'.tr),
           const SizedBox(
             height: 9,
           ),
           AddImageWidget(
             img: 'assets/svg/Bold_Img_load-box.svg',
-            txt: 'Upload Pictures',
+            txt: 'Upload Pictures'.tr,
             onPressed: () {
               controller.pickMouthImages();
             },
@@ -65,15 +65,15 @@ class EditFormBody extends StatelessWidget {
           //   txt: 'Take Pictures',
           //   onPressed: () {},
           // ),
-          const OptionalText(
-            text: 'Add X-Ray',
+           OptionalText(
+            text: 'Add X-Ray'.tr,
           ),
           const SizedBox(
             height: 9,
           ),
           AddOptionalImg(
             img: 'assets/svg/Bold_Img_load-box.svg',
-            txt: 'Upload Picture',
+            txt: 'Upload Pictures'.tr,
             onPressed: () {
               controller.pickXrayImages();
             },
@@ -90,15 +90,15 @@ class EditFormBody extends StatelessWidget {
             padding: EdgeInsets.only(top: 8.0),
             child: HDivider(),
           ),
-          const OptionalText(
-            text: 'Add Prescription',
+           OptionalText(
+            text: 'Add Prescription'.tr,
           ),
           const SizedBox(
             height: 9,
           ),
           AddOptionalImg(
             img: 'assets/svg/Bold_Img_load-box.svg',
-            txt: 'Upload Picture',
+            txt: 'Upload Pictures'.tr,
             onPressed: () {
               controller.pickPrescriptionImages();
             },
@@ -115,14 +115,14 @@ class EditFormBody extends StatelessWidget {
             padding: EdgeInsets.only(top: 8.0),
             child: HDivider(),
           ),
-          const FormHeadLine(headline: 'Do you know your case ?'),
+           FormHeadLine(headline: 'Do you know your case ?'.tr),
           const EditKnownCheckWidget(),
           const SizedBox(
             height: 8,
           ),
           // //CheckboxFormField(),
           AuthButton(
-            buttonText: 'Submit',
+            buttonText: 'Update'.tr,
             onTap: () {
               controller.postCase().then((value) {
                 reloadController.getCases();

@@ -133,6 +133,8 @@ class SettingsPatientScreen extends StatelessWidget {
                   onTap: () {
                     Get.defaultDialog(
                         backgroundColor: Colors.white,
+                        middleText: "Are you sure you want to delete your Acoount?".tr,
+                        title: 'Alert'.tr,
                         onConfirm: () {
                           deleteController
                               .deleteAccount(token: controller.userModel.token)

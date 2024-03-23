@@ -50,7 +50,7 @@ class EditKnownCheckWidget extends StatelessWidget {
           cont: list.caseStatus,
           onChanged: (value) {
             controller.handleSelectionKnown(value!);
-            if (value == 'Known') {
+            if (value == 'Known'||value == 'اعلم') {
               showModalBottomSheet(
                 isScrollControlled: true,
                 context: context,
@@ -60,20 +60,20 @@ class EditKnownCheckWidget extends StatelessWidget {
                       padding: EdgeInsets.only(
                         bottom: MediaQuery.of(context).viewInsets.bottom,
                       ),
-                      child: const Column(
+                      child:  Column(
                         children: [
                           Text(
-                            'Dental Cases',
-                            style: TextStyle(fontSize: 20),
+                            'Dental Cases'.tr,
+                            style: const TextStyle(fontSize: 20),
                           ),
-                          EditCasesChecklist(),
+                          const EditCasesChecklist(),
                         ],
                       ),
                     ),
                   );
                 },
               );
-            } else if (value == 'Unknown') {
+            } else if (value == 'Unknown' || value == 'لا ااعلم') {
               controller.selectedDentalCases = [];
               print(controller.selectedDentalCases);
             }
