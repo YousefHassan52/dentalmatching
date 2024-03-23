@@ -59,10 +59,10 @@ class KnownCheckWidget extends StatelessWidget {
                       padding: EdgeInsets.only(
                         bottom: MediaQuery.of(context).viewInsets.bottom,
                       ),
-                      child: const Column(
+                      child:  Column(
                         children: [
                           Text(
-                            'Dental Cases',
+                            'Dental Cases'.tr,
                             style: TextStyle(fontSize: 20),
                           ),
                           CasesChecklist(),
