@@ -42,46 +42,52 @@ class AddImageWidget extends StatelessWidget {
           ),
         ),
         child: FittedBox(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: Column(
             children: [
-              Column(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    txt,
-                    style: Styles.textStyle16Grey,
-                    textAlign: TextAlign.start,
-                  ),
-                  RichText(
-                    text:  TextSpan(
-                      text: '*'.tr,
-                      style: const TextStyle(
-                        color: Colors.red,
-                        fontWeight: FontWeight.bold,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        txt,
+                        style: Styles.textStyle16Grey,
+                        textAlign: TextAlign.start,
                       ),
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: 'select at least 2 pictures'.tr,
-                          style: Styles.textStyle16Grey,
+                      RichText(
+                        text:  TextSpan(
+                          text: '*'.tr,
+                          style: const TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: 'select at least 2 pictures'.tr,
+                              style: Styles.textStyle16Grey,
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Center(
+                    child: Container(
+                      height: 60,
+                      width: Get.width * 0.18,
+                      child: SvgPicture.asset(img),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(
-                width: 20,
-              ),
-              Center(
-                child: Container(
-                  height: 60,
-                  width: Get.width * 0.18,
-                  child: SvgPicture.asset(img),
-                ),
-              ),
+              
+              
             ],
           ),
         ),

@@ -14,13 +14,7 @@ class FormContainer extends GetView<MyServices> {
         margin: const EdgeInsets.all(3),
         padding: const EdgeInsets.all(10),
         width: Get.width * 0.93,
-        // decoration: BoxDecoration(
-        //   color: const Color.fromARGB(77, 207, 216, 220),
-        //   borderRadius: BorderRadius.circular(20),
-        //   border: Border.all(
-        //     color: const Color(0xff4A6BAD),
-        //   ),
-        // ),
+        
         child: FormBody()
         );
   }

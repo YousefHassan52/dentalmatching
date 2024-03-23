@@ -24,7 +24,7 @@ class Heading extends StatelessWidget {
             fontSize: Get.width * 0.08,
             fontWeight: FontWeight.w800,
             height: 1.2, 
-            letterSpacing: 2,
+            letterSpacing: 1,
           ),
         ),
       ),

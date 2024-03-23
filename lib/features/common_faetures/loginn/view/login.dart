@@ -27,11 +27,11 @@ class LoginScreen extends StatelessWidget {
             padding: const EdgeInsets.only(top: 0),
             scrollDirection: Axis.vertical,
             children: [
-              const FittedBox(
-                  fit: BoxFit.fitWidth, child: Heading(text: 'Welcome Back')),
+               FittedBox(
+                  fit: BoxFit.fitWidth, child: Heading(text: 'Welcome Back'.tr)),
               const CentImg(centeredImg: 'assets/svg/log.svg'),
               AuthTextFormField(
-                  hint: "Phone",
+                  hint: "Phone".tr,
                   icon: "assets/svg/Phone_icon.svg",
                   type: TextInputType.phone,
                   validator: (value) {
@@ -43,7 +43,7 @@ class LoginScreen extends StatelessWidget {
               ),
               GetBuilder<LoginControllerImp>(
                 builder: (controller) => AuthTextFormField(
-                  hint: "Password",
+                  hint: "Password".tr,
                   icon: "assets/svg/unlock.svg",
                   type: TextInputType.visiblePassword,
                   validator: (value) {
@@ -77,10 +77,10 @@ class LoginScreen extends StatelessWidget {
                   onPressed: () {
                     externalController.goToForgetPassword();
                   },
-                  child: const Text(
-                    'Forget Password?',
+                  child:  Text(
+                    'Forget Password?'.tr,
                     textAlign: TextAlign.end,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: AppColors.blueTextColor,
                       fontWeight: FontWeight.bold,
                       fontSize: 15,
@@ -93,7 +93,7 @@ class LoginScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: AuthButton(
-                    buttonText: "Login",
+                    buttonText: "Login".tr,
                     onTap: () {
                       externalController.login();
                     }),
@@ -101,12 +101,12 @@ class LoginScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Flexible(
+                   Flexible(
                     child: FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(
-                        "Don't have an account?",
-                        style: TextStyle(
+                        "Don't have an account?".tr,
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 118, 119, 120),
                             fontSize: 16),
                       ),
@@ -118,11 +118,11 @@ class LoginScreen extends StatelessWidget {
                         Get.toNamed(AppRoutes.userType);
                         // Get.to(const CasesScreen());
                       },
-                      child: const FittedBox(
+                      child:  FittedBox(
                         fit: BoxFit.fitWidth,
                         child: Text(
-                          "Signup",
-                          style: TextStyle(
+                          "Sign up".tr,
+                          style: const TextStyle(
                             color: AppColors.blueTextColor,
                             fontWeight: FontWeight.bold,
                             decoration: TextDecoration.underline,

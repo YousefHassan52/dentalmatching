@@ -1,5 +1,6 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
+import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,24 +11,20 @@ class PreSignup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyServices languageController = Get.find();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        //   actions: [
-        //   IconButton(
-        //     icon: const Icon(
-        //       Icons.keyboard_double_arrow_right_outlined,
-        //       color: AppColors.blueTextColor,
-        //       size: 50,
-        //     ),
-        //     onPressed: () {
-        //      Get.offNamed(AppRoutes.login);
-        //     },
-        //   ),
-        // ]
+
         leading: IconButton(
-          icon: const Icon(
+          icon: languageController.sharedPref.getString("lang") == "en"
+              ? const Icon(
+                  Icons.keyboard_double_arrow_right_outlined,
+                  color: AppColors.blueTextColor,
+                  size: 50,
+                )
+              : const Icon(
             Icons.keyboard_double_arrow_left_outlined,
             color: AppColors.blueTextColor,
             size: 50,
@@ -38,12 +35,12 @@ class PreSignup extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
             Expanded(
               child: PreSignUpWidget(
-                role: "D O C T O R  ",
+                role: "D O C T O R  ".tr,
                 image: "assets/svg/doctors.svg",
                 onTap: () {
                   Get.toNamed(AppRoutes.signupDoctor);
@@ -52,7 +49,7 @@ class PreSignup extends StatelessWidget {
             ),
             Expanded(
                 child: PreSignUpWidget(
-              role: "P A T I E N T",
+              role: "P A T I E N T".tr,
               image: "assets/svg/Patient.svg",
               onTap: () {
                 Get.toNamed(AppRoutes.signupPatinet);

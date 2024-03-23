@@ -92,6 +92,19 @@ class MyTranslation implements Translations {
           //EditPatient
           'Edit Case        ':"تعديل الحالة     ",
 
+          //login
+          'Welcome Back':"مرحبًا بعودتك",
+          "Phone":"رقم الهاتف",
+          "Password":"كلمة المرور",
+          'Forget Password?':"هل نسيت كلمة المرور؟",
+          "Login":'الدخول',
+          "Don't have an account?":"ليس لديك حساب؟",
+           "Sign up":'اشتراك',
+
+           //presignup
+           "D O C T O R  ":" دكتور",
+           "P A T I E N T":'مريض',
+           
 
         },
         "en": {
@@ -176,6 +189,19 @@ class MyTranslation implements Translations {
 
           //edit case patient
           'Edit Case        ':'Edit Case        ',
+
+          //login
+          'Welcome Back':'Welcome Back',
+          'Forget Password?':'Forget Password?',
+          "Password":"Password",
+          "Phone":"Phone",
+          "Login":"Login",
+          "Don't have an account?":"Don't have an account?",
+           "Sign up": "Sign up",
+
+            //presignup
+           "D O C T O R  ":"D O C T O R  ",
+           "P A T I E N T":"P A T I E N T",
         },
       };
 }
