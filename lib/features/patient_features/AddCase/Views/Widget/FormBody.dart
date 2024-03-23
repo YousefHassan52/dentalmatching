@@ -16,7 +16,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FormBody extends StatelessWidget {
-  const FormBody({Key? key}) : super(key: key);
+  FormBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class FormBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const FormHeadLine(headline: 'Describe what you feel'),
+          FormHeadLine(headline: 'Describe what you feel'.tr),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: DescripBox(
@@ -42,22 +42,22 @@ class FormBody extends StatelessWidget {
             ),
           ),
           const HDivider(),
-          const FormHeadLine(headline: 'Chronic Diseases'),
+          FormHeadLine(headline: 'Chronic Diseases'.tr),
           const ChronicDiseasesChecklist(),
           // //MyForm(),
           const HDivider(),
-          const FormHeadLine(headline: 'Add a Clear Pictures of your Mouth'),
+          FormHeadLine(headline: 'Add a Clear Pictures of your Mouth'.tr),
           const SizedBox(
             height: 9,
           ),
           AddImageWidget(
             img: 'assets/svg/Bold_Img_load-box.svg',
-            txt: 'Upload Pictures',
+            txt: 'Upload Pictures'.tr,
             onPressed: () {
               controller.pickMouthImages();
             },
           ),
-          // const SizedBox(
+          //  SizedBox(
           //   height: 8,
           // ),
           // AddImageWidget(
@@ -65,20 +65,20 @@ class FormBody extends StatelessWidget {
           //   txt: 'Take Pictures',
           //   onPressed: () {},
           // ),
-          const OptionalText(
-            text: 'Add X-Ray',
+          OptionalText(
+            text: 'Add X-Ray'.tr,
           ),
           const SizedBox(
             height: 9,
           ),
           AddOptionalImg(
             img: 'assets/svg/Bold_Img_load-box.svg',
-            txt: 'Upload Picture',
+            txt: 'Upload Pictures'.tr,
             onPressed: () {
               controller.pickXrayImages();
             },
           ),
-          // const SizedBox(
+          //  SizedBox(
           //   height: 8,
           // ),
           // AddOptionalImg(
@@ -90,20 +90,20 @@ class FormBody extends StatelessWidget {
             padding: EdgeInsets.only(top: 8.0),
             child: HDivider(),
           ),
-          const OptionalText(
-            text: 'Add Prescription',
+          OptionalText(
+            text: 'Add Prescription'.tr,
           ),
           const SizedBox(
             height: 9,
           ),
           AddOptionalImg(
             img: 'assets/svg/Bold_Img_load-box.svg',
-            txt: 'Upload Picture',
+            txt: 'Upload Pictures'.tr,
             onPressed: () {
               controller.pickPrescriptionImages();
             },
           ),
-          // const SizedBox(
+          //  SizedBox(
           //   height: 8,
           // ),
           // AddOptionalImg(
@@ -115,14 +115,14 @@ class FormBody extends StatelessWidget {
             padding: EdgeInsets.only(top: 8.0),
             child: HDivider(),
           ),
-          const FormHeadLine(headline: 'Do you know your case ?'),
+          FormHeadLine(headline: 'Do you know your case ?'.tr),
           const KnownCheckWidget(),
           const SizedBox(
             height: 8,
           ),
           // //CheckboxFormField(),
           AuthButton(
-            buttonText: 'Submit',
+            buttonText: 'Submit'.tr,
             onTap: () {
               controller.postCase().then((value) {
                 reloadController.getCases();

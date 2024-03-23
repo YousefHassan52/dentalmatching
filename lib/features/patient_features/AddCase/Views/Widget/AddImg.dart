@@ -56,15 +56,15 @@ class AddImageWidget extends StatelessWidget {
                     textAlign: TextAlign.start,
                   ),
                   RichText(
-                    text: const TextSpan(
-                      text: '*',
-                      style: TextStyle(
+                    text:  TextSpan(
+                      text: '*'.tr,
+                      style: const TextStyle(
                         color: Colors.red,
                         fontWeight: FontWeight.bold,
                       ),
                       children: <TextSpan>[
                         TextSpan(
-                          text: 'select at least 2 pictures',
+                          text: 'select at least 2 pictures'.tr,
                           style: Styles.textStyle16Grey,
                         ),
                       ],

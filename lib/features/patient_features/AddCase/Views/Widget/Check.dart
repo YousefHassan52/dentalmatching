@@ -23,7 +23,7 @@ class ChronicDiseasesChecklist extends StatelessWidget {
                     activeColor: Colors.transparent,
                     checkboxShape: const OvalBorder(),
                     title: Text(
-                      list.chronicDiseases[index].title,
+                      list.chronicDiseases[index].title.tr,
                       style: Styles.textStyle16Grey,
                     ),
                     value: controller.checkedItems[index],
