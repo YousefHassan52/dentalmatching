@@ -49,7 +49,7 @@ class KnownCheckWidget extends StatelessWidget {
           cont: list.caseStatus,
           onChanged: (value) {
             controller.handleSelectionKnown(value!);
-            if (value == 'Known') {
+            if (value == 'Known'||value =='اعلم') {
               showModalBottomSheet(
                 isScrollControlled: true,
                 context: context,
@@ -63,9 +63,9 @@ class KnownCheckWidget extends StatelessWidget {
                         children: [
                           Text(
                             'Dental Cases'.tr,
-                            style: TextStyle(fontSize: 20),
+                            style: const TextStyle(fontSize: 20),
                           ),
-                          CasesChecklist(),
+                          const CasesChecklist(),
                         ],
                       ),
                     ),
@@ -73,7 +73,7 @@ class KnownCheckWidget extends StatelessWidget {
                 },
               );
             }
-            else if(value == 'Unknown'){
+            else if(value == 'Unknown' || value == 'لا اعلم'){
               controller.selectedDentalCases = [];
               print(controller.selectedDentalCases);
 

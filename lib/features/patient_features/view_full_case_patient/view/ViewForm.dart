@@ -6,6 +6,7 @@ import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/Fo
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/HDivider.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/OptionalText.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/Upper.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/view_full_case_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/ChronicList.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/upperAssigned.dart';
@@ -50,11 +51,13 @@ class ViewForm extends StatelessWidget {
         body: ListView(
           padding: const EdgeInsets.only(top: 0),
           children: [
-            //  UpperWidget(
-            //   needBackButton: true,
-            //   text: 'Case Detailes        '.tr,
-            //   welcome: false,
-            // ),
+            if (controller.caseModel.isAssigned == false)
+             UpperWidget(
+              needBackButton: true,
+              text: 'Case Detailes        '.tr,
+              welcome: false,
+            ),
+            if (controller.caseModel.isAssigned == true)
             UpperAssigned(
               text: 'Case Detailes        '.tr,
               needBackButton: true,
