@@ -145,7 +145,7 @@ class SignupDoctorFormBody extends StatelessWidget {
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: CircleAvatar(
-                      radius: ((Get.width * 0.3 - 40) / 2) - 5,
+                      radius: 30,
                       backgroundColor: AppColors.mainColor,
                       backgroundImage: controller.imageFile != null
                           ? FileImage(controller.imageFile!)

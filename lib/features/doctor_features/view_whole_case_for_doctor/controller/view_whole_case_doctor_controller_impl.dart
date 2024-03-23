@@ -1,7 +1,9 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/data/Model/CaseDoctorModel.dart';
+import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/signup/data/models/doctor_model.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_abstract.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/data/request_case_data.dart';
@@ -25,19 +27,28 @@ class ViewWholeCaseDoctorControllerImpl
   }
 
   @override
-  Future<void> requestCase({required String caseId}) async {
+  Future<void> requestCase(
+      {required String time, required String googleMapLink}) async {
     requestStatus = RequestStatus.LOADING;
     update();
-    var response =
-        await data.requestCase(caseId: caseId, token: doctorModel.token);
+    var response = await data.requestCase(
+        googleMapLink: googleMapLink,
+        time: time,
+        caseId: caseModel.caseId,
+        token: doctorModel.token);
     print(response.toString());
     requestStatus = HandlingResponseType.fun(response);
     update();
     print("joe ;${requestStatus.toString()}");
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {
+        Get.snackbar("Success", "Now you are responsible with this case");
         viewPhone = true;
         update();
+        updateAssignmentStatus(true);
+        GetDocotorCasesControllerImpl doctorCases =
+            Get.put(GetDocotorCasesControllerImpl());
+        doctorCases.getCases();
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
       Get.defaultDialog(
@@ -70,6 +81,8 @@ class ViewWholeCaseDoctorControllerImpl
         Get.snackbar(
             "Case Cancelled", "You are not responsible for this case any more");
       }
+
+      updateAssignmentStatus(true);
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
       Get.defaultDialog(middleText: "Case is already not assigned to you");
     } else {

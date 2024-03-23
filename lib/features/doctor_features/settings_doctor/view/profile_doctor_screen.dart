@@ -133,7 +133,7 @@ class SettingsDoctorScreen extends StatelessWidget {
                     translationController.changeLang(langCode: "ar");
                   }),
               const SizedBox(
-                height: 50,
+                height: 100,
               )
             ],
           ),

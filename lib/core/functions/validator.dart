@@ -37,6 +37,13 @@ class AppValidator {
         return "Your description must be more than 20 letters";
       }
     }
+    if (type == "link") {
+      final urlRegExp = RegExp(
+          r'^(?:http|https):\/\/[\w\-_]+(?:\.[\w\-_]+)+[\w\-.,@?^=%&:/~\+#]*[\w\-@?^=%&/~\+#]$');
+      if (!urlRegExp.hasMatch(value)) {
+        return "You must paste a valid goole map link of hospital";
+      }
+    }
   }
 
   static chechkPasswordMatching(

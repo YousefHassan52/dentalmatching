@@ -23,10 +23,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
         Get.put(AppointmentController());
     ViewWholeCaseDoctorControllerImpl controller =
         Get.put(ViewWholeCaseDoctorControllerImpl());
-    UnassignedCasesDoctorControllerImpl reloadDataControllerForAllCases =
-        Get.put(UnassignedCasesDoctorControllerImpl());
-    GetDocotorCasesControllerImpl reloadDataControllerForDoctorCases =
-        Get.put(GetDocotorCasesControllerImpl());
+
     ScrollController scrollController = ScrollController();
 
     return Scaffold(
@@ -187,37 +184,35 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: RequestAndCancelButton(
                     onPressed: () {
-                      controller
-                          .requestCase(caseId: controller.caseModel.caseId)
-                          .then((value) {
-                        // Update the state to reflect that the case is now assigned
-                        controller.updateAssignmentStatus(true);
-                        reloadDataControllerForAllCases.getCases();
-                        reloadDataControllerForDoctorCases.getCases();
-                        // showModalBottomSheet(
-                        //   isScrollControlled: true,
-                        //   context: context,
-                        //   builder: (context) {
-                        //     return Center(child: AppointmentScreen());
-                        //   },
-                        // );
+                      showModalBottomSheet(
+                        isScrollControlled: true,
+                        context: context,
+                        builder: (context) {
+                          return Center(child: AppointmentScreen());
+                        },
+                      ); //     .requestCase(caseId: controller.caseModel.caseId)
+                      //     .then((value) {
+                      //   // Update the state to reflect that the case is now assigned
+                      //   controller.updateAssignmentStatus(true);
+                      //   reloadDataControllerForAllCases.getCases();
+                      //   reloadDataControllerForDoctorCases.getCases();
 
-                        // Get.dialog(
-                        //   AlertDialog(
-                        //     title: const Text("Success"),
-                        //     content: const Text("Case assigned successfully!"),
-                        //     actions: [
-                        //       MaterialButton(
-                        //         child: const Text("OK"),
-                        //         onPressed: () {
-                        //           Get.back(); // Close the dialog
-                        //           scrollController.animateTo(0, duration: const Duration(milliseconds: 500), curve: Curves.easeInOut); // Scroll to the top
-                        //         },
-                        //       ),
-                        //     ],
-                        //   ),
-                        // );
-                      });
+                      //   // Get.dialog(
+                      //   //   AlertDialog(
+                      //   //     title: const Text("Success"),
+                      //   //     content: const Text("Case assigned successfully!"),
+                      //   //     actions: [
+                      //   //       MaterialButton(
+                      //   //         child: const Text("OK"),
+                      //   //         onPressed: () {
+                      //   //           Get.back(); // Close the dialog
+                      //   //           scrollController.animateTo(0, duration: const Duration(milliseconds: 500), curve: Curves.easeInOut); // Scroll to the top
+                      //   //         },
+                      //   //       ),
+                      //   //     ],
+                      //   //   ),
+                      //   // );
+                      // });
                     },
                   ),
                 );
@@ -235,6 +230,12 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                             print(controller.caseModel.caseId);
 
                             controller.cancelCase().then((value) {
+                              UnassignedCasesDoctorControllerImpl
+                                  reloadDataControllerForAllCases = Get.put(
+                                      UnassignedCasesDoctorControllerImpl());
+                              GetDocotorCasesControllerImpl
+                                  reloadDataControllerForDoctorCases =
+                                  Get.put(GetDocotorCasesControllerImpl());
                               reloadDataControllerForAllCases.getCases();
                               reloadDataControllerForDoctorCases.getCases();
                             });
