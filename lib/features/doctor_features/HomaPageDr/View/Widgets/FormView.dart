@@ -1,6 +1,5 @@
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
-import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/Widgets/AppointmentCardWidget.dart';
 import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/Widgets/Categories.dart';
 import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/Widgets/TextTitle.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AppUpper.dart';
@@ -111,22 +110,18 @@ class FormView extends StatelessWidget {
               }),
           
           Center(
-            child: SizedBox(
-              height: Get.height*1.35,
-             // width: Get.width * 1,
-              child: ListView.builder(
-                padding: const EdgeInsets.all(0),
-                shrinkWrap: true,
-                physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.vertical,
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical:8),
-                    child: CasContainer(caseModel: controller.cases[index]),
-                  );
-                },
-              ),
+            child: ListView.builder(
+              padding: const EdgeInsets.only(bottom :100),
+              shrinkWrap: true,
+              //physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              itemCount: 3,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical:8),
+                  child: CasContainer(caseModel: controller.cases[index]),
+                );
+              },
             ),
           ),
           
