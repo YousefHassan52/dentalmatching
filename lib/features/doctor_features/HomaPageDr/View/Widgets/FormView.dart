@@ -1,10 +1,12 @@
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
+import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/Widgets/AppointmentFullScreen.dart';
 import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/Widgets/Categories.dart';
 import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/Widgets/TextTitle.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AppUpper.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/CaseContainer.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/AppointmentScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -98,10 +100,10 @@ class FormView extends StatelessWidget {
               Color(0xff526FA6),
             ],
           ),
-          // TextTitle(
-          //   txtt: 'Appointments',
-          //   onPressed: () {},
-          // ),
+          TextTitle(
+            txtt: 'Appointments',
+            onPressed: () {Get.to(const AppointmentFullScreen());},
+          ),
           // const AppointmentCardWidget(),
           TextTitle(
               txtt: 'General Cases'.tr,

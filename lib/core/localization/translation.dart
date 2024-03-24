@@ -125,6 +125,7 @@ class MyTranslation implements Translations {
            'Dental Diseases':'الحالة االطبي',
            "Patient Details       ":'تفاصيل الحالة       ',
            'Request':'طلب',
+           'Appointments        ':'مواعيد        '
 
 
         },
