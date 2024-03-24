@@ -1,20 +1,12 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dentalmatching/core/class/request_status.dart';
-import 'package:dentalmatching/core/constants/colors.dart';
-import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/core/shared/shimmer.dart';
-import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
-import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/textformfield.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AppUpper.dart';
 import 'package:dentalmatching/features/doctor_features/search_cases/controller/search_cases_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/search_cases/view/widgets/search_button.dart';
 import 'package:dentalmatching/features/doctor_features/search_cases/view/widgets/search_form_list_view.dart';
 import 'package:dentalmatching/features/doctor_features/search_cases/view/widgets/searchformfield.dart';
-import 'package:flutter/cupertino.dart';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -31,10 +23,10 @@ class SearchCasesScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const AppUpperWidget(
+             AppUpperWidget(
               welcome: false,
               needBackButton: true,
-              text: "Search Screen",
+              text: 'Search Screen     '.tr,
             ),
             Row(
               children: [
@@ -47,6 +39,7 @@ class SearchCasesScreen extends StatelessWidget {
                         validator: (value) {
                           return AppValidator.textFormFieldValidator(
                               value!, "username");
+
                         },
                         fieldController: externalController.searchController),
                   ),
@@ -54,7 +47,7 @@ class SearchCasesScreen extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: SearchButton(
-                      buttonText: "Search",
+                      buttonText: "Search".tr,
                       onTap: () {
                         externalController.getCases();
                       }),

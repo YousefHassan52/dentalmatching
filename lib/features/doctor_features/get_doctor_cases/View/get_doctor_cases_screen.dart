@@ -23,18 +23,18 @@ class GetDoctorCasesScreen extends StatelessWidget {
       children: [
         const AppUpperWidget(),
         Padding(
-          padding: const EdgeInsets.only(left: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-             const Flexible(
+              Flexible(
                   flex: 200,
                   fit: FlexFit.loose,
                   child: FittedBox(
                     child: AutoSizeText(
                       maxFontSize: 25,
                       minFontSize: 15,
-                      'Requested Cases',
+                      'Requested Cases'.tr,
                       style: Styles.LightBlue,
                     ),
                   ),

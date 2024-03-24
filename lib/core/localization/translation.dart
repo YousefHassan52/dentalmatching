@@ -104,7 +104,20 @@ class MyTranslation implements Translations {
            //presignup
            "D O C T O R  ":" دكتور",
            "P A T I E N T":'مريض',
+
+           //Home
+           "Search":'بحث',
            
+           //search
+           'Search Screen     ':"ابحث     ",
+
+           //requested cases
+           'Requested Cases':"  حالاتك  ",
+           //all cases
+           'All Cases       ':'جميع الحالات     ',
+           'General Cases':'حالات العامة',
+           'Categories':'فئات',
+           'See All':'المزيد',
 
         },
         "en": {
@@ -202,6 +215,21 @@ class MyTranslation implements Translations {
             //presignup
            "D O C T O R  ":"D O C T O R  ",
            "P A T I E N T":"P A T I E N T",
+
+           //home
+           "Search":"Search",
+
+           //search
+           'Search Screen     ':'Search Screen     ',
+
+           //requested cases dr
+           'Requested Cases':'Requested Cases',
+             //all cases
+           'All Cases       ':'All Cases       ',
+           'General Cases':'General Cases',
+           'Categories':'Categories',
+           'See All':'See All',
+
         },
       };
 }

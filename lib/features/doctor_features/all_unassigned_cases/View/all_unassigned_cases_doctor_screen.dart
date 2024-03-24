@@ -21,24 +21,24 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const AppUpperWidget(
+           AppUpperWidget(
             welcome: false,
             needBackButton: true,
-            text: "All Cases",
+            text: 'All Cases       '.tr,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Flexible(
+                 Flexible(
                   flex: 200,
                   fit: FlexFit.loose,
                   child: FittedBox(
                     child: AutoSizeText(
                       maxFontSize: 25,
                       minFontSize: 15,
-                      'Recently Added Cases',
+                      'Recently Added Cases'.tr,
                       style: Styles.LightBlue,
                     ),
                   ),

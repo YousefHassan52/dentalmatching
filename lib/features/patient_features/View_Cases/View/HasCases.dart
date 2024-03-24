@@ -28,7 +28,7 @@ class HasCases extends StatelessWidget {
             height: 9,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 8.0, right: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 8,),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
