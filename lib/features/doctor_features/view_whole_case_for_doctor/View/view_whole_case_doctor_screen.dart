@@ -5,7 +5,6 @@ import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doct
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/BoxWidget.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/RequestButton.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/UpperNot.dart';
-import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/AppointmentController.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/FormHeadLine.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/HDivider.dart';
@@ -19,8 +18,8 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppointmentController appointmentController =
-        Get.put(AppointmentController());
+    // AppointmentController appointmentController =
+    //     Get.put(AppointmentController());
     ViewWholeCaseDoctorControllerImpl controller =
         Get.put(ViewWholeCaseDoctorControllerImpl());
 
