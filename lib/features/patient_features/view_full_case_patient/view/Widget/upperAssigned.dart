@@ -9,6 +9,7 @@ import 'package:dentalmatching/features/patient_features/view_full_case_patient/
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class UpperAssigned extends StatelessWidget {
   const UpperAssigned(
@@ -124,7 +125,46 @@ class UpperAssigned extends StatelessWidget {
                         BioWidgetDr(
                           title: 'Location :'.tr,
                           subTitle: controller.caseModel.doctorUniversity!,
+                          isLocation: true,
+                          onPressed: () async {
+                            final Uri _url = Uri.parse(
+                                '${controller.caseModel.googleMapLink}');
+                            if (!await launchUrl(_url)) {
+                              throw Exception('Could not launch $_url');
+                            }
+                          },
                         ),
+                        if (controller.caseModel.isAssigned == true)
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Flexible(
+                                child: FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: Text(
+                                    'Date : ',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: 20),
+                                  ),
+                                ),
+                              ),
+                              Flexible(
+                                flex: 2,
+                                child: FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: Text(
+                                      controller.caseModel.appointmentDateTime!,
+                                      style: const TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w800,
+                                          fontSize: 20)),
+                                ),
+                              ),
+                            ],
+                          ),
                         BioWidgetDr(
                           title: 'Phone Number :'.tr,
                           subTitle: controller.caseModel.phoneNumber,

@@ -52,10 +52,39 @@ class BioBarWidget extends StatelessWidget {
           child: Column(
             children: [
               if (controller.caseModel.isAssigned == true)
-                BioWidget(
-                  title: 'location',
-                  subTitle: controller.caseModel.googleMapLink!,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Flexible(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          'Date : ',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w300,
+                              fontSize: 20),
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      flex: 2,
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(controller.caseModel.appointmentDateTime!,
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w800,
+                                fontSize: 20)),
+                      ),
+                    ),
+                  ],
                 ),
+              // BioWidget(
+              //   title: 'Date',
+              //   subTitle: controller.caseModel.appointmentDateTime!,
+              // ),
 
               BioWidget(
                 title: 'Address',

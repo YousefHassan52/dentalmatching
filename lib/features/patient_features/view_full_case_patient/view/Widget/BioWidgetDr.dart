@@ -4,14 +4,19 @@ import 'package:flutter/material.dart';
 class BioWidgetDr extends StatelessWidget {
   final String title;
   final String subTitle;
+  void Function()? onPressed;
   bool isLongText;
+  bool isLocation;
   Color textColor;
   BioWidgetDr(
       {super.key,
       required this.title,
       required this.subTitle,
       this.isLongText = false,
-      this.textColor = Colors.white});
+      this.isLocation = false,
+      this.textColor = Colors.white,
+      this.onPressed
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +51,16 @@ class BioWidgetDr extends StatelessWidget {
             ),
           ),
         ),
+        
+        if(isLocation==true)
+        const SizedBox(width: 5,),
+        if(isLocation==true)
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Flexible(
+            child: IconButton(onPressed: onPressed, icon:const Icon(Icons.link_outlined , color: Colors.white ,)),
+          ),
+        )
       ],
     );
   }

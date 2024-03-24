@@ -8,7 +8,6 @@ import 'package:dentalmatching/features/patient_features/signup/view/widgets/gen
 import 'package:dentalmatching/features/patient_features/signup/view/widgets/gov_dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
 
 // youm ma te3tal raga3 el body fe SignupScreen we 2e4ta8al 3ady
 class SignupFormBody extends StatelessWidget {
