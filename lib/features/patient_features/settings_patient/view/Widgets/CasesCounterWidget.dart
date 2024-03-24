@@ -1,6 +1,6 @@
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 
 class CasesCounterWidget extends StatelessWidget {
   final String counter;
@@ -21,7 +21,7 @@ class CasesCounterWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            counter.tr,
+            counter,
             style: Styles.mediumTitle,
           ),
           Text(

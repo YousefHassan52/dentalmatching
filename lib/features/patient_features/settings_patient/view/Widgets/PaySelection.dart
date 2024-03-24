@@ -1,5 +1,4 @@
 import 'package:dentalmatching/core/constants/colors.dart';
-import 'package:dentalmatching/core/localization/translation_controller.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/controller/settings_controller_imp.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,10 +23,10 @@ class PaySelection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SettingsPatientControllerImp controller =
-        Get.put(SettingsPatientControllerImp());
-    TranslationController translationController =
-        Get.put(TranslationController());
+    // final SettingsPatientControllerImp controller =
+    //     Get.put(SettingsPatientControllerImp());
+    // TranslationController translationController =
+    //     Get.put(TranslationController());
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

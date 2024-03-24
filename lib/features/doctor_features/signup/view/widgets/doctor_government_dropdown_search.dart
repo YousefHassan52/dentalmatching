@@ -29,7 +29,7 @@ class DocotrGovernmentDropdownSearch extends StatelessWidget {
                     BorderSide(width: 3.0, color: AppColors.secondColor)),
             enabledBorder: UnderlineInputBorder(
                 borderSide: BorderSide(width: 3.0, color: Color(0xFFCBE1F8))),
-            hintText: "Government",
+            hintText: "Governorate",
             hintStyle: TextStyle(
               color: Color.fromARGB(100, 94, 148, 195),
               fontSize: 14,
