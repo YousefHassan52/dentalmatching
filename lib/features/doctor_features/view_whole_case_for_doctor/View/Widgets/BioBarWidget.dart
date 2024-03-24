@@ -51,6 +51,12 @@ class BioBarWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 20),
           child: Column(
             children: [
+              if (controller.caseModel.isAssigned == true)
+                BioWidget(
+                  title: 'location',
+                  subTitle: controller.caseModel.googleMapLink!,
+                ),
+
               BioWidget(
                 title: 'Address',
                 subTitle: controller.caseModel.patientCity,
