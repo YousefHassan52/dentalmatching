@@ -34,8 +34,8 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
               controller: scrollController,
               padding: const EdgeInsets.only(top: 0, bottom: 5),
               children: [
-                const UpperFullCaseWidget(
-                  text: "Patient Details       ",
+                 UpperFullCaseWidget(
+                  text: "Patient Details       ".tr,
                   needBackButton: true,
                   CaseDesc: true,
                 ),
@@ -64,7 +64,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      const FormHeadLine(headline: 'Description'),
+                       FormHeadLine(headline: 'Description'.tr),
                       const SizedBox(
                         height: 20,
                       ),
@@ -81,7 +81,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      const FormHeadLine(headline: 'Chronic Diseases'),
+                       FormHeadLine(headline: 'Chronic Diseases'.tr),
                       const SizedBox(
                         height: 20,
                       ),
@@ -89,8 +89,8 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                         widget: controller.caseModel.chronicDiseases.isNotEmpty
                             ? ChronicOrDentalList(
                                 list: controller.caseModel.chronicDiseases)
-                            : const Text(
-                                "None",
+                            :  Text(
+                                "None".tr,
                                 style: Styles.textStyle16Grey,
                               ),
                       ),
@@ -101,13 +101,13 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      const FormHeadLine(headline: 'Dental Diseases'),
+                       FormHeadLine(headline: 'Dental Diseases'.tr),
                       BoxWidget(
                         widget: controller.caseModel.isKnown == true
                             ? ChronicOrDentalList(
                                 list: controller.caseModel.dentalDiseases)
-                            : const Text(
-                                "None",
+                            :  Text(
+                                "None".tr,
                                 style: Styles.textStyle16Grey,
                               ),
                       ),
@@ -116,7 +116,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                       ),
                       const HDivider(),
 
-                      const FormHeadLine(headline: 'Pictures Of Mouth'),
+                       FormHeadLine(headline: 'Pictures Of Mouth'.tr),
                       const SizedBox(
                         height: 20,
                       ),
@@ -132,7 +132,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      const FormHeadLine(headline: 'X-Ray'),
+                       FormHeadLine(headline: 'X-Ray'.tr),
                       const SizedBox(
                         height: 20,
                       ),
@@ -142,8 +142,8 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                             ? GridViewWidget(
                                 imagesList: controller.caseModel.xrayImages,
                               )
-                            : const Text(
-                                "None",
+                            :  Text(
+                                "None".tr,
                                 style: Styles.textStyle16Grey,
                               ),
                       ),
@@ -154,7 +154,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      const FormHeadLine(headline: 'Prescription'),
+                       FormHeadLine(headline: 'Prescription'.tr),
                       const SizedBox(
                         height: 20,
                       ),
@@ -166,8 +166,8 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                                     imagesList:
                                         controller.caseModel.prescriptionImages,
                                   )
-                                : const Text(
-                                    "None",
+                                :  Text(
+                                    "None".tr,
                                     style: Styles.textStyle16Grey,
                                   ),
                       ),

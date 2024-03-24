@@ -118,6 +118,14 @@ class MyTranslation implements Translations {
            'General Cases':'حالات العامة',
            'Categories':'فئات',
            'See All':'المزيد',
+           'Description':'وصف االحالة',
+           'Pictures Of Mouth':'صور الفم',
+           'X-Ray':'الاشعة',
+           'Prescription':'الروشتة',
+           'Dental Diseases':'الحالة االطبي',
+           "Patient Details       ":'تفاصيل الحالة       ',
+           'Request':'طلب',
+
 
         },
         "en": {
@@ -229,6 +237,11 @@ class MyTranslation implements Translations {
            'General Cases':'General Cases',
            'Categories':'Categories',
            'See All':'See All',
+           'Description':'Description',
+           'Pictures Of Mouth':'Pictures Of Mouth',
+           'Prescription':'Prescription',
+           'X-Ray':'X-Ray',
+           'Dental Diseases':'Dental Diseases',
 
         },
       };

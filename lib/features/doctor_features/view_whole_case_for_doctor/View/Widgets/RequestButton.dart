@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RequestAndCancelButton extends StatelessWidget {
   const RequestAndCancelButton({
@@ -43,7 +44,7 @@ class RequestAndCancelButton extends StatelessWidget {
           ),
           child: FittedBox(
             child: Text(
-              isCancelButton ? 'Cancel' : 'Request',
+              isCancelButton ? 'Cancel'.tr : 'Request'.tr,
               style: const TextStyle(color: Colors.white, fontSize: 25),
             ),
           ),
