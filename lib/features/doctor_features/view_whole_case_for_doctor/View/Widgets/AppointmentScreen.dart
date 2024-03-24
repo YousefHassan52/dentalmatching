@@ -1,13 +1,9 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
-import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
-import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/google_map_link_textformfield.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/AppointmentController.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AppointmentScreen extends StatelessWidget {
@@ -137,6 +133,7 @@ class AppointmentScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     appointmentController.bookCase();
+                    Get.back();
                   },
                   style: ButtonStyle(
                     backgroundColor:

@@ -1,6 +1,7 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/BioWidget.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/DateTimeWidget.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/CircleAvatarWidget.dart';
 import 'package:flutter/material.dart';
@@ -52,39 +53,9 @@ class BioBarWidget extends StatelessWidget {
           child: Column(
             children: [
               if (controller.caseModel.isAssigned == true)
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Flexible(
-                      child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          'Date : ',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w300,
-                              fontSize: 20),
-                        ),
-                      ),
-                    ),
-                    Flexible(
-                      flex: 2,
-                      child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(controller.caseModel.appointmentDateTime!,
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w800,
-                                fontSize: 20)),
-                      ),
-                    ),
-                  ],
-                ),
-              // BioWidget(
-              //   title: 'Date',
-              //   subTitle: controller.caseModel.appointmentDateTime!,
-              // ),
+                DateTimeWidget(controller: controller, txt: formatDate(controller.caseModel.appointmentDateTime!), text: 'Date : ',),
+                if (controller.caseModel.isAssigned == true)
+                DateTimeWidget(controller: controller, txt: formatTime(controller.caseModel.appointmentDateTime!), text: 'Time : ',),
 
               BioWidget(
                 title: 'Address',
@@ -165,3 +136,4 @@ class BioBarWidget extends StatelessWidget {
     );
   }
 }
+

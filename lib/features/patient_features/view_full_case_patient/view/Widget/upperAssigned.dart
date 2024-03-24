@@ -1,14 +1,11 @@
 import 'package:dentalmatching/core/constants/colors.dart';
-import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/BioWidget.dart';
 import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/CircleAvatarWidget.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/view_full_case_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/BioWidgetDr.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/doctor_info_if_case_assigned.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/DateTimePatientWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UpperAssigned extends StatelessWidget {
@@ -27,6 +24,7 @@ class UpperAssigned extends StatelessWidget {
         Get.put(ViewFullCasePatientControllerImpl());
     MyCasesPatientControllerImpl casesController = Get.find();
     Get.put(PatientDataController());
+
     // momken te7tag hena controller mo5tlef
     //double upperPartHeight = Get.height * 0.2;
     return Container(
@@ -135,35 +133,18 @@ class UpperAssigned extends StatelessWidget {
                           },
                         ),
                         if (controller.caseModel.isAssigned == true)
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Flexible(
-                                child: FittedBox(
-                                  fit: BoxFit.scaleDown,
-                                  child: Text(
-                                    'Date : ',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: 20),
-                                  ),
-                                ),
-                              ),
-                              Flexible(
-                                flex: 2,
-                                child: FittedBox(
-                                  fit: BoxFit.scaleDown,
-                                  child: Text(
-                                      controller.caseModel.appointmentDateTime!,
-                                      style: const TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w800,
-                                          fontSize: 20)),
-                                ),
-                              ),
-                            ],
+                          DateTimePatientWidget(
+                            controller: controller,
+                            txt: formatDate(
+                                controller.caseModel.appointmentDateTime!),
+                            text: 'Date : ',
+                          ),
+                        if (controller.caseModel.isAssigned == true)
+                          DateTimePatientWidget(
+                            controller: controller,
+                            txt: formatTime(
+                                controller.caseModel.appointmentDateTime!),
+                            text: 'Time : ',
                           ),
                         BioWidgetDr(
                           title: 'Phone Number :'.tr,
@@ -181,4 +162,11 @@ class UpperAssigned extends StatelessWidget {
       ),
     );
   }
+}
+
+String formatDate(String dateTimeString) {
+  final dateTime = DateTime.parse(dateTimeString);
+  final formattedDate =
+      '${dateTime.year}-${dateTime.month.toString().padLeft(2, '0')}-${dateTime.day.toString().padLeft(2, '0')}';
+  return formattedDate;
 }

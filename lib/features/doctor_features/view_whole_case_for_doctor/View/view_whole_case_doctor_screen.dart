@@ -184,6 +184,9 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: RequestAndCancelButton(
                     onPressed: () {
+                      scrollController.animateTo(0,
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeInOut);
                       showModalBottomSheet(
                         isScrollControlled: true,
                         context: context,
