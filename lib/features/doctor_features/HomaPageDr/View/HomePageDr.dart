@@ -41,14 +41,14 @@ class HomePageDr extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.grey),
+                      color: Color.fromARGB(94, 183, 181, 181)),
                   child: FittedBox(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const Icon(
                           Icons.search_rounded,
-                          color: Colors.white,
+                          color: Colors.grey,
                           size: 32,
                         ),
                         const SizedBox(
@@ -57,7 +57,7 @@ class HomePageDr extends StatelessWidget {
                         Text(
                           "Search",
                           style:
-                              Styles.textStyle16.copyWith(color: Colors.white),
+                              Styles.textStyle16.copyWith(color: Colors.grey,fontWeight: FontWeight.w700),
                         ),
                       ],
                     ),
