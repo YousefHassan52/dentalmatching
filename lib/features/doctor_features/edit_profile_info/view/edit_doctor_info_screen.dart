@@ -10,16 +10,16 @@ class EditDoctorInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(EditDoctorInfoControllerImp());
-    return const Scaffold(
+    return  Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
              AppUpperWidget(
-              text: 'Edit Profile        ',
+              text: 'Edit Profile        '.tr,
               needBackButton: true,
               welcome: false,
             ),
-            EditDoctorFormBody(),
+            const EditDoctorFormBody(),
           ],
         ),
       ),

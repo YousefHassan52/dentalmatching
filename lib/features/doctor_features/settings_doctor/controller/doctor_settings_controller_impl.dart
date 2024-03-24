@@ -9,6 +9,8 @@ class SettingsDoctorControllerImpl extends SettingsDoctorControllerAbstract {
   late DoctorModel userModel =
       DoctorModel.fromSharedPref(myServices.sharedPref);
 
+RxBool visibleLanguage = false.obs;
+  RxBool visiblePay = false.obs;
   @override
   void onInit() {
     super.onInit();
@@ -30,5 +32,14 @@ class SettingsDoctorControllerImpl extends SettingsDoctorControllerAbstract {
 
     myServices.sharedPref.remove("logged");
     Get.offAllNamed(AppRoutes.login);
+  }
+
+    void trueVisibilityLanguage() {
+     visibleLanguage.toggle();
+    update();
+  }
+  void trueVisibilityPay() {
+     visiblePay.toggle();
+    update();
   }
 }

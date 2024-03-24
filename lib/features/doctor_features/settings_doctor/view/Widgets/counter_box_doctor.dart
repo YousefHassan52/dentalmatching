@@ -32,7 +32,7 @@ class CounterBoxDoctor extends StatelessWidget {
         children: [
           GetBuilder<GetDocotorCasesControllerImpl>(
             builder: (controller) => CasesCounterWidget(
-                counter: controller.cases.length.toString(), status: 'Cases'),
+                counter: controller.cases.length.toString(), status: 'Case'.tr),
           ),
           // SizedBox(
           //   width: 100,

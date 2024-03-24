@@ -96,20 +96,21 @@ class EditDoctorFormBody extends StatelessWidget {
                 },
                 fieldController: externalController.emailController),
             // password----------------------------------
-            const SizedBox(
-              height: 15,
-            ),
+            // const SizedBox(
+            //   height: 15,
+            // ),
 
             const SizedBox(
               height: 30,
             ),
-            AuthButton(
-                buttonText: "Update",
-                onTap: () {
-                  externalController.editDoctorInfo().then((value) {
-                    myCasesController.getCases();
-                  });
-                }),
+            // AuthButton(
+            //     buttonText: "Update".tr,
+            //     onTap: () {
+            //       externalController.editDoctorInfo().then((value) {
+            //         myCasesController.getCases();
+            //       });
+            //     }),
+
             GetBuilder<EditDoctorInfoControllerImp>(
               builder: (controller) => Container(
                 margin: const EdgeInsets.symmetric(vertical: 10),
@@ -120,6 +121,49 @@ class EditDoctorFormBody extends StatelessWidget {
                         backgroundColor: AppColors.mainColor.withOpacity(0.20),
                       )
                     : null,
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: MaterialButton(
+                  onPressed: () {
+                    externalController.editDoctorInfo().then((value) {
+                      myCasesController.getCases();
+                    });
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: double.infinity,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      gradient: const LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color(0xFF4A6BAD),
+                            Color.fromRGBO(25, 63, 138, 0.48),
+                          ]),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Color(0xffC3C3C3),
+                          spreadRadius: 2,
+                          blurRadius: 4,
+                          offset: Offset(0, 4), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: FittedBox(
+                      child: Text(
+                        "Update".tr,
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 25),
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
