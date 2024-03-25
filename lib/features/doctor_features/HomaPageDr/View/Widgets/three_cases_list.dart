@@ -26,7 +26,7 @@ class ThreeCasesList extends StatelessWidget {
           ),
         );
       } else if (controller.requestStatus == RequestStatus.LOADING) {
-        return ShimmerListRow();
+        return const ShimmerListRow();
       } else if (controller.requestStatus == RequestStatus.EMPTY_SUCCESS) {
         return Center(
           child: Column(

@@ -15,27 +15,29 @@ class ShimmerListRow extends StatelessWidget {
           backgroundColor: Colors.grey,
           radius: 30,
         ),
-        title: Row(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.circular(10),
+        title: FittedBox(
+          child: Row(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                margin: const EdgeInsets.only(bottom: 5, right: 10),
+                height: 16,
+                width: 80, // Adjust width as needed
               ),
-              margin: const EdgeInsets.only(bottom: 5, right: 10),
-              height: 16,
-              width: 80, // Adjust width as needed
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.circular(10),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                margin: const EdgeInsets.only(bottom: 5),
+                height: 16,
+                width: 120, // Adjust width as needed
               ),
-              margin: const EdgeInsets.only(bottom: 5),
-              height: 16,
-              width: 120, // Adjust width as needed
-            ),
-          ],
+            ],
+          ),
         ),
         subtitle: Container(
           height: 40,
