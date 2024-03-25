@@ -1,6 +1,6 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
-import 'package:dentalmatching/core/shared/shimmer.dart';
+import 'package:dentalmatching/core/shared/shimmer_column.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AppUpper.dart';
 import 'package:dentalmatching/features/doctor_features/search_cases/controller/search_cases_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/search_cases/view/widgets/search_button.dart';
@@ -23,7 +23,7 @@ class SearchCasesScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             AppUpperWidget(
+            AppUpperWidget(
               welcome: false,
               needBackButton: true,
               text: 'Search Screen     '.tr,
@@ -39,7 +39,6 @@ class SearchCasesScreen extends StatelessWidget {
                         validator: (value) {
                           return AppValidator.textFormFieldValidator(
                               value!, "username");
-
                         },
                         fieldController: externalController.searchController),
                   ),
@@ -58,7 +57,7 @@ class SearchCasesScreen extends StatelessWidget {
               if (controller.requestStatus == RequestStatus.SUCCESS) {
                 return const SearchFormListView();
               } else if (controller.requestStatus == RequestStatus.LOADING) {
-                return const Expanded(child: ShimmerList());
+                return const Expanded(child: ShimmerListColumn());
               } else if (controller.requestStatus ==
                   RequestStatus.EMPTY_SUCCESS) {
                 return Center(

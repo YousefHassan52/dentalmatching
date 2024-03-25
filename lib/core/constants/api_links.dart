@@ -47,4 +47,6 @@ class ApiLinks {
       "https://dentamatch.azurewebsites.net/DentalCase/GetUnknownCases";
   static const String classifyCase =
       "https://dentamatch.azurewebsites.net/DentalCase/ClassifyCase";
+  static const String getThreeCases =
+      "https://dentamatch.azurewebsites.net/Doctor/DentalCase/GetFirstThreeUnassignedCases";
 }

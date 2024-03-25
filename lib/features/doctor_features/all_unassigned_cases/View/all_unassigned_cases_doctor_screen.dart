@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
-import 'package:dentalmatching/core/shared/shimmer.dart';
+import 'package:dentalmatching/core/shared/shimmer_column.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AppUpper.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/FormListView.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
@@ -21,7 +21,7 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           AppUpperWidget(
+          AppUpperWidget(
             welcome: false,
             needBackButton: true,
             text: 'All Cases       '.tr,
@@ -31,7 +31,7 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                 Flexible(
+                Flexible(
                   flex: 200,
                   fit: FlexFit.loose,
                   child: FittedBox(
@@ -61,7 +61,7 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
             if (controller.requestStatus == RequestStatus.SUCCESS) {
               return const FormListView();
             } else if (controller.requestStatus == RequestStatus.LOADING) {
-              return const Expanded(child: ShimmerList());
+              return const Expanded(child: ShimmerListColumn());
             } else if (controller.requestStatus ==
                 RequestStatus.EMPTY_SUCCESS) {
               return Center(

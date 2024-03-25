@@ -1,6 +1,7 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/features/doctor_features/HomaPageDr/controller/get_three_cases_controller_imp.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/data/Model/CaseDoctorModel.dart';
 import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/signup/data/models/doctor_model.dart';
@@ -47,7 +48,10 @@ class ViewWholeCaseDoctorControllerImpl
         updateAssignmentStatus(true);
         GetDocotorCasesControllerImpl doctorCases =
             Get.put(GetDocotorCasesControllerImpl());
+        GetThreeCasesControllerImpl homeCases =
+            Get.put(GetThreeCasesControllerImpl());
         doctorCases.getCases();
+        homeCases.getCases();
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
       Get.defaultDialog(
@@ -80,8 +84,14 @@ class ViewWholeCaseDoctorControllerImpl
         Get.snackbar(
             "Case Cancelled", "You are not responsible for this case any more");
       }
+      GetDocotorCasesControllerImpl doctorCases =
+          Get.put(GetDocotorCasesControllerImpl());
+      GetThreeCasesControllerImpl homeCases =
+          Get.put(GetThreeCasesControllerImpl());
+      doctorCases.getCases();
+      homeCases.getCases();
 
-      updateAssignmentStatus(true);
+      updateAssignmentStatus(false);
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
       Get.defaultDialog(middleText: "Case is already not assigned to you");
     } else {

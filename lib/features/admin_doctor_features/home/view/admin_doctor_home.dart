@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
-import 'package:dentalmatching/core/shared/shimmer.dart';
+import 'package:dentalmatching/core/shared/shimmer_column.dart';
 import 'package:dentalmatching/features/admin_doctor_features/home/controller/home_controller_impl.dart';
 import 'package:dentalmatching/features/admin_doctor_features/home/view/widgets/form_list_view_unkown_cases.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AppUpper.dart';
@@ -72,7 +72,7 @@ class AdminDoctorHome extends StatelessWidget {
             if (controller.requestStatus == RequestStatus.SUCCESS) {
               return const UnkownCasesFormListView();
             } else if (controller.requestStatus == RequestStatus.LOADING) {
-              return const Expanded(child: ShimmerList());
+              return const Expanded(child: ShimmerListColumn());
             } else if (controller.requestStatus ==
                 RequestStatus.EMPTY_SUCCESS) {
               return Center(

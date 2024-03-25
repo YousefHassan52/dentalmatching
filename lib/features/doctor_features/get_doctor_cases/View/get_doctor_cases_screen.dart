@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
-import 'package:dentalmatching/core/shared/shimmer.dart';
+import 'package:dentalmatching/core/shared/shimmer_column.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AppUpper.dart';
 import 'package:dentalmatching/features/doctor_features/get_doctor_cases/View/Widget/FormListView.dart';
 import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
@@ -28,17 +28,17 @@ class GetDoctorCasesScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
-                  flex: 200,
-                  fit: FlexFit.loose,
-                  child: FittedBox(
-                    child: AutoSizeText(
-                      maxFontSize: 25,
-                      minFontSize: 15,
-                      'Requested Cases'.tr,
-                      style: Styles.LightBlue,
-                    ),
+                flex: 200,
+                fit: FlexFit.loose,
+                child: FittedBox(
+                  child: AutoSizeText(
+                    maxFontSize: 25,
+                    minFontSize: 15,
+                    'Requested Cases'.tr,
+                    style: Styles.LightBlue,
                   ),
                 ),
+              ),
               const Spacer(),
               IconButton(
                   onPressed: () {
@@ -71,7 +71,7 @@ class GetDoctorCasesScreen extends StatelessWidget {
           if (controller.requestStatus == RequestStatus.SUCCESS) {
             return Container(child: const FormListViewRequested());
           } else if (controller.requestStatus == RequestStatus.LOADING) {
-            return const Expanded(child: ShimmerList());
+            return const Expanded(child: ShimmerListColumn());
           } else if (controller.requestStatus == RequestStatus.EMPTY_SUCCESS) {
             return const Center(
               child: Text(
