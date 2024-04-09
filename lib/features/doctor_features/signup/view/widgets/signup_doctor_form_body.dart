@@ -7,6 +7,7 @@ import 'package:dentalmatching/features/doctor_features/signup/controller/signup
 import 'package:dentalmatching/features/doctor_features/signup/view/widgets/add_card_image.dart';
 import 'package:dentalmatching/features/doctor_features/signup/view/widgets/doctor_dropdown_gender.dart';
 import 'package:dentalmatching/features/doctor_features/signup/view/widgets/doctor_government_dropdown_search.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -34,7 +35,7 @@ class SignupDoctorFormBody extends StatelessWidget {
       child: Column(
         children: [
           AuthTextFormField(
-              hint: "First Name",
+              hint: "Full Name".tr,
               icon: "assets/svg/first_name.svg",
               type: TextInputType.name,
               validator: (value) {
@@ -46,7 +47,7 @@ class SignupDoctorFormBody extends StatelessWidget {
           ),
 
           AuthTextFormField(
-              hint: "age",
+              hint: "Age".tr,
               icon: "assets/svg/age.svg",
               type: TextInputType.number,
               validator: (value) {
@@ -67,7 +68,7 @@ class SignupDoctorFormBody extends StatelessWidget {
             height: 15,
           ),
           AuthTextFormField(
-              hint: "University",
+              hint: "University".tr,
               icon: "assets/svg/Home.svg",
               type: TextInputType.name,
               validator: (value) {
@@ -81,7 +82,7 @@ class SignupDoctorFormBody extends StatelessWidget {
           ),
           // phone----------------------------
           AuthTextFormField(
-              hint: "Phone",
+              hint: "Phone".tr,
               icon: "assets/svg/phone.svg",
               type: TextInputType.phone,
               validator: (value) {
@@ -93,7 +94,7 @@ class SignupDoctorFormBody extends StatelessWidget {
           ),
           // email-------------------------------
           AuthTextFormField(
-              hint: "Email Address",
+              hint: "Email Address".tr,
               icon: "assets/svg/email.svg",
               type: TextInputType.emailAddress,
               validator: (value) {
@@ -106,7 +107,7 @@ class SignupDoctorFormBody extends StatelessWidget {
           ),
           GetBuilder<SignupDoctorControllerImpl>(
             builder: (controller) => AuthTextFormField(
-              hint: "Password",
+              hint: "Password".tr,
               icon: "assets/svg/unlock.svg",
               type: TextInputType.visiblePassword,
               validator: (value) {
@@ -137,10 +138,7 @@ class SignupDoctorFormBody extends StatelessWidget {
             builder: (controller) => Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Flexible(
-                  child:
-                      FittedBox(fit: BoxFit.scaleDown, child: AddCardImage()),
-                ),
+                AddCardImage(),
                 Flexible(
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
@@ -160,7 +158,7 @@ class SignupDoctorFormBody extends StatelessWidget {
             height: 30,
           ),
           AuthButton(
-              buttonText: "Signup",
+              buttonText: "Signup".tr,
               onTap: () {
                 externalController.signup();
               }),

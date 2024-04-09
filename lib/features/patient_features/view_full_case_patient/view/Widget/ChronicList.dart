@@ -1,5 +1,6 @@
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ChronicOrDentalList extends StatelessWidget {
   final List<String> chronicDiseases = [
@@ -19,7 +20,7 @@ class ChronicOrDentalList extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: list
             .map((disease) => Text(
-                  disease,
+                  disease.tr,
                   style: Styles.textStyle16Grey,
                 ))
             .toList(),

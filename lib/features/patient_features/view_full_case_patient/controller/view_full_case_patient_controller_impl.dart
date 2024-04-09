@@ -28,8 +28,8 @@ class ViewFullCasePatientControllerImpl
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {
         Get.back();
-        Get.snackbar(
-            "Deleted Successfully", "Your case has been deleted Successfully");
+        Get.snackbar("Deleted Successfully".tr,
+            "Your case has been deleted Successfully".tr);
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
       Get.defaultDialog(middleText: "Dental case already deleted !");

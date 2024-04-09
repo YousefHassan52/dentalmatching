@@ -4,6 +4,17 @@ class MyTranslation implements Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         "ar": {
+          // signup
+          "Personal Info": "بياناتك",
+          "Signup": "انشاء حساب",
+          "Email Address": "بريد الكتروني",
+          "University": "الجامعة",
+          "Age": "السن",
+          "Full Name": "الاسم",
+          "Governorate": "المحافظة",
+          "Gender": "النوع",
+          "Address": "لعنوان",
+
           "WELCOME": "مرحبا",
           "Settings": "اعدادات",
           "Add Case": "اضف حالة",
@@ -30,8 +41,9 @@ class MyTranslation implements Translations {
           'Log out': "الخروج",
           'Case': "حالة",
           "Update": 'تحديث',
-          "Are you sure you want to delete your Acoount?":"هل انت متأكد انك تريد حذف حسابك؟",
-          'Alert':'انتبه',
+          "Are you sure you want to delete your Acoount?":
+              "هل انت متأكد انك تريد حذف حسابك؟",
+          'Alert': 'انتبه',
 
           //MyCases
           'Recently Added Cases': "الحالات المضافة مؤخرًا",
@@ -67,14 +79,19 @@ class MyTranslation implements Translations {
           'Dental Cases': "حالات الأسنان",
           'Known': 'اعلم',
           'Unknown': 'لا اعلم',
-          "Success ":"نجحت",
-          "Your Case Posted Successfully":"تم اضفة الحالة بنجاح",
-          "Your description must be more than 20 letters":"يجب أن يكون الوصف الخاص بك أكثر من 20 حرفًا",
-          'Please select at least one item in the checklist.':"الرجاء تحديد عنصر واحد على الأقل في القائمة .",
-          'Please select your case.':"الرجاء تحديد حالتك.",
-          'Maximum Number of X_ray Images is 2':"الحد الأقصى لعدد صور الأشعة هو 2",
-          'Maximum Number of Prescription Images is 2':"الحد الأقصى لعدد صور الروشتة هو 2",
-          'Please select more than 2 images for your mouth.':"يرجى اختيار أكثر من صورتين لفمك.",
+          "Success ": "نجحت",
+          "Your Case Posted Successfully": "تم اضفة الحالة بنجاح",
+          "Your description must be more than 20 letters":
+              "يجب أن يكون الوصف الخاص بك أكثر من 20 حرفًا",
+          'Please select at least one item in the checklist.':
+              "الرجاء تحديد عنصر واحد على الأقل في القائمة .",
+          'Please select your case.': "الرجاء تحديد حالتك.",
+          'Maximum Number of X_ray Images is 2':
+              "الحد الأقصى لعدد صور الأشعة هو 2",
+          'Maximum Number of Prescription Images is 2':
+              "الحد الأقصى لعدد صور الروشتة هو 2",
+          'Please select more than 2 images for your mouth.':
+              "يرجى اختيار أكثر من صورتين لفمك.",
 
           //whole case
           'Case Detailes        ': "تفاصيل الحالة     ",
@@ -85,51 +102,64 @@ class MyTranslation implements Translations {
           'Prescription Images': 'صور الروشتة',
 
           //Assigned Case Patient
-          'Dr.':"د.",
-          'Location :':"المكان :",
-          'Phone Number :':'رقم الهاتف :',
+          'Dr.': "د.",
+          'Location :': "المكان :",
+          'Phone Number :': 'رقم الهاتف :',
 
           //EditPatient
-          'Edit Case        ':"تعديل الحالة     ",
-
+          'Edit Case        ': "تعديل الحالة     ",
+          // delete case
+          "Your case has been deleted Successfully": "تم حذف حالتك بنجاح",
+          "Deleted Successfully": "تم الحذف",
           //login
-          'Welcome Back':"مرحبًا بعودتك",
-          "Phone":"رقم الهاتف",
-          "Password":"كلمة المرور",
-          'Forget Password?':"هل نسيت كلمة المرور؟",
-          "Login":'الدخول',
-          "Don't have an account?":"ليس لديك حساب؟",
-           "Sign up":'اشتراك',
+          'Welcome Back': "مرحبًا بعودتك",
+          "Phone": "رقم الهاتف",
+          "Password": "كلمة المرور",
+          'Forget Password?': "هل نسيت كلمة المرور؟",
+          "Login": 'الدخول',
+          "Don't have an account?": "ليس لديك حساب؟",
+          "Sign up": 'اشتراك',
 
-           //presignup
-           "D O C T O R  ":" دكتور",
-           "P A T I E N T":'مريض',
+          //presignup
+          "D O C T O R  ": " دكتور",
+          "P A T I E N T": 'مريض',
 
-           //Home
-           "Search":'بحث',
-           
-           //search
-           'Search Screen     ':"ابحث     ",
+          //Home
+          "Search": 'بحث',
 
-           //requested cases
-           'Requested Cases':"  حالاتك  ",
-           //all cases
-           'All Cases       ':'جميع الحالات     ',
-           'General Cases':'حالات العامة',
-           'Categories':'فئات',
-           'See All':'المزيد',
-           'Description':'وصف االحالة',
-           'Pictures Of Mouth':'صور الفم',
-           'X-Ray':'الاشعة',
-           'Prescription':'الروشتة',
-           'Dental Diseases':'الحالة االطبي',
-           "Patient Details       ":'تفاصيل الحالة       ',
-           'Request':'طلب',
-           'Appointments        ':'مواعيد        '
+          //search
+          'Search Screen     ': "ابحث     ",
 
-
+          //requested cases
+          'Requested Cases': "  حالاتك  ",
+          //all cases
+          'All Cases       ': 'جميع الحالات     ',
+          'General Cases': 'حالات العامة',
+          'Categories': 'فئات',
+          'See All': 'المزيد',
+          'Description': 'وصف االحالة',
+          'Pictures Of Mouth': 'صور الفم',
+          'X-Ray': 'الاشعة',
+          'Prescription': 'الروشتة',
+          'Dental Diseases': 'الحالة االطبي',
+          "Patient Details       ": 'تفاصيل الحالة       ',
+          'Request': 'طلب',
+          'Appointments        ': 'مواعيد        '
         },
         "en": {
+          // signup
+
+          "Signup": "Signup",
+          "Email Address": "Email Address",
+          "University": "University",
+          "Age": "Age",
+          "Full Name": "Full Name",
+          "Governorate": "Governorate",
+          "Gender": "Gender",
+          "Address": "Address",
+
+          "Personal Info": "Personal Info",
+
           "WELCOME": "WELCOME",
           "Settings": "Setting",
           "Add Case": "Add Case",
@@ -150,19 +180,24 @@ class MyTranslation implements Translations {
           "Edit Profile Info": "Edit Profile Info",
           '- English': '- English',
           '- Arabic': "- Arabic",
-          'Alert':'Alert',
-          "Are you sure you want to delete your Acoount?":"Are you sure you want to delete your Acoount?",
-         
+          'Alert': 'Alert',
+          "Are you sure you want to delete your Acoount?":
+              "Are you sure you want to delete your Acoount?",
+
           //All Cases
           'Recently Added Cases': 'Recently Added Cases',
           //Add Case
-          "Your description must be more than 20 letters":"Your description must be more than 20 letters",
-          "Your Case Posted Successfully":"Your Case Posted Successfully",
-          "Success ":"Success ",
-          'Maximum Number of Prescription Images is 2':'Maximum Number of Prescription Images is 2',
-          'Maximum Number of X_ray Images is 2':'Maximum Number of X_ray Images is 2',
-          'Please select more than 2 images for your mouth.':'Please select more than 2 images for your mouth.',
-          'Please select your case.':'Please select your case.',
+          "Your description must be more than 20 letters":
+              "Your description must be more than 20 letters",
+          "Your Case Posted Successfully": "Your Case Posted Successfully",
+          "Success ": "Success ",
+          'Maximum Number of Prescription Images is 2':
+              'Maximum Number of Prescription Images is 2',
+          'Maximum Number of X_ray Images is 2':
+              'Maximum Number of X_ray Images is 2',
+          'Please select more than 2 images for your mouth.':
+              'Please select more than 2 images for your mouth.',
+          'Please select your case.': 'Please select your case.',
           'Describe what you feel': 'Describe what you feel',
           'Chronic Diseases': 'Chronic Diseases',
           'Add a Clear Pictures of your Mouth':
@@ -196,7 +231,8 @@ class MyTranslation implements Translations {
           'Unknown': 'Unknown',
           "Update": "Update",
 
-          'Please select at least one item in the checklist.':'Please select at least one item in the checklist.',
+          'Please select at least one item in the checklist.':
+              'Please select at least one item in the checklist.',
 
           //whole Case
           "Edit": "Edit",
@@ -207,43 +243,45 @@ class MyTranslation implements Translations {
 
           //Assigned Case Patient
           'Dr.': 'Dr.',
-          'Location :':'Location :',
+          'Location :': 'Location :',
 
           //edit case patient
-          'Edit Case        ':'Edit Case        ',
-
+          'Edit Case        ': 'Edit Case        ',
+// delete case
+          "Your case has been deleted Successfully":
+              "Your case has been deleted Successfully",
+          "Deleted Successfully": "Deleted Successfully",
           //login
-          'Welcome Back':'Welcome Back',
-          'Forget Password?':'Forget Password?',
-          "Password":"Password",
-          "Phone":"Phone",
-          "Login":"Login",
-          "Don't have an account?":"Don't have an account?",
-           "Sign up": "Sign up",
+          'Welcome Back': 'Welcome Back',
+          'Forget Password?': 'Forget Password?',
+          "Password": "Password",
+          "Phone": "Phone",
+          "Login": "Login",
+          "Don't have an account?": "Don't have an account?",
+          "Sign up": "Sign up",
 
-            //presignup
-           "D O C T O R  ":"D O C T O R  ",
-           "P A T I E N T":"P A T I E N T",
+          //presignup
+          "D O C T O R  ": "D O C T O R  ",
+          "P A T I E N T": "P A T I E N T",
 
-           //home
-           "Search":"Search",
+          //home
+          "Search": "Search",
 
-           //search
-           'Search Screen     ':'Search Screen     ',
+          //search
+          'Search Screen     ': 'Search Screen     ',
 
-           //requested cases dr
-           'Requested Cases':'Requested Cases',
-             //all cases
-           'All Cases       ':'All Cases       ',
-           'General Cases':'General Cases',
-           'Categories':'Categories',
-           'See All':'See All',
-           'Description':'Description',
-           'Pictures Of Mouth':'Pictures Of Mouth',
-           'Prescription':'Prescription',
-           'X-Ray':'X-Ray',
-           'Dental Diseases':'Dental Diseases',
-
+          //requested cases dr
+          'Requested Cases': 'Requested Cases',
+          //all cases
+          'All Cases       ': 'All Cases       ',
+          'General Cases': 'General Cases',
+          'Categories': 'Categories',
+          'See All': 'See All',
+          'Description': 'Description',
+          'Pictures Of Mouth': 'Pictures Of Mouth',
+          'Prescription': 'Prescription',
+          'X-Ray': 'X-Ray',
+          'Dental Diseases': 'Dental Diseases',
         },
       };
 }

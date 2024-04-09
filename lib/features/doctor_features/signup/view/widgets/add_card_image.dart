@@ -1,17 +1,21 @@
 import 'package:dentalmatching/features/doctor_features/signup/controller/signup_doctor_controller_impl.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class AddCardImage extends StatelessWidget {
   const AddCardImage({
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     SignupDoctorControllerImpl controller =
         Get.put(SignupDoctorControllerImpl());
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return MaterialButton(
       onPressed: () {
         controller.pickImage();
@@ -19,8 +23,8 @@ class AddCardImage extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(5),
         alignment: Alignment.center,
-        width: Get.width * 0.5,
-        height: Get.width * 0.3 - 40,
+        width: screenWidth * 0.35, // Adjust this value as needed
+        height: screenWidth * 0.2, // Adjust this value as needed
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           gradient: const LinearGradient(
@@ -42,13 +46,22 @@ class AddCardImage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                "ID Photo",
-                style: TextStyle(color: Colors.white, fontSize: 18),
+              Flexible(
+                child: Text(
+                  "ID Photo",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: screenWidth * 0.04, // Adjust this value as needed
+                  ),
+                ),
               ),
-              const Spacer(),
-              SvgPicture.asset(height: 30, "assets/svg/Boldd_Camera.svg")
+              SvgPicture.asset(
+                "assets/svg/Boldd_Camera.svg",
+                height: screenWidth * 0.08, // Adjust this value as needed
+                width: screenWidth * 0.08, // Adjust this value as needed
+              ),
             ],
           ),
         ),

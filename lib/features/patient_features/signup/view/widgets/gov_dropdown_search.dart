@@ -21,16 +21,16 @@ class GovernmentDropdownSearch extends StatelessWidget {
         showSelectedItems: true,
       ),
       items: governments,
-      dropdownDecoratorProps: const DropDownDecoratorProps(
+      dropdownDecoratorProps: DropDownDecoratorProps(
         dropdownSearchDecoration: InputDecoration(
-            prefixIcon: CustomSvgPicture(icon: "assets/svg/Pin.svg"),
-            focusedBorder: UnderlineInputBorder(
+            prefixIcon: const CustomSvgPicture(icon: "assets/svg/Pin.svg"),
+            focusedBorder: const UnderlineInputBorder(
                 borderSide:
                     BorderSide(width: 3.0, color: AppColors.secondColor)),
-            enabledBorder: UnderlineInputBorder(
+            enabledBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(width: 3.0, color: Color(0xFFCBE1F8))),
-            hintText: "Governorate",
-            hintStyle: TextStyle(
+            hintText: "Governorate".tr,
+            hintStyle: const TextStyle(
               color: Color.fromARGB(100, 94, 148, 195),
               fontSize: 16,
             )),

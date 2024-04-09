@@ -26,7 +26,7 @@ class SignupFormBody extends StatelessWidget {
       child: Column(
         children: [
           AuthTextFormField(
-              hint: "Full Name",
+              hint: "Full Name".tr,
               icon: "assets/svg/first_name.svg",
               type: TextInputType.name,
               validator: (value) {
@@ -38,7 +38,7 @@ class SignupFormBody extends StatelessWidget {
           ),
 
           AuthTextFormField(
-              hint: "age",
+              hint: "Age".tr,
               icon: "assets/svg/age.svg",
               type: TextInputType.number,
               validator: (value) {
@@ -59,7 +59,7 @@ class SignupFormBody extends StatelessWidget {
             height: 15,
           ),
           AuthTextFormField(
-              hint: "Address",
+              hint: "Address".tr,
               icon: "assets/svg/Home.svg",
               type: TextInputType.name,
               validator: (value) {
@@ -73,7 +73,7 @@ class SignupFormBody extends StatelessWidget {
           ),
           // phone----------------------------
           AuthTextFormField(
-              hint: "Phone",
+              hint: "Phone".tr,
               icon: "assets/svg/phone.svg",
               type: TextInputType.phone,
               validator: (value) {
@@ -85,7 +85,7 @@ class SignupFormBody extends StatelessWidget {
           ),
           // email-------------------------------
           AuthTextFormField(
-              hint: "Email Address",
+              hint: "Email Address".tr,
               icon: "assets/svg/email.svg",
               type: TextInputType.emailAddress,
               validator: (value) {
@@ -98,7 +98,7 @@ class SignupFormBody extends StatelessWidget {
           ),
           GetBuilder<SignupPatientControllerImpl>(
             builder: (controller) => AuthTextFormField(
-              hint: "Password",
+              hint: "Password".tr,
               icon: "assets/svg/unlock.svg",
               type: TextInputType.visiblePassword,
               validator: (value) {
@@ -126,7 +126,7 @@ class SignupFormBody extends StatelessWidget {
             height: 30,
           ),
           AuthButton(
-              buttonText: "Signup",
+              buttonText: "Signup".tr,
               onTap: () {
                 externalController.signup();
               }),

@@ -12,7 +12,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 // test commit
   await initialServices();
-  runApp(const MyApp());
+  runApp(DevicePreview(builder: (builder) => const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

@@ -20,16 +20,16 @@ class GenderDropdown extends StatelessWidget {
         showSelectedItems: true,
       ),
       items: gender,
-      dropdownDecoratorProps: const DropDownDecoratorProps(
+      dropdownDecoratorProps: DropDownDecoratorProps(
         dropdownSearchDecoration: InputDecoration(
-            prefixIcon: CustomSvgPicture(icon: "assets/svg/gender.svg"),
-            focusedBorder: UnderlineInputBorder(
+            prefixIcon: const CustomSvgPicture(icon: "assets/svg/gender.svg"),
+            focusedBorder: const UnderlineInputBorder(
                 borderSide:
                     BorderSide(width: 3.0, color: AppColors.secondColor)),
-            enabledBorder: UnderlineInputBorder(
+            enabledBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(width: 3.0, color: Color(0xFFCBE1F8))),
-            hintText: "Gender",
-            hintStyle: TextStyle(
+            hintText: "Gender".tr,
+            hintStyle: const TextStyle(
               color: Color.fromARGB(100, 94, 148, 195),
               fontSize: 16,
             )),

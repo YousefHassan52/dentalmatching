@@ -45,7 +45,7 @@ class UpperSignupWidget extends StatelessWidget {
             Container(
               constraints: BoxConstraints(maxWidth: Get.width),
               child: Text(
-                "Personal Information",
+                "Personal Info".tr,
                 overflow: TextOverflow.ellipsis,
                 style: Styles.largetitle.copyWith(color: Colors.white),
               ),

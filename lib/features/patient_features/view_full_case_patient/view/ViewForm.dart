@@ -28,6 +28,7 @@ class ViewForm extends StatelessWidget {
             child: PopupMenuButton(
               child: const Icon(
                 Icons.edit,
+                size: 35,
                 color: AppColors.mainColor,
               ),
               itemBuilder: (context) => [
@@ -52,17 +53,17 @@ class ViewForm extends StatelessWidget {
           padding: const EdgeInsets.only(top: 0),
           children: [
             if (controller.caseModel.isAssigned == false)
-             UpperWidget(
-              needBackButton: true,
-              text: 'Case Detailes        '.tr,
-              welcome: false,
-            ),
+              UpperWidget(
+                needBackButton: true,
+                text: 'Case Detailes        '.tr,
+                welcome: false,
+              ),
             if (controller.caseModel.isAssigned == true)
-            UpperAssigned(
-              text: 'Case Detailes        '.tr,
-              needBackButton: true,
-              welcome: false,
-            ),
+              UpperAssigned(
+                text: 'Case Detailes        '.tr,
+                needBackButton: true,
+                welcome: false,
+              ),
             const SizedBox(
               height: 2,
             ),

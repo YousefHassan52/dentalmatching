@@ -15,8 +15,7 @@ class BioWidgetDr extends StatelessWidget {
       this.isLongText = false,
       this.isLocation = false,
       this.textColor = Colors.white,
-      this.onPressed
-      });
+      this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -51,16 +50,20 @@ class BioWidgetDr extends StatelessWidget {
             ),
           ),
         ),
-        
-        if(isLocation==true)
-        const SizedBox(width: 5,),
-        if(isLocation==true)
-        FittedBox(
-          fit: BoxFit.scaleDown,
-          child: Flexible(
-            child: IconButton(onPressed: onPressed, icon:const Icon(Icons.link_outlined , color: Colors.white ,)),
+        if (isLocation == true)
+          const SizedBox(
+            width: 5,
           ),
-        )
+        if (isLocation == true)
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: IconButton(
+                onPressed: onPressed,
+                icon: const Icon(
+                  Icons.link_outlined,
+                  color: Colors.white,
+                )),
+          )
       ],
     );
   }
