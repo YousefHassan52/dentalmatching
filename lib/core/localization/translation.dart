@@ -4,7 +4,17 @@ class MyTranslation implements Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         "ar": {
+          //search
+           "Write a Keyword to Search":"اكتب كلمة رئيسية للبحث عنها",
+          //login
+          "Invalid Phone Number":"رقم الهاتف غير صالح",
+          "Invalid Password":"كلمة السر غير صالحة",
+          "Please Wait for Identity Verification":"الرجاء انتظار التحقق من الهوية",
+          "Incorrect Phone Number or Password":" رقم الهاتف أو كلمة المرور غير صحيحة",
           // signup
+          "Password Doesn't Match ":"كلمة المرور غير متطابقة",
+          "Invalid Username":"اسم المستخدم غير صالح",
+          "Invalid Email Address":"عنوان البريد الإلكتروني غير صالح",
           "Personal Info": "بياناتك",
           "Signup": "انشاء حساب",
           "Email Address": "بريد الكتروني",
@@ -48,6 +58,7 @@ class MyTranslation implements Translations {
           //MyCases
           'Recently Added Cases': "الحالات المضافة مؤخرًا",
           //AddCase
+          "Your description must be more than 20 letters":"يجب أن يكون الوصف الخاص بك أكثر من 20 حرفًا",
           'Describe what you feel': "صف ما تشعر به",
           'Chronic Diseases': 'الأمراض المزمنة',
           'Add a Clear Pictures of your Mouth': "أضف صورًا واضحة لفمك",
@@ -80,11 +91,9 @@ class MyTranslation implements Translations {
           'Known': 'اعلم',
           'Unknown': 'لا اعلم',
           "Success ": "نجحت",
-          "Your Case Posted Successfully": "تم اضفة الحالة بنجاح",
-          "Your description must be more than 20 letters":
-              "يجب أن يكون الوصف الخاص بك أكثر من 20 حرفًا",
+          "Your Case Posted Successfully": "تم اضافة الحالة بنجاح",
           'Please select at least one item in the checklist.':
-              "الرجاء تحديد عنصر واحد على الأقل في القائمة .",
+              "الرجاء تحديد عنصر واحد على الأقل في قائمة الأمراض المزمنة .",
           'Please select your case.': "الرجاء تحديد حالتك.",
           'Maximum Number of X_ray Images is 2':
               "الحد الأقصى لعدد صور الأشعة هو 2",
@@ -105,6 +114,7 @@ class MyTranslation implements Translations {
           'Dr.': "د.",
           'Location :': "المكان :",
           'Phone Number :': 'رقم الهاتف :',
+          "You Must Paste a Valid Google Map Link of Hospital":"يجب عليك لصق رابط لخريطة جوجل للمستشفى",
 
           //EditPatient
           'Edit Case        ': "تعديل الحالة     ",
@@ -147,8 +157,11 @@ class MyTranslation implements Translations {
           'Appointments        ': 'مواعيد        '
         },
         "en": {
+          
           // signup
-
+          "Password Doesn't Match ":"Password Doesn't Match ",
+          "Invalid Username":"Invalid Username",
+          "Invalid Email Address":"Invalid Email Address",
           "Signup": "Signup",
           "Email Address": "Email Address",
           "University": "University",
@@ -244,14 +257,18 @@ class MyTranslation implements Translations {
           //Assigned Case Patient
           'Dr.': 'Dr.',
           'Location :': 'Location :',
+          "You Must Paste a Valid Google Map Link of Hospital":"You Must Paste a Valid Google Map Link of Hospital",
 
           //edit case patient
           'Edit Case        ': 'Edit Case        ',
 // delete case
           "Your case has been deleted Successfully":
-              "Your case has been deleted Successfully",
+          "Your case has been deleted Successfully",
           "Deleted Successfully": "Deleted Successfully",
           //login
+          "Incorrect Phone Number or Password":"Incorrect Phone Number or Password",
+          "Please Wait for Identity Verification":"Please Wait for Identity Verification",
+          "Invalid Password":"Invalid Password",
           'Welcome Back': 'Welcome Back',
           'Forget Password?': 'Forget Password?',
           "Password": "Password",

@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'dart:io';
 
 import 'package:dentalmatching/core/class/request_status.dart';
@@ -126,7 +127,7 @@ class AddCaseController extends GetxController {
   bool pressureValidation() {
     if (showPressureChecklist && pressure.isEmpty) {
       Get.defaultDialog(
-        title: 'Alert',
+        title: 'Alert'.tr,
         middleText: 'Please select your Pressure Level.',
         backgroundColor: Colors.red,
       );
@@ -138,7 +139,7 @@ class AddCaseController extends GetxController {
   bool checkBoxValidation() {
     if (!AppValidator.validateCheckbox(checkedItems)) {
       Get.defaultDialog(
-        title: 'Alert',
+        title: 'Alert'.tr.tr,
         middleText: 'Please select at least one item in the checklist.'.tr,
         backgroundColor: Colors.red,
       );
@@ -150,7 +151,7 @@ class AddCaseController extends GetxController {
   bool caseValidation() {
     if (selected.isEmpty) {
       Get.defaultDialog(
-        title: 'Alert',
+        title: 'Alert'.tr,
         middleText: 'Please select your case.'.tr,
         backgroundColor: Colors.red,
       );
@@ -164,7 +165,7 @@ class AddCaseController extends GetxController {
       return true;
     } else {
       Get.defaultDialog(
-        title: 'Alert',
+        title: 'Alert'.tr,
         middleText: 'Please select more than 2 images for your mouth.'.tr,
         backgroundColor: Colors.red,
       );
@@ -175,7 +176,7 @@ class AddCaseController extends GetxController {
   bool xrayValidation() {
     if (xray != null && xray!.length > 2) {
       Get.defaultDialog(
-        title: 'Alert',
+        title: 'Alert'.tr,
         middleText: 'Maximum Number of X_ray Images is 2'.tr,
         backgroundColor: Colors.red,
       );
@@ -188,7 +189,7 @@ class AddCaseController extends GetxController {
   bool prescriptionValidation() {
     if (prescription != null && prescription!.length > 2) {
       Get.defaultDialog(
-        title: 'Alert',
+        title: 'Alert'.tr,
         middleText: 'Maximum Number of Prescription Images is 2'.tr,
         backgroundColor: Colors.red,
       );

@@ -50,13 +50,14 @@ class FormBody extends StatelessWidget {
           const SizedBox(
             height: 9,
           ),
+          
           AddImageWidget(
             img: 'assets/svg/Bold_Img_load-box.svg',
             txt: 'Upload Pictures'.tr,
             onPressed: () {
               controller.pickMouthImages();
             },
-          ),
+           ),
           //  SizedBox(
           //   height: 8,
           // ),

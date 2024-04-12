@@ -4,24 +4,24 @@ class AppValidator {
   static textFormFieldValidator(String value, String type) {
     if (type == "email") {
       if (!GetUtils.isEmail(value)) {
-        return "invalid Email address";
+        return "Invalid Email Address".tr;
       }
     }
 
     if (type == "username") {
       if (value.isEmpty) {
-        return "invalid username";
+        return "Invalid Username".tr;
       }
     }
     if (type == "search") {
       if (value.isEmpty) {
-        return "Write a word to search";
+        return "Write a Keyword to Search".tr;
       }
     }
 
     if (type == "phone") {
       if (!RegExp(r'^\d{11}$').hasMatch(value)) {
-        return "invalid Phone number";
+        return "Invalid Phone Number".tr;
       }
     }
     if (type == "password") {
@@ -29,19 +29,19 @@ class AppValidator {
         r'^(?=.*\d)(?=.*[a-zA-Z])(?=.*[A-Z])(?=.*[!@#\$%^&*(),.?":{}|<>]).{6,}$',
       );
       if (!strongPasswordRegex.hasMatch(value)) {
-        return "invalid password";
+        return "Invalid Password".tr;
       }
     }
     if (type == "Description") {
       if (value.length < 20) {
-        return "Your description must be more than 20 letters";
+        return "Your description must be more than 20 letters".tr;
       }
     }
     if (type == "link") {
       final urlRegExp = RegExp(
           r'^(?:http|https):\/\/[\w\-_]+(?:\.[\w\-_]+)+[\w\-.,@?^=%&:/~\+#]*[\w\-@?^=%&/~\+#]$');
       if (!urlRegExp.hasMatch(value)) {
-        return "You must paste a valid goole map link of hospital";
+        return "You Must Paste a Valid Google Map Link of Hospital".tr;
       }
     }
   }
@@ -49,7 +49,7 @@ class AppValidator {
   static chechkPasswordMatching(
       secondPasswordValue, String firstPasswordValue) {
     if (secondPasswordValue.toString() != firstPasswordValue) {
-      return "Passwords don't match ";
+      return "Password Doesn't Match ".tr;
     }
   }
 

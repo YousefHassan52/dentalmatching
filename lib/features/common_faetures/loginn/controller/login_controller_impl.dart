@@ -68,9 +68,9 @@ class LoginControllerImp extends LoginControllerAbstract {
           }
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-        Get.defaultDialog(middleText: "Incorrect Phone or Password");
+        Get.defaultDialog(middleText: "Incorrect Phone Number or Password".tr);
       } else if (requestStatus == RequestStatus.UNVERIFIED_DOCTOR_FAILURE) {
-        Get.defaultDialog(middleText: "Please Wait for Identity Verification");
+        Get.defaultDialog(middleText: "Please Wait for Identity Verification".tr);
       } else {
         Get.defaultDialog(middleText: "Server Error Please Try Again");
       }

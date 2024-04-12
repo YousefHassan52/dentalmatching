@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
+import 'package:dentalmatching/features/patient_features/AddCase/Controller/FormController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AddImageWidget extends StatelessWidget {
   final String img;
@@ -15,6 +19,7 @@ class AddImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AddCaseController controller = Get.find();
     return TextButton(
       onPressed: onPressed,
       child: Container(
@@ -24,13 +29,6 @@ class AddImageWidget extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.circleColor,
           borderRadius: BorderRadius.circular(20),
-          // boxShadow: [
-          //   BoxShadow(
-          //     color: Color(0xFF2C5390).withOpacity(0.2),
-          //     spreadRadius: 1,
-          //     blurRadius: 3,
-          //   ),
-          // ],
           image: DecorationImage(
             fit: BoxFit.cover,
             image: const AssetImage('assets/images/G.png'),
@@ -78,7 +76,7 @@ class AddImageWidget extends StatelessWidget {
                     width: 20,
                   ),
                   Center(
-                    child: Container(
+                    child: SizedBox(
                       height: 60,
                       width: Get.width * 0.18,
                       child: SvgPicture.asset(img),
@@ -86,8 +84,20 @@ class AddImageWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              
-              
+              //GetBuilder<AddCaseController>(
+              //   builder: (controller) => 
+              //       GridView.builder(
+              //         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              //           crossAxisCount: 3, // Change this value according to your needs
+              //           crossAxisSpacing: 4.0,
+              //           mainAxisSpacing: 4.0,
+              //         ),
+              //         itemCount: controller.mouthImages!.length,
+              //         itemBuilder: (BuildContext context, int index) {
+              //           return Image.file(controller.mouthImages![index]);
+              //         },
+              //       ),
+              // ),
             ],
           ),
         ),
