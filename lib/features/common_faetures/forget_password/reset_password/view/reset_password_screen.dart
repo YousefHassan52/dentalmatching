@@ -25,8 +25,8 @@ class ResetPasswordScreen extends StatelessWidget {
             onPressed: () {
               Get.back();
             }),
-        title: const Text(
-          "Reset Password",
+        title:  Text(
+          "Reset Password".tr,
           style: Styles.mediumTitle,
         ),
         backgroundColor: Colors.white,
@@ -47,8 +47,8 @@ class ResetPasswordScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                const Text(
-                  "Please enter your new password to reset your account access ",
+                 Text(
+                  "Please Enter Your New Password".tr,
                   style: Styles.textStyle16LightBlue,
                   textAlign: TextAlign.center,
                 ),
@@ -77,7 +77,7 @@ class ResetPasswordScreen extends StatelessWidget {
                     children: [
                       AuthTextFormField(
                         isPassword: internalController.passwordOneVisibility,
-                        hint: "Password",
+                        hint: "Password".tr,
                         icon: "assets/svg/unlock.svg",
                         type: TextInputType.visiblePassword,
                         validator: (value) {
@@ -106,7 +106,7 @@ class ResetPasswordScreen extends StatelessWidget {
                       ),
                       AuthTextFormField(
                         isPassword: internalController.passwordTwoVisibility,
-                        hint: "Confirm Password",
+                        hint: "Confirm Password".tr,
                         icon: "assets/svg/unlock.svg",
                         type: TextInputType.visiblePassword,
                         validator: (value) {
@@ -138,7 +138,7 @@ class ResetPasswordScreen extends StatelessWidget {
                   height: 20,
                 ),
                 AuthButton(
-                    buttonText: "Confirm",
+                    buttonText: "Confirm".tr,
                     onTap: () {
                       externalController.resetPassword();
                     }),

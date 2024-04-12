@@ -4,6 +4,22 @@ class MyTranslation implements Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         "ar": {
+          //forget pass
+          "Password Reseted Successfully":"تم إعادة تعيين كلمة المرور بنجاح",
+          "Wrong Verification Code":"رمز التحقق خاطئ",
+          "Email Not Found":"البريد الإلكتروني غير موجود",
+          "Try Again":'قم بإعادة المحاولة',
+          "Verification Code is Expired":"رمز التحقق منتهي الصلاحية",
+          "Please Enter Your New Password":"الرجاء إدخال كلمة المرور الجديدة",
+          "Verify Your Email":"تأكيد بريدك الألكتروني",
+          "Please enter the code sent to ":"الرجاء إدخال رمز التاكيد المرسل الي",
+          "Forget Password":"نسيت كلمة المرور",
+          "Please Enter Your Email Address To Receive a Verification Code ":"الرجاء إدخال عنوان بريدك الإلكتروني لتلقي رمز التحقق",
+          "Send":'إرسال',
+          "Reset Password":"إعادة تعيين كلمة المرور",
+          "Password":"كلمة المرور",
+          "Confirm":"تأكيد",
+          "Confirm Password":"تأكيد كلمة المرور",
           //search
            "Write a Keyword to Search":"اكتب كلمة رئيسية للبحث عنها",
           //login
@@ -12,6 +28,7 @@ class MyTranslation implements Translations {
           "Please Wait for Identity Verification":"الرجاء انتظار التحقق من الهوية",
           "Incorrect Phone Number or Password":" رقم الهاتف أو كلمة المرور غير صحيحة",
           // signup
+           "Identity Verification In Progress":"جاري التحقق من الهوية",
           "Password Doesn't Match ":"كلمة المرور غير متطابقة",
           "Invalid Username":"اسم المستخدم غير صالح",
           "Invalid Email Address":"عنوان البريد الإلكتروني غير صالح",
@@ -124,7 +141,6 @@ class MyTranslation implements Translations {
           //login
           'Welcome Back': "مرحبًا بعودتك",
           "Phone": "رقم الهاتف",
-          "Password": "كلمة المرور",
           'Forget Password?': "هل نسيت كلمة المرور؟",
           "Login": 'الدخول',
           "Don't have an account?": "ليس لديك حساب؟",
@@ -154,11 +170,36 @@ class MyTranslation implements Translations {
           'Dental Diseases': 'الحالة االطبي',
           "Patient Details       ": 'تفاصيل الحالة       ',
           'Request': 'طلب',
-          'Appointments        ': 'مواعيد        '
+          'Appointments        ': 'مواعيد        ',
+
+          //deelet account
+          "Your Account has been Deleted Successfully":"تم حذف حسابك بنجاح",
+          //connection
+          "Internet Connection Error Refresh Data":"خطأ في اتصال الإنترنت أثناء تحديث البيانات",
         },
         "en": {
-          
+          //coonection
+          "Internet Connection Error Refresh Data":"Internet Connection Error Refresh Data",
+          //deelet account
+          "Your Account has been Deleted Successfully":"Your Account has been Deleted Successfully",
+          //forge pass
+          "Password Reseted Successfully":"Password Reseted Successfully",
+          "Wrong Verification Code":"Wrong Verification Code",
+          "Try Again":"Try Again",
+          "Email Not Found":"Email Not Found",
+          "Verification Code is Expired":"Verification Code is Expired",
+          "Confirm Password":"Confirm Password",
+          "Confirm":"Confirm",
+          "Password":"Password",
+          "Please Enter Your New Password":"Please Enter Your New Password",
+          "Please enter the code sent to ":"Please enter the code sent to ",
+          "Verify Your Email":"Verify Your Email",
+          "Reset Password":"Reset Password",
+          "Send":"Send",
+          "Forget Password":"Forget Password",
+          "Please Enter Your Email Address To Receive a Verification Code ":"Please Enter Your Email Address To Receive a Verification Code ",
           // signup
+           "Identity Verification In Progress": "Identity Verification In Progress",
           "Password Doesn't Match ":"Password Doesn't Match ",
           "Invalid Username":"Invalid Username",
           "Invalid Email Address":"Invalid Email Address",
@@ -271,7 +312,6 @@ class MyTranslation implements Translations {
           "Invalid Password":"Invalid Password",
           'Welcome Back': 'Welcome Back',
           'Forget Password?': 'Forget Password?',
-          "Password": "Password",
           "Phone": "Phone",
           "Login": "Login",
           "Don't have an account?": "Don't have an account?",

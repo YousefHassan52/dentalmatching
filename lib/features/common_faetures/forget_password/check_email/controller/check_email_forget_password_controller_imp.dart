@@ -41,7 +41,7 @@ class CheckEmailForgetPasswordControllerImp
           RequestStatus
               .UNAUTHORIZED_FAILURE) // status code 400 (Email not found)
       {
-        Get.defaultDialog(title: "Try Again", middleText: "Email Not Found");
+        Get.defaultDialog(title: "Try Again".tr, middleText: "Email Not Found".tr);
       } else {
         Get.defaultDialog(middleText: "Server Error Please Try Again");
       }

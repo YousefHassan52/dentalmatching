@@ -26,9 +26,11 @@ class VerifyForgetPasswordCodeScreen extends StatelessWidget {
             onPressed: () {
               Get.back();
             }),
-        title: const Text(
-          "Verify Your Email",
-          style: Styles.mediumTitle,
+        title:  FittedBox(
+          child: Text(
+            "Verify Your Email".tr,
+            style: Styles.mediumTitle,
+          ),
         ),
         backgroundColor: Colors.white,
       ),
@@ -46,8 +48,8 @@ class VerifyForgetPasswordCodeScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const Text(
-                "Please Enter 5 Digits code Sent to",
+               Text(
+                "Please enter the code sent to ".tr,
                 style: Styles.textStyle16LightBlue,
               ),
               Text(

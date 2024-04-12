@@ -18,13 +18,17 @@ class DeleteAccountControllerImp extends DeleteAccountControllerAbstract {
     print("joe ;${requestStatus.toString()}");
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {
-        Get.snackbar("Deleted Successfully",
-            "Your account has been deleted Successfully");
+        Get.snackbar("Deleted Successfully".tr,
+            "Your Account has been Deleted Successfully".tr);
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-      Get.defaultDialog(middleText: "Internet Connection Error Refresh Data ");
+      Get.defaultDialog(
+         title: "Alert".tr,
+        middleText: "Internet Connection Error Refresh Data".tr);
     } else {
-      Get.defaultDialog(middleText: "Server Error Please Try Again");
+      Get.defaultDialog(
+        title: "Alert".tr,
+        middleText: "Server Error Please Try Again");
     }
 
     update();

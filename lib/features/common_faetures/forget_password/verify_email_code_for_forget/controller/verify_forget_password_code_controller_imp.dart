@@ -34,7 +34,7 @@ class VerifyEmailForgetPasswordCodeControllerImp
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
       Get.defaultDialog(
-          title: "Try Again", middleText: "Wrong Verification Code");
+          title: "Try Again".tr, middleText: "Wrong Verification Code".tr);
     } else {
       Get.defaultDialog(middleText: "Server Error Please Try Again");
     }

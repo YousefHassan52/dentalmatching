@@ -25,8 +25,8 @@ class CheckEmailForForgetPasswordScreen extends StatelessWidget {
             onPressed: () {
               Get.back();
             }),
-        title: const Text(
-          "Forget Password",
+        title:  Text(
+          "Forget Password".tr,
           style: Styles.mediumTitle,
         ),
         backgroundColor: Colors.white,
@@ -48,8 +48,8 @@ class CheckEmailForForgetPasswordScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                const Text(
-                  "Please Enter Your Email Address To Receive A verification Code ",
+                 Text(
+                  "Please Enter Your Email Address To Receive a Verification Code ".tr,
                   style: Styles.textStyle16LightBlue,
                   textAlign: TextAlign.center,
                 ),
@@ -67,7 +67,7 @@ class CheckEmailForForgetPasswordScreen extends StatelessWidget {
                 // ),
                 AuthTextFormField(
                     type: TextInputType.emailAddress,
-                    hint: "Email Address",
+                    hint: "Email Address".tr,
                     icon: "assets/svg/email.svg",
                     validator: (value) {
                       return AppValidator.textFormFieldValidator(
@@ -78,7 +78,7 @@ class CheckEmailForForgetPasswordScreen extends StatelessWidget {
                   height: 25,
                 ),
                 AuthButton(
-                    buttonText: "Check",
+                    buttonText: "Send".tr,
                     onTap: () {
                       externalController.checkEmail();
                     }),

@@ -7,8 +7,8 @@ void successResetPasswordWidget() {
   Get.defaultDialog(
     buttonColor: Colors.white,
     confirmTextColor: AppColors.mainColor,
-    title: "Success",
-    middleText: "Password reseted successfully",
+    title: "Success".tr,
+    middleText: "Password Reseted Successfully".tr,
     barrierDismissible: false,
     onConfirm: () {
       Get.offAllNamed(AppRoutes.login);
