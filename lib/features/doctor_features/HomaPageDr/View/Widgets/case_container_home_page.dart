@@ -21,8 +21,7 @@ class DoctorHomeCaseContainer extends StatelessWidget {
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
-      //height: 320,
-      width: MediaQuery.sizeOf(context).width,
+      width: MediaQuery.sizeOf(context).width*0.94,
       decoration: BoxDecoration(
         //color: AppColors.circleColor,
         borderRadius: const BorderRadius.all(Radius.circular(26)),
@@ -93,11 +92,11 @@ class DoctorHomeCaseContainer extends StatelessWidget {
             child: FittedBox(
               fit: BoxFit.scaleDown,
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.symmetric(horizontal:8.0),
                 child: Text(
                   caseModel.description,
                   style: Styles.textStyle16Grey,
-                  maxLines: 2,
+                  maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
