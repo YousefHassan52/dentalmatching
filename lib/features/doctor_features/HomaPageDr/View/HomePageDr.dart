@@ -1,26 +1,14 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:dentalmatching/core/class/request_status.dart';
-import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 
-import 'package:dentalmatching/core/shared/shimmer_column.dart';
-import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/Widgets/AppointmentFullScreen.dart';
 import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/Widgets/Categories.dart';
-import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/Widgets/FormView.dart';
 import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/Widgets/TextTitle.dart';
-import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/Widgets/case_container_home_page.dart';
 import 'package:dentalmatching/features/doctor_features/HomaPageDr/View/Widgets/three_cases_list.dart';
 import 'package:dentalmatching/features/doctor_features/HomaPageDr/controller/get_three_cases_controller_imp.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AppUpper.dart';
-import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
-import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/data/Model/CaseDoctorModel.dart';
-import 'package:dentalmatching/features/patient_features/View_Cases/View/Widget/ImageContainer.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/CircleAvatarWidget.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class HomePageDr extends StatelessWidget {

@@ -74,9 +74,12 @@ class SettingsDoctorScreen extends StatelessWidget {
                 },
                 onPressed1: () {
                   translationController.changeLang(langCode: "ar");
+                  settingsController.trueVisibilityLanguage();
+                  
                 },
                 onPressed2: () {
                   translationController.changeLang(langCode: "en");
+                  settingsController.trueVisibilityLanguage();
                 },
               ),
               SettingsRowComponent(

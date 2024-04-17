@@ -85,6 +85,8 @@ class AppointmentController extends GetxController {
 
       controller.requestCase(
           time: time, googleMapLink: linkTextController.text);
+      selectedDate = null;
+      selectedTime = null;
     } else {
       Get.snackbar("Error", "Choose date");
     }

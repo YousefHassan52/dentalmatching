@@ -23,10 +23,6 @@ class LanguageDrSelection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final SettingsPatientControllerImp controller =
-    //     Get.put(SettingsPatientControllerImp());
-    // TranslationController translationController =
-    //     Get.put(TranslationController());
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
