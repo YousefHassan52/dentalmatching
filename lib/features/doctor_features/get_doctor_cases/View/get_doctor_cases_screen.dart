@@ -8,6 +8,7 @@ import 'package:dentalmatching/features/doctor_features/get_doctor_cases/View/Wi
 import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -69,19 +70,14 @@ class GetDoctorCasesScreen extends StatelessWidget {
         // ),
         GetBuilder<GetDocotorCasesControllerImpl>(builder: (controller) {
           if (controller.requestStatus == RequestStatus.SUCCESS) {
-            return Container(child: const FormListViewRequested());
+            return const FormListViewRequested();
           } else if (controller.requestStatus == RequestStatus.LOADING) {
             return const Expanded(child: ShimmerListColumn());
           } else if (controller.requestStatus == RequestStatus.EMPTY_SUCCESS) {
-            return const Center(
-              child: Text(
-                "No Cases Yet",
-                style: TextStyle(color: Colors.black),
-              ),
-            );
+            return SvgPicture.asset('assets/svg/NoCases.svg');
           } else {
-            return const Center(
-              child: Text("Reload Data"),
+            return  Center(
+              child: SvgPicture.asset('assets/svg/NoCases.svg'),
             );
           }
         }),

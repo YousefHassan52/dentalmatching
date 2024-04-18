@@ -16,34 +16,30 @@ class AppointmentController extends GetxController {
     super.onInit();
   }
 
-  Future<void> selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: selectedDate,
-      firstDate: DateTime.now(),
-      lastDate: DateTime(2101),
-      builder: (BuildContext context, Widget? child) {
-        return Flexible(
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Theme(
-              data: ThemeData(
-                colorScheme: const ColorScheme.light(
-                  primary: AppColors.mainColor,
-                ),
-                // More customization if needed
-              ),
-              child: child!,
-            ),
+Future<void> selectDate(BuildContext context) async {
+  final DateTime? picked = await showDatePicker(
+    context: context,
+    initialDate: selectedDate,
+    firstDate: DateTime.now(),
+    lastDate: DateTime(2101),
+    builder: (BuildContext context, Widget? child) {
+      return Theme(
+        data: ThemeData.light().copyWith(
+          colorScheme: const ColorScheme.light(
+            primary: AppColors.mainColor,
           ),
-        );
-      },
-    );
-    if (picked != null && picked != selectedDate) {
-      selectedDate = picked;
-      update();
-    }
+          // Add more customization if needed
+        ),
+        child: child!,
+      );
+    },
+  );
+  if (picked != null && picked != selectedDate) {
+    selectedDate = picked;
+    update();
   }
+}
+
 
   Future<void> selectTime(BuildContext context) async {
     final TimeOfDay? picked = await showTimePicker(
@@ -93,7 +89,10 @@ class AppointmentController extends GetxController {
       selectedDate = null;
       selectedTime = null;
     } else {
-      Get.snackbar("Error", "Choose date");
+      Get.defaultDialog(
+        title: 'Error'.tr,
+        middleText:"Choose Date and Time".tr,);
+      Get.snackbar("Error".tr, "Choose date");
     }
   }
 }

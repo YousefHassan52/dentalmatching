@@ -216,6 +216,8 @@ class MyTranslation implements Translations {
           'Book Appointment': ' حجز الموعد',
           "Paste your hospital link into Google Map":
               "الصق رابط المستشفى من خريطة جوجل",
+              "Choose Date and Time":"قم باختيار التاريخ والوقت",
+              'Error':"خطأ",
         },
         "en": {
           //coonection
@@ -417,6 +419,8 @@ class MyTranslation implements Translations {
           "Paste your hospital link into Google Map":
               "Paste your hospital link into Google Map",
           "Success": "Success",
+          "Choose Date and Time":"Choose Date and Time",
+          'Error':'Error',
         },
       };
 }
