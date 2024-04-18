@@ -33,7 +33,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
               controller: scrollController,
               padding: const EdgeInsets.only(top: 0, bottom: 5),
               children: [
-                 UpperFullCaseWidget(
+                UpperFullCaseWidget(
                   text: "Patient Details       ".tr,
                   needBackButton: true,
                   CaseDesc: true,
@@ -63,7 +63,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                       FormHeadLine(headline: 'Description'.tr),
+                      FormHeadLine(headline: 'Description'.tr),
                       const SizedBox(
                         height: 20,
                       ),
@@ -80,7 +80,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                       FormHeadLine(headline: 'Chronic Diseases'.tr),
+                      FormHeadLine(headline: 'Chronic Diseases'.tr),
                       const SizedBox(
                         height: 20,
                       ),
@@ -88,7 +88,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                         widget: controller.caseModel.chronicDiseases.isNotEmpty
                             ? ChronicOrDentalList(
                                 list: controller.caseModel.chronicDiseases)
-                            :  Text(
+                            : Text(
                                 "None".tr,
                                 style: Styles.textStyle16Grey,
                               ),
@@ -100,12 +100,12 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                       FormHeadLine(headline: 'Dental Diseases'.tr),
+                      FormHeadLine(headline: 'Dental Diseases'.tr),
                       BoxWidget(
                         widget: controller.caseModel.isKnown == true
                             ? ChronicOrDentalList(
                                 list: controller.caseModel.dentalDiseases)
-                            :  Text(
+                            : Text(
                                 "None".tr,
                                 style: Styles.textStyle16Grey,
                               ),
@@ -115,7 +115,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                       ),
                       const HDivider(),
 
-                       FormHeadLine(headline: 'Pictures Of Mouth'.tr),
+                      FormHeadLine(headline: 'Pictures Of Mouth'.tr),
                       const SizedBox(
                         height: 20,
                       ),
@@ -131,7 +131,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                       FormHeadLine(headline: 'X-Ray'.tr),
+                      FormHeadLine(headline: 'X-Ray'.tr),
                       const SizedBox(
                         height: 20,
                       ),
@@ -141,7 +141,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                             ? GridViewWidget(
                                 imagesList: controller.caseModel.xrayImages,
                               )
-                            :  Text(
+                            : Text(
                                 "None".tr,
                                 style: Styles.textStyle16Grey,
                               ),
@@ -153,7 +153,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                       FormHeadLine(headline: 'Prescription'.tr),
+                      FormHeadLine(headline: 'Prescription'.tr),
                       const SizedBox(
                         height: 20,
                       ),
@@ -165,7 +165,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                                     imagesList:
                                         controller.caseModel.prescriptionImages,
                                   )
-                                :  Text(
+                                : Text(
                                     "None".tr,
                                     style: Styles.textStyle16Grey,
                                   ),
@@ -225,23 +225,49 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                     isCancelButton: true,
                     onPressed: () {
                       Get.defaultDialog(
-                          title: "Cancel Case Request",
+                          title: "Warning".tr,
                           middleText:
-                              "are you sure that you want to cancel request of this case",
-                          onConfirm: () {
-                            print(controller.caseModel.caseId);
+                              "Are you Sure you Want to Cancel this Request?"
+                                  .tr,
+                          confirm: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.red), // Change color to red
+                            ),
+                            onPressed: () {
+                              print(controller.caseModel.caseId);
 
-                            controller.cancelCase().then((value) {
-                              UnassignedCasesDoctorControllerImpl
-                                  reloadDataControllerForAllCases = Get.put(
-                                      UnassignedCasesDoctorControllerImpl());
-                              GetDocotorCasesControllerImpl
-                                  reloadDataControllerForDoctorCases =
-                                  Get.put(GetDocotorCasesControllerImpl());
-                              reloadDataControllerForAllCases.getCases();
-                              reloadDataControllerForDoctorCases.getCases();
-                            });
-                          },
+                              controller.cancelCase().then((value) {
+                                UnassignedCasesDoctorControllerImpl
+                                    reloadDataControllerForAllCases = Get.put(
+                                        UnassignedCasesDoctorControllerImpl());
+                                GetDocotorCasesControllerImpl
+                                    reloadDataControllerForDoctorCases =
+                                    Get.put(GetDocotorCasesControllerImpl());
+                                reloadDataControllerForAllCases.getCases();
+                                reloadDataControllerForDoctorCases.getCases();
+                                
+                              });
+                              Get.back();
+                            },
+                            child: Text(
+                              "Confirm".tr,
+                              style: const TextStyle(
+                                  color: Colors
+                                      .white), // Translate "Confirm" into Arabic
+                            ),
+                          ),
+                          cancel: ElevatedButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            child: Text(
+                              "Cancel".tr,
+                              style: const TextStyle(
+                                  color: Colors
+                                      .black), // Translate "Confirm" into Arabic
+                            ),
+                          ),
                           onCancel: () {});
                     },
                   ),

@@ -53,23 +53,33 @@ class BioBarWidget extends StatelessWidget {
           child: Column(
             children: [
               if (controller.caseModel.isAssigned == true)
-                DateTimeWidget(controller: controller, txt: formatDate(controller.caseModel.appointmentDateTime!), text: 'Date : ',),
-                if (controller.caseModel.isAssigned == true)
-                DateTimeWidget(controller: controller, txt: formatTime(controller.caseModel.appointmentDateTime!), text: 'Time : ',),
+                DateTimeWidget(
+                  controller: controller,
+                  txt: formatDate(controller.caseModel.appointmentDateTime!),
+                  text: 'Date : '.tr,
+                ),
+              if (controller.caseModel.isAssigned == true)
+                DateTimeWidget(
+                  controller: controller,
+                  txt: formatTime(controller.caseModel.appointmentDateTime!),
+                  text: 'Time : '.tr,
+                ),
 
               BioWidget(
-                title: 'Address',
+                title: 'Address'.tr,
                 subTitle: controller.caseModel.patientCity,
               ),
               BioWidget(
-                title: 'Age',
+                title: 'Age'.tr,
                 subTitle: "${controller.caseModel.patientAge}",
               ),
               BioWidget(
-                title: 'Case Status',
-                subTitle:
-                    controller.caseModel.isKnown == true ? "Known" : "Unkown",
+                title: 'Case Status'.tr,
+                subTitle: controller.caseModel.isKnown == true
+                    ? "Known".tr
+                    : "Unkown".tr,
               ),
+
               GetBuilder<ViewWholeCaseDoctorControllerImpl>(
                 builder: (internalController) {
                   if (controller.caseModel.isAssigned == true) {
@@ -79,7 +89,7 @@ class BioBarWidget extends StatelessWidget {
                         //   height: 20,
                         // ),
                         BioWidget(
-                          title: 'Phone number',
+                          title: 'Phone Number'.tr,
                           subTitle: internalController.caseModel.phoneNumber,
                         ),
                       ],
@@ -102,7 +112,7 @@ class BioBarWidget extends StatelessWidget {
                           height: 20,
                         ),
                         BioWidget(
-                          title: 'Phone number',
+                          title: 'Phone Number'.tr,
                           subTitle: internalController.caseModel.phoneNumber,
                         ),
                       ],
@@ -110,8 +120,8 @@ class BioBarWidget extends StatelessWidget {
                   } else {
                     return BioWidget(
                       isLongText: true,
-                      title: 'Phone Number',
-                      subTitle: "None",
+                      title: 'Phone Number'.tr,
+                      subTitle: "After Request".tr,
                     );
                   }
                 },
@@ -136,4 +146,3 @@ class BioBarWidget extends StatelessWidget {
     );
   }
 }
-

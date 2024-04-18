@@ -5,33 +5,37 @@ class MyTranslation implements Translations {
   Map<String, Map<String, String>> get keys => {
         "ar": {
           //forget pass
-          "Password Reseted Successfully":"تم إعادة تعيين كلمة المرور بنجاح",
-          "Wrong Verification Code":"رمز التحقق خاطئ",
-          "Email Not Found":"البريد الإلكتروني غير موجود",
-          "Try Again":'قم بإعادة المحاولة',
-          "Verification Code is Expired":"رمز التحقق منتهي الصلاحية",
-          "Please Enter Your New Password":"الرجاء إدخال كلمة المرور الجديدة",
-          "Verify Your Email":"تأكيد بريدك الألكتروني",
-          "Please enter the code sent to ":"الرجاء إدخال رمز التاكيد المرسل الي",
-          "Forget Password":"نسيت كلمة المرور",
-          "Please Enter Your Email Address To Receive a Verification Code ":"الرجاء إدخال عنوان بريدك الإلكتروني لتلقي رمز التحقق",
-          "Send":'إرسال',
-          "Reset Password":"إعادة تعيين كلمة المرور",
-          "Password":"كلمة المرور",
-          "Confirm":"تأكيد",
-          "Confirm Password":"تأكيد كلمة المرور",
+          "Password Reseted Successfully": "تم إعادة تعيين كلمة المرور بنجاح",
+          "Wrong Verification Code": "رمز التحقق خاطئ",
+          "Email Not Found": "البريد الإلكتروني غير موجود",
+          "Try Again": 'قم بإعادة المحاولة',
+          "Verification Code is Expired": "رمز التحقق منتهي الصلاحية",
+          "Please Enter Your New Password": "الرجاء إدخال كلمة المرور الجديدة",
+          "Verify Your Email": "تأكيد بريدك الألكتروني",
+          "Please enter the code sent to ":
+              "الرجاء إدخال رمز التاكيد المرسل الي",
+          "Forget Password": "نسيت كلمة المرور",
+          "Please Enter Your Email Address To Receive a Verification Code ":
+              "الرجاء إدخال عنوان بريدك الإلكتروني لتلقي رمز التحقق",
+          "Send": 'إرسال',
+          "Reset Password": "إعادة تعيين كلمة المرور",
+          "Password": "كلمة المرور",
+          "Confirm": "تأكيد",
+          "Confirm Password": "تأكيد كلمة المرور",
           //search
-           "Write a Keyword to Search":"اكتب كلمة رئيسية للبحث عنها",
+          "Write a Keyword to Search": "اكتب كلمة رئيسية للبحث عنها",
           //login
-          "Invalid Phone Number":"رقم الهاتف غير صالح",
-          "Invalid Password":"كلمة السر غير صالحة",
-          "Please Wait for Identity Verification":"الرجاء انتظار التحقق من الهوية",
-          "Incorrect Phone Number or Password":" رقم الهاتف أو كلمة المرور غير صحيحة",
+          "Invalid Phone Number": "رقم الهاتف غير صالح",
+          "Invalid Password": "كلمة السر غير صالحة",
+          "Please Wait for Identity Verification":
+              "الرجاء انتظار التحقق من الهوية",
+          "Incorrect Phone Number or Password":
+              " رقم الهاتف أو كلمة المرور غير صحيحة",
           // signup
-           "Identity Verification In Progress":"جاري التحقق من الهوية",
-          "Password Doesn't Match ":"كلمة المرور غير متطابقة",
-          "Invalid Username":"اسم المستخدم غير صالح",
-          "Invalid Email Address":"عنوان البريد الإلكتروني غير صالح",
+          "Identity Verification In Progress": "جاري التحقق من الهوية",
+          "Password Doesn't Match ": "كلمة المرور غير متطابقة",
+          "Invalid Username": "اسم المستخدم غير صالح",
+          "Invalid Email Address": "عنوان البريد الإلكتروني غير صالح",
           "Personal Info": "بياناتك",
           "Signup": "انشاء حساب",
           "Email Address": "بريد الكتروني",
@@ -40,7 +44,7 @@ class MyTranslation implements Translations {
           "Full Name": "الاسم",
           "Governorate": "المحافظة",
           "Gender": "النوع",
-          "Address": "لعنوان",
+          "Address": "العنوان",
 
           "WELCOME": "مرحبا",
           "Settings": "اعدادات",
@@ -75,7 +79,8 @@ class MyTranslation implements Translations {
           //MyCases
           'Recently Added Cases': "الحالات المضافة مؤخرًا",
           //AddCase
-          "Your description must be more than 20 letters":"يجب أن يكون الوصف الخاص بك أكثر من 20 حرفًا",
+          "Your description must be more than 20 letters":
+              "يجب أن يكون الوصف الخاص بك أكثر من 20 حرفًا",
           'Describe what you feel': "صف ما تشعر به",
           'Chronic Diseases': 'الأمراض المزمنة',
           'Add a Clear Pictures of your Mouth': "أضف صورًا واضحة لفمك",
@@ -128,10 +133,12 @@ class MyTranslation implements Translations {
           'Prescription Images': 'صور الروشتة',
 
           //Assigned Case Patient
+
           'Dr.': "د.",
           'Location :': "المكان :",
           'Phone Number :': 'رقم الهاتف :',
-          "You Must Paste a Valid Google Map Link of Hospital":"يجب عليك لصق رابط لخريطة جوجل للمستشفى",
+          "You Must Paste a Valid Google Map Link of Hospital":
+              "يجب عليك لصق رابط لخريطة جوجل للمستشفى",
 
           //EditPatient
           'Edit Case        ': "تعديل الحالة     ",
@@ -173,36 +180,73 @@ class MyTranslation implements Translations {
           'Appointments        ': 'مواعيد        ',
 
           //deelet account
-          "Your Account has been Deleted Successfully":"تم حذف حسابك بنجاح",
+          "Your Account has been Deleted Successfully": "تم حذف حسابك بنجاح",
           //connection
-          "Internet Connection Error Refresh Data":"خطأ في اتصال الإنترنت أثناء تحديث البيانات",
+          "Internet Connection Error Refresh Data":
+              "خطأ في اتصال الإنترنت أثناء تحديث البيانات",
+
+          //Assigned Dr Case
+          'Date : ': 'التاريخ : ',
+          'Time : ': 'الوقت : ',
+          'Case Status': 'وضع حالة ',
+          'Phone Number': 'رقم الهاتف',
+          "After Request": 'بعد طلب الحالة',
+
+          //Appointment Screen
+          "Success": 'نجحت',
+          "Case is Already Requested by Another Doctor":
+              "الحالة مُطلَبة بالفعل من طبيب آخر",
+          "You are not Responsible for This Case":
+              "أنت لست مسؤولاً عن هذه الحالة",
+          "Case Cancelled": "تم إلغاء الحالة",
+          "Case is Already NOT Assigned to you":
+              "الحالة غير مُخصَّصة لك بالفعل",
+          "Cancel Case": "إلغاء الحالة",
+          "Are you Sure you Want to Cancel this Request?":
+              "هل أنت متأكد أنك تريد إلغاء هذا الطلب؟",
+          "Warning": "تحذير",
+          "Now you are Responsible with This Case":
+              "الآن أنت مسؤول عن هذه الحالة",
+          'Selected Date: ': " التاريخ المحدد : ",
+          'Selected Time: ': " الوقت المحدد : ",
+          'Select Time': 'حدد الوقت',
+          'Select Date': 'حدد التاريخ',
+          'Appointment': 'تحديد الموعد',
+          "Google Maps": 'خريطة جوجل',
+          'Book Appointment': ' حجز الموعد',
+          "Paste your hospital link into Google Map":
+              "الصق رابط المستشفى من خريطة جوجل",
         },
         "en": {
           //coonection
-          "Internet Connection Error Refresh Data":"Internet Connection Error Refresh Data",
+          "Internet Connection Error Refresh Data":
+              "Internet Connection Error Refresh Data",
           //deelet account
-          "Your Account has been Deleted Successfully":"Your Account has been Deleted Successfully",
+          "Your Account has been Deleted Successfully":
+              "Your Account has been Deleted Successfully",
           //forge pass
-          "Password Reseted Successfully":"Password Reseted Successfully",
-          "Wrong Verification Code":"Wrong Verification Code",
-          "Try Again":"Try Again",
-          "Email Not Found":"Email Not Found",
-          "Verification Code is Expired":"Verification Code is Expired",
-          "Confirm Password":"Confirm Password",
-          "Confirm":"Confirm",
-          "Password":"Password",
-          "Please Enter Your New Password":"Please Enter Your New Password",
-          "Please enter the code sent to ":"Please enter the code sent to ",
-          "Verify Your Email":"Verify Your Email",
-          "Reset Password":"Reset Password",
-          "Send":"Send",
-          "Forget Password":"Forget Password",
-          "Please Enter Your Email Address To Receive a Verification Code ":"Please Enter Your Email Address To Receive a Verification Code ",
+          "Password Reseted Successfully": "Password Reseted Successfully",
+          "Wrong Verification Code": "Wrong Verification Code",
+          "Try Again": "Try Again",
+          "Email Not Found": "Email Not Found",
+          "Verification Code is Expired": "Verification Code is Expired",
+          "Confirm Password": "Confirm Password",
+          "Confirm": "Confirm",
+          "Password": "Password",
+          "Please Enter Your New Password": "Please Enter Your New Password",
+          "Please enter the code sent to ": "Please enter the code sent to ",
+          "Verify Your Email": "Verify Your Email",
+          "Reset Password": "Reset Password",
+          "Send": "Send",
+          "Forget Password": "Forget Password",
+          "Please Enter Your Email Address To Receive a Verification Code ":
+              "Please Enter Your Email Address To Receive a Verification Code ",
           // signup
-           "Identity Verification In Progress": "Identity Verification In Progress",
-          "Password Doesn't Match ":"Password Doesn't Match ",
-          "Invalid Username":"Invalid Username",
-          "Invalid Email Address":"Invalid Email Address",
+          "Identity Verification In Progress":
+              "Identity Verification In Progress",
+          "Password Doesn't Match ": "Password Doesn't Match ",
+          "Invalid Username": "Invalid Username",
+          "Invalid Email Address": "Invalid Email Address",
           "Signup": "Signup",
           "Email Address": "Email Address",
           "University": "University",
@@ -298,18 +342,21 @@ class MyTranslation implements Translations {
           //Assigned Case Patient
           'Dr.': 'Dr.',
           'Location :': 'Location :',
-          "You Must Paste a Valid Google Map Link of Hospital":"You Must Paste a Valid Google Map Link of Hospital",
+          "You Must Paste a Valid Google Map Link of Hospital":
+              "You Must Paste a Valid Google Map Link of Hospital",
 
           //edit case patient
           'Edit Case        ': 'Edit Case        ',
 // delete case
           "Your case has been deleted Successfully":
-          "Your case has been deleted Successfully",
+              "Your case has been deleted Successfully",
           "Deleted Successfully": "Deleted Successfully",
           //login
-          "Incorrect Phone Number or Password":"Incorrect Phone Number or Password",
-          "Please Wait for Identity Verification":"Please Wait for Identity Verification",
-          "Invalid Password":"Invalid Password",
+          "Incorrect Phone Number or Password":
+              "Incorrect Phone Number or Password",
+          "Please Wait for Identity Verification":
+              "Please Wait for Identity Verification",
+          "Invalid Password": "Invalid Password",
           'Welcome Back': 'Welcome Back',
           'Forget Password?': 'Forget Password?',
           "Phone": "Phone",
@@ -339,6 +386,37 @@ class MyTranslation implements Translations {
           'Prescription': 'Prescription',
           'X-Ray': 'X-Ray',
           'Dental Diseases': 'Dental Diseases',
+
+          //Assigned Dr Case
+          'Date : ': 'Date: ',
+          'Time : ': 'Time: ',
+          'Case Status': 'Case Status',
+          'Phone Number': 'Phone Number',
+          "After Request": "After Request",
+
+          //Appontment Screen
+          'Now you are Responsible with This Case':
+              "Now you are Responsible with This Case",
+          "Case is Already Requested by Another Doctor":
+              "Case is Already Requested by Another Doctor",
+          "You are not Responsible for This Case":
+              "You are not Responsible for This Case",
+          "Case Cancelled": "Case Cancelled",
+          "Case is Already NOT Assigned to you":
+              "Case is Already NOT Assigned to you",
+          "Cancel Case": "Cancel Case",
+          "Are you Sure you Want to Cancel this Request?":
+              "Are you Sure you Want to Cancel this Request?",
+          "Warning": "Warning",
+
+          'Select Time': 'Select Time',
+          'Select Date': 'Select Date',
+          'Appointment': 'Appointment',
+          "Google Maps": "Google Maps",
+          'Book': 'Book',
+          "Paste your hospital link into Google Map":
+              "Paste your hospital link into Google Map",
+          "Success": "Success",
         },
       };
 }

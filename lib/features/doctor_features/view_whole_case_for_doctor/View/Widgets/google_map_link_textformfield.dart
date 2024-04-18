@@ -1,5 +1,6 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MapLinkTextFormField extends StatelessWidget {
   final String? Function(String?) validator;
@@ -28,7 +29,7 @@ class MapLinkTextFormField extends StatelessWidget {
         fontSize: 16,
       ),
       decoration: InputDecoration(
-        hintText: "paste hospital google map link here",
+        hintText: "Paste your hospital link into Google Map".tr,
         hintStyle: const TextStyle(
           color: Color.fromARGB(100, 94, 148, 195),
           fontSize: 16,

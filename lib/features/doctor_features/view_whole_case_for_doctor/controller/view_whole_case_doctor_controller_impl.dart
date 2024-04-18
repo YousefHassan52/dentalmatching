@@ -42,7 +42,7 @@ class ViewWholeCaseDoctorControllerImpl
     print("joe ;${requestStatus.toString()}");
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {
-        Get.snackbar("Success", "Now you are responsible with this case");
+        Get.snackbar("Success".tr, "Now you are Responsible with This Case".tr);
         viewPhone = true;
         update();
         updateAssignmentStatus(true);
@@ -55,7 +55,7 @@ class ViewWholeCaseDoctorControllerImpl
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
       Get.defaultDialog(
-          middleText: "Case is already requested by anothe doctor");
+          middleText: "Case is Already Requested by Another Doctor".tr);
     } else {
       Get.defaultDialog(middleText: "Server Error Please Try Again");
     }
@@ -82,7 +82,7 @@ class ViewWholeCaseDoctorControllerImpl
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {
         Get.snackbar(
-            "Case Cancelled", "You are not responsible for this case any more");
+            "Case Cancelled".tr, "You are not Responsible for This Case".tr);
       }
       GetDocotorCasesControllerImpl doctorCases =
           Get.put(GetDocotorCasesControllerImpl());
@@ -93,7 +93,7 @@ class ViewWholeCaseDoctorControllerImpl
 
       updateAssignmentStatus(false);
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-      Get.defaultDialog(middleText: "Case is already not assigned to you");
+      Get.defaultDialog(middleText: "Case is Already NOT Assigned to you".tr);
     } else {
       Get.defaultDialog(middleText: "Server Error Please Try Again");
     }

@@ -92,7 +92,7 @@ class DoctorHomeCaseContainer extends StatelessWidget {
             child: FittedBox(
               fit: BoxFit.scaleDown,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal:8.0),
+                padding: const EdgeInsets.symmetric(horizontal:8.0 , vertical: 5),
                 child: Text(
                   caseModel.description,
                   style: Styles.textStyle16Grey,

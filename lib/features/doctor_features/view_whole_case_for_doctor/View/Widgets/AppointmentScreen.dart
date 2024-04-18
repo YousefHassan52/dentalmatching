@@ -16,7 +16,7 @@ class AppointmentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FractionallySizedBox(
-      heightFactor: 0.7, // Adjust this value as needed
+      // heightFactor: 0.7, // Adjust this value as needed
       child: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.only(
@@ -28,11 +28,12 @@ class AppointmentScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Padding(
-                  padding: EdgeInsets.all(16.0),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    'Appointment',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+                    'Appointment'.tr,
+                    style: const TextStyle(
+                        fontSize: 30, fontWeight: FontWeight.w700),
                   ),
                 ),
                 // GestureDetector(
@@ -104,16 +105,16 @@ class AppointmentScreen extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Column(
                               children: [
-                                if (appointmentController.selectedTime == null)
-                                  const Row(
+                                if (appointmentController.selectedDate == null)
+                                  Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Icon(Icons.calendar_today,
+                                      const Icon(Icons.calendar_today,
                                           color: Colors.white),
-                                      SizedBox(width: 10),
+                                      const SizedBox(width: 10),
                                       Text(
-                                        'Select Date',
-                                        style: TextStyle(
+                                        'Select Date'.tr,
+                                        style: const TextStyle(
                                           fontSize: 20,
                                           color: Colors.white,
                                         ),
@@ -129,7 +130,10 @@ class AppointmentScreen extends StatelessWidget {
                                           color: Colors.white),
                                       const SizedBox(width: 10),
                                       Text(
-                                        'Selected Date: ${DateFormat.yMd().format(appointmentController.selectedDate!)}',
+                                        'Selected Date: '.tr +
+                                            DateFormat.yMd().format(
+                                                appointmentController
+                                                    .selectedDate!),
                                         style: const TextStyle(
                                           fontSize: 20,
                                           color: Colors.white,
@@ -173,18 +177,18 @@ class AppointmentScreen extends StatelessWidget {
                                 children: [
                                   if (appointmentController.selectedTime ==
                                       null)
-                                    const Row(
+                                    Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        Icon(
+                                        const Icon(
                                           Icons.access_time,
                                           color: Colors.white,
                                         ),
-                                        SizedBox(width: 10),
+                                        const SizedBox(width: 10),
                                         Text(
-                                          'Select time',
-                                          style: TextStyle(
+                                          'Select Time'.tr,
+                                          style: const TextStyle(
                                             fontSize: 20,
                                             color: Colors.white,
                                           ),
@@ -204,7 +208,10 @@ class AppointmentScreen extends StatelessWidget {
                                         ),
                                         const SizedBox(width: 10),
                                         Text(
-                                          'Selected Time: ${appointmentController.selectedTime!.format(context)}',
+                                          'Selected Time: '.tr +
+                                              appointmentController
+                                                  .selectedTime!
+                                                  .format(context),
                                           style: const TextStyle(
                                             fontSize: 20,
                                             color: Colors.white,
@@ -259,7 +266,7 @@ class AppointmentScreen extends StatelessWidget {
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey
-                                    .withOpacity(0.5), // Color of the shadow
+                                    .withOpacity(0.4), // Color of the shadow
                                 spreadRadius: 5, // Spread radius
                                 blurRadius: 7, // Blur radius
                                 offset:
@@ -268,9 +275,9 @@ class AppointmentScreen extends StatelessWidget {
                             ],
                           ),
                           child: IconButton(
-                            icon: const Text(
-                              "Google Maps",
-                              style: TextStyle(
+                            icon: Text(
+                              "Google Maps".tr,
+                              style: const TextStyle(
                                 color: Colors.white,
                               ),
                             ),
@@ -295,7 +302,7 @@ class AppointmentScreen extends StatelessWidget {
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey
-                                    .withOpacity(0.5), // Color of the shadow
+                                    .withOpacity(0.4), // Color of the shadow
                                 spreadRadius: 5, // Spread radius
                                 blurRadius: 7, // Blur radius
                                 offset:
@@ -306,8 +313,8 @@ class AppointmentScreen extends StatelessWidget {
                           child: IconButton(
                               onPressed: () {},
                               icon: const Icon(
-                                Icons.info_outline,
-                                color: Color.fromARGB(255, 213, 212, 212),
+                                Icons.video_camera_back,
+                                color: Color(0xFFFFFFFF),
                               )),
                         ),
                       )
@@ -341,19 +348,34 @@ class AppointmentScreen extends StatelessWidget {
 
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      appointmentController.bookCase();
-                      Get.back();
-                    },
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(AppColors.mainColor),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey
+                              .withOpacity(0.5), // Color of the shadow
+                          spreadRadius: 5, // Spread radius
+                          blurRadius: 7, // Blur radius
+                          offset: const Offset(0, 3), // Offset of the shadow
+                        ),
+                      ],
                     ),
-                    child: const Text(
-                      'Book',
-                      style: TextStyle(color: Colors.white, fontSize: 25),
-                    ), // Background color red
+                    child: ElevatedButton(
+                      onPressed: () {
+                        appointmentController.bookCase();
+                        Get.back();
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            AppColors.mainColor),
+                      ),
+                      child: Text(
+                        'Book Appointment'.tr,
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 25),
+                      ), // Background color red
+                    ),
                   ),
                 ),
               ],

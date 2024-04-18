@@ -23,14 +23,19 @@ class AppointmentController extends GetxController {
       firstDate: DateTime.now(),
       lastDate: DateTime(2101),
       builder: (BuildContext context, Widget? child) {
-        return Theme(
-          data: ThemeData(
-            colorScheme: const ColorScheme.light(
-              primary: AppColors.mainColor,
+        return Flexible(
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Theme(
+              data: ThemeData(
+                colorScheme: const ColorScheme.light(
+                  primary: AppColors.mainColor,
+                ),
+                // More customization if needed
+              ),
+              child: child!,
             ),
-            // More customization if needed
           ),
-          child: child!,
         );
       },
     );
