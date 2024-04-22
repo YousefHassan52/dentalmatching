@@ -1,10 +1,13 @@
+import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
+import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/textformfield.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/AppointmentScreen.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/BoxWidget.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/RequestButton.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/UpperNot.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/comments.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/FormHeadLine.dart';
 import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/HDivider.dart';
@@ -170,6 +173,12 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                                     style: Styles.textStyle16Grey,
                                   ),
                       ),
+                      const HDivider(),
+                      FormHeadLine(headline: 'Comments'.tr),
+
+                      const CommentsInDoctorCase(),
+
+                      // make here row contain textform field for adding comment and square button beside it
                     ],
                   ),
                 ),
@@ -246,7 +255,6 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                                     Get.put(GetDocotorCasesControllerImpl());
                                 reloadDataControllerForAllCases.getCases();
                                 reloadDataControllerForDoctorCases.getCases();
-                                
                               });
                               Get.back();
                             },
@@ -281,80 +289,77 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
   }
 }
 
-
-
-
-                // Container(
-                //   margin: const EdgeInsets.all(20),
-                //   child: FittedBox(
-                //     child: Column(
-                //       crossAxisAlignment: CrossAxisAlignment.start,
-                //       children: [
-                //         BioWidget(
-                //           title: 'Address',
-                //           subTitle: controller.caseModel.patientCity,
-                //         ),
-                //         BioWidget(
-                //           title: 'Age',
-                //           subTitle: "${controller.caseModel.patientAge}",
-                //         ),
-                //         BioWidget(
-                //           title: 'Case Status',
-                //           subTitle: controller.caseModel.isKnown == true
-                //               ? "Known"
-                //               : "Unkown",
-                //         ),
-                //         GetBuilder<ViewWholeCaseDoctorControllerImpl>(
-                //           builder: (internalController) {
-                //             if (controller.caseModel.isAssigned == true) {
-                //               return Column(
-                //                 children: [
-                //                   const SizedBox(
-                //                     height: 20,
-                //                   ),
-                //                   BioWidget(
-                //                     title: 'Phone number',
-                //                     subTitle: internalController
-                //                         .caseModel.phoneNumber,
-                //                   ),
-                //                 ],
-                //               );
-                //             }
-                //             if (controller.requestStatus ==
-                //                 RequestStatus.LOADING) {
-                //               return const SizedBox(
-                //                 height: 20,
-                //                 width: 20,
-                //                 child: CircularProgressIndicator(
-                //                   backgroundColor: AppColors.mainColor,
-                //                   color: AppColors.secondColor,
-                //                 ),
-                //               );
-                //             } else if (internalController.viewPhone == true &&
-                //                 controller.requestStatus ==
-                //                     RequestStatus.SUCCESS) {
-                //               return Column(
-                //                 children: [
-                //                   const SizedBox(
-                //                     height: 20,
-                //                   ),
-                //                   BioWidget(
-                //                     title: 'Phone number',
-                //                     subTitle: internalController
-                //                         .caseModel.phoneNumber,
-                //                   ),
-                //                 ],
-                //               );
-                //             } else {
-                //               return BioWidget(
-                //                 isLongText: true,
-                //                 title: 'Phone Number',
-                //                 subTitle: "None",
-                //               );
-                //             }
-                //           },
-                //         ),
-                //       ],
-                //     ),
-                //   ),
-                // ),
+// Container(
+//   margin: const EdgeInsets.all(20),
+//   child: FittedBox(
+//     child: Column(
+//       crossAxisAlignment: CrossAxisAlignment.start,
+//       children: [
+//         BioWidget(
+//           title: 'Address',
+//           subTitle: controller.caseModel.patientCity,
+//         ),
+//         BioWidget(
+//           title: 'Age',
+//           subTitle: "${controller.caseModel.patientAge}",
+//         ),
+//         BioWidget(
+//           title: 'Case Status',
+//           subTitle: controller.caseModel.isKnown == true
+//               ? "Known"
+//               : "Unkown",
+//         ),
+//         GetBuilder<ViewWholeCaseDoctorControllerImpl>(
+//           builder: (internalController) {
+//             if (controller.caseModel.isAssigned == true) {
+//               return Column(
+//                 children: [
+//                   const SizedBox(
+//                     height: 20,
+//                   ),
+//                   BioWidget(
+//                     title: 'Phone number',
+//                     subTitle: internalController
+//                         .caseModel.phoneNumber,
+//                   ),
+//                 ],
+//               );
+//             }
+//             if (controller.requestStatus ==
+//                 RequestStatus.LOADING) {
+//               return const SizedBox(
+//                 height: 20,
+//                 width: 20,
+//                 child: CircularProgressIndicator(
+//                   backgroundColor: AppColors.mainColor,
+//                   color: AppColors.secondColor,
+//                 ),
+//               );
+//             } else if (internalController.viewPhone == true &&
+//                 controller.requestStatus ==
+//                     RequestStatus.SUCCESS) {
+//               return Column(
+//                 children: [
+//                   const SizedBox(
+//                     height: 20,
+//                   ),
+//                   BioWidget(
+//                     title: 'Phone number',
+//                     subTitle: internalController
+//                         .caseModel.phoneNumber,
+//                   ),
+//                 ],
+//               );
+//             } else {
+//               return BioWidget(
+//                 isLongText: true,
+//                 title: 'Phone Number',
+//                 subTitle: "None",
+//               );
+//             }
+//           },
+//         ),
+//       ],
+//     ),
+//   ),
+// ),

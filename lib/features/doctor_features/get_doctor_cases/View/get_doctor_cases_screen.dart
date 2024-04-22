@@ -36,7 +36,7 @@ class GetDoctorCasesScreen extends StatelessWidget {
                     maxFontSize: 25,
                     minFontSize: 15,
                     'Requested Cases'.tr,
-                    style: Styles.LightBlue,
+                    style: Styles.lightBlue,
                   ),
                 ),
               ),
@@ -76,7 +76,7 @@ class GetDoctorCasesScreen extends StatelessWidget {
           } else if (controller.requestStatus == RequestStatus.EMPTY_SUCCESS) {
             return SvgPicture.asset('assets/svg/NoCases.svg');
           } else {
-            return  Center(
+            return Center(
               child: SvgPicture.asset('assets/svg/NoCases.svg'),
             );
           }

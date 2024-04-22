@@ -42,7 +42,7 @@ class HasCases extends StatelessWidget {
                       maxFontSize: 25,
                       minFontSize: 15,
                       'Recently Added Cases'.tr,
-                      style: Styles.LightBlue,
+                      style: Styles.lightBlue,
                     ),
                   ),
                 ),

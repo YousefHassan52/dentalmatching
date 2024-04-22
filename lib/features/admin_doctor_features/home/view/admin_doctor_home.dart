@@ -51,7 +51,7 @@ class AdminDoctorHome extends StatelessWidget {
                       maxFontSize: 25,
                       minFontSize: 15,
                       'Recently Added Cases',
-                      style: Styles.LightBlue,
+                      style: Styles.lightBlue,
                     ),
                   ),
                 ),

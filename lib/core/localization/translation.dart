@@ -131,6 +131,8 @@ class MyTranslation implements Translations {
           'Pictures of your Mouth': 'صور لفمك',
           'X-Ray Images': 'صور الأشعة',
           'Prescription Images': 'صور الروشتة',
+          "Comments": "التعليقات",
+          "Add a comment...": "...اضافة تعليق",
 
           //Assigned Case Patient
 
@@ -216,8 +218,8 @@ class MyTranslation implements Translations {
           'Book Appointment': ' حجز الموعد',
           "Paste your hospital link into Google Map":
               "الصق رابط المستشفى من خريطة جوجل",
-              "Choose Date and Time":"قم باختيار التاريخ والوقت",
-              'Error':"خطأ",
+          "Choose Date and Time": "قم باختيار التاريخ والوقت",
+          'Error': "خطأ",
         },
         "en": {
           //coonection
@@ -340,6 +342,8 @@ class MyTranslation implements Translations {
           'Pictures of your Mouth': 'Pictures of your Mouth',
           'X-Ray Images': 'X-Ray Images',
           'Prescription Images': 'Prescription Images',
+          "Comments": "Comments",
+          "Add a comment...": "Add a comment...",
 
           //Assigned Case Patient
           'Dr.': 'Dr.',
@@ -419,8 +423,8 @@ class MyTranslation implements Translations {
           "Paste your hospital link into Google Map":
               "Paste your hospital link into Google Map",
           "Success": "Success",
-          "Choose Date and Time":"Choose Date and Time",
-          'Error':'Error',
+          "Choose Date and Time": "Choose Date and Time",
+          'Error': 'Error',
         },
       };
 }

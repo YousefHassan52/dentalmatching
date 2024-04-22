@@ -20,6 +20,10 @@ abstract class Styles {
       fontSize: 18);
   static const TextStyle textStyle16White =
       TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 16);
+  static const TextStyle textStyle22Blue = TextStyle(
+      color: AppColors.blueLightTextColor,
+      fontWeight: FontWeight.w600,
+      fontSize: 22);
   static const TextStyle textStyle16Grey = TextStyle(
       color: Color.fromARGB(255, 70, 69, 69),
       fontWeight: FontWeight.normal,
@@ -33,7 +37,7 @@ abstract class Styles {
       color: AppColors.blueLightTextColor,
       fontWeight: FontWeight.w400,
       fontSize: 18);
-  static const TextStyle LightBlue = TextStyle(
+  static const TextStyle lightBlue = TextStyle(
       color: AppColors.blueLightTextColor,
       fontWeight: FontWeight.bold,
       fontSize: 100);
@@ -51,7 +55,7 @@ abstract class Styles {
       fontSize: 16,
       letterSpacing: 3);
 
-  static const TextStyle Bio = TextStyle(
+  static const TextStyle bio = TextStyle(
       color: Color.fromARGB(255, 118, 116, 116),
       fontWeight: FontWeight.normal,
       fontSize: 20,
