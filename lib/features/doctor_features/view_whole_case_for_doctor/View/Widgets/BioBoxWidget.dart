@@ -1,4 +1,3 @@
-
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
@@ -42,8 +41,8 @@ class BioBoxWidget extends StatelessWidget {
                   fit: BoxFit.scaleDown,
                   child: SizedBox(
                     height: 60,
-                    child: CircleAvatarWidget(
-                        imagePath: 'assets/svg/profile.svg'),
+                    child:
+                        CircleAvatarWidget(imagePath: 'assets/svg/profile.svg'),
                   ),
                 ),
               ),
@@ -68,9 +67,7 @@ class BioBoxWidget extends StatelessWidget {
           ),
           BioWidget(
             title: 'Case Status',
-            subTitle: controller.caseModel.isKnown == true
-                ? "Known"
-                : "Unkown",
+            subTitle: controller.caseModel.isKnown == true ? "Known" : "Unkown",
           ),
           GetBuilder<ViewWholeCaseDoctorControllerImpl>(
             builder: (internalController) {
@@ -82,14 +79,12 @@ class BioBoxWidget extends StatelessWidget {
                     ),
                     BioWidget(
                       title: 'Phone number',
-                      subTitle:
-                          internalController.caseModel.phoneNumber,
+                      subTitle: internalController.caseModel.phoneNumber,
                     ),
                   ],
                 );
               }
-              if (controller.requestStatus ==
-                  RequestStatus.LOADING) {
+              if (controller.requestStatus == RequestStatus.LOADING) {
                 return const SizedBox(
                   height: 20,
                   width: 20,
@@ -99,8 +94,7 @@ class BioBoxWidget extends StatelessWidget {
                   ),
                 );
               } else if (internalController.viewPhone == true &&
-                  controller.requestStatus ==
-                      RequestStatus.SUCCESS) {
+                  controller.requestStatus == RequestStatus.SUCCESS) {
                 return Column(
                   children: [
                     const SizedBox(
@@ -108,8 +102,7 @@ class BioBoxWidget extends StatelessWidget {
                     ),
                     BioWidget(
                       title: 'Phone number',
-                      subTitle:
-                          internalController.caseModel.phoneNumber,
+                      subTitle: internalController.caseModel.phoneNumber,
                     ),
                   ],
                 );
@@ -122,7 +115,6 @@ class BioBoxWidget extends StatelessWidget {
               }
             },
           ),
-     
         ],
       ),
     );

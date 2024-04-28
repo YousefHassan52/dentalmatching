@@ -26,7 +26,13 @@ class MyTranslation implements Translations {
           "Write a Keyword to Search": "اكتب كلمة رئيسية للبحث عنها",
           //login
           "Invalid Phone Number": "رقم الهاتف غير صالح",
-          "Invalid Password": "كلمة السر غير صالحة",
+          "Invalid Password": '''
+كلمة المرور الخاصة بك يجب أن تتضمن:
+1.	حروف كبيرة
+2.	حروف صغيرة
+3.	رموز
+4.	أرقام
+''',
           "Please Wait for Identity Verification":
               "الرجاء انتظار التحقق من الهوية",
           "Incorrect Phone Number or Password":
@@ -362,7 +368,13 @@ class MyTranslation implements Translations {
               "Incorrect Phone Number or Password",
           "Please Wait for Identity Verification":
               "Please Wait for Identity Verification",
-          "Invalid Password": "Invalid Password",
+          "Invalid Password": '''
+Your password must include:
+1. Capital letters
+2. Small letters
+3. Symbols
+4. Numbers
+''',
           'Welcome Back': 'Welcome Back',
           'Forget Password?': 'Forget Password?',
           "Phone": "Phone",
