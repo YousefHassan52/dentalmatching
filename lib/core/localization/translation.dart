@@ -139,6 +139,7 @@ class MyTranslation implements Translations {
           'Prescription Images': 'صور الروشتة',
           "Comments": "التعليقات",
           "Add a comment...": "...اضافة تعليق",
+          "Add a comment": "اضف تعليق!",
 
           //Assigned Case Patient
 
@@ -350,6 +351,7 @@ class MyTranslation implements Translations {
           'Prescription Images': 'Prescription Images',
           "Comments": "Comments",
           "Add a comment...": "Add a comment...",
+          "Add a comment": "Add a comment !!",
 
           //Assigned Case Patient
           'Dr.': 'Dr.',
