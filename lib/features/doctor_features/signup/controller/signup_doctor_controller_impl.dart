@@ -49,7 +49,7 @@ class SignupDoctorControllerImpl extends SignupDoctorControllerAbstract {
           email: emailController.text,
           phoneNumber: phoneController.text,
           fullname: fullNameController.text,
-          gender: gender == "Male" ? true : false,
+          gender: gender == "Male" || gender == "ذكر" ? true : false,
           password: passwordController.text,
           role: "Doctor",
           university: universityController.text,

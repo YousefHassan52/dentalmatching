@@ -35,7 +35,7 @@ class SignupPatientControllerImpl extends SignupPatientControllerAbstract {
       var response = await signupData.postData(
         fullname: fullNameController.text,
         email: emailController.text,
-        gender: gender == "Male" ? true : false,
+        gender: gender == "Male" || gender == "ذكر" ? true : false,
         age: int.parse(ageController.text),
         government: gov!,
         password: passwordController.text,

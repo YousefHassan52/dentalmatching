@@ -1,4 +1,6 @@
 import 'package:dentalmatching/core/constants/colors.dart';
+import 'package:dentalmatching/core/functions/chosen_gov.dart';
+import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/textformfield.dart';
 import 'package:dentalmatching/features/doctor_features/signup/controller/signup_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/signup/data/static.dart';
@@ -14,13 +16,16 @@ class DocotrGovernmentDropdownSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SignupDoctorControllerImpl externalController = Get.find();
+    MyServices myServices = Get.find();
 
     return DropdownSearch<String>(
       popupProps: const PopupProps.menu(
         showSearchBox: true,
         showSelectedItems: true,
       ),
-      items: governments,
+      items: myServices.sharedPref.getString("lang") == "en"
+          ? governments
+          : arabicGovernments,
       dropdownDecoratorProps: DropDownDecoratorProps(
         dropdownSearchDecoration: InputDecoration(
             prefixIcon: const CustomSvgPicture(icon: "assets/svg/Pin.svg"),
@@ -36,7 +41,11 @@ class DocotrGovernmentDropdownSearch extends StatelessWidget {
             )),
       ),
       onChanged: (value) {
-        externalController.gov = value;
+        if (myServices.sharedPref.getString("lang") == "en") {
+          externalController.gov = value;
+        } else {
+          externalController.gov = chosenGov(value!);
+        }
       },
       selectedItem: externalController.gov,
       validator: (value) {

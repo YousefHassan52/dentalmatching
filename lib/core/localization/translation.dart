@@ -51,6 +51,8 @@ class MyTranslation implements Translations {
           "Governorate": "المحافظة",
           "Gender": "النوع",
           "Address": "العنوان",
+          "Female": "انثى",
+          "Male": "ذكر",
 
           "WELCOME": "مرحبا",
           "Settings": "اعدادات",
@@ -266,6 +268,8 @@ class MyTranslation implements Translations {
           "Governorate": "Governorate",
           "Gender": "Gender",
           "Address": "Address",
+          "Female": "Female",
+          "Male": "Male",
 
           "Personal Info": "Personal Info",
 

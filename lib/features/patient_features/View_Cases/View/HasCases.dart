@@ -49,8 +49,8 @@ class HasCases extends StatelessWidget {
                 const Spacer(),
                 IconButton(
                     onPressed: () {
-                      print(externalController.patientModel.fullName);
-                      // externalController.getCases();
+                      // print(externalController.patientModel.fullName);
+                      externalController.getCases();
                     },
                     icon: const Icon(
                       Icons.rocket_launch_outlined,
