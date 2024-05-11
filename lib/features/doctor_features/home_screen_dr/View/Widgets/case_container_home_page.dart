@@ -1,28 +1,27 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/data/Model/CaseDoctorModel.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/CircleAvatarWidget.dart';
 import 'package:dentalmatching/features/patient_features/view_cases/View/Widget/ImageContainer.dart';
-
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/CircleAvatarWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CasContainer extends StatelessWidget {
-  const CasContainer({
-    Key? key,
+class DoctorHomeCaseContainer extends StatelessWidget {
+  const DoctorHomeCaseContainer({
+    super.key,
     required this.caseModel,
-  }) : super(key: key);
+  });
   final CaseDoctorModel caseModel;
+
   @override
   Widget build(BuildContext context) {
     MyServices languageController = Get.find();
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
-      //height: 320,
-      width: 20,
+      width: MediaQuery.sizeOf(context).width * 0.94,
       decoration: BoxDecoration(
         //color: AppColors.circleColor,
         borderRadius: const BorderRadius.all(Radius.circular(26)),
@@ -36,7 +35,6 @@ class CasContainer extends StatelessWidget {
           ),
         ),
       ),
-
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +55,7 @@ class CasContainer extends StatelessWidget {
                   fit: BoxFit.scaleDown,
                   child: Text(
                     caseModel.patientName,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                       color: AppColors.mainColor,
@@ -65,17 +63,6 @@ class CasContainer extends StatelessWidget {
                   ),
                 ),
               ),
-              const Spacer(),
-              if (caseModel.isAssigned == true)
-                const Flexible(
-                  child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Icon(
-                      Icons.check_circle_rounded,
-                      color: Colors.green,
-                    ),
-                  ),
-                ),
               const Spacer(),
               Flexible(
                 child: FittedBox(
@@ -100,13 +87,19 @@ class CasContainer extends StatelessWidget {
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: AutoSizeText(
-              caseModel.description,
-              style: Styles.textStyle16Grey,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
+          Flexible(
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
+                child: Text(
+                  caseModel.description,
+                  style: Styles.textStyle16Grey,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
             ),
           ),
           SizedBox(

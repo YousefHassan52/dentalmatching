@@ -7,8 +7,8 @@ import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doct
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/UpperNot.dart';
 import 'package:dentalmatching/features/common_faetures/dental_case_comments/view/comments.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_impl.dart';
-import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/FormHeadLine.dart';
-import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/HDivider.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/FormHeadLine.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/HDivider.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/ChronicList.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/GridViewWidget.dart';
 import 'package:flutter/material.dart';

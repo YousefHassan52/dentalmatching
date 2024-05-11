@@ -1,25 +1,25 @@
+// ignore: file_names
 import 'dart:io';
 
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Controller/add_case_controller_abstract.dart';
+import 'package:dentalmatching/features/patient_features/add_case/data/add_case_data.dart';
 import 'package:dentalmatching/features/patient_features/add_case/data/staticData.dart';
-import 'package:dentalmatching/features/patient_features/view_cases/data/Model/case_model.dart';
-import 'package:dentalmatching/features/patient_features/edit_case/data/edit_case_data.dart';
 import 'package:dentalmatching/features/patient_features/signup/data/model/patient_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
-class EditCaseController extends GetxController {
+class AddCaseController extends AddCaseControllerAbstract {
   late PatientModel patientModel =
       PatientModel.fromSharedPref(myServices.sharedPref);
   MyServices myServices = Get.find();
   late PatientModel userModel;
-  EditCaseData editCaseData = EditCaseData(Get.find());
+  AddCaseData addCaseData = AddCaseData(Get.find());
   RequestStatus? requestStatus;
-  late PatientCaseModel caseModel;
 
   StaticData list = StaticData();
   List<bool> checkedItems = List.generate(6, (index) => false);
@@ -79,24 +79,9 @@ class EditCaseController extends GetxController {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   void onInit() {
-    caseModel = Get.arguments["edit_case"];
-    descriptionController = TextEditingController(text: caseModel.description);
+    descriptionController = TextEditingController();
     userModel = PatientModel.fromSharedPref(myServices.sharedPref);
-    print(caseModel.chronicDiseases);
-//     if (caseModel.dentalDiseases.isNotEmpty) {
-//       for (int i = 0; i < caseModel.dentalDiseases.length; i++) {
-//         selectedDentalCases[i] = caseModel.dentalDiseases[i];
-//       }
-//     }
-//     if (caseModel.chronicDiseases.isNotEmpty) {
-//       for (int i = 0; i < caseModel.chronicDiseases.length; i++) {
-//         /*
-//         error in next line :
-//         Exception has occurred.
-// RangeError (RangeError (index): Invalid value: Valid value range is empty: 0)*/
-//         selectedChronicDiseases[i] = caseModel.chronicDiseases[i];
-//       }
-//     }
+
     super.onInit();
   }
 
@@ -110,6 +95,7 @@ class EditCaseController extends GetxController {
     for (int i = 0; i < checkedItems.length; i++) {
       if (checkedItems[i]) {
         selectedChronicDiseases.add(list.chronicDiseases[i].title);
+        print('Selected Titles: $selectedChronicDiseases');
       }
     }
     update();
@@ -142,6 +128,7 @@ class EditCaseController extends GetxController {
   bool pressureValidation() {
     if (showPressureChecklist && pressure.isEmpty) {
       Get.defaultDialog(
+        title: 'Alert'.tr,
         middleText: 'Please select your Pressure Level.',
         backgroundColor: Colors.red,
       );
@@ -153,7 +140,8 @@ class EditCaseController extends GetxController {
   bool checkBoxValidation() {
     if (!AppValidator.validateCheckbox(checkedItems)) {
       Get.defaultDialog(
-        middleText: 'Please select at least one item in the checklist.',
+        title: 'Alert'.tr.tr,
+        middleText: 'Please select at least one item in the checklist.'.tr,
         backgroundColor: Colors.red,
       );
       return false; // Validation failed
@@ -164,7 +152,8 @@ class EditCaseController extends GetxController {
   bool caseValidation() {
     if (selected.isEmpty) {
       Get.defaultDialog(
-        middleText: 'Please select your case.',
+        title: 'Alert'.tr,
+        middleText: 'Please select your case.'.tr,
         backgroundColor: Colors.red,
       );
       return false; // Validation failed
@@ -177,7 +166,8 @@ class EditCaseController extends GetxController {
       return true;
     } else {
       Get.defaultDialog(
-        middleText: 'Please select more than 2 images for your mouth.',
+        title: 'Alert'.tr,
+        middleText: 'Please select more than 2 images for your mouth.'.tr,
         backgroundColor: Colors.red,
       );
       return false;
@@ -187,7 +177,8 @@ class EditCaseController extends GetxController {
   bool xrayValidation() {
     if (xray != null && xray!.length > 2) {
       Get.defaultDialog(
-        middleText: 'Maximum Number of X_ray Images is 2',
+        title: 'Alert'.tr,
+        middleText: 'Maximum Number of X_ray Images is 2'.tr,
         backgroundColor: Colors.red,
       );
       return false;
@@ -199,7 +190,8 @@ class EditCaseController extends GetxController {
   bool prescriptionValidation() {
     if (prescription != null && prescription!.length > 2) {
       Get.defaultDialog(
-        middleText: 'Maximum Number of Prescription Images is 2',
+        title: 'Alert'.tr,
+        middleText: 'Maximum Number of Prescription Images is 2'.tr,
         backgroundColor: Colors.red,
       );
       return false;
@@ -208,15 +200,18 @@ class EditCaseController extends GetxController {
     }
   }
 
+  @override
   Future<void> postCase() async {
     if (formKey.currentState!.validate() &&
         pressureValidation() &&
         checkBoxValidation() &&
+        mouthImagesValidation() &&
+        xrayValidation() &&
+        prescriptionValidation() &&
         caseValidation()) {
       requestStatus = RequestStatus.LOADING;
       update();
-      var response = await editCaseData.postData(
-        caseId: caseModel.caseId,
+      var response = await addCaseData.postData(
         data: {
           "description": descriptionController.text,
 
@@ -247,7 +242,8 @@ class EditCaseController extends GetxController {
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response['success'] == true) {
           Get.defaultDialog(
-              title: "Success ", middleText: "Your Case Edited Successfully");
+              title: "Success ".tr,
+              middleText: "Your Case Posted Successfully".tr);
           print(response);
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {

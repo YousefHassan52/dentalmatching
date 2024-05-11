@@ -1,52 +1,44 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
-import 'package:dentalmatching/features/patient_features/view_cases/Controller/mycases_patient_controller_abstract.dart';
-import 'package:dentalmatching/features/patient_features/view_cases/data/Model/case_model.dart';
-import 'package:dentalmatching/features/patient_features/view_cases/data/my_cases_patient_data.dart';
-import 'package:dentalmatching/features/patient_features/signup/data/model/patient_model.dart';
+import 'package:dentalmatching/features/doctor_features/home_screen_dr/controller/get_three_cases_controller_abstract.dart';
+import 'package:dentalmatching/features/doctor_features/home_screen_dr/data/Home_doctor_data.dart';
+import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/data/Model/CaseDoctorModel.dart';
+import 'package:dentalmatching/features/doctor_features/signup/data/models/doctor_model.dart';
 import 'package:get/get.dart';
 
-class MyCasesPatientControllerImpl extends MyCasesPatientControllerAbstract {
+class GetThreeCasesControllerImpl extends GetThreeCasesControllerAbstract {
   MyServices myServices = Get.find();
-  MyCasesPatientData myCasesPatientData = MyCasesPatientData(Get.find());
+  HomeDoctorData dataObject = HomeDoctorData(Get.find());
   RequestStatus? requestStatus;
-  late PatientModel patientModel =
-      PatientModel.fromSharedPref(myServices.sharedPref);
-  List<PatientCaseModel> myCases = [];
-
-  initializeUserData() {
-    getCases();
-  }
+  late DoctorModel doctorModel =
+      DoctorModel.fromSharedPref(myServices.sharedPref);
+  List<CaseDoctorModel> cases = [];
 
   @override
   void onInit() {
     getCases();
-    patientModel =
-        PatientModel.fromSharedPref(myServices.sharedPref); // el mafrod tet4al
+    doctorModel = DoctorModel.fromSharedPref(myServices.sharedPref);
     super.onInit();
   }
 
   @override
-  void getCases() async {
-    myCases = [];
-    update();
+  Future<void> getCases() async {
+    cases = [];
     requestStatus = RequestStatus.LOADING;
     update();
-    var response =
-        await myCasesPatientData.getMyCases(token: patientModel.token);
+    var response = await dataObject.getCases(token: doctorModel.token);
     print(response.toString());
-    requestStatus = HandlingResponseType.fun(response);
     update();
+    requestStatus = HandlingResponseType.fun(response);
     print("joe ;${requestStatus.toString()}");
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {
 // Iterate over the response data and create MyCaseModel objects
         List<dynamic> responseData = response["data"];
         for (var data in responseData) {
-          PatientCaseModel myCase = PatientCaseModel.fromJson(data);
-          myCases.add(myCase);
-          update();
+          CaseDoctorModel myCase = CaseDoctorModel.fromJson(data);
+          cases.add(myCase);
         }
         if (response["message"] == "No Dental Cases Available") {
           requestStatus = RequestStatus.EMPTY_SUCCESS;

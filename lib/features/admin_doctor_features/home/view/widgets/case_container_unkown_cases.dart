@@ -4,7 +4,7 @@ import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/data/Model/CaseDoctorModel.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/CircleAvatarWidget.dart';
-import 'package:dentalmatching/features/patient_features/View_Cases/View/Widget/ImageContainer.dart';
+import 'package:dentalmatching/features/patient_features/view_cases/View/Widget/ImageContainer.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

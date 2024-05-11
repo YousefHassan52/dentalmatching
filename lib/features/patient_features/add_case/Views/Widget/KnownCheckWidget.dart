@@ -29,22 +29,21 @@
 //     );
 //   }
 // }
-
+import 'package:dentalmatching/features/patient_features/add_case/Controller/add_case_controller.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/CasesCheckList.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/RadioList.dart';
 import 'package:dentalmatching/features/patient_features/add_case/data/staticData.dart';
-import 'package:dentalmatching/features/patient_features/edit_case/controller/editCaseController.dart';
-import 'package:dentalmatching/features/patient_features/edit_case/view/widgets/edit_cases_check_list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class EditKnownCheckWidget extends StatelessWidget {
-  const EditKnownCheckWidget({Key? key}) : super(key: key);
+class KnownCheckWidget extends StatelessWidget {
+  const KnownCheckWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     StaticData list = StaticData();
 
-    return GetBuilder<EditCaseController>(
+    return GetBuilder<AddCaseController>(
       builder: (controller) {
         return RadioListWidget(
           cont: list.caseStatus,
@@ -66,14 +65,14 @@ class EditKnownCheckWidget extends StatelessWidget {
                             'Dental Cases'.tr,
                             style: const TextStyle(fontSize: 20),
                           ),
-                          const EditCasesChecklist(),
+                          const CasesChecklist(),
                         ],
                       ),
                     ),
                   );
                 },
               );
-            } else if (value == 'Unknown' || value == 'لا ااعلم') {
+            } else if (value == 'Unknown' || value == 'لا اعلم') {
               controller.selectedDentalCases = [];
               print(controller.selectedDentalCases);
             }

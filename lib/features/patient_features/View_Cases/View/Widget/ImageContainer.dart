@@ -1,9 +1,9 @@
 // ignore_for_file: unused_import, file_names
 
 import 'package:dentalmatching/core/constants/colors.dart';
-import 'package:dentalmatching/features/patient_features/View_Cases/data/Model/ImageModel.dart';
-import 'package:dentalmatching/features/patient_features/View_Cases/View/Widget/ImageContainerWidget.dart';
-import 'package:dentalmatching/features/patient_features/View_Cases/data/Model/case_model.dart';
+import 'package:dentalmatching/features/patient_features/view_cases/data/Model/ImageModel.dart';
+import 'package:dentalmatching/features/patient_features/view_cases/View/Widget/ImageContainerWidget.dart';
+import 'package:dentalmatching/features/patient_features/view_cases/data/Model/case_model.dart';
 import 'package:flutter/material.dart';
 
 class ImageContainer extends StatelessWidget {

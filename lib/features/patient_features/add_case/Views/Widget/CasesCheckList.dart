@@ -1,18 +1,18 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Controller/add_case_controller.dart';
 import 'package:dentalmatching/features/patient_features/add_case/data/staticData.dart';
-import 'package:dentalmatching/features/patient_features/edit_case/controller/editCaseController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class EditCasesChecklist extends StatelessWidget {
-  const EditCasesChecklist({Key? key}) : super(key: key);
+class CasesChecklist extends StatelessWidget {
+  const CasesChecklist({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     StaticData list = StaticData();
 
-    return GetBuilder<EditCaseController>(
+    return GetBuilder<AddCaseController>(
       builder: (controller) {
         return Column(
           children: [

@@ -1,5 +1,5 @@
 import 'package:dentalmatching/core/constants/colors.dart';
-import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
+import 'package:dentalmatching/features/patient_features/view_cases/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/view_full_case_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/BioWidgetDr.dart';

@@ -1,22 +1,21 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Controller/add_case_controller.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/RadioList.dart';
 import 'package:dentalmatching/features/patient_features/add_case/data/staticData.dart';
-import 'package:dentalmatching/features/patient_features/edit_case/controller/editCaseController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class EditCasesChecklist extends StatelessWidget {
-  const EditCasesChecklist({Key? key}) : super(key: key);
-
+class ChronicDiseasesChecklist extends StatelessWidget {
+  const ChronicDiseasesChecklist({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     StaticData list = StaticData();
-
-    return GetBuilder<EditCaseController>(
+    return GetBuilder<AddCaseController>(
       builder: (controller) {
         return Column(
           children: [
-            for (int index = 0; index < list.knownCases.length; index++)
+            for (int index = 0; index < list.chronicDiseases.length; index++)
               Column(
                 children: [
                   CheckboxListTile(
@@ -24,12 +23,12 @@ class EditCasesChecklist extends StatelessWidget {
                     activeColor: Colors.transparent,
                     checkboxShape: const OvalBorder(),
                     title: Text(
-                      list.knownCases[index].title.tr,
+                      list.chronicDiseases[index].title.tr,
                       style: Styles.textStyle16Grey,
                     ),
-                    value: controller.checkedCase[index],
+                    value: controller.checkedItems[index],
                     onChanged: (value) {
-                      controller.handleCheckboxChangeCases(index, value!);
+                      controller.handleCheckboxChange(index, value!);
                     },
                     controlAffinity: ListTileControlAffinity
                         .leading, // Move the checkbox to the leading position
@@ -37,6 +36,15 @@ class EditCasesChecklist extends StatelessWidget {
                         const EdgeInsets.all(0), // Remove default padding
                     dense: true,
                   ),
+                  if (controller.showPressureChecklist &&
+                      list.chronicDiseases[index].title == 'Hypertension')
+                    RadioListWidget(
+                      cont: list.pressureLevels,
+                      onChanged: (value) {
+                        controller.handleSelectionPressure(value!);
+                      },
+                      groupValue: controller.pressure,
+                    ),
                 ],
               ),
           ],

@@ -3,7 +3,7 @@ import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/localization/translation_controller.dart';
 import 'package:dentalmatching/features/common_faetures/delete_account/controller/delete_account_controller_impl.dart';
-import 'package:dentalmatching/features/patient_features/View_Cases/Controller/mycases_patient_controller_impl.dart';
+import 'package:dentalmatching/features/patient_features/view_cases/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
 import 'package:dentalmatching/features/patient_features/paybal/controller/payment_contoller_imp.dart';
 import 'package:dentalmatching/features/patient_features/payment/controller/payment_contoller_imp.dart';
@@ -113,8 +113,7 @@ class SettingsPatientScreen extends StatelessWidget {
                   paypalController.makePayment();
                 },
                 onPressed2: () {
-                  
-                   payment.makePayment();
+                  payment.makePayment();
                 },
               ),
               SettingsRowComponent(
@@ -133,7 +132,8 @@ class SettingsPatientScreen extends StatelessWidget {
                   onTap: () {
                     Get.defaultDialog(
                         backgroundColor: Colors.white,
-                        middleText: "Are you sure you want to delete your Acoount?".tr,
+                        middleText:
+                            "Are you sure you want to delete your Acoount?".tr,
                         title: 'Alert'.tr,
                         onConfirm: () {
                           deleteController
