@@ -1,9 +1,9 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
-import 'package:dentalmatching/features/patient_features/view_cases/Controller/mycases_patient_controller_abstract.dart';
-import 'package:dentalmatching/features/patient_features/view_cases/data/Model/case_model.dart';
-import 'package:dentalmatching/features/patient_features/view_cases/data/my_cases_patient_data.dart';
+import 'package:dentalmatching/features/patient_features/view_casess/Controller/mycases_patient_controller_abstract.dart';
+import 'package:dentalmatching/features/patient_features/view_casess/data/Model/case_model.dart';
+import 'package:dentalmatching/features/patient_features/view_casess/data/my_cases_patient_data.dart';
 import 'package:dentalmatching/features/patient_features/signup/data/model/patient_model.dart';
 import 'package:get/get.dart';
 

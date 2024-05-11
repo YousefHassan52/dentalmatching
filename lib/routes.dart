@@ -21,7 +21,7 @@ import 'package:dentalmatching/features/patient_features/add_case/Views/AddCase.
 import 'package:dentalmatching/features/patient_features/edit_case/view/edit_screen.dart';
 import 'package:dentalmatching/features/patient_features/edit_profile_info/view/edit_patient_info_screen.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/ViewForm.dart';
-import 'package:dentalmatching/features/patient_features/view_cases/View/HasCases.dart';
+import 'package:dentalmatching/features/patient_features/view_casess/View/HasCases.dart';
 import 'package:dentalmatching/features/patient_features/home/view/home_screen.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/profile_patient_screen.dart';
 import 'package:dentalmatching/features/patient_features/signup/view/signup_screen.dart';

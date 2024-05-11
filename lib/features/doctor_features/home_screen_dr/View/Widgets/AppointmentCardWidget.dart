@@ -109,7 +109,7 @@ import 'package:dentalmatching/features/doctor_features/home_screen_dr/View/Widg
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/data/Model/CaseDoctorModel.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/DateTimeWidget.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/CircleAvatarWidget.dart';
-import 'package:dentalmatching/features/patient_features/view_cases/View/Widget/ImageContainer.dart';
+import 'package:dentalmatching/features/patient_features/view_casess/View/Widget/ImageContainer.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

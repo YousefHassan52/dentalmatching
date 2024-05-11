@@ -1,7 +1,7 @@
 import 'package:dentalmatching/features/patient_features/edit_case/controller/editCaseController.dart';
 import 'package:dentalmatching/features/patient_features/edit_case/view/widgets/form_container.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/Upper.dart';
-import 'package:dentalmatching/features/patient_features/view_cases/Controller/mycases_patient_controller_impl.dart';
+import 'package:dentalmatching/features/patient_features/view_casess/Controller/mycases_patient_controller_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

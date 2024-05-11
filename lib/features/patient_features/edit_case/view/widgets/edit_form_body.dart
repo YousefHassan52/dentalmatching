@@ -8,7 +8,7 @@ import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/D
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/FormHeadLine.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/HDivider.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/OptionalText.dart';
-import 'package:dentalmatching/features/patient_features/view_cases/Controller/mycases_patient_controller_impl.dart';
+import 'package:dentalmatching/features/patient_features/view_casess/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/edit_case/controller/editCaseController.dart';
 import 'package:dentalmatching/features/patient_features/edit_case/view/widgets/edit_chronic_check_list.dart';
 import 'package:dentalmatching/features/patient_features/edit_case/view/widgets/known_check_list.dart';

@@ -11,7 +11,7 @@ import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/F
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/HDivider.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/KnownCheckWidget.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/OptionalText.dart';
-import 'package:dentalmatching/features/patient_features/view_cases/Controller/mycases_patient_controller_impl.dart';
+import 'package:dentalmatching/features/patient_features/view_casess/Controller/mycases_patient_controller_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

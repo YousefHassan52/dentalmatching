@@ -4,7 +4,7 @@ import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/textformfield.dart';
-import 'package:dentalmatching/features/patient_features/view_cases/Controller/mycases_patient_controller_impl.dart';
+import 'package:dentalmatching/features/patient_features/view_casess/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/edit_profile_info/controller/edit_patient_info_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/edit_profile_info/view/widgets/gender_field_edit_patient.dart';
 import 'package:dentalmatching/features/patient_features/edit_profile_info/view/widgets/gov_dropdown_search_edit_patient.dart';

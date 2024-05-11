@@ -5,7 +5,7 @@ import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/patient_features/add_case/data/staticData.dart';
-import 'package:dentalmatching/features/patient_features/view_cases/data/Model/case_model.dart';
+import 'package:dentalmatching/features/patient_features/view_casess/data/Model/case_model.dart';
 import 'package:dentalmatching/features/patient_features/edit_case/data/edit_case_data.dart';
 import 'package:dentalmatching/features/patient_features/signup/data/model/patient_model.dart';
 import 'package:flutter/material.dart';
