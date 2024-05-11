@@ -3,7 +3,9 @@ import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/shared/shimmer_column.dart';
 import 'package:dentalmatching/features/common_faetures/dental_case_comments/controller/comments_controller_impl.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -22,7 +24,7 @@ class CommentsOnCase extends StatelessWidget {
         Get.put(CommentsControllerImpl());
     return Container(
       alignment: Alignment.topLeft,
-      height: Get.height * 0.6,
+      height: Get.height * 0.7,
       width: double.infinity,
       margin: const EdgeInsets.only(
         right: 15,
@@ -101,14 +103,18 @@ class CommentsOnCase extends StatelessWidget {
             } else if (controller.requestStatus ==
                 RequestStatus.EMPTY_SUCCESS) {
               return Center(
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 350,
-                      width: 270,
-                      child: SvgPicture.asset('assets/svg/Empty-pana.svg'),
-                    ),
-                  ],
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 300,
+                        width: 100,
+                        child: SvgPicture.asset('assets/svg/Empty-pana.svg'),
+                      ),
+                      // Text("There is no comments")
+                    ],
+                  ),
                 ),
               );
             } else {
@@ -118,8 +124,8 @@ class CommentsOnCase extends StatelessWidget {
                   child: Column(
                     children: [
                       SizedBox(
-                        height: 350,
-                        width: 270,
+                        height: 100,
+                        width: 100,
                         child: SvgPicture.asset('assets/svg/GroupRRR.svg'),
                       ),
                     ],

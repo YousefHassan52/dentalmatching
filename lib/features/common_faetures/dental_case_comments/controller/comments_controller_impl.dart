@@ -14,7 +14,6 @@ class CommentsControllerImpl extends CommentsControllerAbstract {
 
   late TextEditingController commentController;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
   List<CommentModel> comments = [];
 
   @override
