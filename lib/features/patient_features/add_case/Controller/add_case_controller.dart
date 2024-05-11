@@ -185,7 +185,7 @@ class AddCaseController extends AddCaseControllerAbstract {
     } else {
       return true;
     }
-  }
+  } //
 
   bool prescriptionValidation() {
     if (prescription != null && prescription!.length > 2) {
