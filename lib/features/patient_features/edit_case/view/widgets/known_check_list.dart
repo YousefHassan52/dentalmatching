@@ -30,8 +30,8 @@
 //   }
 // }
 
-import 'package:dentalmatching/features/patient_features/AddCase/Views/Widget/RadioList.dart';
-import 'package:dentalmatching/features/patient_features/AddCase/data/staticData.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/RadioList.dart';
+import 'package:dentalmatching/features/patient_features/add_case/data/staticData.dart';
 import 'package:dentalmatching/features/patient_features/edit_case/controller/editCaseController.dart';
 import 'package:dentalmatching/features/patient_features/edit_case/view/widgets/edit_cases_check_list.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +50,7 @@ class EditKnownCheckWidget extends StatelessWidget {
           cont: list.caseStatus,
           onChanged: (value) {
             controller.handleSelectionKnown(value!);
-            if (value == 'Known'||value == 'اعلم') {
+            if (value == 'Known' || value == 'اعلم') {
               showModalBottomSheet(
                 isScrollControlled: true,
                 context: context,
@@ -60,7 +60,7 @@ class EditKnownCheckWidget extends StatelessWidget {
                       padding: EdgeInsets.only(
                         bottom: MediaQuery.of(context).viewInsets.bottom,
                       ),
-                      child:  Column(
+                      child: Column(
                         children: [
                           Text(
                             'Dental Cases'.tr,

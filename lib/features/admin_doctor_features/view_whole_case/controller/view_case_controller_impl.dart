@@ -6,7 +6,7 @@ import 'package:dentalmatching/features/admin_doctor_features/home/data/model/ad
 import 'package:dentalmatching/features/admin_doctor_features/view_whole_case/controller/view_case_controller_abstract.dart';
 import 'package:dentalmatching/features/admin_doctor_features/view_whole_case/data/View_whole_case_for_admin_data.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/data/Model/CaseDoctorModel.dart';
-import 'package:dentalmatching/features/patient_features/AddCase/data/staticData.dart';
+import 'package:dentalmatching/features/patient_features/add_case/data/staticData.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

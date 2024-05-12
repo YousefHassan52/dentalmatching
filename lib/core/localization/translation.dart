@@ -26,7 +26,13 @@ class MyTranslation implements Translations {
           "Write a Keyword to Search": "اكتب كلمة رئيسية للبحث عنها",
           //login
           "Invalid Phone Number": "رقم الهاتف غير صالح",
-          "Invalid Password": "كلمة السر غير صالحة",
+          "Invalid Password": '''
+كلمة المرور الخاصة بك يجب أن تتضمن:
+1.	حروف كبيرة
+2.	حروف صغيرة
+3.	رموز
+4.	أرقام
+''',
           "Please Wait for Identity Verification":
               "الرجاء انتظار التحقق من الهوية",
           "Incorrect Phone Number or Password":
@@ -45,6 +51,8 @@ class MyTranslation implements Translations {
           "Governorate": "المحافظة",
           "Gender": "النوع",
           "Address": "العنوان",
+          "Female": "انثى",
+          "Male": "ذكر",
 
           "WELCOME": "مرحبا",
           "Settings": "اعدادات",
@@ -133,6 +141,13 @@ class MyTranslation implements Translations {
           'Prescription Images': 'صور الروشتة',
           "Comments": "التعليقات",
           "Add a comment...": "...اضافة تعليق",
+          "Add a comment": "اضف تعليق!",
+          "Report": "ابلاغ",
+          "This case has been reported successfuly":
+              "تم الابلاغ عن هذه الحالة بنجاح",
+          "This case han been reported before":
+              "تم الابلاغ عن هذه الحالة مسبقا",
+          "Warning": "تحذير",
 
           //Assigned Case Patient
 
@@ -259,6 +274,8 @@ class MyTranslation implements Translations {
           "Governorate": "Governorate",
           "Gender": "Gender",
           "Address": "Address",
+          "Female": "Female",
+          "Male": "Male",
 
           "Personal Info": "Personal Info",
 
@@ -344,6 +361,13 @@ class MyTranslation implements Translations {
           'Prescription Images': 'Prescription Images',
           "Comments": "Comments",
           "Add a comment...": "Add a comment...",
+          "Add a comment": "Add a comment !!",
+          "Report": "Report",
+          "This case has been reported successfuly":
+              "This case has been reported successfuly",
+          "This case han been reported before":
+              "This case han been reported before",
+          "Warning": "Warning",
 
           //Assigned Case Patient
           'Dr.': 'Dr.',
@@ -362,7 +386,13 @@ class MyTranslation implements Translations {
               "Incorrect Phone Number or Password",
           "Please Wait for Identity Verification":
               "Please Wait for Identity Verification",
-          "Invalid Password": "Invalid Password",
+          "Invalid Password": '''
+Your password must include:
+1. Capital letters
+2. Small letters
+3. Symbols
+4. Numbers
+''',
           'Welcome Back': 'Welcome Back',
           'Forget Password?': 'Forget Password?',
           "Phone": "Phone",

@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 List<String> governments = [
   'Alexandria',
   'Aswan',
@@ -27,4 +29,33 @@ List<String> governments = [
   'South Sinai',
   'Suez',
 ];
-List<String> gender = ["Male", "Female"];
+List<String> arabicGovernments = [
+  'الإسكندرية',
+  'أسوان',
+  'أسيوط',
+  'البحيرة',
+  'بني سويف',
+  'القاهرة',
+  'الدقهلية',
+  'دمياط',
+  'الفيوم',
+  'الغربية',
+  'الجيزة',
+  'الإسماعيلية',
+  'كفر الشيخ',
+  'الأقصر',
+  'مطروح',
+  'المنيا',
+  'المنوفية',
+  'الوادي الجديد',
+  'شمال سيناء',
+  'بورسعيد',
+  'القليوبية',
+  'قنا',
+  'البحر الأحمر',
+  'الشرقية',
+  'سوهاج',
+  'جنوب سيناء',
+  'السويس',
+];
+List<String> gender = ["Male".tr, "Female".tr];

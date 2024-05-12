@@ -2,8 +2,8 @@ import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/admin_doctor_features/view_whole_case/controller/view_case_controller_impl.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
-import 'package:dentalmatching/features/patient_features/AddCase/Controller/FormController.dart';
-import 'package:dentalmatching/features/patient_features/AddCase/data/staticData.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Controller/add_case_controller.dart';
+import 'package:dentalmatching/features/patient_features/add_case/data/staticData.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
