@@ -7,7 +7,7 @@ import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doct
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/RequestButton.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/UpperNot.dart';
 import 'package:dentalmatching/features/common_faetures/dental_case_comments/view/comments.dart';
-import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/report_button.dart';
+import 'package:dentalmatching/features/doctor_features/report_case/view/report_button.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/FormHeadLine.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/HDivider.dart';
@@ -257,7 +257,9 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const ReportButton(),
+                      ReportButton(
+                        caseId: controller.caseModel.caseId,
+                      ),
 
                       // Small button widget goes here
                     ],

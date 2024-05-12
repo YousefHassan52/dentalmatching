@@ -143,6 +143,11 @@ class MyTranslation implements Translations {
           "Add a comment...": "...اضافة تعليق",
           "Add a comment": "اضف تعليق!",
           "Report": "ابلاغ",
+          "This case has been reported successfuly":
+              "تم الابلاغ عن هذه الحالة بنجاح",
+          "This case han been reported before":
+              "تم الابلاغ عن هذه الحالة مسبقا",
+          "Warning": "تحذير",
 
           //Assigned Case Patient
 
@@ -358,6 +363,11 @@ class MyTranslation implements Translations {
           "Add a comment...": "Add a comment...",
           "Add a comment": "Add a comment !!",
           "Report": "Report",
+          "This case has been reported successfuly":
+              "This case has been reported successfuly",
+          "This case han been reported before":
+              "This case han been reported before",
+          "Warning": "Warning",
 
           //Assigned Case Patient
           'Dr.': 'Dr.',

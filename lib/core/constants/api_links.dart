@@ -53,4 +53,6 @@ class ApiLinks {
       "https://dentamatch.azurewebsites.net/DentalCase/getcomment?caseId=";
   static const String addCaseComments =
       "https://dentamatch.azurewebsites.net/DentalCase/addcomment?";
+  static const String reportCase =
+      "https://dentamatch.azurewebsites.net/Doctor/DentalCase/report?CaseId=";
 }
