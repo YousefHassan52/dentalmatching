@@ -7,7 +7,7 @@ class EditCaseData {
   final CRUD crud;
 
   EditCaseData(this.crud);
-  postData(
+  editCase(
       {List<File>? xrayImages,
       List<File>? mouthImages,
       List<File>? prescriptionImages,

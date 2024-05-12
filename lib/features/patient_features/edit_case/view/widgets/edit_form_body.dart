@@ -124,7 +124,7 @@ class EditFormBody extends StatelessWidget {
           AuthButton(
             buttonText: 'Update'.tr,
             onTap: () {
-              controller.postCase().then((value) {
+              controller.editCase().then((value) {
                 reloadController.getCases();
               });
             },

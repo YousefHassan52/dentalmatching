@@ -1,4 +1,5 @@
 import 'package:dentalmatching/core/class/request_status.dart';
+import 'package:dentalmatching/core/functions/block_action.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/features/common_faetures/delete_account/controller/delete_account_abstract_controller.dart';
 import 'package:dentalmatching/features/common_faetures/delete_account/data/my_cases_patient_data.dart';
@@ -23,12 +24,13 @@ class DeleteAccountControllerImp extends DeleteAccountControllerAbstract {
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
       Get.defaultDialog(
-         title: "Alert".tr,
-        middleText: "Internet Connection Error Refresh Data".tr);
+          title: "Alert".tr,
+          middleText: "Internet Connection Error Refresh Data".tr);
+    } else if (requestStatus == RequestStatus.BLOCKED_USER) {
+      blockAction();
     } else {
       Get.defaultDialog(
-        title: "Alert".tr,
-        middleText: "Server Error Please Try Again");
+          title: "Alert".tr, middleText: "Server Error Please Try Again");
     }
 
     update();

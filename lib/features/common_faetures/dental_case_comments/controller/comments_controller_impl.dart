@@ -1,4 +1,5 @@
 import 'package:dentalmatching/core/class/request_status.dart';
+import 'package:dentalmatching/core/functions/block_action.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/common_faetures/dental_case_comments/controller/comments_controller_abstract.dart';
@@ -46,6 +47,8 @@ class CommentsControllerImpl extends CommentsControllerAbstract {
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
       Get.defaultDialog(
           middleText: "Case not found or has been deleted recently");
+    } else if (requestStatus == RequestStatus.BLOCKED_USER) {
+      blockAction();
     } else {
       Get.defaultDialog(middleText: "Server Error Please Try Again");
     }
@@ -72,6 +75,8 @@ class CommentsControllerImpl extends CommentsControllerAbstract {
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
         Get.defaultDialog(
             middleText: "Case not found or has been deleted recently");
+      } else if (requestStatus == RequestStatus.BLOCKED_USER) {
+        blockAction();
       } else {
         Get.defaultDialog(middleText: "Server Error Please Try Again");
       }
