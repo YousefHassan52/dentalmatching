@@ -5,6 +5,8 @@ import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/check_internet.dart';
 import 'package:dio/dio.dart';
 
+import '../functions/block_action.dart';
+
 class CRUD {
   Future<Either<RequestStatus, Map<String, dynamic>>> post({
     required String url,
@@ -40,6 +42,8 @@ class CRUD {
           }
         } else if (response.statusCode == 500) {
           return left(RequestStatus.INTERNAL_SERVER_ERROR);
+        } else if (response.statusCode == 403) {
+          return left(RequestStatus.BLOCKED_USER);
         } else {
           print(response);
           return left(RequestStatus.SERVER_FAILURE);
@@ -83,6 +87,8 @@ class CRUD {
           return left(RequestStatus.UNAUTHORIZED_FAILURE);
         } else if (response.statusCode == 500) {
           return left(RequestStatus.INTERNAL_SERVER_ERROR);
+        } else if (response.statusCode == 403) {
+          return left(RequestStatus.BLOCKED_USER);
         } else {
           return left(RequestStatus.SERVER_FAILURE);
         }
@@ -138,6 +144,8 @@ class CRUD {
           return left(RequestStatus.UNAUTHORIZED_FAILURE);
         } else if (response.statusCode == 500) {
           return left(RequestStatus.INTERNAL_SERVER_ERROR);
+        } else if (response.statusCode == 403) {
+          return left(RequestStatus.BLOCKED_USER);
         } else {
           print(response.data);
           return left(RequestStatus.SERVER_FAILURE);
@@ -204,6 +212,8 @@ class CRUD {
           return left(RequestStatus.UNAUTHORIZED_FAILURE);
         } else if (response.statusCode == 500) {
           return left(RequestStatus.INTERNAL_SERVER_ERROR);
+        } else if (response.statusCode == 403) {
+          return left(RequestStatus.BLOCKED_USER);
         } else {
           return left(RequestStatus.SERVER_FAILURE);
         }
@@ -249,6 +259,8 @@ class CRUD {
           print(response.data);
 
           return left(RequestStatus.INTERNAL_SERVER_ERROR);
+        } else if (response.statusCode == 403) {
+          return left(RequestStatus.BLOCKED_USER);
         } else {
           print(response.data);
 

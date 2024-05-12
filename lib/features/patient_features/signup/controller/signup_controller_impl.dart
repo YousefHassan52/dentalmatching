@@ -57,6 +57,12 @@ class SignupPatientControllerImpl extends SignupPatientControllerAbstract {
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
         Get.defaultDialog(middleText: "Email or Phone Already exists before");
+      } else if (requestStatus == RequestStatus.BLOCKED_USER) {
+        Get.defaultDialog(
+          title: "Blocked User",
+          middleText:
+              "You have been blocked by many doctors more than 4 times due to your bad attitude",
+        );
       } else {
         Get.defaultDialog(middleText: "Server Error Please Try Again");
       }

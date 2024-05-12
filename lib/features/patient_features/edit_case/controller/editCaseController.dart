@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dentalmatching/core/class/request_status.dart';
+import 'package:dentalmatching/core/functions/block_action.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
@@ -83,20 +84,7 @@ class EditCaseController extends GetxController {
     descriptionController = TextEditingController(text: caseModel.description);
     userModel = PatientModel.fromSharedPref(myServices.sharedPref);
     print(caseModel.chronicDiseases);
-//     if (caseModel.dentalDiseases.isNotEmpty) {
-//       for (int i = 0; i < caseModel.dentalDiseases.length; i++) {
-//         selectedDentalCases[i] = caseModel.dentalDiseases[i];
-//       }
-//     }
-//     if (caseModel.chronicDiseases.isNotEmpty) {
-//       for (int i = 0; i < caseModel.chronicDiseases.length; i++) {
-//         /*
-//         error in next line :
-//         Exception has occurred.
-// RangeError (RangeError (index): Invalid value: Valid value range is empty: 0)*/
-//         selectedChronicDiseases[i] = caseModel.chronicDiseases[i];
-//       }
-//     }
+
     super.onInit();
   }
 
@@ -208,14 +196,14 @@ class EditCaseController extends GetxController {
     }
   }
 
-  Future<void> postCase() async {
+  Future<void> editCase() async {
     if (formKey.currentState!.validate() &&
         pressureValidation() &&
         checkBoxValidation() &&
         caseValidation()) {
       requestStatus = RequestStatus.LOADING;
       update();
-      var response = await editCaseData.postData(
+      var response = await editCaseData.editCase(
         caseId: caseModel.caseId,
         data: {
           "description": descriptionController.text,
@@ -252,6 +240,8 @@ class EditCaseController extends GetxController {
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
         Get.defaultDialog(middleText: "Unauthorize Error Please Try Again..");
+      } else if (requestStatus == RequestStatus.BLOCKED_USER) {
+        blockAction();
       } else {
         Get.defaultDialog(middleText: "Server Error Please Try Again");
       }

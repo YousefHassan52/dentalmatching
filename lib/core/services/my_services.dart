@@ -71,6 +71,21 @@ class MyServices extends GetxService {
     sharedPref.setString("role", response["data"]["role"]);
   }
 
+  void removeUserFromSharedPref() {
+    sharedPref.remove("logged");
+    sharedPref.remove("userName");
+    sharedPref.remove("token");
+    sharedPref.remove("profileImage");
+    sharedPref.remove("fullName");
+    sharedPref.remove("email");
+    sharedPref.remove("age");
+    sharedPref.remove("gender");
+    sharedPref.remove("city");
+    sharedPref.remove("phoneNumber");
+    sharedPref.remove("role");
+    sharedPref.remove("address");
+  }
+
   void updatePatientModelToSharedPrefrence(response) {
     sharedPref.setString("userName", response["userName"]);
 

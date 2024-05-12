@@ -75,6 +75,12 @@ class LoginControllerImp extends LoginControllerAbstract {
         Get.defaultDialog(
             title: "Identity Verification In Progress".tr,
             middleText: "Please Wait for Identity Verification".tr);
+      } else if (requestStatus == RequestStatus.BLOCKED_USER) {
+        Get.defaultDialog(
+          title: "Blocked User",
+          middleText:
+              "You have been blocked by many doctors more than 4 times due to your bad attitude",
+        );
       } else {
         Get.defaultDialog(middleText: "Server Error Please Try Again");
       }

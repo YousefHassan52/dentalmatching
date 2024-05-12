@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:dentalmatching/core/class/request_status.dart';
+import 'package:dentalmatching/core/functions/block_action.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
@@ -248,6 +249,8 @@ class AddCaseController extends AddCaseControllerAbstract {
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
         Get.defaultDialog(middleText: "Unauthorize Error Please Try Again..");
+      } else if (requestStatus == RequestStatus.BLOCKED_USER) {
+        blockAction();
       } else {
         Get.defaultDialog(middleText: "Server Error Please Try Again");
       }
