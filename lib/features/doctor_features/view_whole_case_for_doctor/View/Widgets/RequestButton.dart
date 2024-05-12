@@ -20,19 +20,20 @@ class RequestAndCancelButton extends StatelessWidget {
           width: double.infinity,
           height: 50,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
             gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: isCancelButton
-                    ? [
-                        const Color.fromARGB(255, 209, 88, 7),
-                        const Color.fromRGBO(228, 99, 40, 0.475),
-                      ]
-                    : [
-                        const Color(0xFF4A6BAD),
-                        const Color.fromRGBO(25, 63, 138, 0.48),
-                      ]),
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: isCancelButton
+                  ? [
+                      const Color.fromARGB(255, 209, 88, 7),
+                      const Color.fromRGBO(228, 99, 40, 0.475),
+                    ]
+                  : [
+                      const Color(0xFF4A6BAD),
+                      const Color.fromRGBO(25, 63, 138, 0.48),
+                    ],
+            ),
+            borderRadius: BorderRadius.circular(10.0),
             boxShadow: const [
               BoxShadow(
                 color: Color(0xffC3C3C3),

@@ -142,6 +142,7 @@ class MyTranslation implements Translations {
           "Comments": "التعليقات",
           "Add a comment...": "...اضافة تعليق",
           "Add a comment": "اضف تعليق!",
+          "Report": "ابلاغ",
 
           //Assigned Case Patient
 
@@ -356,6 +357,7 @@ class MyTranslation implements Translations {
           "Comments": "Comments",
           "Add a comment...": "Add a comment...",
           "Add a comment": "Add a comment !!",
+          "Report": "Report",
 
           //Assigned Case Patient
           'Dr.': 'Dr.',

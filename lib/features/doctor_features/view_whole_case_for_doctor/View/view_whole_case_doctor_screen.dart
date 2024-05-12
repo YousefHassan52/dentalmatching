@@ -1,3 +1,4 @@
+import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
@@ -6,6 +7,7 @@ import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doct
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/RequestButton.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/UpperNot.dart';
 import 'package:dentalmatching/features/common_faetures/dental_case_comments/view/comments.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/report_button.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/FormHeadLine.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/HDivider.dart';
@@ -151,12 +153,17 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                                     style: Styles.textStyle16Grey,
                                   ),
                       ),
-                      const HDivider(),
-                      FormHeadLine(headline: 'Comments'.tr),
-                      CommentsOnCase(
-                        caseid: controller.caseModel.caseId,
-                        token: controller.doctorModel.token,
-                      ),
+                      if (!controller.caseModel.isAssigned)
+                        Column(
+                          children: [
+                            const HDivider(),
+                            FormHeadLine(headline: 'Comments'.tr),
+                            CommentsOnCase(
+                              caseid: controller.caseModel.caseId,
+                              token: controller.doctorModel.token,
+                            ),
+                          ],
+                        ),
                     ],
                   ),
                 ),
@@ -185,57 +192,78 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                 );
               } else {
                 return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: RequestAndCancelButton(
-                    isCancelButton: true,
-                    onPressed: () {
-                      Get.defaultDialog(
-                          title: "Warning".tr,
-                          middleText:
-                              "Are you Sure you Want to Cancel this Request?"
-                                  .tr,
-                          confirm: ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.red), // Change color to red
-                            ),
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 3,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: RequestAndCancelButton(
+                            isCancelButton: true,
                             onPressed: () {
-                              print(controller.caseModel.caseId);
+                              Get.defaultDialog(
+                                title: "Warning".tr,
+                                middleText:
+                                    "Are you Sure you Want to Cancel this Request?"
+                                        .tr,
+                                confirm: ElevatedButton(
+                                  style: ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                      Colors.red, // Change color to red
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    print(controller.caseModel.caseId);
 
-                              controller.cancelCase().then((value) {
-                                UnassignedCasesDoctorControllerImpl
-                                    reloadDataControllerForAllCases = Get.put(
-                                        UnassignedCasesDoctorControllerImpl());
-                                GetDocotorCasesControllerImpl
-                                    reloadDataControllerForDoctorCases =
-                                    Get.put(GetDocotorCasesControllerImpl());
-                                reloadDataControllerForAllCases.getCases();
-                                reloadDataControllerForDoctorCases.getCases();
-                              });
-                              Get.back();
+                                    controller.cancelCase().then((value) {
+                                      UnassignedCasesDoctorControllerImpl
+                                          reloadDataControllerForAllCases =
+                                          Get.put(
+                                              UnassignedCasesDoctorControllerImpl());
+                                      GetDocotorCasesControllerImpl
+                                          reloadDataControllerForDoctorCases =
+                                          Get.put(
+                                              GetDocotorCasesControllerImpl());
+                                      reloadDataControllerForAllCases
+                                          .getCases();
+                                      reloadDataControllerForDoctorCases
+                                          .getCases();
+                                    });
+                                    Get.back();
+                                  },
+                                  child: Text(
+                                    "Confirm".tr,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                    ), // Translate "Confirm" into Arabic
+                                  ),
+                                ),
+                                cancel: ElevatedButton(
+                                  onPressed: () {
+                                    Get.back();
+                                  },
+                                  child: Text(
+                                    "Cancel".tr,
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                    ), // Translate "Confirm" into Arabic
+                                  ),
+                                ),
+                                onCancel: () {},
+                              );
                             },
-                            child: Text(
-                              "Confirm".tr,
-                              style: const TextStyle(
-                                  color: Colors
-                                      .white), // Translate "Confirm" into Arabic
-                            ),
                           ),
-                          cancel: ElevatedButton(
-                            onPressed: () {
-                              Get.back();
-                            },
-                            child: Text(
-                              "Cancel".tr,
-                              style: const TextStyle(
-                                  color: Colors
-                                      .black), // Translate "Confirm" into Arabic
-                            ),
-                          ),
-                          onCancel: () {});
-                    },
+                        ),
+                      ),
+                      const ReportButton(),
+
+                      // Small button widget goes here
+                    ],
                   ),
-                ); // Return an empty SizedBox to hide the button
+                );
+                // Return an empty SizedBox to hide the button
               }
             },
           ),
