@@ -1,7 +1,8 @@
+import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/common_faetures/onboarding/data/models/onboarding.dart';
+import 'package:dentalmatching/features/common_faetures/onboarding/view/widgets/animatedsvg.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class CustomOnboardingItem extends StatelessWidget {
@@ -14,22 +15,42 @@ class CustomOnboardingItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          // Usage
           Expanded(
-              flex: 3,
-              child: SvgPicture.asset(item.image, height: Get.height * 0.4)),
-          Expanded(
-            flex: 1,
-            child: Text(
-              item.title,
-              style: Styles.extraLargetitle,
+            flex: 4,
+            child: BreathingAnimatedSvg(
+              imagePath: item.image,
+              height: Get.height * 0.4,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top:20.0),
+            child: Expanded(
+              flex: 1,
+              child: Text(
+                item.title,
+                style: Styles.extraLargetitle,
+              ),
             ),
           ),
           Expanded(
+            flex: 2,
+            child: Text(item.small!,
+                style: const TextStyle(
+                    color: AppColors.mainColor,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 42,
+                    letterSpacing: 4)),
+          ),
+          Expanded(
             flex: 4,
-            child: Text(
-              item.desc,
-              textAlign: TextAlign.center,
-              style: Styles.textStyle16,
+            child: Padding(
+              padding: const EdgeInsets.only(top:0.0),
+              child: Text(
+                item.desc,
+                textAlign: TextAlign.center,
+                style: Styles.textStyle16,
+              ),
             ),
           ),
         ],
@@ -37,3 +58,4 @@ class CustomOnboardingItem extends StatelessWidget {
     );
   }
 }
+

@@ -3,23 +3,27 @@ import 'package:get/get.dart';
 
 List<OnboardingModel> onboardingList = [
   OnboardingModel(
-      title: "First Title".tr,
-      image: "assets/svg/doctors_team.svg",
+      title: "Welcome to".tr,
+      small: "DentaMatch\n",
+      image: "assets/svg/logoDMMM.svg",
       desc:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dictum, \n nulla et pharetra convallis, ligula nulla commodo est,\n non ultrices orci erat vitae magna."),
+          "Our app saves time for both dentists and patients. Say goodbye to long waits and hello to efficient dental care.".tr),
   OnboardingModel(
-      title: "Second Title".tr,
-      image: "assets/svg/add.svg",
+      title: " Request".tr,
+      image: "assets/svg/Dentistsss.svg",
+      small: "Patient Cases",
       desc:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dictum, \n nulla et pharetra convallis, ligula nulla commodo est,\n non ultrices orci erat vitae magna."),
+          "Grow Your Expertise with Every \nMatch - Request Patient Cases Today!".tr),
   OnboardingModel(
-      title: "Fourth Title".tr,
-      image: "assets/svg/save_money.svg",
+      title: "Quality Care,".tr,
+      small: "Hassle-Free",
+      image: "assets/svg/PatientBS.svg",
       desc:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dictum, \n nulla et pharetra convallis, ligula nulla commodo est,\n non ultrices orci erat vitae magna."),
+          "Discover free treatment options \n affordable dental care solutions \n tailored to your needs."),
   OnboardingModel(
-      title: "third Title".tr,
-      image: "assets/svg/doctor_patient.svg",
+      title: "Join Us".tr,
+      small: "To Our Journey",
+      image: "assets/svg/PatientBB.svg",
       desc:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dictum, \n nulla et pharetra convallis, ligula nulla commodo est,\n non ultrices orci erat vitae magna."),
+          "Together,\nLet's Create Smiles That Last a Lifetime."),
 ];

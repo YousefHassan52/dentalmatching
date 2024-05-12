@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 abstract class Styles {
   static const TextStyle extraLargetitle = TextStyle(
-      color: AppColors.mainColor, fontWeight: FontWeight.w700, fontSize: 42);
+      color: Color(0xFF4464A0), fontWeight: FontWeight.w700, fontSize: 42);
   static const TextStyle mediumTitle = TextStyle(
       color: AppColors.mainColor, fontWeight: FontWeight.w700, fontSize: 26);
   static const TextStyle formTitle = TextStyle(
