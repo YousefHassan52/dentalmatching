@@ -52,6 +52,29 @@ class CheckEmailForgetPasswordControllerImp
     }
   }
 
+  void checkEmailFromSettings({required String email}) async {
+    requestStatus = RequestStatus.LOADING;
+    update();
+    var response = await checkEmailData.postData(email: email);
+    print(response.toString());
+    requestStatus = HandlingResponseType.fun(response);
+    update();
+    if (requestStatus == RequestStatus.SUCCESS) {
+      if (response['success'] == true) {
+        goToVerifyCodeScreen();
+      }
+    } else if (requestStatus ==
+        RequestStatus.UNAUTHORIZED_FAILURE) // status code 400 (Email not found)
+    {
+      Get.defaultDialog(
+          title: "Try Again".tr, middleText: "Email Not Found".tr);
+    } else if (requestStatus == RequestStatus.BLOCKED_USER) {
+      blockAction();
+    } else {
+      Get.defaultDialog(middleText: "Server Error Please Try Again");
+    }
+  }
+
   void goToVerifyCodeScreen() {
     Get.toNamed(AppRoutes.verifyEmailForgetPassword,
         arguments: {"email": emailController.text});

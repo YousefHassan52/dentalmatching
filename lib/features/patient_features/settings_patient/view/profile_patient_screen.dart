@@ -71,6 +71,17 @@ class SettingsPatientScreen extends StatelessWidget {
                   onTap: () {
                     Get.toNamed(AppRoutes.editPatientInfo);
                   }),
+              SettingsRowComponent(
+                  icon: Icons.edit,
+                  iconColor: AppColors.mainColor,
+                  text: "Change Password".tr,
+                  textColor: AppColors.mainColor,
+                  onTap: () {
+                    Get.toNamed(AppRoutes.changePassword, arguments: {
+                      "token": settingsPatientControllerImp.userModel.token,
+                      "email": settingsPatientControllerImp.userModel.email,
+                    });
+                  }),
 
               // SettingsRowComponent(
               //     icon: Icons.language_rounded,
