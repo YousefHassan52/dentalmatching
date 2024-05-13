@@ -23,14 +23,11 @@ class CustomOnboardingItem extends StatelessWidget {
               height: Get.height * 0.4,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top:20.0),
-            child: Expanded(
-              flex: 1,
-              child: Text(
-                item.title,
-                style: Styles.extraLargetitle,
-              ),
+          Expanded(
+            flex: 1,
+            child: Text(
+              item.title,
+              style: Styles.extraLargetitle,
             ),
           ),
           Expanded(
