@@ -90,47 +90,13 @@ class UpperAssigned extends StatelessWidget {
                     padding: const EdgeInsets.all(10.0),
                     child: Column(
                       children: [
-                        // Row(
-                        //   children: [
-                        //     const Flexible(
-                        //       child: FittedBox(
-                        //         fit: BoxFit.scaleDown,
-                        //         child: SizedBox(
-                        //           height: 60,
-                        //           child: CircleAvatarWidget(
-                        //               imagePath: 'assets/svg/profile.svg'),
-                        //         ),
-                        //       ),
-                        //     ),
-                        //     Flexible(
-                        //       child: FittedBox(
-                        //         fit: BoxFit.scaleDown,
-                        //         child: Text(
-                        //           'Dr.{$controller.caseModel.doctorName!}',
-                        //           style: const TextStyle(
-                        //               color: Colors.white,
-                        //               fontWeight: FontWeight.w800,
-                        //               fontSize: 20),
-                        //         ),
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ),
                         BioWidgetDr(
                           title: 'Dr.'.tr,
                           subTitle: controller.caseModel.doctorName!,
                         ),
                         BioWidgetDr(
                           title: 'Location :'.tr,
-                          subTitle: controller.caseModel.doctorUniversity!,
-                          isLocation: true,
-                          onPressed: () async {
-                            final Uri _url = Uri.parse(
-                                '${controller.caseModel.googleMapLink}');
-                            if (!await launchUrl(_url)) {
-                              throw Exception('Could not launch $_url');
-                            }
-                          },
+                          subTitle: controller.caseModel.googleMapLink!,
                         ),
                         if (controller.caseModel.isAssigned == true)
                           DateTimePatientWidget(

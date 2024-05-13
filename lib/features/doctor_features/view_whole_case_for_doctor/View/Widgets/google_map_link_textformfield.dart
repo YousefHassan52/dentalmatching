@@ -29,7 +29,7 @@ class MapLinkTextFormField extends StatelessWidget {
         fontSize: 16,
       ),
       decoration: InputDecoration(
-        hintText: "Paste your hospital link into Google Map".tr,
+        hintText: "Write Hospital Name".tr,
         hintStyle: const TextStyle(
           color: Color.fromARGB(100, 94, 148, 195),
           fontSize: 16,

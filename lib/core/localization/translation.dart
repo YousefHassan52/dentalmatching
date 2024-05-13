@@ -148,6 +148,7 @@ class MyTranslation implements Translations {
           "This case han been reported before":
               "تم الابلاغ عن هذه الحالة مسبقا",
           "Warning": "تحذير",
+          "Write Hospital Name": "اكتب اسم المستشفى",
 
           //Assigned Case Patient
 
@@ -221,7 +222,6 @@ class MyTranslation implements Translations {
           "Cancel Case": "إلغاء الحالة",
           "Are you Sure you Want to Cancel this Request?":
               "هل أنت متأكد أنك تريد إلغاء هذا الطلب؟",
-          "Warning": "تحذير",
           "Now you are Responsible with This Case":
               "الآن أنت مسؤول عن هذه الحالة",
           'Selected Date: ': " التاريخ المحدد : ",
@@ -368,6 +368,7 @@ class MyTranslation implements Translations {
           "This case han been reported before":
               "This case han been reported before",
           "Warning": "Warning",
+          "Write Hospital Name": "Write Hospital Name",
 
           //Assigned Case Patient
           'Dr.': 'Dr.',
@@ -443,7 +444,6 @@ Your password must include:
           "Cancel Case": "Cancel Case",
           "Are you Sure you Want to Cancel this Request?":
               "Are you Sure you Want to Cancel this Request?",
-          "Warning": "Warning",
 
           'Select Time': 'Select Time',
           'Select Date': 'Select Date',

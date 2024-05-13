@@ -59,24 +59,11 @@ class CheckEmailFromSettings extends StatelessWidget {
                 const SizedBox(
                   height: 25,
                 ),
-                // AuthTextFormField(
-                //   validator: (value) {
-                //     return AppValidator.textFormFieldValidator(value!, "email");
-                //   },
-                //   text: "Email",
-                //   icon: Icon(Icons.email_rounded),
-                //   fieldController: externalController.emailController,
-                //   keyboardType: TextInputType.emailAddress,
-                // ),
-                AuthTextFormField(
-                    type: TextInputType.emailAddress,
-                    hint: "Email Address".tr,
-                    icon: "assets/svg/email.svg",
-                    validator: (value) {
-                      return AppValidator.textFormFieldValidator(
-                          value!, "email");
-                    },
-                    fieldController: TextEditingController(text: email)),
+                Text(
+                  email,
+                  style: Styles.textStyleGrey,
+                  textAlign: TextAlign.center,
+                ),
                 const SizedBox(
                   height: 25,
                 ),
