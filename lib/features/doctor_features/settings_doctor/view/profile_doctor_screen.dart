@@ -44,8 +44,7 @@ class SettingsDoctorScreen extends StatelessWidget {
               FittedBox(
                 fit: BoxFit.scaleDown,
                 child: EnabledInfo(
-                    icon: Icons.mail,
-                    info: controller.doctorModel.email),
+                    icon: Icons.mail, info: controller.doctorModel.email),
               ),
               const SizedBox(
                 height: 25,
@@ -65,7 +64,18 @@ class SettingsDoctorScreen extends StatelessWidget {
                   onTap: () {
                     Get.toNamed(AppRoutes.editDoctorInfo);
                   }),
-                  LanguageDrSelection(
+              SettingsRowComponent(
+                  icon: Icons.lock_rounded,
+                  iconColor: AppColors.mainColor,
+                  text: "Change Password".tr,
+                  textColor: AppColors.mainColor,
+                  onTap: () {
+                    Get.toNamed(AppRoutes.changePassword, arguments: {
+                      "token": settingsController.userModel.token,
+                      "email": settingsController.userModel.email,
+                    });
+                  }),
+              LanguageDrSelection(
                 txt: 'Language',
                 txt1: '- Arabic',
                 txt2: '- English',
@@ -75,7 +85,6 @@ class SettingsDoctorScreen extends StatelessWidget {
                 onPressed1: () {
                   translationController.changeLang(langCode: "ar");
                   settingsController.trueVisibilityLanguage();
-                  
                 },
                 onPressed2: () {
                   translationController.changeLang(langCode: "en");
@@ -107,7 +116,7 @@ class SettingsDoctorScreen extends StatelessWidget {
                       textConfirm: "Delete".tr,
                     );
                   }),
-             
+
               // const SizedBox(
               //   height: 100,
               // )

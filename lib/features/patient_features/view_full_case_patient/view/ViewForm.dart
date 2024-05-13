@@ -167,12 +167,17 @@ class ViewForm extends StatelessWidget {
                             style: Styles.textStyle16Grey,
                           ),
                   ),
-                  const HDivider(),
-                  FormHeadLine(headline: 'Comments'.tr),
-                  CommentsOnCase(
-                    caseid: controller.caseModel.caseId,
-                    token: controller.patient.token,
-                  ),
+                  if (!controller.caseModel.isAssigned)
+                    Column(
+                      children: [
+                        const HDivider(),
+                        FormHeadLine(headline: 'Comments'.tr),
+                        CommentsOnCase(
+                          caseid: controller.caseModel.caseId,
+                          token: controller.patient.token,
+                        ),
+                      ],
+                    ),
                   const SizedBox(
                     height: 50,
                   ),

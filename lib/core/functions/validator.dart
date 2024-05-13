@@ -44,6 +44,11 @@ class AppValidator {
         return "You Must Paste a Valid Google Map Link of Hospital".tr;
       }
     }
+    if (type == "location") {
+      if (value.isEmpty) {
+        return "Write Hospital Name".tr;
+      }
+    }
   }
 
   static chechkPasswordMatching(

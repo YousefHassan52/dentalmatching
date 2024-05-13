@@ -36,51 +36,7 @@ class AppointmentScreen extends StatelessWidget {
                         fontSize: 30, fontWeight: FontWeight.w700),
                   ),
                 ),
-                // GestureDetector(
-                //   onTap: () => appointmentController.selectDate(context),
-                //   child: Padding(
-                //     padding: const EdgeInsets.symmetric(vertical: 20),
-                //     child: GetBuilder<AppointmentController>(
-                //       builder: (controller) => FittedBox(
-                //         fit: BoxFit.scaleDown,
-                //         child: Container(
-                //           decoration: BoxDecoration(
-                //             color: AppColors.mainColor,
-                //             borderRadius: BorderRadius.circular(25),
-                //             boxShadow: [
-                //               BoxShadow(
-                //                 color: Colors.grey
-                //                     .withOpacity(0.5), // Color of the shadow
-                //                 spreadRadius: 5, // Spread radius
-                //                 blurRadius: 7, // Blur radius
-                //                 offset:
-                //                     const Offset(0, 3), // Offset of the shadow
-                //               ),
-                //             ],
-                //           ),
-                //           child: const Padding(
-                //             padding: EdgeInsets.all(8.0),
-                //             child: Row(
-                //               mainAxisAlignment: MainAxisAlignment.center,
 
-                //               children: [
-                //                 Icon(Icons.calendar_today, color: Colors.white),
-                //                 SizedBox(width: 10),
-                //                 Text(
-                //                   'Select Data',
-                //                   style: TextStyle(
-                //                     fontSize: 20,
-                //                     color: Colors.white,
-                //                   ),
-                //                 ),
-                //               ],
-                //             ),
-                //           ),
-                //         ),
-                //       ),
-                //     ),
-                //   ),
-                // ),
                 GestureDetector(
                   onTap: () => appointmentController.selectDate(context),
                   child: Padding(
@@ -245,10 +201,10 @@ class AppointmentScreen extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(16.0),
                   child: MapLinkTextFormField(
-                      type: TextInputType.url,
+                      type: TextInputType.text,
                       validator: (value) {
                         return AppValidator.textFormFieldValidator(
-                            value!, "link");
+                            value!, "location");
                       },
                       fieldController:
                           appointmentController.linkTextController),

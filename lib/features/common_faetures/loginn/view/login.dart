@@ -28,8 +28,9 @@ class LoginScreen extends StatelessWidget {
             padding: const EdgeInsets.only(top: 0),
             scrollDirection: Axis.vertical,
             children: [
-               FittedBox(
-                  fit: BoxFit.fitWidth, child: Heading(text: 'Welcome Back'.tr)),
+              FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Heading(text: 'Welcome Back'.tr)),
               const CentImg(centeredImg: 'assets/svg/log.svg'),
               AuthTextFormField(
                   hint: "Phone".tr,
@@ -78,7 +79,7 @@ class LoginScreen extends StatelessWidget {
                   onPressed: () {
                     externalController.goToForgetPassword();
                   },
-                  child:  Text(
+                  child: Text(
                     'Forget Password?'.tr,
                     textAlign: TextAlign.end,
                     style: const TextStyle(
@@ -96,15 +97,15 @@ class LoginScreen extends StatelessWidget {
                 child: AuthButton(
                     buttonText: "Login".tr,
                     onTap: () {
-                      // externalController.login();
-                      MyServices myServices = Get.find();
-                        myServices.sharedPref.clear();
+                      externalController.login();
+                      // MyServices myServices = Get.find();
+                      //   myServices.sharedPref.clear();
                     }),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                   Flexible(
+                  Flexible(
                     child: FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(
@@ -121,7 +122,7 @@ class LoginScreen extends StatelessWidget {
                         Get.toNamed(AppRoutes.userType);
                         // Get.to(const CasesScreen());
                       },
-                      child:  FittedBox(
+                      child: FittedBox(
                         fit: BoxFit.fitWidth,
                         child: Text(
                           "Sign up".tr,
