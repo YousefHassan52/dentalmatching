@@ -2,11 +2,10 @@ import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/view_full_case_patient_controller_impl.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/BioWidgetDr.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/DateTimePatientWidget.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/bio_widget_dr.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/date_time_patient_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class UpperAssigned extends StatelessWidget {
   const UpperAssigned(

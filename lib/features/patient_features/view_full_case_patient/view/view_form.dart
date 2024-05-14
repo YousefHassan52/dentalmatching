@@ -3,16 +3,16 @@ import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/common_faetures/dental_case_comments/view/comments.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/FormHeadLine.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/HDivider.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/OptionalText.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/form_headLine.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/divider.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/optional_text.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/Controller/mycases_patient_controller_impl.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/Upper.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/upper.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/view_full_case_patient_controller_impl.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/ChronicList.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/upperAssigned.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/chronic_list.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/upper_assigned.dart';
 import 'package:flutter/material.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/GridViewWidget.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/grid_view_widget.dart';
 import 'package:get/get.dart';
 
 class ViewForm extends StatelessWidget {

@@ -5,7 +5,7 @@ import 'package:dentalmatching/features/common_faetures/change_password_in_profi
 import 'package:dentalmatching/features/common_faetures/forget_password/check_email/view/check_email_from_settings.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/textformfield.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/Upper.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/upper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

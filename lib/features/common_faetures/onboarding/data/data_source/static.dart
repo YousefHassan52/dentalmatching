@@ -11,19 +11,19 @@ List<OnboardingModel> onboardingList = [
   OnboardingModel(
       title: " Request".tr,
       image: "assets/svg/Dentistsss.svg",
-      small: "Patient Cases",
+      small: "Patient Cases".tr,
       desc:
-          "Grow Your Expertise with Every \nMatch - Request Patient Cases Today!".tr),
+          "Grow Your Expertise with Every \nRequest to Patient Case Today!".tr),
   OnboardingModel(
       title: "Quality Care,".tr,
-      small: "Hassle-Free",
+      small: "Hassle-Free".tr,
       image: "assets/svg/PatientBS.svg",
       desc:
-          "Discover free treatment options \n affordable dental care solutions \n tailored to your needs."),
+          "Discover free treatment options \n affordable dental care solutions \n tailored to your needs.".tr),
   OnboardingModel(
       title: "Join Us".tr,
-      small: "To Our Journey",
-      image: "assets/svg/PatientBB.svg",
+      small: "To Our Journey".tr,
+      image: "assets/svg/patientBB.svg",
       desc:
-          "Together,\nLet's Create Smiles That Last a Lifetime."),
+          "Together,\nLet's Create Smiles That Last a Lifetime.".tr),
 ];

@@ -1,8 +1,8 @@
 // ignore_for_file: unused_import, file_names
 
 import 'package:dentalmatching/core/constants/colors.dart';
-import 'package:dentalmatching/features/patient_features/view_casess/data/Model/ImageModel.dart';
-import 'package:dentalmatching/features/patient_features/view_casess/View/Widget/ImageContainerWidget.dart';
+import 'package:dentalmatching/features/patient_features/view_casess/data/Model/image_model.dart';
+import 'package:dentalmatching/features/patient_features/view_casess/View/Widget/image_container_widget.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/data/Model/case_model.dart';
 import 'package:flutter/material.dart';
 

@@ -1,7 +1,7 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
 
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/CasesCounterWidget.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/cases_counter_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

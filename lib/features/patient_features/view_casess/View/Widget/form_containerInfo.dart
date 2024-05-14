@@ -3,12 +3,12 @@ import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
-import 'package:dentalmatching/features/patient_features/view_casess/View/Widget/ImageContainer.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/data/Model/case_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../settings_patient/view/Widgets/CircleAvatarWidget.dart';
+import '../../../settings_patient/view/Widgets/circle_avatar_widget.dart';
+import 'image_container.dart';
 
 class FormContainerInfo extends StatelessWidget {
   const FormContainerInfo({Key? key, required this.caseModel})

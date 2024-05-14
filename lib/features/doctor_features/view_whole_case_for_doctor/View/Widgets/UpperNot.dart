@@ -50,7 +50,7 @@
 // ignore: file_names
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/doctor_features/doctor_data_viewer/doctor_data_controller.dart';
-import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/BioBarWidget.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/bio_bar_widget.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

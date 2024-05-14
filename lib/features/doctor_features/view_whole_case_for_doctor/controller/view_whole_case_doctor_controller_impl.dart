@@ -8,6 +8,7 @@ import 'package:dentalmatching/features/doctor_features/get_doctor_cases/control
 import 'package:dentalmatching/features/doctor_features/signup/data/models/doctor_model.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_abstract.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/data/request_case_data.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class ViewWholeCaseDoctorControllerImpl
@@ -48,7 +49,22 @@ class ViewWholeCaseDoctorControllerImpl
     print("joe ;${requestStatus.toString()}");
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {
-        Get.snackbar("Success".tr, "Now you are Responsible with This Case".tr);
+        Get.defaultDialog(
+          title: "Success".tr,
+          content: Column(
+            children: [
+              Text("Now you are Responsible with This Case".tr),
+              const SizedBox(
+                  height:
+                      10), // Adjust spacing between text and image as needed
+              Image.asset(
+                  'assets/images/dental-care-removebg-preview.png'), // Replace 'your_image.png' with your actual image file path
+            ],
+          ),
+        );
+        Future.delayed(const Duration(seconds: 2), () {
+          Get.back(); // Dismisses the dialog
+        });
         viewPhone = true;
         update();
         updateAssignmentStatus(true);

@@ -142,7 +142,7 @@
 // }
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/BarProfile.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/bar_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

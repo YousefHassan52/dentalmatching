@@ -235,6 +235,21 @@ class MyTranslation implements Translations {
               "الصق رابط المستشفى من خريطة جوجل",
           "Choose Date and Time": "قم باختيار التاريخ والوقت",
           'Error': "خطأ",
+
+          //onboarding
+          "Join Us":"انضم إلينا",
+          "Together,\nLet's Create Smiles That Last a Lifetime.":"معًا \n لنصنع ابتسامات تدوم مدى الحياة.",
+          "To Our Journey": "لرحلتنا",
+          "Quality Care,": "رعاية صحية",
+          "Welcome to": "مرحبا بك في",
+          "DentaMatch\n": "DentaMatch\n",
+          "Our app saves time for both dentists and patients. Say goodbye to long waits and hello to efficient dental care.":
+              "يوفر تطبيقنا الوقت لكل من أطباء الأسنان والمرضى. قل وداعًا للانتظار الطويل ومرحبًا برعاية الأسنان الفعالة.",
+          " Request":"قم بإجراء طلب",  
+          "Patient Cases":"لحالات المرضى",
+          "Grow Your Expertise with Every \nRequest to Patient Case Today!":"قم بتنمية خبرتك مع كل طلب مريض اليوم!",
+          "Hassle-Free":"خالية من المتاعب",  
+          "Discover free treatment options \n affordable dental care solutions \n tailored to your needs.":"اكتشف خيارات العلاج المجانية \n حلول العناية بالأسنان بأسعار معقولة \n المصممة خصيصًا لتلبية احتياجاتك.",
         },
         "en": {
           //coonection
@@ -455,6 +470,20 @@ Your password must include:
           "Success": "Success",
           "Choose Date and Time": "Choose Date and Time",
           'Error': 'Error',
+
+          //onboarding
+          "To Our Journey": "To Our Journey",
+          "Quality Care,": "Quality Care,",
+          "Welcome to": "Welcome to",
+          "DentaMatch\n": "DentaMatch\n",
+          "Our app saves time for both dentists and patients. Say goodbye to long waits and hello to efficient dental care.":
+              "Our app saves time for both dentists and patients. Say goodbye to long waits and hello to efficient dental care.",
+          " Request": " Request",
+          "Patient Cases":"Patient Cases",
+          "Hassle-Free":"Hassle-Free",
+          "Discover free treatment options \n affordable dental care solutions \n tailored to your needs.":"Discover free treatment options \n affordable dental care solutions \n tailored to your needs.",
+          "Grow Your Expertise with Every \nRequest to Patient Case Today!":"Grow Your Expertise with Every \nRequest to Patient Case Today!",
+
         },
       };
 }

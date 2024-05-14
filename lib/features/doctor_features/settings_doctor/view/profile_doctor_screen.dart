@@ -8,7 +8,7 @@ import 'package:dentalmatching/features/doctor_features/get_doctor_cases/control
 import 'package:dentalmatching/features/doctor_features/settings_doctor/controller/doctor_settings_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/settings_doctor/view/Widgets/LanguageDrSelection.dart';
 import 'package:dentalmatching/features/doctor_features/settings_doctor/view/Widgets/counter_box_doctor.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/EnabledInfo.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/enabled_info.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/setting_row_component.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

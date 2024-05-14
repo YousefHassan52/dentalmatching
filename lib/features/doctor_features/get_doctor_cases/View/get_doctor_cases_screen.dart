@@ -9,7 +9,6 @@ import 'package:dentalmatching/features/doctor_features/get_doctor_cases/control
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 
 class GetDoctorCasesScreen extends StatelessWidget {

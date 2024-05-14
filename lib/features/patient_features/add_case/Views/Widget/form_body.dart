@@ -3,20 +3,20 @@ import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Controller/add_case_controller.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/AddImg.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/AddOptionalImg.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/Check.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/DescripBox.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/FormHeadLine.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/HDivider.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/KnownCheckWidget.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/OptionalText.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/add_img.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/add_optional_img.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/check.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/descrip_box.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/form_headline.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/divider.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/known_check_widget.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/optional_text.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/Controller/mycases_patient_controller_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FormBody extends StatelessWidget {
-  FormBody({Key? key}) : super(key: key);
+  const FormBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,18 +1,17 @@
-import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
-import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/AppointmentScreen.dart';
-import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/BoxWidget.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/appointment_screen.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/RequestButton.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/UpperNot.dart';
 import 'package:dentalmatching/features/common_faetures/dental_case_comments/view/comments.dart';
 import 'package:dentalmatching/features/doctor_features/report_case/view/report_button.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/box_widget.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_impl.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/FormHeadLine.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/HDivider.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/ChronicList.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/GridViewWidget.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/form_headline.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/divider.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/chronic_list.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/grid_view_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

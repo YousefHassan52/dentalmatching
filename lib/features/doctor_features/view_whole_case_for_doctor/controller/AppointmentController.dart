@@ -76,6 +76,7 @@ Future<void> selectDate(BuildContext context) async {
     update(); // Notify listeners about the change
   }
 
+
   Future<void> bookCase() async {
     if (formKey.currentState!.validate() &&
         selectedTime != null &&
@@ -85,13 +86,17 @@ Future<void> selectDate(BuildContext context) async {
           "${DateFormat('yyyy-MM-dd').format(selectedDate!)}T${selectedTime!.hour < 10 ? '0${selectedTime!.hour}' : selectedTime!.hour}:${selectedTime!.minute < 10 ? '0${selectedTime!.minute}' : selectedTime!.minute}";
 
       controller.requestCase(
-          time: time, googleMapLink: linkTextController.text);
+          time: time,
+           googleMapLink: linkTextController.text
+           );
       selectedDate = null;
       selectedTime = null;
+      
     } else {
       Get.defaultDialog(
         title: 'Error'.tr,
-        middleText:"Choose Date and Time".tr,);
+        middleText:"Choose Date and Time".tr,
+       );
       Get.snackbar("Error".tr, "Choose date");
     }
   }

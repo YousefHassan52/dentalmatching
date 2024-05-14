@@ -8,11 +8,11 @@ import 'package:dentalmatching/features/patient_features/patient_data_viewer/pat
 import 'package:dentalmatching/features/patient_features/paybal/controller/payment_contoller_imp.dart';
 import 'package:dentalmatching/features/patient_features/payment/controller/payment_contoller_imp.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/controller/settings_controller_imp.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/CounterBox.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/EnabledInfo.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/LanguageSelection.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/PaySelection.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/Upper.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/counter_box.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/enabled_info.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/language_selection.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/pay_selection.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/upper.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/setting_row_component.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

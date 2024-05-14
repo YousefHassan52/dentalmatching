@@ -1,6 +1,6 @@
-import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/BioWidget.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/FormHeadLine.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/HDivider.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/bio_widget.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/form_headline.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/divider.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/data/Model/case_model.dart';
 import 'package:flutter/material.dart';
 

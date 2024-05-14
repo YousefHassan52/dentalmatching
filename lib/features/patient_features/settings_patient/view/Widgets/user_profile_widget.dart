@@ -76,7 +76,7 @@
 // }
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'CircleAvatarWidget.dart';
+import 'circle_avatar_widget.dart';
 
 class UserProfileWidget extends StatelessWidget {
   final String title;

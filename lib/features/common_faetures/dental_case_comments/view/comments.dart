@@ -1,11 +1,11 @@
+// ignore_for_file: avoid_print
+
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/shared/shimmer_column.dart';
 import 'package:dentalmatching/features/common_faetures/dental_case_comments/controller/comments_controller_impl.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -58,8 +58,8 @@ class CommentsOnCase extends StatelessWidget {
                         backgroundImage: controller.comments[index].role
                                     .toLowerCase() ==
                                 "doctor"
-                            ? AssetImage('assets/images/doctor.png')
-                            : AssetImage('assets/images/profilepicture.png'),
+                            ? const AssetImage('assets/images/doctor.png')
+                            : const AssetImage('assets/images/profilepicture.png'),
                         radius: 20,
                         backgroundColor: const Color.fromARGB(255, 26, 67, 143),
                       ),
