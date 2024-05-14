@@ -1,12 +1,9 @@
-import 'dart:io';
-
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Controller/add_case_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
 
 class AddImageWidget extends StatelessWidget {
   final String img;

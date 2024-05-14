@@ -3,14 +3,6 @@ import 'package:dentalmatching/features/doctor_features/settings_doctor/controll
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-// class LanguageSelectionController extends GetxController {
-//   RxBool visible = false.obs;
-
-//   void trueVisibility() {
-//     visible = true.obs;
-//     update();
-//   }
-// }
 
 class LanguageDrSelection extends StatelessWidget {
   const LanguageDrSelection({super.key, required this.txt, required this.txt1, required this.txt2, required this.onPressed, required this.onPressed1, required this.onPressed2});

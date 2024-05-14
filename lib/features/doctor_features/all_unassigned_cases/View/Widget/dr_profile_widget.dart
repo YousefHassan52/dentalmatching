@@ -1,4 +1,4 @@
-import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AvatarWidget.dart';
+import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/avatar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

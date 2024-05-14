@@ -1,14 +1,11 @@
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
-
-import 'package:dentalmatching/features/doctor_features/home_screen_dr/View/Widgets/Categories.dart';
-import 'package:dentalmatching/features/doctor_features/home_screen_dr/View/Widgets/TextTitle.dart';
+import 'package:dentalmatching/features/doctor_features/home_screen_dr/View/Widgets/categories.dart';
+import 'package:dentalmatching/features/doctor_features/home_screen_dr/View/Widgets/text_title.dart';
 import 'package:dentalmatching/features/doctor_features/home_screen_dr/View/Widgets/three_cases_list.dart';
 import 'package:dentalmatching/features/doctor_features/home_screen_dr/controller/get_three_cases_controller_imp.dart';
-import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/AppUpper.dart';
-
+import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/app_upper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class HomePageDr extends StatelessWidget {

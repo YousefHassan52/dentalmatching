@@ -1,6 +1,5 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class SearchTextFormField extends StatelessWidget {
   final String? Function(String?) validator;
