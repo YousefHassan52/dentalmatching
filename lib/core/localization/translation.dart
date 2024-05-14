@@ -236,6 +236,15 @@ class MyTranslation implements Translations {
           "Choose Date and Time": "قم باختيار التاريخ والوقت",
           'Error': "خطأ",
 
+          //changepass
+          'Change Password':"تغيير كلمة المرور",
+          "Current Password":"كلمة المرور الحالية",
+          "New Password":"كلمة المرور الجديدة",
+          "Change":"تغيير",
+          "Forget old password?":"هل نسيت كلمة المرور القديمة؟",
+          "Press Here":"اضغط هنا",
+          
+
           //onboarding
           "Join Us":"انضم إلينا",
           "Together,\nLet's Create Smiles That Last a Lifetime.":"معًا \n لنصنع ابتسامات تدوم مدى الحياة.",

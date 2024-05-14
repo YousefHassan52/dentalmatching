@@ -32,7 +32,7 @@ class ChangePasswordScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         AuthTextFormField(
-                          hint: "Current Password",
+                          hint: "Current Password".tr,
                           icon: "assets/svg/unlock.svg",
                           type: TextInputType.visiblePassword,
                           validator: (value) {
@@ -61,7 +61,7 @@ class ChangePasswordScreen extends StatelessWidget {
                         ),
                         AuthTextFormField(
                           isPassword: controller.newPasswordnotVisible,
-                          hint: "New Password",
+                          hint: "New Password".tr,
                           icon: "assets/svg/unlock.svg",
                           type: TextInputType.visiblePassword,
                           validator: (value) {
@@ -88,7 +88,7 @@ class ChangePasswordScreen extends StatelessWidget {
                           height: 20,
                         ),
                         AuthButton(
-                            buttonText: "Submit",
+                            buttonText: "Change".tr,
                             onTap: () {
                               controller.changePassword();
                             }),
@@ -98,12 +98,12 @@ class ChangePasswordScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Flexible(
+                             Flexible(
                               child: FittedBox(
                                 fit: BoxFit.fitWidth,
                                 child: Text(
-                                  "forget old password?",
-                                  style: TextStyle(
+                                  "Forget old password?".tr,
+                                  style: const TextStyle(
                                       color: Color.fromARGB(255, 118, 119, 120),
                                       fontSize: 16),
                                 ),

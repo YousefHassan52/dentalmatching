@@ -1,11 +1,8 @@
 import 'dart:io';
-
 import 'package:dartz/dartz.dart';
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/check_internet.dart';
 import 'package:dio/dio.dart';
-
-import '../functions/block_action.dart';
 
 class CRUD {
   Future<Either<RequestStatus, Map<String, dynamic>>> post({
