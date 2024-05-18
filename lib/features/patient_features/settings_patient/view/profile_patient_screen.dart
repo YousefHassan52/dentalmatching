@@ -124,9 +124,11 @@ class SettingsPatientScreen extends StatelessWidget {
                 },
                 onPressed1: () {
                   paypalController.makePayment();
+                  settingsPatientControllerImp.trueVisibilityPay();
                 },
                 onPressed2: () {
                   payment.makePayment();
+                  settingsPatientControllerImp.trueVisibilityPay();
                 },
               ),
               SettingsRowComponent(
