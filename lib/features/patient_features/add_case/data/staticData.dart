@@ -12,7 +12,7 @@ class StaticData {
   ];
   final List<CheckListModel> knownCases = [
     CheckListModel(title: 'Caries'),
-    CheckListModel(title: 'Fixed Prosthodontics Crown and Brigde'),
+    CheckListModel(title: 'Fixed Prosthodontics Crown and Bridge'),
     CheckListModel(title: 'Fixed Prosthodontics Implantology'),
     CheckListModel(title: 'Partial Removable Prosthodontics'),
     CheckListModel(title: 'Complete Removable Prosthodontics'),

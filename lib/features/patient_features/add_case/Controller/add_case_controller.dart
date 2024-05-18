@@ -216,6 +216,21 @@ class AddCaseController extends AddCaseControllerAbstract {
     }
   }
 
+  void clearInputs() {
+    descriptionController.clear();
+    checkedItems = List.generate(6, (index) => false);
+    checkedCase = List.generate(10, (index) => false);
+    showPressureChecklist = false;
+    pressure = '';
+    selected = '';
+    mouthImages?.clear();
+    xray?.clear();
+    prescription?.clear();
+    selectedChronicDiseases.clear();
+    selectedDentalCases.clear();
+    update();
+  }
+
   @override
   Future<void> postCase() async {
     if (formKey.currentState!.validate() &&
@@ -257,6 +272,7 @@ class AddCaseController extends AddCaseControllerAbstract {
       update();
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response['success'] == true) {
+          clearInputs();
           Get.defaultDialog(
             title: "Success".tr,
             content: Column(
