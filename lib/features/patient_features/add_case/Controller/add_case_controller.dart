@@ -141,7 +141,7 @@ class AddCaseController extends AddCaseControllerAbstract {
   bool checkBoxValidation() {
     if (!AppValidator.validateCheckbox(checkedItems)) {
       Get.defaultDialog(
-        title: 'Alert'.tr.tr,
+        title: 'Alert'.tr,
         middleText: 'Please select at least one item in the checklist.'.tr,
         backgroundColor: Colors.red,
       );
@@ -243,9 +243,21 @@ class AddCaseController extends AddCaseControllerAbstract {
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response['success'] == true) {
           Get.defaultDialog(
-              title: "Success ".tr,
-              middleText: "Your Case Posted Successfully".tr);
-          print(response);
+            title: "Success".tr,
+            content: Column(
+              children: [
+                Text("Your Case Posted Successfully".tr),
+                const SizedBox(
+                    height:
+                        10), // Adjust spacing between text and image as needed
+                Image.asset(
+                    'assets/images/dental-care-removebg-preview.png'), // Replace 'your_image.png' with your actual image file path
+              ],
+            ),
+          );
+          Future.delayed(const Duration(seconds: 2), () {
+            Get.back(); // Dismisses the dialog
+          });
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
         Get.defaultDialog(middleText: "Unauthorize Error Please Try Again..");

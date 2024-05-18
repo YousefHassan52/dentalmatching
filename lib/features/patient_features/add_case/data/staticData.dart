@@ -4,24 +4,22 @@ import 'package:get/get.dart';
 class StaticData {
   // List of chronic diseases
   final List<CheckListModel> chronicDiseases = [
-    CheckListModel(title: 'Heart Disease'),
+    CheckListModel(title: 'Autoimmune diseases'),
     CheckListModel(title: 'Diabetes'),
     CheckListModel(title: 'Blood Pressure'),
-    CheckListModel(title: 'Cardiovascular'),
-    CheckListModel(title: 'Cancer'),
+    CheckListModel(title: 'Cardiovascular diseases'),
     CheckListModel(title: 'None'),
   ];
   final List<CheckListModel> knownCases = [
-    CheckListModel(title: 'Gumboil'),
-    CheckListModel(title: 'Gingivitis'),
-    CheckListModel(title: 'Edentulous'),
-    CheckListModel(title: 'Displaced tooth'),
-    CheckListModel(title: 'Dental abscess'),
-    CheckListModel(title: 'Orthodontics'),
     CheckListModel(title: 'Caries'),
+    CheckListModel(title: 'Fixed Prosthodontics Crown and Brigde'),
+    CheckListModel(title: 'Fixed Prosthodontics Implantology'),
+    CheckListModel(title: 'Partial Removable Prosthodontics'),
+    CheckListModel(title: 'Complete Removable Prosthodontics'),
+    CheckListModel(title: 'Orthodontics'),
+    CheckListModel(title: 'Gingivitis - periodontitis'),
     CheckListModel(title: 'Endodontics'),
-    CheckListModel(title: 'Prosthodontic'),
-    CheckListModel(title: 'Implantology'),
+    CheckListModel(title: 'Dental abscess'),
   ];
 
   // List of pressure levels

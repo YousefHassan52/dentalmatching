@@ -108,9 +108,11 @@ class SettingsPatientScreen extends StatelessWidget {
                 },
                 onPressed1: () {
                   translationController.changeLang(langCode: "ar");
+                  settingsPatientControllerImp.trueVisibilityLanguage();
                 },
                 onPressed2: () {
                   translationController.changeLang(langCode: "en");
+                  settingsPatientControllerImp.trueVisibilityLanguage();
                 },
               ),
               PaySelection(
