@@ -28,7 +28,7 @@ class EditPatientGenderDropdown extends StatelessWidget {
           enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(width: 3.0, color: Color(0xFFCBE1F8))),
           hintText:
-              externalController.userModel.gender == true ? "Male" : "Female",
+              externalController.userModel.gender == true ? "Male".tr : "Female".tr,
           hintStyle: const TextStyle(
             color: AppColors.userTextColor,
             fontSize: 16,
