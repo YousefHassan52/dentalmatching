@@ -5,6 +5,7 @@ import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth
 import 'package:dentalmatching/features/patient_features/add_case/Controller/add_case_controller.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/add_img.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/add_optional_img.dart';
+import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/add_pers_img.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/check.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/descrip_box.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/form_headline.dart';
@@ -55,7 +56,7 @@ class FormBody extends StatelessWidget {
             img: 'assets/svg/Bold_Img_load-box.svg',
             txt: 'Upload Pictures'.tr,
             onPressed: () {
-              controller.pickMouthImages();
+              Get.find<AddCaseController>().pickMouthImages();
             },
           ),
           //  SizedBox(
@@ -76,7 +77,7 @@ class FormBody extends StatelessWidget {
             img: 'assets/svg/Bold_Img_load-box.svg',
             txt: 'Upload Pictures'.tr,
             onPressed: () {
-              controller.pickXrayImages();
+              Get.find<AddCaseController>().pickXrayImages();
             },
           ),
           //  SizedBox(
@@ -97,11 +98,11 @@ class FormBody extends StatelessWidget {
           const SizedBox(
             height: 9,
           ),
-          AddOptionalImg(
+          AddPerscp(
             img: 'assets/svg/Bold_Img_load-box.svg',
             txt: 'Upload Pictures'.tr,
             onPressed: () {
-              controller.pickPrescriptionImages();
+              Get.find<AddCaseController>().pickPrescriptionImages();
             },
           ),
           //  SizedBox(

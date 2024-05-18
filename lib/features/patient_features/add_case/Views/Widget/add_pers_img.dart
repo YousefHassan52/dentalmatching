@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-class AddOptionalImg extends StatelessWidget {
+class AddPerscp extends StatelessWidget {
   final String img;
   final String txt;
   final void Function()? onPressed;
-  const AddOptionalImg(
+  const AddPerscp(
       {Key? key, required this.img, required this.txt, this.onPressed})
       : super(key: key);
 
@@ -68,13 +68,13 @@ class AddOptionalImg extends StatelessWidget {
                       ],
                     ),
                   ),
-                  if (controller.xray != null &&
-                      controller.xray!.isNotEmpty)
+                  if (controller.prescription != null &&
+                      controller.prescription!.isNotEmpty)
                     SizedBox(
                       height: 100,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: controller.xray!.length,
+                        itemCount: controller.prescription!.length,
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.all(4.0),
@@ -91,7 +91,7 @@ class AddOptionalImg extends StatelessWidget {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(20),
                                 child: Image.file(
-                                  controller.xray![index],
+                                  controller.prescription![index],
                                   fit: BoxFit.cover,
                                 ),
                               ),
