@@ -56,7 +56,7 @@ class EditPatientInfoControllerImp extends EditPatientInfoControllerAbstract {
               fullName: fullNameController.text,
               email: emailController.text,
               age: int.parse(ageController.text),
-              gender: gender == "Male" ? true : false,
+              gender: gender == "Male" || gender == "ذكر" ? true : false,
               city: gov!,
               phoneNumber: phoneController.text,
               role: "Patient");

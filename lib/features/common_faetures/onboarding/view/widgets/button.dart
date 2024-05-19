@@ -29,8 +29,8 @@ class OnboardingButton extends StatelessWidget {
                   child:
                       internalController.currentPage < onboardingList.length - 1
                           ? const Icon(Icons.arrow_right_rounded)
-                          : const Text(
-                              "Start",
+                          : Text(
+                              "Start".tr,
                               style: Styles.textStyle16White,
                             )),
             ));

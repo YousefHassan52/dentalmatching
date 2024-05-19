@@ -67,6 +67,8 @@ class MyTranslation implements Translations {
           "Fourth Title": "تجنب الاستغلال",
 
           // setting screen
+          "delete account middle text":
+              "هل انت متأكد من رغبتك في حذف حسابك\nذلك يتضمن جميع بياناتك و الحالات",
           "Language": "اللغة",
           '- English': "- الانجليزية",
           '- Arabic': "- العربية",
@@ -243,6 +245,7 @@ class MyTranslation implements Translations {
           "Press Here": "اضغط هنا",
 
           //onboarding
+          "Start": "البدأ",
           "Join Us": "انضم إلينا",
           "Together,\nLet's Create Smiles That Last a Lifetime.":
               "معًا \n لنصنع ابتسامات تدوم مدى الحياة.",
@@ -314,6 +317,8 @@ class MyTranslation implements Translations {
           "third Title": "Our Aim",
           "Fourth Title": "Avoid Exploitation",
           // setting screen patient
+          "delete account middle text":
+              "Are you Sure you Want to delete your account\nthis includes all your data and cases",
           "Language": "Language",
           "PayPal": "PayPal",
           "PayMob": "PayMob",
@@ -482,6 +487,7 @@ Your password must include:
           'Error': 'Error',
 
           //onboarding
+          "Start": "Start",
           "To Our Journey": "To Our Journey",
           "Quality Care,": "Quality Care,",
           "Welcome to": "Welcome to",

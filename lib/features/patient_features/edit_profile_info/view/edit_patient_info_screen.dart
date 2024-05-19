@@ -10,11 +10,15 @@ class EditPatientInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(EditPatientInfoControllerImp());
-    return  Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-              UpperWidget(needBackButton: true , text: 'Edit Profile        '.tr, welcome: false,),
+            UpperWidget(
+              needBackButton: true,
+              text: 'Edit Profile        '.tr,
+              welcome: false,
+            ),
             const EditPatientFormBody(),
           ],
         ),
@@ -22,12 +26,3 @@ class EditPatientInfoScreen extends StatelessWidget {
     );
   }
 }
-/**  
- * IconButton(
-                onPressed: () {
-                  controller.editPatientInfo().then((value) {
-                    myCasesController.getCases();
-                  });
-                },
-                icon: const Icon(Icons.edit)), 
-                */

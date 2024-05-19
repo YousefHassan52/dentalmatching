@@ -115,22 +115,22 @@ class SettingsPatientScreen extends StatelessWidget {
                   settingsPatientControllerImp.trueVisibilityLanguage();
                 },
               ),
-              PaySelection(
-                txt: 'Pay',
-                txt1: '- PayPal',
-                txt2: '- PayMob',
-                onPressed: () {
-                  settingsPatientControllerImp.trueVisibilityPay();
-                },
-                onPressed1: () {
-                  paypalController.makePayment();
-                  settingsPatientControllerImp.trueVisibilityPay();
-                },
-                onPressed2: () {
-                  payment.makePayment();
-                  settingsPatientControllerImp.trueVisibilityPay();
-                },
-              ),
+              // PaySelection(
+              //   txt: 'Pay',
+              //   txt1: '- PayPal',
+              //   txt2: '- PayMob',
+              //   onPressed: () {
+              //     settingsPatientControllerImp.trueVisibilityPay();
+              //   },
+              //   onPressed1: () {
+              //     paypalController.makePayment();
+              //     settingsPatientControllerImp.trueVisibilityPay();
+              //   },
+              //   onPressed2: () {
+              //     payment.makePayment();
+              //     settingsPatientControllerImp.trueVisibilityPay();
+              //   },
+              // ),
               SettingsRowComponent(
                   icon: Icons.logout,
                   iconColor: AppColors.mainColor,
@@ -146,19 +146,40 @@ class SettingsPatientScreen extends StatelessWidget {
                   textColor: const Color.fromARGB(255, 148, 17, 7),
                   onTap: () {
                     Get.defaultDialog(
-                        backgroundColor: Colors.white,
-                        middleText:
-                            "Are you sure you want to delete your Acoount?".tr,
-                        title: 'Alert'.tr,
-                        onConfirm: () {
+                      title: "Warning".tr,
+                      middleText: "delete account middle text".tr,
+                      confirm: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                            Colors.red, // Change color to red
+                          ),
+                        ),
+                        onPressed: () {
                           deleteController
                               .deleteAccount(token: controller.userModel.token)
                               .then((value) =>
                                   settingsPatientControllerImp.logout());
                         },
-                        onCancel: () {},
-                        textConfirm: "Delete".tr,
-                        textCancel: "Cancel".tr);
+                        child: Text(
+                          "Confirm".tr,
+                          style: const TextStyle(
+                            color: Colors.white,
+                          ), // Translate "Confirm" into Arabic
+                        ),
+                      ),
+                      cancel: ElevatedButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        child: Text(
+                          "Cancel".tr,
+                          style: const TextStyle(
+                            color: Colors.black,
+                          ), // Translate "Confirm" into Arabic
+                        ),
+                      ),
+                      onCancel: () {},
+                    );
                   }),
               // SettingsRowComponent(
               //     icon: Icons.payment,

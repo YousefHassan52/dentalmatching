@@ -138,7 +138,7 @@ class SignupDoctorFormBody extends StatelessWidget {
             builder: (controller) => Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AddCardImage(),
+                const AddCardImage(),
                 Flexible(
                   child: FittedBox(
                     fit: BoxFit.scaleDown,

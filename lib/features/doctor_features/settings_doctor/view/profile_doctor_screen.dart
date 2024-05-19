@@ -106,14 +106,39 @@ class SettingsDoctorScreen extends StatelessWidget {
                   textColor: const Color.fromARGB(255, 148, 17, 7),
                   onTap: () {
                     Get.defaultDialog(
-                      backgroundColor: Colors.white,
-                      onConfirm: () {
-                        deleteController
-                            .deleteAccount(token: controller.doctorModel.token)
-                            .then((value) => settingsController.logout());
-                      },
+                      title: "Warning".tr,
+                      middleText: "delete account middle text".tr,
+                      confirm: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                            Colors.red, // Change color to red
+                          ),
+                        ),
+                        onPressed: () {
+                          deleteController
+                              .deleteAccount(
+                                  token: controller.doctorModel.token)
+                              .then((value) => settingsController.logout());
+                        },
+                        child: Text(
+                          "Confirm".tr,
+                          style: const TextStyle(
+                            color: Colors.white,
+                          ), // Translate "Confirm" into Arabic
+                        ),
+                      ),
+                      cancel: ElevatedButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        child: Text(
+                          "Cancel".tr,
+                          style: const TextStyle(
+                            color: Colors.black,
+                          ), // Translate "Confirm" into Arabic
+                        ),
+                      ),
                       onCancel: () {},
-                      textConfirm: "Delete".tr,
                     );
                   }),
 
