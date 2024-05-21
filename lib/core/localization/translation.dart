@@ -4,6 +4,9 @@ class MyTranslation implements Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         "ar": {
+// categories
+          "All Categories": "كل الحالات",
+
           //forget pass
           "Password Reseted Successfully": "تم إعادة تعيين كلمة المرور بنجاح",
           "Wrong Verification Code": "رمز التحقق خاطئ",
@@ -264,6 +267,8 @@ class MyTranslation implements Translations {
               "اكتشف خيارات العلاج المجانية \n حلول العناية بالأسنان بأسعار معقولة \n المصممة خصيصًا لتلبية احتياجاتك.",
         },
         "en": {
+          // categories
+          "All Categories": "All Categories         ",
           //coonection
           "Internet Connection Error Refresh Data":
               "Internet Connection Error Refresh Data",

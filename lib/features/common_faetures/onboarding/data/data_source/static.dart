@@ -7,7 +7,8 @@ List<OnboardingModel> onboardingList = [
       small: "DentaMatch\n",
       image: "assets/svg/logoDMMM.svg",
       desc:
-          "Our app saves time for both dentists and patients. Say goodbye to long waits and hello to efficient dental care.".tr),
+          "Our app saves time for both dentists and patients. Say goodbye to long waits and hello to efficient dental care."
+              .tr),
   OnboardingModel(
       title: " Request".tr,
       image: "assets/svg/Dentistsss.svg",
@@ -19,11 +20,16 @@ List<OnboardingModel> onboardingList = [
       small: "Hassle-Free".tr,
       image: "assets/svg/PatientBS.svg",
       desc:
-          "Discover free treatment options \n affordable dental care solutions \n tailored to your needs.".tr),
+          "Discover free treatment options \n affordable dental care solutions \n tailored to your needs."
+              .tr),
   OnboardingModel(
       title: "Join Us".tr,
       small: "To Our Journey".tr,
       image: "assets/svg/patientBB.svg",
-      desc:
-          "Together,\nLet's Create Smiles That Last a Lifetime.".tr),
+      desc: "Together,\nLet's Create Smiles That Last a Lifetime.".tr),
+  OnboardingModel(
+      title: "Privacy",
+      small: "To Our Journey".tr,
+      image: "assets/svg/patientBB.svg",
+      desc: "Privacy"),
 ];

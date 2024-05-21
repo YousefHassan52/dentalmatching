@@ -18,8 +18,10 @@ class OnboardingPageBuilder extends StatelessWidget {
         controller.onPageChanged(index);
       },
       itemCount: onboardingList.length,
-      itemBuilder: (context, index) =>
-          CustomOnboardingItem(item: onboardingList[index]),
+      itemBuilder: (context, index) => CustomOnboardingItem(
+        item: onboardingList[index],
+        index: index,
+      ),
     );
   }
 }

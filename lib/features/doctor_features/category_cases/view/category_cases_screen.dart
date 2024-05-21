@@ -32,14 +32,14 @@ class CategoryCasesScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Flexible(
+                Flexible(
                   flex: 200,
                   fit: FlexFit.loose,
                   child: FittedBox(
                     child: AutoSizeText(
                       maxFontSize: 25,
                       minFontSize: 15,
-                      'Recently Added Cases',
+                      "Recently Added Cases".tr,
                       style: Styles.lightBlue,
                     ),
                   ),

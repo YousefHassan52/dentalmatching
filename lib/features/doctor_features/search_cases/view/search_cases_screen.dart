@@ -7,6 +7,7 @@ import 'package:dentalmatching/features/doctor_features/search_cases/view/widget
 import 'package:dentalmatching/features/doctor_features/search_cases/view/widgets/search_form_list_view.dart';
 import 'package:dentalmatching/features/doctor_features/search_cases/view/widgets/searchformfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -53,41 +54,53 @@ class SearchCasesScreen extends StatelessWidget {
                 ),
               ],
             ),
-            GetBuilder<SearchCasesControllerImpl>(builder: (controller) {
-              if (controller.requestStatus == RequestStatus.SUCCESS) {
-                return const SearchFormListView();
-              } else if (controller.requestStatus == RequestStatus.LOADING) {
-                return const Expanded(child: ShimmerListColumn());
-              } else if (controller.requestStatus ==
-                  RequestStatus.EMPTY_SUCCESS) {
-                return Center(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 350,
-                        width: 270,
-                        child: SvgPicture.asset('assets/svg/Empty-pana.svg'),
+            Expanded(
+              child:
+                  GetBuilder<SearchCasesControllerImpl>(builder: (controller) {
+                if (controller.requestStatus == RequestStatus.SUCCESS) {
+                  return const SearchFormListView();
+                } else if (controller.requestStatus == RequestStatus.LOADING) {
+                  return const ShimmerListColumn();
+                } else if (controller.requestStatus ==
+                    RequestStatus.EMPTY_SUCCESS) {
+                  return SingleChildScrollView(
+                    child: Center(
+                      child: Column(
+                        children: [
+                          FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: SizedBox(
+                              height: 350,
+                              width: 270,
+                              child:
+                                  SvgPicture.asset('assets/svg/Empty-pana.svg'),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                );
-              } else {
-                return Center(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 30),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 350,
-                          width: 270,
-                          child: SvgPicture.asset('assets/svg/GroupRRR.svg'),
-                        ),
-                      ],
                     ),
-                  ),
-                );
-              }
-            }),
+                  );
+                } else {
+                  return SingleChildScrollView(
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 30),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 350,
+                              width: 270,
+                              child:
+                                  SvgPicture.asset('assets/svg/GroupRRR.svg'),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                }
+              }),
+            ),
           ],
         ),
       ),

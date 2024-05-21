@@ -1,14 +1,18 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/features/common_faetures/onboarding/data/data_source/static.dart';
 import 'package:dentalmatching/features/common_faetures/onboarding/data/models/onboarding.dart';
 import 'package:dentalmatching/features/common_faetures/onboarding/view/widgets/animatedsvg.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CustomOnboardingItem extends StatelessWidget {
-  const CustomOnboardingItem({Key? key, required this.item}) : super(key: key);
+  const CustomOnboardingItem(
+      {Key? key, required this.item, required this.index})
+      : super(key: key);
   final OnboardingModel item;
+  final int index;
   @override
   Widget build(BuildContext context) {
     MyServices languageController = Get.find();
@@ -32,26 +36,26 @@ class CustomOnboardingItem extends StatelessWidget {
               style: Styles.extraLargetitle,
             ),
           ),
-          if(languageController.sharedPref.getString("lang") == "en")
-          Expanded(
-            flex: 2,
-            child: Text(item.small!,
-                style: const TextStyle(
+          if (languageController.sharedPref.getString("lang") == "en")
+            Expanded(
+              flex: 2,
+              child: Text(item.small!,
+                  style: const TextStyle(
+                      color: AppColors.mainColor,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 42,
+                      letterSpacing: 4)),
+            ),
+          if (languageController.sharedPref.getString("lang") == "ar")
+            Expanded(
+              flex: 2,
+              child: Text(item.small!,
+                  style: const TextStyle(
                     color: AppColors.mainColor,
                     fontWeight: FontWeight.w700,
                     fontSize: 42,
-                    letterSpacing: 4)),
-          ),
-          if(languageController.sharedPref.getString("lang") == "ar")
-          Expanded(
-            flex: 2,
-            child: Text(item.small!,
-                style: const TextStyle(
-                  color: AppColors.mainColor,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 42,
-                )),
-          ),
+                  )),
+            ),
           Expanded(
             flex: 4,
             child: Padding(
@@ -63,6 +67,13 @@ class CustomOnboardingItem extends StatelessWidget {
               ),
             ),
           ),
+          if (index == onboardingList.length - 1)
+            Expanded(
+                flex: 1,
+                child: TextButton(
+                  child: Text("button"),
+                  onPressed: () {},
+                ))
         ],
       ),
     );
