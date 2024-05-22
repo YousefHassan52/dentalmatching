@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'categories_container.dart';
 
@@ -30,7 +31,7 @@ class CategoriesBuilder extends StatelessWidget {
       itemBuilder: (context, index) {
         return CategoriesContainer(
           img: images[index],
-          txt: txt[index],
+          txt: txt[index].tr,
           color: color[index],
         );
       },

@@ -16,6 +16,8 @@ class AppUpperWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const int maxLength = 25;
+    final String displayTxt = text.length > maxLength ? '${text.substring(0, maxLength)}...' : text;
     Get.put(DoctorDataController()); // momkn 2a7ot controller 8ero
     return Container(
       decoration: const BoxDecoration(
@@ -66,7 +68,7 @@ class AppUpperWidget extends StatelessWidget {
                               child: Container(
                                 alignment: Alignment.center,
                                 child: Text(
-                                  text,
+                                  displayTxt,
                                   style: const TextStyle(
                                     fontSize: 25,
                                     fontWeight: FontWeight.bold,

@@ -17,6 +17,11 @@ class CategoriesContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Set the maximum length for the text before truncating
+    const int maxLength = 10;
+    // Check if the text length exceeds the maximum length and truncate if necessary
+    final String displayTxt = txt.length > maxLength ? '${txt.substring(0, maxLength)}...' : txt;
+
     return IconButton(
       onPressed: () {
         if (txt == "General") {
@@ -52,18 +57,22 @@ class CategoriesContainer extends StatelessWidget {
               ),
             ),
             Flexible(
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                  child: Text(txt,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 25,
-                          fontWeight: FontWeight.w300)),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    displayTxt,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w300,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
