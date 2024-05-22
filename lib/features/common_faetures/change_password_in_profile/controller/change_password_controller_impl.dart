@@ -43,9 +43,9 @@ class ChangePasswordControllerImpl extends ChangePasswordControllerAbstract {
       update();
       print("joe ;${requestStatus.toString()}");
       if (requestStatus == RequestStatus.SUCCESS) {
-        Get.snackbar("Success", "Your passsword has been changed successfully");
+        Get.snackbar("Success".tr, "Your passsword has been changed successfully".tr);
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-        Get.defaultDialog(middleText: "Your current password is wrong");
+        Get.defaultDialog(middleText: "Your current password is wrong".tr);
       } else if (requestStatus == RequestStatus.BLOCKED_USER) {
         blockAction();
       } else {

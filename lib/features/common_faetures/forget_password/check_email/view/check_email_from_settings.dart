@@ -49,7 +49,7 @@ class CheckEmailFromSettings extends StatelessWidget {
                   height: 20,
                 ),
                 Text(
-                  "We Will Send Your a Verification Code To Your Email Address To Reset Your Password"
+                  "We Will Send You a Verification Code To Your Email Address To Reset Your Password".tr
                       .tr,
                   style: Styles.textStyle16LightBlue,
                   textAlign: TextAlign.center,

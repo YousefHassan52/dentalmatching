@@ -8,6 +8,7 @@ class MyTranslation implements Translations {
           "All Categories": "كل الحالات",
 
           //forget pass
+          "We Will Send You a Verification Code To Your Email Address To Reset Your Password":"سنرسل لك رمز التحقق إلى عنوان بريدك الإلكتروني لإعادة تعيين كلمة المرور الخاصة بك",
           "Password Reseted Successfully": "تم إعادة تعيين كلمة المرور بنجاح",
           "Wrong Verification Code": "رمز التحقق خاطئ",
           "Email Not Found": "البريد الإلكتروني غير موجود",
@@ -246,6 +247,9 @@ class MyTranslation implements Translations {
           "Change": "تغيير",
           "Forget old password?": "هل نسيت كلمة المرور القديمة؟",
           "Press Here": "اضغط هنا",
+          "Passwords do not match": "كلمة المرور غير مطابقة",
+          "Your current password is wrong":"كلمة المرور الحالية غير صحيحة",
+          "Your passsword has been changed successfully":"تم تغيير كلمة المرور بنجاح",
 
           //onboarding
           "Start": "البدأ",
@@ -280,6 +284,7 @@ class MyTranslation implements Translations {
           "Your Account has been Deleted Successfully":
               "Your Account has been Deleted Successfully",
           //forge pass
+          "Your current password is wrong":"Your current password is wrong",
           "Password Reseted Successfully": "Password Reseted Successfully",
           "Wrong Verification Code": "Wrong Verification Code",
           "Try Again": "Try Again",
@@ -296,6 +301,7 @@ class MyTranslation implements Translations {
           "Forget Password": "Forget Password",
           "Please Enter Your Email Address To Receive a Verification Code ":
               "Please Enter Your Email Address To Receive a Verification Code ",
+              "We Will Send Your a Verification Code To Your Email Address To Reset Your Password":"We Will Send Your a Verification Code To Your Email Address To Reset Your Password",
           // signup
           "Identity Verification In Progress":
               "Identity Verification In Progress",
