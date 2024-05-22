@@ -28,8 +28,8 @@ List<OnboardingModel> onboardingList = [
       image: "assets/svg/patientBB.svg",
       desc: "Together,\nLet's Create Smiles That Last a Lifetime.".tr),
   OnboardingModel(
-      title: "Privacy",
-      small: "To Our Journey".tr,
-      image: "assets/svg/patientBB.svg",
-      desc: "Privacy"),
+      title: "Your Security".tr,
+      small: "Our Priority".tr,
+      image: "assets/svg/Privacy policy.svg",
+      desc: "We are committed to protecting your privacy and security.By using our app,\n you agree to our privacy policy and terms of service.".tr),
 ];

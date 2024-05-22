@@ -5,7 +5,6 @@ import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doct
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class AppointmentScreen extends StatelessWidget {
   final AppointmentController appointmentController =

@@ -25,32 +25,34 @@ class ViewForm extends StatelessWidget {
     MyCasesPatientControllerImpl casesController = Get.find();
     return Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
-        floatingActionButton: FloatingActionButton(
-            onPressed: () {},
-            child: PopupMenuButton(
-              child: const Icon(
-                Icons.edit,
-                size: 35,
-                color: AppColors.mainColor,
-              ),
-              itemBuilder: (context) => [
-                PopupMenuItem(
-                  child: Text("Edit".tr),
-                  onTap: () {
-                    Get.toNamed(AppRoutes.editCase,
-                        arguments: {"edit_case": controller.caseModel});
-                  },
-                ),
-                PopupMenuItem(
-                  child: Text("Delete".tr),
-                  onTap: () {
-                    controller.deleteCase().then((value) {
-                      casesController.getCases();
-                    });
-                  },
-                ),
-              ],
-            )),
+        floatingActionButton: controller.caseModel.isAssigned
+            ? null
+            : FloatingActionButton(
+                onPressed: () {},
+                child: PopupMenuButton(
+                  child: const Icon(
+                    Icons.edit,
+                    size: 35,
+                    color: AppColors.mainColor,
+                  ),
+                  itemBuilder: (context) => [
+                    PopupMenuItem(
+                      child: Text("Edit".tr),
+                      onTap: () {
+                        Get.toNamed(AppRoutes.editCase,
+                            arguments: {"edit_case": controller.caseModel});
+                      },
+                    ),
+                    PopupMenuItem(
+                      child: Text("Delete".tr),
+                      onTap: () {
+                        controller.deleteCase().then((value) {
+                          casesController.getCases();
+                        });
+                      },
+                    ),
+                  ],
+                )),
         body: ListView(
           padding: const EdgeInsets.only(top: 0),
           children: [

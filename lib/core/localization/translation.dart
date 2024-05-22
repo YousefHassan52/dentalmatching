@@ -265,6 +265,10 @@ class MyTranslation implements Translations {
           "Hassle-Free": "خالية من المتاعب",
           "Discover free treatment options \n affordable dental care solutions \n tailored to your needs.":
               "اكتشف خيارات العلاج المجانية \n حلول العناية بالأسنان بأسعار معقولة \n المصممة خصيصًا لتلبية احتياجاتك.",
+          "We are committed to protecting your privacy and security.By using our app,\n you agree to our privacy policy and terms of service.":
+              "نحن ملتزمون بحماية خصوصيتك وأمنك. باستخدام تطبيقنا،\n فإنك توافق على سياسة الخصوصية وشروط الخدمة الخاصة بنا.",
+          "Your Security": "حمايتك",
+          "Our Priority": "أولويتنا",
         },
         "en": {
           // categories
@@ -506,6 +510,10 @@ Your password must include:
               "Discover free treatment options \n affordable dental care solutions \n tailored to your needs.",
           "Grow Your Expertise with Every \nRequest to Patient Case Today!":
               "Grow Your Expertise with Every \nRequest to Patient Case Today!",
+          "Your Security": "Your Security",
+          "We are committed to protecting your privacy and security.By using our app,\n you agree to our privacy policy and terms of service.":
+              "We are committed to protecting your privacy and security.By using our app,\n you agree to our privacy policy and terms of service.",
+          "Our Priority": "Our Priority",
         },
       };
 }

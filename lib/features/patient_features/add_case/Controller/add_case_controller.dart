@@ -33,19 +33,7 @@ class AddCaseController extends AddCaseControllerAbstract {
   List<String> selectedChronicDiseases = [];
   List<String> selectedDentalCases = [];
   List<File>? mouthImages = [];
-  // Future<void> pickMouthImages() async {
-  //   List<XFile>? xFiles = await ImagePicker().pickMultiImage(
-  //     imageQuality: 70, // Adjust image quality as needed
-  //   );
 
-  //   List<File> files = [];
-  //   for (XFile xFile in xFiles) {
-  //     files.add(File(xFile.path));
-  //   }
-
-  //   mouthImages = files;
-  //   update();
-  // }
   Future<void> pickMouthImages() async {
     List<XFile>? xFiles = await ImagePicker().pickMultiImage(
       imageQuality: 70, // Adjust image quality as needed

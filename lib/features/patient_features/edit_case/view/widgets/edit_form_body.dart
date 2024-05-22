@@ -2,12 +2,13 @@ import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/add_img.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/add_optional_img.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/descrip_box.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/form_headline.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/divider.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/optional_text.dart';
+import 'package:dentalmatching/features/patient_features/edit_case/view/widgets/add_img_edit.dart';
+import 'package:dentalmatching/features/patient_features/edit_case/view/widgets/add_optional_img_edit.dart';
+import 'package:dentalmatching/features/patient_features/edit_case/view/widgets/add_pers_img._edit.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/edit_case/controller/editCaseController.dart';
 import 'package:dentalmatching/features/patient_features/edit_case/view/widgets/edit_chronic_check_list.dart';
@@ -50,42 +51,26 @@ class EditFormBody extends StatelessWidget {
           const SizedBox(
             height: 9,
           ),
-          AddImageWidget(
+          AddImageEditWidget(
             img: 'assets/svg/Bold_Img_load-box.svg',
             txt: 'Upload Pictures'.tr,
             onPressed: () {
               controller.pickMouthImages();
             },
           ),
-          // const SizedBox(
-          //   height: 8,
-          // ),
-          // AddImageWidget(
-          //   img: 'assets/svg/Boldd_Camera.svg',
-          //   txt: 'Take Pictures',
-          //   onPressed: () {},
-          // ),
           OptionalText(
             text: 'Add X-Ray'.tr,
           ),
           const SizedBox(
             height: 9,
           ),
-          AddOptionalImg(
+          AddOptionalImgEdit(
             img: 'assets/svg/Bold_Img_load-box.svg',
             txt: 'Upload Pictures'.tr,
             onPressed: () {
               controller.pickXrayImages();
             },
           ),
-          // const SizedBox(
-          //   height: 8,
-          // ),
-          // AddOptionalImg(
-          //   img: 'assets/svg/Boldd_Camera.svg',
-          //   txt: 'Take Picture   ',
-          //   onPressed: () {},
-          // ),
           const Padding(
             padding: EdgeInsets.only(top: 8.0),
             child: HDivider(),
@@ -96,21 +81,13 @@ class EditFormBody extends StatelessWidget {
           const SizedBox(
             height: 9,
           ),
-          AddOptionalImg(
+          AddPerscpEdit(
             img: 'assets/svg/Bold_Img_load-box.svg',
             txt: 'Upload Pictures'.tr,
             onPressed: () {
-              controller.pickPrescriptionImages();
+              Get.find<EditCaseController>().pickPrescriptionImages();
             },
           ),
-          // const SizedBox(
-          //   height: 8,
-          // ),
-          // AddOptionalImg(
-          //   img: 'assets/svg/Boldd_Camera.svg',
-          //   txt: 'Take Picture   ',
-          //   onPressed: () {},
-          // ),
           const Padding(
             padding: EdgeInsets.only(top: 8.0),
             child: HDivider(),

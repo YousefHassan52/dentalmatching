@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "D:/College/Graduation/dentalmatching/windows/runner"
+    "cmake.sourceDirectory": "D:/College/Graduation/dentalmatching/windows/runner",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

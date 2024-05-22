@@ -1,22 +1,25 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Controller/add_case_controller.dart';
+import 'package:dentalmatching/features/patient_features/edit_case/controller/editCaseController.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/view_full_case_patient_controller_impl.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/grid_view_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-
-class AddImageWidget extends StatelessWidget {
+class AddImageEditWidget extends StatelessWidget {
   final String img;
   final String txt;
   final void Function()? onPressed;
 
-  const AddImageWidget(
+  const AddImageEditWidget(
       {Key? key, required this.img, required this.txt, required this.onPressed})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    ViewFullCasePatientControllerImpl con =
+        Get.put(ViewFullCasePatientControllerImpl());
     return TextButton(
       onPressed: onPressed,
       child: Container(
@@ -36,7 +39,7 @@ class AddImageWidget extends StatelessWidget {
             ),
           ),
         ),
-        child: GetBuilder<AddCaseController>(
+        child: GetBuilder<EditCaseController>(
           builder: (controller) {
             return Column(
               children: [
@@ -84,6 +87,9 @@ class AddImageWidget extends StatelessWidget {
                     ],
                   ),
                 ),
+                if (controller.mouthImages == null ||
+                    controller.mouthImages!.isEmpty)
+                  GridViewWidget(imagesList: con.caseModel.mouthImages),
                 if (controller.mouthImages != null &&
                     controller.mouthImages!.isNotEmpty)
                   SizedBox(
