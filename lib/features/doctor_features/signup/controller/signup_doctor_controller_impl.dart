@@ -5,6 +5,7 @@ import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/doctor_features/signup/controller/signup_doctor_controller_abstract.dart';
 import 'package:dentalmatching/features/doctor_features/signup/data/signup_doctor_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -60,13 +61,34 @@ class SignupDoctorControllerImpl extends SignupDoctorControllerAbstract {
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response["success"] == true) {
           Get.defaultDialog(
-            title: "Success Signup",
-            middleText:
-                "Your Account Has Been Created Successfully\nPlease Wait For Identity Verification",
+            title: "Success".tr,
+            content: Column(
+              children: [
+                 SizedBox(
+                  height: 100,
+                  width: 100,
+                   child: SvgPicture.asset(
+                      'assets/svg/id.svg'),
+                 ), 
+                Center(child: Text("Your Account Has Been Created Successfully\nPlease Wait For Identity Verification".tr)),
+                const SizedBox(
+                    height:
+                        10), // Adjust spacing between text and image as needed
+                // Replace 'your_image.png' with your actual image file path
+              ],
+            ),
           );
+          Future.delayed(const Duration(seconds: 10), () {
+            Get.back(); // Dismisses the dialog
+          });
+          // Get.defaultDialog(
+          //   title: "Success".tr,
+          //   middleText:
+          //       "Your Account Has Been Created Successfully\nPlease Wait For Identity Verification".tr,
+          // );
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-        Get.defaultDialog(middleText: "Email or Phone Already exists before");
+        Get.defaultDialog(middleText: "Email or Phone Already exists before".tr);
       } else {
         Get.defaultDialog(middleText: "Server Error Please Try Again");
       }

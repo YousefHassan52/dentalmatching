@@ -8,7 +8,8 @@ class MyTranslation implements Translations {
           "All Categories": "كل الحالات",
 
           //forget pass
-          "We Will Send You a Verification Code To Your Email Address To Reset Your Password":"سنرسل لك رمز التحقق إلى عنوان بريدك الإلكتروني لإعادة تعيين كلمة المرور الخاصة بك",
+          "We Will Send You a Verification Code To Your Email Address To Reset Your Password":
+              "سنرسل لك رمز التحقق إلى عنوان بريدك الإلكتروني لإعادة تعيين كلمة المرور الخاصة بك",
           "Password Reseted Successfully": "تم إعادة تعيين كلمة المرور بنجاح",
           "Wrong Verification Code": "رمز التحقق خاطئ",
           "Email Not Found": "البريد الإلكتروني غير موجود",
@@ -48,6 +49,7 @@ class MyTranslation implements Translations {
           "Invalid Email Address": "عنوان البريد الإلكتروني غير صالح",
           "Personal Info": "بياناتك",
           "Signup": "انشاء حساب",
+          "Email or Phone Already exists before":"الايميل او الرقم استخدم من قبل",
           "Email Address": "بريد الكتروني",
           "University": "الجامعة",
           "Age": "السن",
@@ -57,6 +59,8 @@ class MyTranslation implements Translations {
           "Address": "العنوان",
           "Female": "انثى",
           "Male": "ذكر",
+          "Your Account Has Been Created Successfully\nPlease Wait For Identity Verification":
+              "تم إنشاء حسابك بنجاح\nيرجى الانتظار حتى يتم التحقق من الهوية",
 
           "WELCOME": "مرحبا",
           "Settings": "اعدادات",
@@ -248,8 +252,9 @@ class MyTranslation implements Translations {
           "Forget old password?": "هل نسيت كلمة المرور القديمة؟",
           "Press Here": "اضغط هنا",
           "Passwords do not match": "كلمة المرور غير مطابقة",
-          "Your current password is wrong":"كلمة المرور الحالية غير صحيحة",
-          "Your passsword has been changed successfully":"تم تغيير كلمة المرور بنجاح",
+          "Your current password is wrong": "كلمة المرور الحالية غير صحيحة",
+          "Your passsword has been changed successfully":
+              "تم تغيير كلمة المرور بنجاح",
 
           //onboarding
           "Start": "البدأ",
@@ -284,7 +289,7 @@ class MyTranslation implements Translations {
           "Your Account has been Deleted Successfully":
               "Your Account has been Deleted Successfully",
           //forge pass
-          "Your current password is wrong":"Your current password is wrong",
+          "Your current password is wrong": "Your current password is wrong",
           "Password Reseted Successfully": "Password Reseted Successfully",
           "Wrong Verification Code": "Wrong Verification Code",
           "Try Again": "Try Again",
@@ -301,7 +306,8 @@ class MyTranslation implements Translations {
           "Forget Password": "Forget Password",
           "Please Enter Your Email Address To Receive a Verification Code ":
               "Please Enter Your Email Address To Receive a Verification Code ",
-              "We Will Send Your a Verification Code To Your Email Address To Reset Your Password":"We Will Send Your a Verification Code To Your Email Address To Reset Your Password",
+          "We Will Send Your a Verification Code To Your Email Address To Reset Your Password":
+              "We Will Send Your a Verification Code To Your Email Address To Reset Your Password",
           // signup
           "Identity Verification In Progress":
               "Identity Verification In Progress",
@@ -318,8 +324,11 @@ class MyTranslation implements Translations {
           "Address": "Address",
           "Female": "Female",
           "Male": "Male",
-
+          "Email or Phone Already exists before":
+              "Email or Phone Already exists before",
           "Personal Info": "Personal Info",
+          "Your Account Has Been Created Successfully\nPlease Wait For Identity Verification":
+              "Your Account Has Been Created Successfully\nPlease Wait For Identity Verification",
 
           "WELCOME": "WELCOME",
           "Settings": "Setting",
