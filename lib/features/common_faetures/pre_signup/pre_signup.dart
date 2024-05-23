@@ -40,7 +40,7 @@ class PreSignup extends StatelessWidget {
           children: [
             Expanded(
               child: PreSignUpWidget(
-                role: "D O C T O R  ".tr,
+                role: "D E N T I S T  ".tr,
                 image: "assets/svg/doctors.svg",
                 onTap: () {
                   Get.toNamed(AppRoutes.signupDoctor);
