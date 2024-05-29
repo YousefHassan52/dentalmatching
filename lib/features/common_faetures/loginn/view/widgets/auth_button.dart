@@ -35,9 +35,12 @@ class AuthButton extends StatelessWidget {
             ),
           ],
         ),
-        child: Text(
-          buttonText,
-          style: const TextStyle(color: Colors.white, fontSize: 18),
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            buttonText,
+            style: const TextStyle(color: Colors.white, fontSize: 18),
+          ),
         ),
       ),
     );

@@ -4,9 +4,11 @@ import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/controller/login_controller_abstract.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/data/login_patient.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginControllerImp extends LoginControllerAbstract {
@@ -72,7 +74,7 @@ class LoginControllerImp extends LoginControllerAbstract {
             title: "Alert".tr,
             middleText: "Incorrect Phone Number or Password".tr);
       } else if (requestStatus == RequestStatus.UNVERIFIED_DOCTOR_FAILURE) {
-        Get.defaultDialog(
+        dialogueWithoutButtons(
             title: "Identity Verification In Progress".tr,
             middleText: "Please Wait for Identity Verification".tr);
       } else if (requestStatus == RequestStatus.BLOCKED_USER) {

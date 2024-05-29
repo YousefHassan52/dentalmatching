@@ -62,33 +62,44 @@ class SignupDoctorControllerImpl extends SignupDoctorControllerAbstract {
         if (response["success"] == true) {
           Get.defaultDialog(
             title: "Success".tr,
-            content: Column(
-              children: [
-                 SizedBox(
-                  height: 100,
-                  width: 100,
-                   child: SvgPicture.asset(
-                      'assets/svg/id.svg'),
-                 ), 
-                Center(child: Text("Your Account Has Been Created Successfully\nPlease Wait For Identity Verification".tr)),
-                const SizedBox(
-                    height:
-                        10), // Adjust spacing between text and image as needed
-                // Replace 'your_image.png' with your actual image file path
-              ],
+            content: Builder(
+              builder: (context) {
+                var screenSize = MediaQuery.of(context).size;
+                double imageSize =
+                    screenSize.height * 0.2; // 20% of screen height
+
+                return SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(
+                        height: imageSize,
+                        width: imageSize,
+                        child: SvgPicture.asset('assets/svg/id.svg'),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: Text(
+                          "Your Account Has Been Created Successfully\nPlease Wait For Identity Verification"
+                              .tr,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                    ],
+                  ),
+                );
+              },
             ),
           );
           Future.delayed(const Duration(seconds: 10), () {
             Get.back(); // Dismisses the dialog
           });
-          // Get.defaultDialog(
-          //   title: "Success".tr,
-          //   middleText:
-          //       "Your Account Has Been Created Successfully\nPlease Wait For Identity Verification".tr,
-          // );
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-        Get.defaultDialog(middleText: "Email or Phone Already exists before".tr);
+        Get.defaultDialog(
+            middleText: "Email or Phone Already exists before".tr);
       } else {
         Get.defaultDialog(middleText: "Server Error Please Try Again");
       }

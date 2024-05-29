@@ -16,6 +16,8 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     LoginControllerImp externalController = Get.put(LoginControllerImp());
+    print("height ${MediaQuery.sizeOf(context).height}");
+    print("width ${MediaQuery.sizeOf(context).width}");
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(

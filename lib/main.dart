@@ -6,13 +6,13 @@ import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:device_preview/device_preview.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-// test commit
   await initialServices();
-  // runApp(DevicePreview(builder: (builder) => const MyApp()));
-  runApp(const MyApp());
+  runApp(DevicePreview(builder: (builder) => const MyApp()));
+  // runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
