@@ -9,7 +9,8 @@ class SearchFormListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SearchCasesControllerImpl controller = Get.find();
-    return Expanded(
+    return SizedBox(
+      height: MediaQuery.sizeOf(context).height * 0.8,
       child: ListView.builder(
         padding: const EdgeInsets.only(top: 0, bottom: 60),
         shrinkWrap: true,

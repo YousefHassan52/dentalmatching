@@ -16,7 +16,7 @@ class ThreeCasesList extends StatelessWidget {
     return GetBuilder<GetThreeCasesControllerImpl>(builder: (controller) {
       if (controller.requestStatus == RequestStatus.SUCCESS) {
         return SizedBox(
-          height: MediaQuery.sizeOf(context).height * 0.2,
+          height: MediaQuery.sizeOf(context).height * 0.3,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: controller.cases.length,

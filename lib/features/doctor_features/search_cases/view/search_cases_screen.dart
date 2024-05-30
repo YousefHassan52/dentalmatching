@@ -21,8 +21,9 @@ class SearchCasesScreen extends StatelessWidget {
     return Scaffold(
       body: Form(
         key: externalController.formKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          physics: const NeverScrollableScrollPhysics(),
           children: [
             AppUpperWidget(
               welcome: false,
@@ -54,53 +55,41 @@ class SearchCasesScreen extends StatelessWidget {
                 ),
               ],
             ),
-            Expanded(
-              child:
-                  GetBuilder<SearchCasesControllerImpl>(builder: (controller) {
-                if (controller.requestStatus == RequestStatus.SUCCESS) {
-                  return const SearchFormListView();
-                } else if (controller.requestStatus == RequestStatus.LOADING) {
-                  return const ShimmerListColumn();
-                } else if (controller.requestStatus ==
-                    RequestStatus.EMPTY_SUCCESS) {
-                  return SingleChildScrollView(
-                    child: Center(
-                      child: Column(
-                        children: [
-                          FittedBox(
-                            fit: BoxFit.scaleDown,
-                            child: SizedBox(
-                              height: 350,
-                              width: 270,
-                              child:
-                                  SvgPicture.asset('assets/svg/Empty-pana.svg'),
-                            ),
-                          ),
-                        ],
+            GetBuilder<SearchCasesControllerImpl>(builder: (controller) {
+              if (controller.requestStatus == RequestStatus.SUCCESS) {
+                return const SearchFormListView();
+              } else if (controller.requestStatus == RequestStatus.LOADING) {
+                return const ShimmerListColumn();
+              } else if (controller.requestStatus ==
+                  RequestStatus.EMPTY_SUCCESS) {
+                return Center(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 350,
+                        width: 270,
+                        child: SvgPicture.asset('assets/svg/Empty-pana.svg'),
                       ),
-                    ),
-                  );
-                } else {
-                  return SingleChildScrollView(
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 30),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 350,
-                              width: 270,
-                              child:
-                                  SvgPicture.asset('assets/svg/GroupRRR.svg'),
-                            ),
-                          ],
+                    ],
+                  ),
+                );
+              } else {
+                return Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 30),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 350,
+                          width: 270,
+                          child: SvgPicture.asset('assets/svg/GroupRRR.svg'),
                         ),
-                      ),
+                      ],
                     ),
-                  );
-                }
-              }),
-            ),
+                  ),
+                );
+              }
+            }),
           ],
         ),
       ),

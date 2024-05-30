@@ -20,7 +20,7 @@ class CategoryCasesScreen extends StatelessWidget {
         Get.put(CategoryCasesControllerImpl());
     return Scaffold(
       body: ListView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         padding: EdgeInsets.zero,
         children: [
           AppUpperWidget(
@@ -33,17 +33,11 @@ class CategoryCasesScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Flexible(
-                  flex: 200,
-                  fit: FlexFit.loose,
-                  child: FittedBox(
-                    child: AutoSizeText(
-                      maxFontSize: 25,
-                      minFontSize: 15,
-                      "Recently Added Cases".tr,
-                      style: Styles.lightBlue,
-                    ),
-                  ),
+                AutoSizeText(
+                  maxFontSize: 25,
+                  minFontSize: 15,
+                  "Recently Added Cases".tr,
+                  style: Styles.lightBlue,
                 ),
                 const Spacer(),
                 IconButton(
@@ -62,7 +56,7 @@ class CategoryCasesScreen extends StatelessWidget {
             if (controller.requestStatus == RequestStatus.SUCCESS) {
               return const CategoryFormListView();
             } else if (controller.requestStatus == RequestStatus.LOADING) {
-              return const Expanded(child: ShimmerListColumn());
+              return const ShimmerListColumn();
             } else if (controller.requestStatus ==
                 RequestStatus.EMPTY_SUCCESS) {
               return Center(

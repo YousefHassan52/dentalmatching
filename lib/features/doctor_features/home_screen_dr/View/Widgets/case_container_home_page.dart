@@ -1,5 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
+import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/data/Model/CaseDoctorModel.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/View/Widget/image_container.dart';
@@ -85,6 +87,15 @@ class DoctorHomeCaseContainer extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: AutoSizeText(
+              caseModel.description,
+              style: Styles.textStyle16Grey,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
           // Flexible(
           //   child: FittedBox(
