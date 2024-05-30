@@ -19,8 +19,9 @@ class CategoryCasesScreen extends StatelessWidget {
     CategoryCasesControllerImpl externalController =
         Get.put(CategoryCasesControllerImpl());
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
+        physics: NeverScrollableScrollPhysics(),
+        padding: EdgeInsets.zero,
         children: [
           AppUpperWidget(
             welcome: false,

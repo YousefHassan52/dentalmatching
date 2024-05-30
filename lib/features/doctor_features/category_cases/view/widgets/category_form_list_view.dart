@@ -9,10 +9,10 @@ class CategoryFormListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CategoryCasesControllerImpl controller = Get.find();
-    return Expanded(
+    return SizedBox(
+      height: MediaQuery.sizeOf(context).height,
       child: ListView.builder(
         padding: const EdgeInsets.only(top: 0, bottom: 60),
-        shrinkWrap: true,
         physics: const BouncingScrollPhysics(),
         itemCount: controller.cases.length,
         itemBuilder: (context, index) {

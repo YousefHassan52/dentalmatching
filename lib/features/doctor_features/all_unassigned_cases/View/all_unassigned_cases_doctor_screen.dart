@@ -79,7 +79,7 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
                     SizedBox(
                       height: 350,
                       width: 270,
-                      child: SvgPicture.asset('assets/svg/Empty-pana.svg'),
+                      child: SvgPicture.asset('assets/svg/GroupRRR.svg'),
                     ),
                   ],
                 ),
@@ -93,7 +93,7 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
                       SizedBox(
                         height: 350,
                         width: 270,
-                        child: SvgPicture.asset('assets/svg/GroupRRR.svg'),
+                        child: SvgPicture.asset('assets/svg/Empty-pana.svg'),
                       ),
                     ],
                   ),

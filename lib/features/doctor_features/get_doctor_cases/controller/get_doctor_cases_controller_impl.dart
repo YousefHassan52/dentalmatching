@@ -34,13 +34,12 @@ class GetDocotorCasesControllerImpl extends GetDocotorCasesControllerAbstract {
     print("joe ;${requestStatus.toString()}");
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {
-// Iterate over the response data and create MyCaseModel objects
         List<dynamic> responseData = response["data"];
         for (var data in responseData) {
           CaseDoctorModel myCase = CaseDoctorModel.fromJson(data);
           cases.add(myCase);
         }
-        if (response["message"] == "No Dental Cases Available") {
+        if (response["message"] == "No Assigned Dental Cases Available") {
           requestStatus = RequestStatus.EMPTY_SUCCESS;
           update();
         }

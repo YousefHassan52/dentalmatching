@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-
 class GetDoctorCasesScreen extends StatelessWidget {
   const GetDoctorCasesScreen({super.key});
 
@@ -18,8 +17,9 @@ class GetDoctorCasesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     GetDocotorCasesControllerImpl externalController =
         Get.put(GetDocotorCasesControllerImpl());
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return ListView(
+      physics: const NeverScrollableScrollPhysics(),
+      padding: EdgeInsets.zero,
       children: [
         const AppUpperWidget(),
         Padding(
@@ -51,32 +51,35 @@ class GetDoctorCasesScreen extends StatelessWidget {
             ],
           ),
         ),
-        //CategoriesListView(),
-        // const SizedBox(
-        //   height: 0,
-        // ),
-        // MaterialButton(
-        //   onPressed: () {},
-        //   child: const Row(
-        //     children: [
-        //       Text('Search'),
-        //       SizedBox(
-        //         width: 5,
-        //       ),
-        //       Icon(Icons.search_outlined)
-        //     ],
-        //   ),
-        // ),
         GetBuilder<GetDocotorCasesControllerImpl>(builder: (controller) {
           if (controller.requestStatus == RequestStatus.SUCCESS) {
             return const FormListViewRequested();
           } else if (controller.requestStatus == RequestStatus.LOADING) {
-            return const Expanded(child: ShimmerListColumn());
+            return const ShimmerListColumn();
           } else if (controller.requestStatus == RequestStatus.EMPTY_SUCCESS) {
-            return SvgPicture.asset('assets/svg/NoCases.svg');
+            return Center(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: Get.height * 0.3,
+                    child: SvgPicture.asset('assets/svg/GroupRRR.svg'),
+                  ),
+                ],
+              ),
+            );
           } else {
             return Center(
-              child: SvgPicture.asset('assets/svg/NoCases.svg'),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 30),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: Get.height * 0.3,
+                      child: SvgPicture.asset('assets/svg/Empty-pana.svg'),
+                    ),
+                  ],
+                ),
+              ),
             );
           }
         }),
