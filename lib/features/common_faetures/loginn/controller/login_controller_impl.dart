@@ -74,7 +74,7 @@ class LoginControllerImp extends LoginControllerAbstract {
             title: "Alert".tr,
             middleText: "Incorrect Phone Number or Password".tr);
       } else if (requestStatus == RequestStatus.UNVERIFIED_DOCTOR_FAILURE) {
-        dialogueWithoutButtons(
+        customDialoge(
             title: "Identity Verification In Progress".tr,
             middleText: "Please Wait for Identity Verification".tr);
       } else if (requestStatus == RequestStatus.BLOCKED_USER) {

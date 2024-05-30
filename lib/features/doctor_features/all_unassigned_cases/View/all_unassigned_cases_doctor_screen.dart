@@ -18,8 +18,9 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
     UnassignedCasesDoctorControllerImpl externalController =
         Get.put(UnassignedCasesDoctorControllerImpl());
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
+        physics: NeverScrollableScrollPhysics(),
+        padding: EdgeInsets.zero,
         children: [
           AppUpperWidget(
             welcome: false,
@@ -56,12 +57,20 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
               ],
             ),
           ),
+          // ListView.builder(
+          //     itemCount: 20,
+          //     shrinkWrap: true,
+          //     itemBuilder: (context, index) => Container(
+          //           color: Colors.green,
+          //           margin: EdgeInsets.all(10),
+          //           child: Text("fdsfd\ndsfd"),
+          //         )),
           GetBuilder<UnassignedCasesDoctorControllerImpl>(
               builder: (controller) {
             if (controller.requestStatus == RequestStatus.SUCCESS) {
               return const FormListView();
             } else if (controller.requestStatus == RequestStatus.LOADING) {
-              return const Expanded(child: ShimmerListColumn());
+              return const ShimmerListColumn();
             } else if (controller.requestStatus ==
                 RequestStatus.EMPTY_SUCCESS) {
               return Center(

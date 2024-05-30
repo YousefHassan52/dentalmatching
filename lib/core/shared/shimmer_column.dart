@@ -7,6 +7,7 @@ class ShimmerListColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      shrinkWrap: true,
       padding: const EdgeInsets.only(top: 0),
       itemCount: 10, // Replace with your actual item count
       itemBuilder: (context, index) {

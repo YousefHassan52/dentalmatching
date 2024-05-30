@@ -83,22 +83,6 @@ class SettingsPatientScreen extends StatelessWidget {
                     });
                   }),
 
-              // SettingsRowComponent(
-              //     icon: Icons.language_rounded,
-              //     iconColor: const Color.fromARGB(255, 7, 39, 179),
-              //     text: "Language".tr,
-              //     textColor: const Color.fromARGB(255, 7, 39, 179),
-              //     onTap: () {
-              //       translationController.changeLang(langCode: "en");
-              //     }),
-              // SettingsRowComponent(
-              //     icon: Icons.language_rounded,
-              //     iconColor: const Color.fromARGB(255, 7, 39, 179),
-              //     text: "arabic",
-              //     textColor: const Color.fromARGB(255, 7, 39, 179),
-              //     onTap: () {
-              //       translationController.changeLang(langCode: "ar");
-              //     }),
               LanguageSelection(
                 txt: 'Language',
                 txt1: '- Arabic',
@@ -115,22 +99,7 @@ class SettingsPatientScreen extends StatelessWidget {
                   settingsPatientControllerImp.trueVisibilityLanguage();
                 },
               ),
-              // PaySelection(
-              //   txt: 'Pay',
-              //   txt1: '- PayPal',
-              //   txt2: '- PayMob',
-              //   onPressed: () {
-              //     settingsPatientControllerImp.trueVisibilityPay();
-              //   },
-              //   onPressed1: () {
-              //     paypalController.makePayment();
-              //     settingsPatientControllerImp.trueVisibilityPay();
-              //   },
-              //   onPressed2: () {
-              //     payment.makePayment();
-              //     settingsPatientControllerImp.trueVisibilityPay();
-              //   },
-              // ),
+
               SettingsRowComponent(
                   icon: Icons.logout,
                   iconColor: AppColors.mainColor,
@@ -181,73 +150,6 @@ class SettingsPatientScreen extends StatelessWidget {
                       onCancel: () {},
                     );
                   }),
-              // SettingsRowComponent(
-              //     icon: Icons.payment,
-              //     iconColor: const Color.fromARGB(255, 1, 100, 75),
-              //     text: "Paymob".tr,
-              //     textColor: const Color.fromARGB(255, 1, 100, 75),
-              //     onTap: () {
-              //       payment.makePayment();
-              //     }),
-              // SettingsRowComponent(
-              //     icon: Icons.paypal,
-              //     iconColor: const Color.fromARGB(255, 1, 100, 75),
-              //     text: "PayPal".tr,
-              //     textColor: const Color.fromARGB(255, 1, 100, 75),
-              //     onTap: () {
-              //       paypalController.makePayment();
-              //     }),
-              // MaterialButton(
-              //   onPressed: () {
-              //     visible = true;
-              //   },
-              //   child: const Row(
-              //     children: [
-              //       Flexible(
-              //         child: FittedBox(
-              //           fit: BoxFit.scaleDown,
-              //           child: Text(
-              //             'Language',
-              //             style: TextStyle(
-              //                 fontSize: 24,
-              //                 fontWeight: FontWeight.w400,
-              //                 color: AppColors.blueLightTextColor),
-              //           ),
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-              // if (visible == true)
-              //   MaterialButton(
-              //     onPressed: () {
-              //       // visible = true;
-              //     },
-              //     child: const Column(
-              //       children: [
-              //         FittedBox(
-              //           fit: BoxFit.scaleDown,
-              //           child: Text(
-              //             'Arabic',
-              //             style: TextStyle(
-              //                 fontSize: 24,
-              //                 fontWeight: FontWeight.w400,
-              //                 color: AppColors.blueLightTextColor),
-              //           ),
-              //         ),
-              //         FittedBox(
-              //           fit: BoxFit.scaleDown,
-              //           child: Text(
-              //             'English',
-              //             style: TextStyle(
-              //                 fontSize: 24,
-              //                 fontWeight: FontWeight.w400,
-              //                 color: AppColors.blueLightTextColor),
-              //           ),
-              //         ),
-              //       ],
-              //     ),
-              //   ),
 
               GetBuilder<PaybalControllerImp>(
                 builder: (controller) => Container(

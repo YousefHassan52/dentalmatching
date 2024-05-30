@@ -16,12 +16,15 @@ class ThreeCasesList extends StatelessWidget {
     return GetBuilder<GetThreeCasesControllerImpl>(builder: (controller) {
       if (controller.requestStatus == RequestStatus.SUCCESS) {
         return SizedBox(
-          height: MediaQuery.sizeOf(context).height * 0.3,
+          height: MediaQuery.sizeOf(context).height * 0.2,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: controller.cases.length,
-            itemBuilder: (context, index) => DoctorHomeCaseContainer(
-              caseModel: controller.cases[index],
+            itemBuilder: (context, index) => FittedBox(
+              fit: BoxFit.scaleDown,
+              child: DoctorHomeCaseContainer(
+                caseModel: controller.cases[index],
+              ),
             ),
           ),
         );

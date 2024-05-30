@@ -9,11 +9,11 @@ class FormListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     UnassignedCasesDoctorControllerImpl controller = Get.find();
-    return Expanded(
+    return SizedBox(
+      height: MediaQuery.sizeOf(context).height,
       child: ListView.builder(
-        padding: const EdgeInsets.only(top: 0,bottom: 60),
-        shrinkWrap: true,
         physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.only(top: 0, bottom: 60),
         itemCount: controller.cases.length,
         itemBuilder: (context, index) {
           return Padding(
