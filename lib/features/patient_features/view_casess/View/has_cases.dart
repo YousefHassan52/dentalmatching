@@ -20,8 +20,9 @@ class HasCases extends StatelessWidget {
     MyCasesPatientControllerImpl externalController =
         Get.put(MyCasesPatientControllerImpl());
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: ListView(
+        physics: NeverScrollableScrollPhysics(),
+        padding: EdgeInsets.zero,
         children: [
           const UpperWidget(),
           const SizedBox(
@@ -61,12 +62,12 @@ class HasCases extends StatelessWidget {
           ),
           GetBuilder<MyCasesPatientControllerImpl>(builder: (controller) {
             if (controller.requestStatus == RequestStatus.LOADING) {
-              return const Expanded(child: ShimmerListColumn());
+              return ShimmerListColumn();
             } else if (controller.requestStatus == RequestStatus.SUCCESS) {
-              return Expanded(
+              return SizedBox(
+                height: MediaQuery.sizeOf(context).height * 0.8,
                 child: ListView.builder(
                   padding: const EdgeInsets.only(top: 0, bottom: 70),
-                  shrinkWrap: true,
                   physics: const BouncingScrollPhysics(),
                   itemCount: externalController.myCases.length,
                   itemBuilder: (context, index) {
@@ -97,7 +98,10 @@ class HasCases extends StatelessWidget {
                 ),
               );
             }
-          })
+          }),
+          SizedBox(
+            height: 100,
+          )
         ],
       ),
     );

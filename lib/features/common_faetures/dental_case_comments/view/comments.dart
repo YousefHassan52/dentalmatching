@@ -24,7 +24,7 @@ class CommentsOnCase extends StatelessWidget {
         Get.put(CommentsControllerImpl());
     return Container(
       alignment: Alignment.topLeft,
-      height: Get.height * 0.7,
+      height: Get.height * 0.5,
       width: double.infinity,
       margin: const EdgeInsets.only(
         right: 15,
@@ -55,11 +55,12 @@ class CommentsOnCase extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CircleAvatar(
-                        backgroundImage: controller.comments[index].role
-                                    .toLowerCase() ==
-                                "doctor"
-                            ? const AssetImage('assets/images/doctor.png')
-                            : const AssetImage('assets/images/profilepicture.png'),
+                        backgroundImage:
+                            controller.comments[index].role.toLowerCase() ==
+                                    "doctor"
+                                ? const AssetImage('assets/images/doctor.png')
+                                : const AssetImage(
+                                    'assets/images/profilepicture.png'),
                         radius: 20,
                         backgroundColor: const Color.fromARGB(255, 26, 67, 143),
                       ),
@@ -102,36 +103,13 @@ class CommentsOnCase extends StatelessWidget {
               return const Expanded(child: ShimmerListColumn());
             } else if (controller.requestStatus ==
                 RequestStatus.EMPTY_SUCCESS) {
-              return Center(
-                child: FittedBox(
+              return const FittedBox(
                   fit: BoxFit.scaleDown,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 300,
-                        width: 100,
-                        child: SvgPicture.asset('assets/svg/Empty-pana.svg'),
-                      ),
-                      // Text("There is no comments")
-                    ],
-                  ),
-                ),
-              );
+                  child: Center(child: Text("There is no comments yet")));
             } else {
-              return Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 30),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 100,
-                        width: 100,
-                        child: SvgPicture.asset('assets/svg/GroupRRR.svg'),
-                      ),
-                    ],
-                  ),
-                ),
-              );
+              return const FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Center(child: Text("UnExpected Error")));
             }
           }),
           Padding(

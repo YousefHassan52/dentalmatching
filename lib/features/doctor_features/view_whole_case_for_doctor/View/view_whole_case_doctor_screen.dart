@@ -26,149 +26,134 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
     ScrollController scrollController = ScrollController();
 
     return Scaffold(
-      body: Column(
+      body: ListView(
+        controller: scrollController,
+        padding: EdgeInsets.zero,
         children: [
-          Expanded(
-            child: ListView(
-              controller: scrollController,
-              padding: const EdgeInsets.only(top: 0, bottom: 5),
+          UpperFullCaseWidget(
+            text: "Patient Details       ".tr,
+            needBackButton: true,
+            CaseDesc: true,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                UpperFullCaseWidget(
-                  text: "Patient Details       ".tr,
-                  needBackButton: true,
-                  CaseDesc: true,
+                const SizedBox(
+                  height: 20,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      FormHeadLine(headline: 'Description'.tr),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      BoxWidget(
-                        widget: Text(
-                          controller.caseModel.description,
+                FormHeadLine(headline: 'Description'.tr),
+                const SizedBox(
+                  height: 20,
+                ),
+                BoxWidget(
+                  widget: Text(
+                    controller.caseModel.description,
+                    style: Styles.textStyle16Grey,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const HDivider(),
+                const SizedBox(
+                  height: 20,
+                ),
+                FormHeadLine(headline: 'Chronic Diseases'.tr),
+                const SizedBox(
+                  height: 20,
+                ),
+                BoxWidget(
+                  widget: controller.caseModel.chronicDiseases.isNotEmpty
+                      ? ChronicOrDentalList(
+                          list: controller.caseModel.chronicDiseases)
+                      : Text(
+                          "None".tr,
                           style: Styles.textStyle16Grey,
                         ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const HDivider(),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      FormHeadLine(headline: 'Chronic Diseases'.tr),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      BoxWidget(
-                        widget: controller.caseModel.chronicDiseases.isNotEmpty
-                            ? ChronicOrDentalList(
-                                list: controller.caseModel.chronicDiseases)
-                            : Text(
-                                "None".tr,
-                                style: Styles.textStyle16Grey,
-                              ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const HDivider(),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      FormHeadLine(headline: 'Dental Diseases'.tr),
-                      BoxWidget(
-                        widget: controller.caseModel.isKnown == true
-                            ? ChronicOrDentalList(
-                                list: controller.caseModel.dentalDiseases)
-                            : Text(
-                                "None".tr,
-                                style: Styles.textStyle16Grey,
-                              ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const HDivider(),
-                      FormHeadLine(headline: 'Pictures Of Mouth'.tr),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: GridViewWidget(
-                            imagesList: controller.caseModel.mouthImages),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const HDivider(),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      FormHeadLine(headline: 'X-Ray'.tr),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: controller.caseModel.xrayImages.isNotEmpty
-                            ? GridViewWidget(
-                                imagesList: controller.caseModel.xrayImages,
-                              )
-                            : Text(
-                                "None".tr,
-                                style: Styles.textStyle16Grey,
-                              ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const HDivider(),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      FormHeadLine(headline: 'Prescription'.tr),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child:
-                            controller.caseModel.prescriptionImages.isNotEmpty
-                                ? GridViewWidget(
-                                    imagesList:
-                                        controller.caseModel.prescriptionImages,
-                                  )
-                                : Text(
-                                    "None".tr,
-                                    style: Styles.textStyle16Grey,
-                                  ),
-                      ),
-                      if (!controller.caseModel.isAssigned)
-                        Column(
-                          children: [
-                            const HDivider(),
-                            FormHeadLine(headline: 'Comments'.tr),
-                            CommentsOnCase(
-                              caseid: controller.caseModel.caseId,
-                              token: controller.doctorModel.token,
-                            ),
-                          ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const HDivider(),
+                const SizedBox(
+                  height: 20,
+                ),
+                FormHeadLine(headline: 'Dental Diseases'.tr),
+                BoxWidget(
+                  widget: controller.caseModel.isKnown == true
+                      ? ChronicOrDentalList(
+                          list: controller.caseModel.dentalDiseases)
+                      : Text(
+                          "None".tr,
+                          style: Styles.textStyle16Grey,
                         ),
-                    ],
-                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const HDivider(),
+                FormHeadLine(headline: 'Pictures Of Mouth'.tr),
+                const SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: GridViewWidget(
+                      imagesList: controller.caseModel.mouthImages),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const HDivider(),
+                const SizedBox(
+                  height: 20,
+                ),
+                FormHeadLine(headline: 'X-Ray'.tr),
+                const SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: controller.caseModel.xrayImages.isNotEmpty
+                      ? GridViewWidget(
+                          imagesList: controller.caseModel.xrayImages,
+                        )
+                      : Text(
+                          "None".tr,
+                          style: Styles.textStyle16Grey,
+                        ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const HDivider(),
+                const SizedBox(
+                  height: 20,
+                ),
+                FormHeadLine(headline: 'Prescription'.tr),
+                const SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: controller.caseModel.prescriptionImages.isNotEmpty
+                      ? GridViewWidget(
+                          imagesList: controller.caseModel.prescriptionImages,
+                        )
+                      : Text(
+                          "None".tr,
+                          style: Styles.textStyle16Grey,
+                        ),
                 ),
               ],
             ),
           ),
+          if (!controller.caseModel.isAssigned)
+            CommentsOnCase(
+                token: controller.doctorModel.token,
+                caseid: controller.caseModel.caseId),
           GetBuilder<ViewWholeCaseDoctorControllerImpl>(
             builder: (controller) {
               if (!controller.caseModel.isAssigned) {

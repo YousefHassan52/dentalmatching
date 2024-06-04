@@ -57,14 +57,6 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
               ],
             ),
           ),
-          // ListView.builder(
-          //     itemCount: 20,
-          //     shrinkWrap: true,
-          //     itemBuilder: (context, index) => Container(
-          //           color: Colors.green,
-          //           margin: EdgeInsets.all(10),
-          //           child: Text("fdsfd\ndsfd"),
-          //         )),
           GetBuilder<UnassignedCasesDoctorControllerImpl>(
               builder: (controller) {
             if (controller.requestStatus == RequestStatus.SUCCESS) {
