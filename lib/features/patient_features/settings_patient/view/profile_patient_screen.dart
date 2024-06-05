@@ -12,7 +12,6 @@ import 'package:dentalmatching/features/patient_features/settings_patient/contro
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/counter_box.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/enabled_info.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/language_selection.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/pay_selection.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/upper.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/setting_row_component.dart';
 import 'package:flutter/material.dart';
