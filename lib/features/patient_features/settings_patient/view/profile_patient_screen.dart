@@ -2,6 +2,7 @@ import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/localization/translation_controller.dart';
+import 'package:dentalmatching/core/shared/dailogue_with_buttons.dart';
 import 'package:dentalmatching/features/common_faetures/delete_account/controller/delete_account_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
@@ -114,41 +115,15 @@ class SettingsPatientScreen extends StatelessWidget {
                   text: "Delete Account".tr,
                   textColor: const Color.fromARGB(255, 148, 17, 7),
                   onTap: () {
-                    Get.defaultDialog(
-                      title: "Warning".tr,
-                      middleText: "delete account middle text".tr,
-                      confirm: ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                            Colors.red, // Change color to red
-                          ),
-                        ),
-                        onPressed: () {
+                    customDialogeWithButtons(
+                        title: "Warning".tr,
+                        middleText: "delete account middle text".tr,
+                        confirm: () {
                           deleteController
                               .deleteAccount(token: controller.userModel.token)
                               .then((value) =>
                                   settingsPatientControllerImp.logout());
-                        },
-                        child: Text(
-                          "Confirm".tr,
-                          style: const TextStyle(
-                            color: Colors.white,
-                          ), // Translate "Confirm" into Arabic
-                        ),
-                      ),
-                      cancel: ElevatedButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        child: Text(
-                          "Cancel".tr,
-                          style: const TextStyle(
-                            color: Colors.black,
-                          ), // Translate "Confirm" into Arabic
-                        ),
-                      ),
-                      onCancel: () {},
-                    );
+                        });
                   }),
 
               GetBuilder<PaybalControllerImp>(

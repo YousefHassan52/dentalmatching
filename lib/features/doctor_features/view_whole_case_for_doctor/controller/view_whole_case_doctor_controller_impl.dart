@@ -50,9 +50,7 @@ class ViewWholeCaseDoctorControllerImpl
     print("joe ;${requestStatus.toString()}");
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {
-        customDialoge(
-            title: "Success".tr,
-            middleText: "Now you are Responsible with This Case".tr);
+        Get.snackbar("Success".tr, "Now you are Responsible with This Case".tr);
         Future.delayed(const Duration(seconds: 2), () {
           Get.back(); // Dismisses the dialog
         });

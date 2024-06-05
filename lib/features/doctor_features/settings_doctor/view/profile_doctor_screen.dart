@@ -1,6 +1,7 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/localization/translation_controller.dart';
+import 'package:dentalmatching/core/shared/dailogue_with_buttons.dart';
 import 'package:dentalmatching/features/common_faetures/delete_account/controller/delete_account_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/app_upper.dart';
 import 'package:dentalmatching/features/doctor_features/doctor_data_viewer/doctor_data_controller.dart';
@@ -105,40 +106,14 @@ class SettingsDoctorScreen extends StatelessWidget {
                   text: "Delete Account".tr,
                   textColor: const Color.fromARGB(255, 148, 17, 7),
                   onTap: () {
-                    Get.defaultDialog(
+                    customDialogeWithButtons(
                       title: "Warning".tr,
                       middleText: "delete account middle text".tr,
-                      confirm: ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                            Colors.red, // Change color to red
-                          ),
-                        ),
-                        onPressed: () {
-                          deleteController
-                              .deleteAccount(
-                                  token: controller.doctorModel.token)
-                              .then((value) => settingsController.logout());
-                        },
-                        child: Text(
-                          "Confirm".tr,
-                          style: const TextStyle(
-                            color: Colors.white,
-                          ), // Translate "Confirm" into Arabic
-                        ),
-                      ),
-                      cancel: ElevatedButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        child: Text(
-                          "Cancel".tr,
-                          style: const TextStyle(
-                            color: Colors.black,
-                          ), // Translate "Confirm" into Arabic
-                        ),
-                      ),
-                      onCancel: () {},
+                      confirm: () {
+                        deleteController
+                            .deleteAccount(token: controller.doctorModel.token)
+                            .then((value) => settingsController.logout());
+                      },
                     );
                   }),
 

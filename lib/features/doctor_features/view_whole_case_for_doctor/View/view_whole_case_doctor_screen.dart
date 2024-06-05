@@ -1,4 +1,5 @@
 import 'package:dentalmatching/core/constants/styles.dart';
+import 'package:dentalmatching/core/shared/dailogue_with_buttons.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/appointment_screen.dart';
@@ -186,19 +187,12 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                           child: RequestAndCancelButton(
                             isCancelButton: true,
                             onPressed: () {
-                              Get.defaultDialog(
-                                title: "Warning".tr,
-                                middleText:
-                                    "Are you Sure you Want to Cancel this Request?"
-                                        .tr,
-                                confirm: ElevatedButton(
-                                  style: ButtonStyle(
-                                    backgroundColor:
-                                        MaterialStateProperty.all<Color>(
-                                      Colors.red, // Change color to red
-                                    ),
-                                  ),
-                                  onPressed: () {
+                              customDialogeWithButtons(
+                                  title: "Warning".tr,
+                                  middleText:
+                                      "Are you Sure you Want to Cancel this Request?"
+                                          .tr,
+                                  confirm: () {
                                     print(controller.caseModel.caseId);
 
                                     controller.cancelCase().then((value) {
@@ -216,27 +210,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                                           .getCases();
                                     });
                                     Get.back();
-                                  },
-                                  child: Text(
-                                    "Confirm".tr,
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                    ), // Translate "Confirm" into Arabic
-                                  ),
-                                ),
-                                cancel: ElevatedButton(
-                                  onPressed: () {
-                                    Get.back();
-                                  },
-                                  child: Text(
-                                    "Cancel".tr,
-                                    style: const TextStyle(
-                                      color: Colors.black,
-                                    ), // Translate "Confirm" into Arabic
-                                  ),
-                                ),
-                                onCancel: () {},
-                              );
+                                  });
                             },
                           ),
                         ),

@@ -34,16 +34,14 @@ void customDialoge(
                 ),
               ),
               const SizedBox(height: 10), // Space between title and middle text
-              FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text(
-                  middleText,
-                  style: TextStyle(
-                    decoration: TextDecoration.none, // Ensure no decoration
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w300,
-                    color: textColor, // Middle text color
-                  ),
+              Text(
+                middleText,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  decoration: TextDecoration.none, // Ensure no decoration
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w300,
+                  color: textColor, // Middle text color
                 ),
               ),
             ],
