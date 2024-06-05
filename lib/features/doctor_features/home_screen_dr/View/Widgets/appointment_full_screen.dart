@@ -11,8 +11,7 @@ class AppointmentFullScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GetDocotorCasesControllerImpl externalController =
-        Get.put(GetDocotorCasesControllerImpl());
+    Get.put(GetDocotorCasesControllerImpl());
     return Scaffold(
       body: Column(
         children: [

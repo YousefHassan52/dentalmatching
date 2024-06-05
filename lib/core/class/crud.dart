@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/check_internet.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 class CRUD {
   Future<Either<RequestStatus, Map<String, dynamic>>> post({
@@ -42,7 +43,9 @@ class CRUD {
         } else if (response.statusCode == 403) {
           return left(RequestStatus.BLOCKED_USER);
         } else {
-          print(response);
+          if (kDebugMode) {
+            print(response);
+          }
           return left(RequestStatus.SERVER_FAILURE);
         }
       } else {
@@ -50,7 +53,9 @@ class CRUD {
       }
     } on DioException catch (e) {
       // Handle other DioError cases or rethrow the exception
-      print(e.toString());
+      if (kDebugMode) {
+        print(e.toString());
+      }
       return left(RequestStatus.UNKOWN_FAILURE);
     }
   }

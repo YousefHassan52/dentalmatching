@@ -5,6 +5,7 @@ import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/doctor_features/signup/controller/signup_doctor_controller_abstract.dart';
 import 'package:dentalmatching/features/doctor_features/signup/data/signup_doctor_data.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -57,7 +58,9 @@ class SignupDoctorControllerImpl extends SignupDoctorControllerAbstract {
           university: universityController.text,
           fileImage: imageFile!);
       requestStatus = HandlingResponseType.fun(response);
-      print("response ya joooe:------");
+      if (kDebugMode) {
+        print("response ya joooe:------");
+      }
       // print(response);
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response["success"] == true) {

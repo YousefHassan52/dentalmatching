@@ -5,6 +5,7 @@ import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/check_email/controller/check_email_forget_password_controller_abstract.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/check_email/data/check_email_data.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,13 +27,17 @@ class CheckEmailForgetPasswordControllerImp
 
   @override
   void checkEmail() async {
-    print(emailController.text);
+    if (kDebugMode) {
+      print(emailController.text);
+    }
     if (formKey.currentState!.validate()) {
 //       initialize request status
       requestStatus = RequestStatus.LOADING;
       update();
       var response = await checkEmailData.postData(email: emailController.text);
-      print(response.toString());
+      if (kDebugMode) {
+        print(response.toString());
+      }
       requestStatus = HandlingResponseType.fun(response);
       update();
       if (requestStatus == RequestStatus.SUCCESS) {
@@ -57,7 +62,9 @@ class CheckEmailForgetPasswordControllerImp
     requestStatus = RequestStatus.LOADING;
     update();
     var response = await checkEmailData.postData(email: email);
-    print(response.toString());
+    if (kDebugMode) {
+      print(response.toString());
+    }
     requestStatus = HandlingResponseType.fun(response);
     update();
     if (requestStatus == RequestStatus.SUCCESS) {

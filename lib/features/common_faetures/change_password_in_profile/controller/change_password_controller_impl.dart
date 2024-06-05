@@ -4,6 +4,7 @@ import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/common_faetures/change_password_in_profile/controller/change_password_controller_abstract.dart';
 import 'package:dentalmatching/features/common_faetures/change_password_in_profile/data/change_password.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -39,10 +40,14 @@ class ChangePasswordControllerImpl extends ChangePasswordControllerAbstract {
           currentPassword: currentPasswordController.text,
           newPassword: newPasswordController.text,
           token: token);
-      print(response.toString());
+      if (kDebugMode) {
+        print(response.toString());
+      }
       requestStatus = HandlingResponseType.fun(response);
       update();
-      print("joe ;${requestStatus.toString()}");
+      if (kDebugMode) {
+        print("joe ;${requestStatus.toString()}");
+      }
       if (requestStatus == RequestStatus.SUCCESS) {
         Get.snackbar(
             "Success".tr, "Your passsword has been changed successfully".tr);

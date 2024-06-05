@@ -7,6 +7,7 @@ import 'package:dentalmatching/features/admin_doctor_features/home/controller/ho
 import 'package:dentalmatching/features/admin_doctor_features/home/data/home_data.dart';
 import 'package:dentalmatching/features/admin_doctor_features/home/data/model/admin_doctor_model.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/data/Model/CaseDoctorModel.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 class HomeDoctorAdminControllerImpl extends HomeDoctorAdminControllerAbstract {
@@ -29,10 +30,14 @@ class HomeDoctorAdminControllerImpl extends HomeDoctorAdminControllerAbstract {
     requestStatus = RequestStatus.LOADING;
     update();
     var response = await dataObject.getUnkownCases(token: userModel.token);
-    print(response.toString());
+    if (kDebugMode) {
+      print(response.toString());
+    }
     update();
     requestStatus = HandlingResponseType.fun(response);
-    print("joe ;${requestStatus.toString()}");
+    if (kDebugMode) {
+      print("joe ;${requestStatus.toString()}");
+    }
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {
 // Iterate over the response data and create MyCaseModel objects

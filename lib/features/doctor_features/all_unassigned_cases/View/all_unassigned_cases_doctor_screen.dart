@@ -19,7 +19,7 @@ class AllUnassignedCasesDoctorScreen extends StatelessWidget {
         Get.put(UnassignedCasesDoctorControllerImpl());
     return Scaffold(
       body: ListView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         padding: EdgeInsets.zero,
         children: [
           AppUpperWidget(

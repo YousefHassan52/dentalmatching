@@ -4,6 +4,7 @@ import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/common_faetures/delete_account/controller/delete_account_abstract_controller.dart';
 import 'package:dentalmatching/features/common_faetures/delete_account/data/my_cases_patient_data.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 class DeleteAccountControllerImp extends DeleteAccountControllerAbstract {
@@ -14,10 +15,14 @@ class DeleteAccountControllerImp extends DeleteAccountControllerAbstract {
     requestStatus = RequestStatus.LOADING;
     update();
     var response = await deleteAccountData.deleteAccount(token: token);
-    print(response.toString());
+    if (kDebugMode) {
+      print(response.toString());
+    }
     requestStatus = HandlingResponseType.fun(response);
     update();
-    print("joe ;${requestStatus.toString()}");
+    if (kDebugMode) {
+      print("joe ;${requestStatus.toString()}");
+    }
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {
         Get.snackbar("Deleted Successfully".tr,

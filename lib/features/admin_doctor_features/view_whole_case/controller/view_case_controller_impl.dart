@@ -7,7 +7,7 @@ import 'package:dentalmatching/features/admin_doctor_features/view_whole_case/co
 import 'package:dentalmatching/features/admin_doctor_features/view_whole_case/data/View_whole_case_for_admin_data.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/data/Model/CaseDoctorModel.dart';
 import 'package:dentalmatching/features/patient_features/add_case/data/staticData.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 class ViewWholeCaseForAdminControllerImp
@@ -38,7 +38,9 @@ class ViewWholeCaseForAdminControllerImp
         selectedDentalCases.add(list.knownCases[i].title);
       }
     }
-    print('Selected Titles: $selectedDentalCases');
+    if (kDebugMode) {
+      print('Selected Titles: $selectedDentalCases');
+    }
     update();
   }
 
@@ -51,10 +53,14 @@ class ViewWholeCaseForAdminControllerImp
           token: userModel.token,
           caseId: caseModel.caseId,
           dentalClassifications: selectedDentalCases);
-      print(response.toString());
+      if (kDebugMode) {
+        print(response.toString());
+      }
       update();
       requestStatus = HandlingResponseType.fun(response);
-      print("joe ;${requestStatus.toString()}");
+      if (kDebugMode) {
+        print("joe ;${requestStatus.toString()}");
+      }
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response["success"] == true) {
           Get.snackbar("Case Classified",

@@ -13,8 +13,7 @@ class HomePageDr extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GetThreeCasesControllerImpl externalController =
-        Get.put(GetThreeCasesControllerImpl());
+    Get.put(GetThreeCasesControllerImpl());
 
     return Scaffold(
       body: ListView(

@@ -6,6 +6,7 @@ import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/common_faetures/dental_case_comments/controller/comments_controller_abstract.dart';
 import 'package:dentalmatching/features/common_faetures/dental_case_comments/data/comments_data.dart';
 import 'package:dentalmatching/features/common_faetures/dental_case_comments/data/model/comment_model.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -30,10 +31,14 @@ class CommentsControllerImpl extends CommentsControllerAbstract {
     requestStatus = RequestStatus.LOADING;
     update();
     var response = await dataObject.getComments(caseId: caseId, token: token);
-    print(response.toString());
+    if (kDebugMode) {
+      print(response.toString());
+    }
     update();
     requestStatus = HandlingResponseType.fun(response);
-    print("joe ;${requestStatus.toString()}");
+    if (kDebugMode) {
+      print("joe ;${requestStatus.toString()}");
+    }
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true && response["data"] != null) {
         List<dynamic> responseData = response["data"];
@@ -66,10 +71,14 @@ class CommentsControllerImpl extends CommentsControllerAbstract {
       update();
       var response = await dataObject.addComments(
           caseId: caseId, token: token, comment: commentController.text);
-      print(response.toString());
+      if (kDebugMode) {
+        print(response.toString());
+      }
       update();
       requestStatus = HandlingResponseType.fun(response);
-      print("joe ;${requestStatus.toString()}");
+      if (kDebugMode) {
+        print("joe ;${requestStatus.toString()}");
+      }
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response["success"] == true) {
           getComments(caseId: caseId, token: token);
