@@ -1,4 +1,5 @@
 import 'package:dentalmatching/core/constants/colors.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,30 +17,29 @@ class AppointmentController extends GetxController {
     super.onInit();
   }
 
-Future<void> selectDate(BuildContext context) async {
-  final DateTime? picked = await showDatePicker(
-    context: context,
-    initialDate: selectedDate,
-    firstDate: DateTime.now(),
-    lastDate: DateTime(2101),
-    builder: (BuildContext context, Widget? child) {
-      return Theme(
-        data: ThemeData.light().copyWith(
-          colorScheme: const ColorScheme.light(
-            primary: AppColors.mainColor,
+  Future<void> selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime.now(),
+      lastDate: DateTime(2101),
+      builder: (BuildContext context, Widget? child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            colorScheme: const ColorScheme.light(
+              primary: AppColors.mainColor,
+            ),
+            // Add more customization if needed
           ),
-          // Add more customization if needed
-        ),
-        child: child!,
-      );
-    },
-  );
-  if (picked != null && picked != selectedDate) {
-    selectedDate = picked;
-    update();
+          child: child!,
+        );
+      },
+    );
+    if (picked != null && picked != selectedDate) {
+      selectedDate = picked;
+      update();
+    }
   }
-}
-
 
   Future<void> selectTime(BuildContext context) async {
     final TimeOfDay? picked = await showTimePicker(
@@ -76,7 +76,6 @@ Future<void> selectDate(BuildContext context) async {
     update(); // Notify listeners about the change
   }
 
-
   Future<void> bookCase() async {
     if (formKey.currentState!.validate() &&
         selectedTime != null &&
@@ -86,17 +85,14 @@ Future<void> selectDate(BuildContext context) async {
           "${DateFormat('yyyy-MM-dd').format(selectedDate!)}T${selectedTime!.hour < 10 ? '0${selectedTime!.hour}' : selectedTime!.hour}:${selectedTime!.minute < 10 ? '0${selectedTime!.minute}' : selectedTime!.minute}";
 
       controller.requestCase(
-          time: time,
-           googleMapLink: linkTextController.text
-           );
+          time: time, googleMapLink: linkTextController.text);
       selectedDate = null;
       selectedTime = null;
-      
     } else {
-      Get.defaultDialog(
+      customDialoge(
         title: 'Error'.tr,
-        middleText:"Choose Date and Time".tr,
-       );
+        middleText: "Choose Date and Time".tr,
+      );
       Get.snackbar("Error".tr, "Choose date");
     }
   }

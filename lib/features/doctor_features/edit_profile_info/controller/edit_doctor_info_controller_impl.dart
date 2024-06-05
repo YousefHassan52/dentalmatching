@@ -1,6 +1,7 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/doctor_features/doctor_data_viewer/doctor_data_controller.dart';
 import 'package:dentalmatching/features/doctor_features/edit_profile_info/controller/edit_doctor_info_controller_abstract.dart';
 import 'package:dentalmatching/features/doctor_features/edit_profile_info/data/edit_doctor_info_data.dart';
@@ -66,9 +67,12 @@ class EditDoctorInfoControllerImp extends EditDoctortInfoControllerAbstract {
           doctorDataController.updateDoctordata(userModel.toJson());
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-        Get.defaultDialog(middleText: "Email or Phone Already exists before");
+        customDialoge(
+            title: "Warning".tr,
+            middleText: "Email or Phone Already exists before");
       } else {
-        Get.defaultDialog(middleText: "Server Error Please Try Again");
+        customDialoge(
+            title: "Warning".tr, middleText: "Server Error Please Try Again");
       }
 
       update();

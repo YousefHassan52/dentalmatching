@@ -2,6 +2,7 @@ import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/block_action.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/Controller/mycases_patient_controller_abstract.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/data/Model/case_model.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/data/my_cases_patient_data.dart';
@@ -55,11 +56,14 @@ class MyCasesPatientControllerImpl extends MyCasesPatientControllerAbstract {
         }
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-      Get.defaultDialog(middleText: "Internet Connection Error Refresh Data ");
+      customDialoge(
+          title: "Try Again".tr,
+          middleText: "Internet Connection Error Refresh Data ");
     } else if (requestStatus == RequestStatus.BLOCKED_USER) {
       blockAction();
     } else {
-      Get.defaultDialog(middleText: "Server Error Please Try Again");
+      customDialoge(
+          title: "Try Again".tr, middleText: "Server Error Please Try Again");
     }
 
     update();

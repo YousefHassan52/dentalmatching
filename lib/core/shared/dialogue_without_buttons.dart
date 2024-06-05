@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void customDialoge({required String title, required String middleText}) {
+void customDialoge(
+    {required String title,
+    required String middleText,
+    Color textColor = Colors.black,
+    Color backgroundColor = Colors.white}) {
   Get.dialog(
     Center(
       child: SingleChildScrollView(
@@ -10,7 +14,7 @@ void customDialoge({required String title, required String middleText}) {
           width: Get.width * 0.7, // Responsive width
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.0), // Border radius
-            color: Colors.white, // Dialog background color
+            color: backgroundColor, // Dialog background color
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -20,10 +24,10 @@ void customDialoge({required String title, required String middleText}) {
                 fit: BoxFit.scaleDown,
                 child: Text(
                   title,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 24.0,
                     fontWeight: FontWeight.w600,
-                    color: Colors.black,
+                    color: textColor,
                     decoration: TextDecoration.none, // Ensure no decoration
                     // Title text color
                   ),
@@ -34,11 +38,11 @@ void customDialoge({required String title, required String middleText}) {
                 fit: BoxFit.scaleDown,
                 child: Text(
                   middleText,
-                  style: const TextStyle(
+                  style: TextStyle(
                     decoration: TextDecoration.none, // Ensure no decoration
                     fontSize: 16.0,
                     fontWeight: FontWeight.w300,
-                    color: Colors.black87, // Middle text color
+                    color: textColor, // Middle text color
                   ),
                 ),
               ),

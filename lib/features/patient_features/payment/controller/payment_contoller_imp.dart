@@ -1,6 +1,7 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/patient_features/payment/controller/payment_contoller_abstract.dart';
 import 'package:dentalmatching/features/patient_features/payment/data/payment_data.dart';
 import 'package:dentalmatching/features/patient_features/signup/data/model/patient_model.dart';
@@ -35,9 +36,12 @@ class PaymentControllerImp extends PaymentControllerAbstract {
         throw Exception('Could not launch $_url');
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-      Get.defaultDialog(middleText: "Internet Connection Error Refresh Data ");
+      customDialoge(
+          title: "Warning".tr,
+          middleText: "Internet Connection Error Refresh Data ");
     } else {
-      Get.defaultDialog(middleText: "Server Error Please Try Again");
+      customDialoge(
+          title: "Warning".tr, middleText: "Server Error Please Try Again");
     }
 
     update();

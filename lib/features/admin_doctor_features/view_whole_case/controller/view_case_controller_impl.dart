@@ -1,6 +1,7 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/admin_doctor_features/home/data/model/admin_doctor_model.dart';
 import 'package:dentalmatching/features/admin_doctor_features/view_whole_case/controller/view_case_controller_abstract.dart';
 import 'package:dentalmatching/features/admin_doctor_features/view_whole_case/data/View_whole_case_for_admin_data.dart';
@@ -60,9 +61,11 @@ class ViewWholeCaseForAdminControllerImp
               "${caseModel.patientName.capitalizeFirst}'s Case Classifed Successfully");
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-        Get.defaultDialog(middleText: "Case Already Classified");
+        customDialoge(
+            title: "Warning".tr, middleText: "Case Already Classified");
       } else {
-        Get.defaultDialog(middleText: "Server Error Please Try Again");
+        customDialoge(
+            title: "Warning".tr, middleText: "Server Error Please Try Again");
       }
 
       update();
@@ -71,9 +74,9 @@ class ViewWholeCaseForAdminControllerImp
 
   bool caseValidation() {
     if (selectedDentalCases.isEmpty) {
-      Get.defaultDialog(
+      customDialoge(
+        title: "Warning".tr,
         middleText: 'Please select your case.',
-        backgroundColor: Colors.red,
       );
       return false; // Validation failed
     }

@@ -2,6 +2,7 @@ import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/functions/block_action.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/verify_email_code_for_forget/controller/verify_forget_password_code_controller_abstract.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/verify_email_code_for_forget/data/verify_email_code_data.dart';
 import 'package:get/get.dart';
@@ -34,12 +35,13 @@ class VerifyEmailForgetPasswordCodeControllerImp
         goToRestPassword();
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-      Get.defaultDialog(
+      customDialoge(
           title: "Try Again".tr, middleText: "Wrong Verification Code".tr);
     } else if (requestStatus == RequestStatus.BLOCKED_USER) {
       blockAction();
     } else {
-      Get.defaultDialog(middleText: "Server Error Please Try Again");
+      customDialoge(
+          title: "Try Again".tr, middleText: "Server Error Please Try Again");
     }
   }
 

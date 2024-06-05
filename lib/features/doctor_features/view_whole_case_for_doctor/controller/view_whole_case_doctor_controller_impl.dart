@@ -1,6 +1,7 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/common_faetures/dental_case_comments/controller/comments_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/home_screen_dr/controller/get_three_cases_controller_imp.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/data/Model/CaseDoctorModel.dart';
@@ -49,19 +50,9 @@ class ViewWholeCaseDoctorControllerImpl
     print("joe ;${requestStatus.toString()}");
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {
-        Get.defaultDialog(
-          title: "Success".tr,
-          content: Column(
-            children: [
-              Text("Now you are Responsible with This Case".tr),
-              const SizedBox(
-                  height:
-                      10), // Adjust spacing between text and image as needed
-              Image.asset(
-                  'assets/images/dental-care-removebg-preview.png'), // Replace 'your_image.png' with your actual image file path
-            ],
-          ),
-        );
+        customDialoge(
+            title: "Success".tr,
+            middleText: "Now you are Responsible with This Case".tr);
         Future.delayed(const Duration(seconds: 2), () {
           Get.back(); // Dismisses the dialog
         });
@@ -76,10 +67,12 @@ class ViewWholeCaseDoctorControllerImpl
         homeCases.getCases();
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-      Get.defaultDialog(
+      customDialoge(
+          title: "Warning".tr,
           middleText: "Case is Already Requested by Another Doctor".tr);
     } else {
-      Get.defaultDialog(middleText: "Server Error Please Try Again");
+      customDialoge(
+          title: "Try Again".tr, middleText: "Server Error Please Try Again");
     }
 
     update();
@@ -115,9 +108,12 @@ class ViewWholeCaseDoctorControllerImpl
 
       updateAssignmentStatus(false);
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-      Get.defaultDialog(middleText: "Case is Already NOT Assigned to you".tr);
+      customDialoge(
+          title: "Warning".tr,
+          middleText: "Case is Already NOT Assigned to you".tr);
     } else {
-      Get.defaultDialog(middleText: "Server Error Please Try Again");
+      customDialoge(
+          title: "Try Again".tr, middleText: "Server Error Please Try Again");
     }
 
     update();

@@ -7,6 +7,7 @@ import 'package:dentalmatching/core/functions/block_action.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/patient_features/add_case/data/staticData.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/data/Model/case_model.dart';
 import 'package:dentalmatching/features/patient_features/edit_case/data/edit_case_data.dart';
@@ -131,10 +132,11 @@ class EditCaseController extends GetxController {
 
   bool pressureValidation() {
     if (showPressureChecklist && pressure.isEmpty) {
-      Get.defaultDialog(
-        middleText: 'Please select your Pressure Level.',
-        backgroundColor: Colors.red,
-      );
+      customDialoge(
+          title: "Warning".tr,
+          middleText: 'Please select your Pressure Level.',
+          backgroundColor: Colors.red,
+          textColor: Colors.white);
       return false; // Validation failed
     }
     return true; // Validation passed
@@ -142,10 +144,11 @@ class EditCaseController extends GetxController {
 
   bool checkBoxValidation() {
     if (!AppValidator.validateCheckbox(checkedItems)) {
-      Get.defaultDialog(
-        middleText: 'Please select at least one item in the checklist.',
-        backgroundColor: Colors.red,
-      );
+      customDialoge(
+          title: "Warning".tr,
+          middleText: 'Please select at least one item in the checklist.',
+          backgroundColor: Colors.red,
+          textColor: Colors.white);
       return false; // Validation failed
     }
     return true; // Validation passed
@@ -153,10 +156,11 @@ class EditCaseController extends GetxController {
 
   bool caseValidation() {
     if (selected.isEmpty) {
-      Get.defaultDialog(
-        middleText: 'Please select your case.',
-        backgroundColor: Colors.red,
-      );
+      customDialoge(
+          title: "Warning".tr,
+          middleText: 'Please select your case.',
+          backgroundColor: Colors.red,
+          textColor: Colors.white);
       return false; // Validation failed
     }
     return true; // Validation passed
@@ -166,20 +170,22 @@ class EditCaseController extends GetxController {
     if (mouthImages != null && mouthImages!.length >= 2) {
       return true;
     } else {
-      Get.defaultDialog(
-        middleText: 'Please select more than 2 images for your mouth.',
-        backgroundColor: Colors.red,
-      );
+      customDialoge(
+          title: "Warning".tr,
+          middleText: 'Please select more than 2 images for your mouth.',
+          backgroundColor: Colors.red,
+          textColor: Colors.white);
       return false;
     }
   }
 
   bool xrayValidation() {
     if (xray != null && xray!.length > 2) {
-      Get.defaultDialog(
-        middleText: 'Maximum Number of X_ray Images is 2',
-        backgroundColor: Colors.red,
-      );
+      customDialoge(
+          title: "Warning".tr,
+          middleText: 'Maximum Number of X_ray Images is 2',
+          backgroundColor: Colors.red,
+          textColor: Colors.white);
       return false;
     } else {
       return true;
@@ -188,10 +194,11 @@ class EditCaseController extends GetxController {
 
   bool prescriptionValidation() {
     if (prescription != null && prescription!.length > 2) {
-      Get.defaultDialog(
-        middleText: 'Maximum Number of Prescription Images is 2',
-        backgroundColor: Colors.red,
-      );
+      customDialoge(
+          title: "Warning".tr,
+          middleText: 'Maximum Number of Prescription Images is 2',
+          backgroundColor: Colors.red,
+          textColor: Colors.white);
       return false;
     } else {
       return true;
@@ -236,16 +243,19 @@ class EditCaseController extends GetxController {
       update();
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response['success'] == true) {
-          Get.defaultDialog(
+          customDialoge(
               title: "Success ", middleText: "Your Case Edited Successfully");
           print(response);
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-        Get.defaultDialog(middleText: "Unauthorize Error Please Try Again..");
+        customDialoge(
+            title: "Try Again".tr,
+            middleText: "Unauthorize Error Please Try Again..");
       } else if (requestStatus == RequestStatus.BLOCKED_USER) {
         blockAction();
       } else {
-        Get.defaultDialog(middleText: "Server Error Please Try Again");
+        customDialoge(
+            title: "Try Again".tr, middleText: "Server Error Please Try Again");
       }
     }
   }

@@ -4,6 +4,7 @@ import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/patient_features/signup/data/signup_patient_data.dart';
 import 'package:dentalmatching/features/patient_features/signup/controller/signup_controller_asbtract.dart';
 import 'package:flutter/material.dart';
@@ -56,15 +57,18 @@ class SignupPatientControllerImpl extends SignupPatientControllerAbstract {
           // go to home
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-        Get.defaultDialog(middleText: "Email or Phone Already exists before");
+        customDialoge(
+            title: "Warning".tr,
+            middleText: "Email or Phone Already exists before");
       } else if (requestStatus == RequestStatus.BLOCKED_USER) {
-        Get.defaultDialog(
+        customDialoge(
           title: "Blocked User",
           middleText:
               "You have been blocked by many doctors more than 4 times due to your bad attitude",
         );
       } else {
-        Get.defaultDialog(middleText: "Server Error Please Try Again");
+        customDialoge(
+            title: "Try Again".tr, middleText: "Server Error Please Try Again");
       }
 
       update();

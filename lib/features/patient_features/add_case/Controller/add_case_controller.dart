@@ -6,6 +6,7 @@ import 'package:dentalmatching/core/functions/block_action.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Controller/add_case_controller_abstract.dart';
 import 'package:dentalmatching/features/patient_features/add_case/data/add_case_data.dart';
 import 'package:dentalmatching/features/patient_features/add_case/data/staticData.dart';
@@ -131,11 +132,11 @@ class AddCaseController extends AddCaseControllerAbstract {
 
   bool pressureValidation() {
     if (showPressureChecklist && pressure.isEmpty) {
-      Get.defaultDialog(
-        title: 'Alert'.tr,
-        middleText: 'Please select your Pressure Level.',
-        backgroundColor: Colors.red,
-      );
+      customDialoge(
+          title: 'Alert'.tr,
+          middleText: 'Please select your Pressure Level.',
+          backgroundColor: Colors.red,
+          textColor: Colors.white);
       return false; // Validation failed
     }
     return true; // Validation passed
@@ -143,11 +144,11 @@ class AddCaseController extends AddCaseControllerAbstract {
 
   bool checkBoxValidation() {
     if (!AppValidator.validateCheckbox(checkedItems)) {
-      Get.defaultDialog(
-        title: 'Alert'.tr,
-        middleText: 'Please select at least one item in the checklist.'.tr,
-        backgroundColor: Colors.red,
-      );
+      customDialoge(
+          title: 'Alert'.tr,
+          middleText: 'Please select at least one item in the checklist.'.tr,
+          backgroundColor: Colors.red,
+          textColor: Colors.white);
       return false; // Validation failed
     }
     return true; // Validation passed
@@ -155,11 +156,11 @@ class AddCaseController extends AddCaseControllerAbstract {
 
   bool caseValidation() {
     if (selected.isEmpty) {
-      Get.defaultDialog(
-        title: 'Alert'.tr,
-        middleText: 'Please select your case.'.tr,
-        backgroundColor: Colors.red,
-      );
+      customDialoge(
+          title: 'Alert'.tr,
+          middleText: 'Please select your case.'.tr,
+          backgroundColor: Colors.red,
+          textColor: Colors.white);
       return false; // Validation failed
     }
     return true; // Validation passed
@@ -169,22 +170,22 @@ class AddCaseController extends AddCaseControllerAbstract {
     if (mouthImages != null && mouthImages!.length >= 2) {
       return true;
     } else {
-      Get.defaultDialog(
-        title: 'Alert'.tr,
-        middleText: 'Please select more than 2 images for your mouth.'.tr,
-        backgroundColor: Colors.red,
-      );
+      customDialoge(
+          title: 'Alert'.tr,
+          middleText: 'Please select more than 2 images for your mouth.'.tr,
+          backgroundColor: Colors.red,
+          textColor: Colors.white);
       return false;
     }
   }
 
   bool xrayValidation() {
     if (xray != null && xray!.length > 2) {
-      Get.defaultDialog(
-        title: 'Alert'.tr,
-        middleText: 'Maximum Number of X_ray Images is 2'.tr,
-        backgroundColor: Colors.red,
-      );
+      customDialoge(
+          title: 'Alert'.tr,
+          middleText: 'Maximum Number of X_ray Images is 2'.tr,
+          backgroundColor: Colors.red,
+          textColor: Colors.white);
       return false;
     } else {
       return true;
@@ -193,11 +194,11 @@ class AddCaseController extends AddCaseControllerAbstract {
 
   bool prescriptionValidation() {
     if (prescription != null && prescription!.length > 2) {
-      Get.defaultDialog(
-        title: 'Alert'.tr,
-        middleText: 'Maximum Number of Prescription Images is 2'.tr,
-        backgroundColor: Colors.red,
-      );
+      customDialoge(
+          title: 'Alert'.tr,
+          middleText: 'Maximum Number of Prescription Images is 2'.tr,
+          backgroundColor: Colors.red,
+          textColor: Colors.white);
       return false;
     } else {
       return true;
@@ -261,29 +262,20 @@ class AddCaseController extends AddCaseControllerAbstract {
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response['success'] == true) {
           clearInputs();
-          Get.defaultDialog(
-            title: "Success".tr,
-            content: Column(
-              children: [
-                Text("Your Case Posted Successfully".tr),
-                const SizedBox(
-                    height:
-                        10), // Adjust spacing between text and image as needed
-                Image.asset(
-                    'assets/images/dental-care-removebg-preview.png'), // Replace 'your_image.png' with your actual image file path
-              ],
-            ),
+          Get.snackbar(
+            "Success".tr,
+            "Your Case Posted Successfully".tr,
           );
-          Future.delayed(const Duration(seconds: 2), () {
-            Get.back(); // Dismisses the dialog
-          });
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-        Get.defaultDialog(middleText: "Unauthorize Error Please Try Again..");
+        customDialoge(
+            title: "Try Again".tr,
+            middleText: "Unauthorize Error Please Try Again..");
       } else if (requestStatus == RequestStatus.BLOCKED_USER) {
         blockAction();
       } else {
-        Get.defaultDialog(middleText: "Server Error Please Try Again");
+        customDialoge(
+            title: "Try Again".tr, middleText: "Server Error Please Try Again");
       }
     }
   }

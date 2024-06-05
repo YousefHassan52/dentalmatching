@@ -1,6 +1,7 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/block_action.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/common_faetures/change_password_in_profile/controller/change_password_controller_abstract.dart';
 import 'package:dentalmatching/features/common_faetures/change_password_in_profile/data/change_password.dart';
 import 'package:flutter/material.dart';
@@ -43,13 +44,17 @@ class ChangePasswordControllerImpl extends ChangePasswordControllerAbstract {
       update();
       print("joe ;${requestStatus.toString()}");
       if (requestStatus == RequestStatus.SUCCESS) {
-        Get.snackbar("Success".tr, "Your passsword has been changed successfully".tr);
+        Get.snackbar(
+            "Success".tr, "Your passsword has been changed successfully".tr);
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-        Get.defaultDialog(middleText: "Your current password is wrong".tr);
+        customDialoge(
+            title: "Warning".tr,
+            middleText: "Your current password is wrong".tr);
       } else if (requestStatus == RequestStatus.BLOCKED_USER) {
         blockAction();
       } else {
-        Get.defaultDialog(middleText: "Server Error Please Try Again");
+        customDialoge(
+            title: "Warning".tr, middleText: "Server Error Please Try Again");
       }
 
       update();

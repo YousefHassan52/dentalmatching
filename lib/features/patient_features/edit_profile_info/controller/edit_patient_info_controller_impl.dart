@@ -2,6 +2,7 @@ import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/block_action.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/patient_features/edit_profile_info/controller/edit_patient_info_controller_abstract.dart';
 import 'package:dentalmatching/features/patient_features/edit_profile_info/data/edit_patient_info_data.dart';
 import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
@@ -66,11 +67,14 @@ class EditPatientInfoControllerImp extends EditPatientInfoControllerAbstract {
           pateintDataController.updatePatientdata(userModel.toJson());
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-        Get.defaultDialog(middleText: "Email or Phone Already exists before");
+        customDialoge(
+            title: "Warning".tr,
+            middleText: "Email or Phone Already exists before");
       } else if (requestStatus == RequestStatus.BLOCKED_USER) {
         blockAction();
       } else {
-        Get.defaultDialog(middleText: "Server Error Please Try Again");
+        customDialoge(
+            title: "Try Again".tr, middleText: "Server Error Please Try Again");
       }
 
       update();

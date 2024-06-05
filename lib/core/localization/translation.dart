@@ -38,6 +38,9 @@ class MyTranslation implements Translations {
 3.	رموز
 4.	أرقام
 ''',
+          "Blocked User": "تم حظرك",
+          "You have been blocked by many doctors more than 3 times due to your bad attitude":
+              "لقد تم حظرك من التطبيق بسبب سلوكك و عدم انتظامك مع الدكاترة",
           "Please Wait for Identity Verification":
               "الرجاء انتظار التحقق من الهوية",
           "Incorrect Phone Number or Password":
@@ -49,7 +52,8 @@ class MyTranslation implements Translations {
           "Invalid Email Address": "عنوان البريد الإلكتروني غير صالح",
           "Personal Info": "بياناتك",
           "Signup": "انشاء حساب",
-          "Email or Phone Already exists before":"الايميل او الرقم استخدم من قبل",
+          "Email or Phone Already exists before":
+              "الايميل او الرقم استخدم من قبل",
           "Email Address": "بريد الكتروني",
           "University": "الجامعة",
           "Age": "السن",
@@ -529,6 +533,9 @@ Your password must include:
           "We are committed to protecting your privacy and security.By using our app,\n you agree to our privacy policy and terms of service.":
               "We are committed to protecting your privacy and security.By using our app,\n you agree to our privacy policy and terms of service.",
           "Our Priority": "Our Priority",
+          "You have been blocked by many doctors more than 3 times due to your bad attitude":
+              "You have been blocked by many doctors more than 3 times due to your bad attitude",
+          "Blocked User": "Blocked User",
         },
       };
 }

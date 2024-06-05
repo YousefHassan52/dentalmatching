@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/doctor_features/signup/controller/signup_doctor_controller_abstract.dart';
 import 'package:dentalmatching/features/doctor_features/signup/data/signup_doctor_data.dart';
 import 'package:flutter/material.dart';
@@ -60,48 +61,23 @@ class SignupDoctorControllerImpl extends SignupDoctorControllerAbstract {
       // print(response);
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response["success"] == true) {
-          Get.defaultDialog(
+          customDialoge(
             title: "Success".tr,
-            content: Builder(
-              builder: (context) {
-                var screenSize = MediaQuery.of(context).size;
-                double imageSize =
-                    screenSize.height * 0.2; // 20% of screen height
-
-                return SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      SizedBox(
-                        height: imageSize,
-                        width: imageSize,
-                        child: SvgPicture.asset('assets/svg/id.svg'),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: Text(
-                          "Your Account Has Been Created Successfully\nPlease Wait For Identity Verification"
-                              .tr,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 16),
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                    ],
-                  ),
-                );
-              },
-            ),
+            middleText:
+                "Your Account Has Been Created Successfully\nPlease Wait For Identity Verification"
+                    .tr,
           );
           Future.delayed(const Duration(seconds: 10), () {
             Get.back(); // Dismisses the dialog
           });
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-        Get.defaultDialog(
+        customDialoge(
+            title: "Warning".tr,
             middleText: "Email or Phone Already exists before".tr);
       } else {
-        Get.defaultDialog(middleText: "Server Error Please Try Again");
+        customDialoge(
+            title: "Warning".tr, middleText: "Server Error Please Try Again");
       }
 
       update();

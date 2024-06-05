@@ -1,6 +1,7 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/data/Model/CaseDoctorModel.dart';
 import 'package:dentalmatching/features/doctor_features/category_cases/controller/category_cases_controller_abstract.dart';
 import 'package:dentalmatching/features/doctor_features/category_cases/data/category_cases_data.dart';
@@ -48,9 +49,12 @@ class CategoryCasesControllerImpl extends CategoryCasesControllerAbstract {
         }
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-      Get.defaultDialog(middleText: "Internet Connection Error Refresh Data ");
+      customDialoge(
+          title: "Try Again".tr,
+          middleText: "Internet Connection Error Refresh Data ");
     } else {
-      Get.defaultDialog(middleText: "Server Error Please Try Again");
+      customDialoge(
+          title: "Try Again".tr, middleText: "Server Error Please Try Again");
     }
 
     update();

@@ -2,6 +2,7 @@ import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/admin_doctor_features/home/controller/home_controller_abstract.dart';
 import 'package:dentalmatching/features/admin_doctor_features/home/data/home_data.dart';
 import 'package:dentalmatching/features/admin_doctor_features/home/data/model/admin_doctor_model.dart';
@@ -46,9 +47,12 @@ class HomeDoctorAdminControllerImpl extends HomeDoctorAdminControllerAbstract {
         }
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-      Get.defaultDialog(middleText: "Internet Connection Error Refresh Data ");
+      customDialoge(
+          title: "Warning".tr,
+          middleText: "Internet Connection Error Refresh Data ");
     } else {
-      Get.defaultDialog(middleText: "Server Error Please Try Again");
+      customDialoge(
+          title: "Warning".tr, middleText: "Server Error Please Try Again");
     }
 
     update();

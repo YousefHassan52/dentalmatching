@@ -70,7 +70,7 @@ class LoginControllerImp extends LoginControllerAbstract {
           }
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-        Get.defaultDialog(
+        customDialoge(
             title: "Alert".tr,
             middleText: "Incorrect Phone Number or Password".tr);
       } else if (requestStatus == RequestStatus.UNVERIFIED_DOCTOR_FAILURE) {
@@ -78,13 +78,15 @@ class LoginControllerImp extends LoginControllerAbstract {
             title: "Identity Verification In Progress".tr,
             middleText: "Please Wait for Identity Verification".tr);
       } else if (requestStatus == RequestStatus.BLOCKED_USER) {
-        Get.defaultDialog(
-          title: "Blocked User",
+        customDialoge(
+          title: "Blocked User".tr,
           middleText:
-              "You have been blocked by many doctors more than 4 times due to your bad attitude",
+              "You have been blocked by many doctors more than 4 times due to your bad attitude"
+                  .tr,
         );
       } else {
-        Get.defaultDialog(middleText: "Server Error Please Try Again");
+        customDialoge(
+            title: "Try Again".tr, middleText: "Server Error Please Try Again");
       }
     }
   }

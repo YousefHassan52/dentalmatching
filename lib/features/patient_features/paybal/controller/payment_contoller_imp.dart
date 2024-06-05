@@ -1,6 +1,7 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/patient_features/paybal/controller/payment_contoller_abstract.dart';
 import 'package:dentalmatching/features/patient_features/paybal/data/data.dart';
 
@@ -30,9 +31,10 @@ class PaybalControllerImp extends PaypalControllerAbstract {
         throw Exception('Could not launch $_url');
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-      Get.defaultDialog(middleText: "Unexpected error");
+      customDialoge(title: "Warning".tr, middleText: "Unexpected error");
     } else {
-      Get.defaultDialog(middleText: "Server Error Please Try Again");
+      customDialoge(
+          title: "Warning".tr, middleText: "Server Error Please Try Again");
     }
 
     update();

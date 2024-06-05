@@ -2,6 +2,7 @@ import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/functions/block_action.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
+import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/check_email/controller/check_email_forget_password_controller_abstract.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/check_email/data/check_email_data.dart';
 import 'package:flutter/material.dart';
@@ -42,12 +43,12 @@ class CheckEmailForgetPasswordControllerImp
           RequestStatus
               .UNAUTHORIZED_FAILURE) // status code 400 (Email not found)
       {
-        Get.defaultDialog(
-            title: "Try Again".tr, middleText: "Email Not Found".tr);
+        customDialoge(title: "Try Again".tr, middleText: "Email Not Found".tr);
       } else if (requestStatus == RequestStatus.BLOCKED_USER) {
         blockAction();
       } else {
-        Get.defaultDialog(middleText: "Server Error Please Try Again");
+        customDialoge(
+            title: "Warning".tr, middleText: "Server Error Please Try Again");
       }
     }
   }
@@ -66,12 +67,12 @@ class CheckEmailForgetPasswordControllerImp
     } else if (requestStatus ==
         RequestStatus.UNAUTHORIZED_FAILURE) // status code 400 (Email not found)
     {
-      Get.defaultDialog(
-          title: "Try Again".tr, middleText: "Email Not Found".tr);
+      customDialoge(title: "Try Again".tr, middleText: "Email Not Found".tr);
     } else if (requestStatus == RequestStatus.BLOCKED_USER) {
       blockAction();
     } else {
-      Get.defaultDialog(middleText: "Server Error Please Try Again");
+      customDialoge(
+          title: "Warning".tr, middleText: "Server Error Please Try Again");
     }
   }
 
