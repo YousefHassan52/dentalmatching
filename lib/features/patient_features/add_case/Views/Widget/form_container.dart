@@ -14,6 +14,6 @@ class FormContainer extends GetView<MyServices> {
         margin: const EdgeInsets.all(3),
         padding: const EdgeInsets.all(10),
         width: Get.width * 0.93,
-        child: FormBody());
+        child: const FormBody());
   }
 }

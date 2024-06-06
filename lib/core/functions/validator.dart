@@ -36,6 +36,9 @@ class AppValidator {
       if (value.length < 20) {
         return "Your description must be more than 20 letters".tr;
       }
+      if (value.length > 350) {
+        return "Your description must be less than 350 letters".tr;
+      }
     }
     if (type == "link") {
       final urlRegExp = RegExp(
