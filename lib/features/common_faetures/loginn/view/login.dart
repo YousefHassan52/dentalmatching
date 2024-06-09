@@ -140,7 +140,7 @@ class LoginScreen extends StatelessWidget {
               ),
               GetBuilder<LoginControllerImp>(
                 builder: (controller) => Container(
-                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  margin: const EdgeInsets.symmetric(vertical: 5),
                   width: double.infinity,
                   child: controller.requestStatus == RequestStatus.LOADING
                       ? LinearProgressIndicator(

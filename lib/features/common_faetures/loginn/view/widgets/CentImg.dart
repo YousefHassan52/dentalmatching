@@ -14,7 +14,7 @@ class CentImg extends StatelessWidget {
     return SizedBox(
       width: Get.width * 0.8,
       child: Padding(
-        padding: const EdgeInsets.only(top: 40),
+        padding: const EdgeInsets.only(top: 0),
         child: SvgPicture.asset(centeredImg,height: Get.height * 0.4,),
       ),
     );

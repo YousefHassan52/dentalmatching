@@ -15,16 +15,17 @@ class Heading extends StatelessWidget {
     
 
     return Padding(
-      padding: EdgeInsets.only(top: Get.width * 0.15),
+      padding: EdgeInsets.only(top: Get.width * 0.1),
       child: Center(
         child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             color: AppColors.blueTextColor,
-            fontSize: Get.width * 0.08,
+            fontSize: 20,
             fontWeight: FontWeight.w800,
             height: 1.2, 
             letterSpacing: 1,
+        
           ),
         ),
       ),
