@@ -1,5 +1,6 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
+import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/descrip_box.dart';
@@ -103,6 +104,7 @@ class EditFormBody extends StatelessWidget {
             onTap: () {
               controller.editCase().then((value) {
                 reloadController.getCases();
+                Get.offAllNamed(AppRoutes.homePatient);
               });
             },
           ),

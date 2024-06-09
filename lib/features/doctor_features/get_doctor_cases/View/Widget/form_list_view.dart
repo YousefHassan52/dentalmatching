@@ -18,7 +18,11 @@ class FormListViewRequested extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(8.0),
-            child: CasContainer(caseModel: controller.cases[index]),
+            child: index == controller.cases.length - 1
+                ? Container(
+                    margin: const EdgeInsets.only(bottom: 100),
+                    child: CasContainer(caseModel: controller.cases[index]))
+                : CasContainer(caseModel: controller.cases[index]),
           );
         },
       ),

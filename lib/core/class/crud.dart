@@ -6,86 +6,20 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
 class CRUD {
-  Future<Either<RequestStatus, Map<String, dynamic>>> post({
-    required String url,
-    required Map<String, dynamic> data,
-    String? token,
-  }) async {
-    try {
-      if (await CheckInternet.fun()) {
-        Dio dio = Dio();
-        Options options = Options(
-          headers: {
-            HttpHeaders.authorizationHeader: 'Bearer $token',
-          },
-        );
-        // Disable Dio's default validateStatus behavior
-        dio.options.validateStatus = (status) => true;
+  final int _maxRetries = 3;
+  final Duration _retryDelay = const Duration(seconds: 2);
 
-        Response response = await dio.post(
-          url,
-          data: data,
-          options: options,
-        );
-
+  Future<Either<RequestStatus, Map<String, dynamic>>> _retryRequest(
+    Future<Response> Function() request,
+  ) async {
+    int retryCount = 0;
+    while (retryCount < _maxRetries) {
+      try {
+        Response response = await request();
         if (response.statusCode == 200 || response.statusCode == 201) {
           Map<String, dynamic> json = response.data;
           return right(json);
         } else if (response.statusCode == 400) {
-          if (response.data['message'] ==
-              "Please Wait for Identity Verification") {
-            return left(RequestStatus.UNVERIFIED_DOCTOR_FAILURE);
-          } else {
-            return left(RequestStatus.UNAUTHORIZED_FAILURE);
-          }
-        } else if (response.statusCode == 500) {
-          return left(RequestStatus.INTERNAL_SERVER_ERROR);
-        } else if (response.statusCode == 403) {
-          return left(RequestStatus.BLOCKED_USER);
-        } else {
-          if (kDebugMode) {
-            print(response);
-          }
-          return left(RequestStatus.SERVER_FAILURE);
-        }
-      } else {
-        return left(RequestStatus.OFFLINE_FAILURE);
-      }
-    } on DioException catch (e) {
-      // Handle other DioError cases or rethrow the exception
-      if (kDebugMode) {
-        print(e.toString());
-      }
-      return left(RequestStatus.UNKOWN_FAILURE);
-    }
-  }
-
-  Future<Either<RequestStatus, Map<String, dynamic>>> postWithImage({
-    required String url,
-    required Map<String, dynamic> data,
-    File? image, // Add File? parameter for the image
-  }) async {
-    try {
-      if (await CheckInternet.fun()) {
-        Dio dio = Dio();
-
-        // Create FormData object to handle form data including the image
-        FormData formData = FormData.fromMap({
-          ...data,
-          if (image != null)
-            'CardImage': await MultipartFile.fromFile(image.path),
-        });
-
-        // Disable Dio's default validateStatus behavior
-        dio.options.validateStatus = (status) => true;
-
-        Response response = await dio.post(url, data: formData);
-
-        if (response.statusCode == 200 || response.statusCode == 201) {
-          Map<String, dynamic> json = response.data;
-          return right(json);
-        } else if (response.statusCode == 400) {
-          print(response.data);
           return left(RequestStatus.UNAUTHORIZED_FAILURE);
         } else if (response.statusCode == 500) {
           return left(RequestStatus.INTERNAL_SERVER_ERROR);
@@ -94,13 +28,63 @@ class CRUD {
         } else {
           return left(RequestStatus.SERVER_FAILURE);
         }
-      } else {
-        return left(RequestStatus.OFFLINE_FAILURE);
+      } on SocketException catch (e) {
+        if (kDebugMode) {
+          print('SocketException: $e');
+        }
+        retryCount++;
+        if (retryCount < _maxRetries) {
+          await Future.delayed(_retryDelay);
+        }
+      } on DioException catch (e) {
+        if (kDebugMode) {
+          print('DioException: $e');
+        }
+        return left(RequestStatus.UNKOWN_FAILURE);
       }
-    } on DioException catch (e) {
-      // Handle other DioError cases or rethrow the exception
-      print(e.toString());
-      return left(RequestStatus.UNKOWN_FAILURE);
+    }
+    return left(RequestStatus.UNKOWN_FAILURE);
+  }
+
+  Future<Either<RequestStatus, Map<String, dynamic>>> post({
+    required String url,
+    required Map<String, dynamic> data,
+    String? token,
+  }) async {
+    if (await CheckInternet.fun()) {
+      return _retryRequest(() async {
+        Dio dio = Dio();
+        Options options = Options(
+          headers: {
+            HttpHeaders.authorizationHeader: 'Bearer $token',
+          },
+        );
+        dio.options.validateStatus = (status) => true;
+        return dio.post(url, data: data, options: options);
+      });
+    } else {
+      return left(RequestStatus.OFFLINE_FAILURE);
+    }
+  }
+
+  Future<Either<RequestStatus, Map<String, dynamic>>> postWithImage({
+    required String url,
+    required Map<String, dynamic> data,
+    File? image,
+  }) async {
+    if (await CheckInternet.fun()) {
+      return _retryRequest(() async {
+        Dio dio = Dio();
+        FormData formData = FormData.fromMap({
+          ...data,
+          if (image != null)
+            'CardImage': await MultipartFile.fromFile(image.path),
+        });
+        dio.options.validateStatus = (status) => true;
+        return dio.post(url, data: formData);
+      });
+    } else {
+      return left(RequestStatus.OFFLINE_FAILURE);
     }
   }
 
@@ -108,57 +92,26 @@ class CRUD {
     required String url,
     required Map<String, dynamic> data,
     File? image,
-    String? token, // Add String? parameter for the token
+    String? token,
   }) async {
-    try {
-      if (await CheckInternet.fun()) {
+    if (await CheckInternet.fun()) {
+      return _retryRequest(() async {
         Dio dio = Dio();
-
-        // Create FormData object to handle form data including the image
         FormData formData = FormData.fromMap({
           ...data,
           if (image != null)
             'CardImage': await MultipartFile.fromFile(image.path),
         });
-
-        // Create headers with Authorization bearer token
         Options options = Options(
           headers: {
             HttpHeaders.authorizationHeader: 'Bearer $token',
           },
         );
-
-        // Disable Dio's default validateStatus behavior
         dio.options.validateStatus = (status) => true;
-
-        // Make the POST request with the provided options
-        Response response = await dio.post(
-          url,
-          data: formData,
-          options: options,
-        );
-
-        if (response.statusCode == 200 || response.statusCode == 201) {
-          Map<String, dynamic> json = response.data;
-          return right(json);
-        } else if (response.statusCode == 400) {
-          print(response.data);
-          return left(RequestStatus.UNAUTHORIZED_FAILURE);
-        } else if (response.statusCode == 500) {
-          return left(RequestStatus.INTERNAL_SERVER_ERROR);
-        } else if (response.statusCode == 403) {
-          return left(RequestStatus.BLOCKED_USER);
-        } else {
-          print(response.data);
-          return left(RequestStatus.SERVER_FAILURE);
-        }
-      } else {
-        return left(RequestStatus.OFFLINE_FAILURE);
-      }
-    } on DioException catch (e) {
-      // Handle other DioError cases or rethrow the exception
-      print(e.toString());
-      return left(RequestStatus.UNKOWN_FAILURE);
+        return dio.post(url, data: formData, options: options);
+      });
+    } else {
+      return left(RequestStatus.OFFLINE_FAILURE);
     }
   }
 
@@ -168,13 +121,11 @@ class CRUD {
     List<File>? xrayImages,
     List<File>? mouthImages,
     List<File>? prescriptionImages,
-    String? token, // Add String? parameter for the token
+    String? token,
   }) async {
-    try {
-      if (await CheckInternet.fun()) {
+    if (await CheckInternet.fun()) {
+      return _retryRequest(() async {
         Dio dio = Dio();
-
-        // Create FormData object to handle form data including the images
         FormData formData = FormData.fromMap({
           ...data,
           if (xrayImages != null)
@@ -190,92 +141,36 @@ class CRUD {
                 .map((file) => MultipartFile.fromFileSync(file.path))
                 .toList(),
         });
-
-        // Create headers with Authorization bearer token
         Options options = Options(
           headers: {
             HttpHeaders.authorizationHeader: 'Bearer $token',
           },
         );
-        // Disable Dio's default validateStatus behavior
         dio.options.validateStatus = (status) => true;
-
-        Response response = await dio.post(
-          url,
-          data: formData,
-          options: options,
-        );
-
-        if (response.statusCode == 200 || response.statusCode == 201) {
-          Map<String, dynamic> json = response.data;
-          return right(json);
-        } else if (response.statusCode == 400) {
-          print(response.data);
-          return left(RequestStatus.UNAUTHORIZED_FAILURE);
-        } else if (response.statusCode == 500) {
-          return left(RequestStatus.INTERNAL_SERVER_ERROR);
-        } else if (response.statusCode == 403) {
-          return left(RequestStatus.BLOCKED_USER);
-        } else {
-          return left(RequestStatus.SERVER_FAILURE);
-        }
-      } else {
-        return left(RequestStatus.OFFLINE_FAILURE);
-      }
-    } on DioException catch (e) {
-      // Handle other DioError cases or rethrow the exception
-      print(e.toString());
-      return left(RequestStatus.UNKOWN_FAILURE);
+        return dio.post(url, data: formData, options: options);
+      });
+    } else {
+      return left(RequestStatus.OFFLINE_FAILURE);
     }
   }
 
   Future<Either<RequestStatus, Map<String, dynamic>>> get({
     required String url,
-    String? token, // Add String? parameter for the token
+    String? token,
   }) async {
-    try {
-      if (await CheckInternet.fun()) {
+    if (await CheckInternet.fun()) {
+      return _retryRequest(() async {
         Dio dio = Dio();
-
-        // Create headers with Authorization bearer token
         Options options = Options(
           headers: {
             HttpHeaders.authorizationHeader: 'Bearer $token',
           },
         );
-        // Disable Dio's default validateStatus behavior
         dio.options.validateStatus = (status) => true;
-
-        Response response = await dio.get(
-          url,
-          options: options,
-        );
-
-        if (response.statusCode == 200 || response.statusCode == 201) {
-          Map<String, dynamic> json = response.data;
-          return right(json);
-        } else if (response.statusCode == 400) {
-          print(response.data);
-          return left(RequestStatus.UNAUTHORIZED_FAILURE);
-        } else if (response.statusCode == 500) {
-          print(response.data);
-
-          return left(RequestStatus.INTERNAL_SERVER_ERROR);
-        } else if (response.statusCode == 403) {
-          return left(RequestStatus.BLOCKED_USER);
-        } else {
-          print(response.data);
-
-          return left(RequestStatus.SERVER_FAILURE);
-        }
-      } else {
-        return left(RequestStatus.OFFLINE_FAILURE);
-      }
-    } on DioException catch (e) {
-      // Handle other DioError cases or rethrow the exception
-      print(e.toString());
-      print("unkown error ya joe");
-      return left(RequestStatus.UNKOWN_FAILURE);
+        return dio.get(url, options: options);
+      });
+    } else {
+      return left(RequestStatus.OFFLINE_FAILURE);
     }
   }
 }

@@ -31,41 +31,51 @@ class CustomOnboardingItem extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 1,
-            child: Text(
-              item.title,
-              style: Styles.extraLargetitle,
+            flex: 2,
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                "${item.title} ${item.small}",
+                style: Styles.extraLargetitle,
+              ),
             ),
           ),
-          if (languageController.sharedPref.getString("lang") == "en")
-            Expanded(
-              flex: 2,
-              child: Text(item.small!,
-                  style: const TextStyle(
-                      color: AppColors.mainColor,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 42,
-                      letterSpacing: 4)),
-            ),
-          if (languageController.sharedPref.getString("lang") == "ar")
-            Expanded(
-              flex: 2,
-              child: Text(item.small!,
-                  style: const TextStyle(
-                    color: AppColors.mainColor,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 42,
-                  )),
-            ),
+          // if (languageController.sharedPref.getString("lang") == "en")
+          //   Expanded(
+          //     flex: 2,
+          //     child: FittedBox(
+          //       child: Text(item.small!,
+          //           style: const TextStyle(
+          //               color: AppColors.mainColor,
+          //               fontWeight: FontWeight.w700,
+          //               fontSize: 42,
+          //               letterSpacing: 4)),
+          //     ),
+          //   ),
+          // if (languageController.sharedPref.getString("lang") == "ar")
+          //   Expanded(
+          //     flex: 2,
+          //     child: FittedBox(
+          //       fit: BoxFit.scaleDown,
+          //       child: Text(item.small!,
+          //           style: const TextStyle(
+          //             color: AppColors.mainColor,
+          //             fontWeight: FontWeight.w700,
+          //             fontSize: 42,
+          //           )),
+          //     ),
+          //   ),
           if (index != onboardingList.length - 1)
             Expanded(
               flex: 4,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 0.0),
-                child: Text(
-                  item.desc,
-                  textAlign: TextAlign.center,
-                  style: Styles.textStyle16,
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 0.0),
+                  child: Text(
+                    item.desc,
+                    textAlign: TextAlign.center,
+                    style: Styles.textStyle16,
+                  ),
                 ),
               ),
             ),
@@ -74,33 +84,35 @@ class CustomOnboardingItem extends StatelessWidget {
               flex: 4,
               child: Padding(
                 padding: const EdgeInsets.only(top: 0.0),
-                child: Column(
-                  children: [
-                    Text(
-                      item.desc.split('\n')[0], // Text before \n
-                      textAlign: TextAlign.center,
-                      style: Styles.textStyle16,
-                    ),
-                    TextButton(
-                      onPressed: () async {
-                        final Uri _url = Uri.parse(
-                            'https://www.termsfeed.com/live/65015831-442b-4911-9eb3-3e2707da1eab');
-                        if (!await launchUrl(_url)) {
-                          throw Exception('Could not launch $_url');
-                        }
-                      },
-                      child: Text(
-                        item.desc.split('\n')[1], // Text after \n
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Text(
+                        item.desc.split('\n')[0], // Text before \n
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
-                            color: AppColors.blueLightTextColor,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 17,
-                            decoration: TextDecoration
-                                .underline), // Apply different text style here
+                        style: Styles.textStyle16,
                       ),
-                    ),
-                  ],
+                      TextButton(
+                        onPressed: () async {
+                          final Uri _url = Uri.parse(
+                              'https://www.termsfeed.com/live/65015831-442b-4911-9eb3-3e2707da1eab');
+                          if (!await launchUrl(_url)) {
+                            throw Exception('Could not launch $_url');
+                          }
+                        },
+                        child: Text(
+                          item.desc.split('\n')[1], // Text after \n
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                              color: AppColors.blueLightTextColor,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 17,
+                              decoration: TextDecoration
+                                  .underline), // Apply different text style here
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

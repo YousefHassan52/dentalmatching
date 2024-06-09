@@ -41,11 +41,8 @@ class AddCaseController extends AddCaseControllerAbstract {
     );
 
     List<File> files = [];
-    // ignore: unnecessary_null_comparison
     if (xFiles != null) {
-      for (XFile xFile in xFiles) {
-        files.add(File(xFile.path));
-      }
+      checkImageTypeThenAdd(xFiles, files);
       mouthImages = files;
       update();
     }
@@ -58,12 +55,11 @@ class AddCaseController extends AddCaseControllerAbstract {
     );
 
     List<File> files = [];
-    for (XFile xFile in xFiles) {
-      files.add(File(xFile.path));
+    if (xFiles != null) {
+      checkImageTypeThenAdd(xFiles, files);
+      xray = files;
+      update();
     }
-
-    xray = files;
-    update();
   }
 
   List<File>? prescription = [];
@@ -73,12 +69,11 @@ class AddCaseController extends AddCaseControllerAbstract {
     );
 
     List<File> files = [];
-    for (XFile xFile in xFiles) {
-      files.add(File(xFile.path));
+    if (xFiles != null) {
+      checkImageTypeThenAdd(xFiles, files);
+      prescription = files;
+      update();
     }
-
-    prescription = files;
-    update();
   }
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -92,9 +87,7 @@ class AddCaseController extends AddCaseControllerAbstract {
 
   void handleCheckboxChange(int index, bool value) {
     checkedItems[index] = value;
-    // if (list.chronicDiseases[index].title == 'Hypertension') {
-    //   showPressureChecklist = value;
-    // }
+
     //homa 3amlen el selection optional ya jooooo
     selectedChronicDiseases = [];
     for (int i = 0; i < checkedItems.length; i++) {
@@ -218,6 +211,25 @@ class AddCaseController extends AddCaseControllerAbstract {
     selectedChronicDiseases.clear();
     selectedDentalCases.clear();
     update();
+  }
+
+  void checkImageTypeThenAdd(List<XFile> xFiles, List<File> files) {
+    List<String> allowedExtensions = ['png', 'jpg', 'jpeg'];
+    for (XFile xFile in xFiles) {
+      String fileExtension = xFile.path.split('.').last.toLowerCase();
+      if (allowedExtensions.contains(fileExtension)) {
+        files.add(File(xFile.path));
+      } else {
+        customDialoge(
+            title: 'Invalid File Type',
+            middleText:
+                "Please select an image with a valid file type (png, jpg, jpeg).",
+            textColor: Colors.white,
+            backgroundColor: Colors.red);
+
+        return; // Exit if invalid file is found
+      }
+    }
   }
 
   @override

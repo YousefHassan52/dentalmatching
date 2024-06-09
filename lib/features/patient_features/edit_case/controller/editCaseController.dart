@@ -42,12 +42,11 @@ class EditCaseController extends GetxController {
     );
 
     List<File> files = [];
-    for (XFile xFile in xFiles) {
-      files.add(File(xFile.path));
+    if (xFiles != null) {
+      checkImageTypeThenAdd(xFiles, files);
+      mouthImages = files;
+      update();
     }
-
-    mouthImages = files;
-    update();
   }
 
   List<File>? xray = [];
@@ -57,12 +56,11 @@ class EditCaseController extends GetxController {
     );
 
     List<File> files = [];
-    for (XFile xFile in xFiles) {
-      files.add(File(xFile.path));
+    if (xFiles != null) {
+      checkImageTypeThenAdd(xFiles, files);
+      xray = files;
+      update();
     }
-
-    xray = files;
-    update();
   }
 
   List<File>? prescription = [];
@@ -72,12 +70,11 @@ class EditCaseController extends GetxController {
     );
 
     List<File> files = [];
-    for (XFile xFile in xFiles) {
-      files.add(File(xFile.path));
+    if (xFiles != null) {
+      checkImageTypeThenAdd(xFiles, files);
+      prescription = files;
+      update();
     }
-
-    prescription = files;
-    update();
   }
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -202,6 +199,25 @@ class EditCaseController extends GetxController {
       return false;
     } else {
       return true;
+    }
+  }
+
+  void checkImageTypeThenAdd(List<XFile> xFiles, List<File> files) {
+    List<String> allowedExtensions = ['png', 'jpg', 'jpeg'];
+    for (XFile xFile in xFiles) {
+      String fileExtension = xFile.path.split('.').last.toLowerCase();
+      if (allowedExtensions.contains(fileExtension)) {
+        files.add(File(xFile.path));
+      } else {
+        customDialoge(
+            title: 'Invalid File Type',
+            middleText:
+                "Please select an image with a valid file type (png, jpg, jpeg).",
+            textColor: Colors.white,
+            backgroundColor: Colors.red);
+
+        return; // Exit if invalid file is found
+      }
     }
   }
 
