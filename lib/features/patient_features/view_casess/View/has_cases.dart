@@ -21,8 +21,8 @@ class HasCases extends StatelessWidget {
         Get.put(MyCasesPatientControllerImpl());
     return Scaffold(
       body: ListView(
-        physics: NeverScrollableScrollPhysics(),
-        padding: EdgeInsets.zero,
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.only(top: 0),
         children: [
           const UpperWidget(),
           const SizedBox(
@@ -62,23 +62,21 @@ class HasCases extends StatelessWidget {
           ),
           GetBuilder<MyCasesPatientControllerImpl>(builder: (controller) {
             if (controller.requestStatus == RequestStatus.LOADING) {
-              return ShimmerListColumn();
+              return const ShimmerListColumn();
             } else if (controller.requestStatus == RequestStatus.SUCCESS) {
-              return SizedBox(
-                height: MediaQuery.sizeOf(context).height * 0.8,
-                child: ListView.builder(
-                  padding: const EdgeInsets.only(top: 0, bottom: 70),
-                  physics: const BouncingScrollPhysics(),
-                  itemCount: externalController.myCases.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: FormContainerInfo(
-                        caseModel: controller.myCases[index],
-                      ),
-                    );
-                  },
-                ),
+              return ListView.builder(
+                padding: const EdgeInsets.only(top: 0, bottom: 70),
+                physics: const BouncingScrollPhysics(),
+                shrinkWrap: true, // Added to let the ListView.builder take only the space it needs
+                itemCount: externalController.myCases.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: FormContainerInfo(
+                      caseModel: controller.myCases[index],
+                    ),
+                  );
+                },
               );
             } else if (controller.requestStatus ==
                 RequestStatus.EMPTY_SUCCESS) {
@@ -99,9 +97,6 @@ class HasCases extends StatelessWidget {
               );
             }
           }),
-          SizedBox(
-            height: 100,
-          )
         ],
       ),
     );
