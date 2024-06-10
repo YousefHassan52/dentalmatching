@@ -26,7 +26,7 @@ class CategoryCasesScreen extends StatelessWidget {
           AppUpperWidget(
             welcome: false,
             needBackButton: true,
-            text: externalController.category,
+            text:"${externalController.category}       ",
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8.0),

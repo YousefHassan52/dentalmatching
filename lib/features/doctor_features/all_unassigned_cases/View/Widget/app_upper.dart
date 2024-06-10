@@ -16,8 +16,9 @@ class AppUpperWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const int maxLength = 25;
-    final String displayTxt = text.length > maxLength ? '${text.substring(0, maxLength)}...' : text;
+    const int maxLength =25 ;
+    final String displayTxt =
+        text.length > maxLength ? '${text.substring(0, maxLength)}...' : text;
     Get.put(DoctorDataController()); // momkn 2a7ot controller 8ero
     return Container(
       decoration: const BoxDecoration(
@@ -53,6 +54,8 @@ class AppUpperWidget extends StatelessWidget {
                       padding:
                           const EdgeInsets.only(top: 35, left: 5, bottom: 10),
                       child: Row(
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        // crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           IconButton(
                             onPressed: () {
@@ -74,6 +77,7 @@ class AppUpperWidget extends StatelessWidget {
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
                                   ),
+                                  maxLines: 1,
                                 ),
                               ),
                             ),

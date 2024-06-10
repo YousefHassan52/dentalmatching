@@ -69,6 +69,7 @@ class CategoriesContainer extends StatelessWidget {
                       fontWeight: FontWeight.w300,
                     ),
                     textAlign: TextAlign.center,
+                    
                   ),
                 ),
               ),
