@@ -2,6 +2,7 @@ import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/middlewares/first_screen.dart';
 import 'package:dentalmatching/features/admin_doctor_features/home/view/admin_doctor_home.dart';
 import 'package:dentalmatching/features/admin_doctor_features/view_whole_case/view/view_whole_case_admin.dart';
+import 'package:dentalmatching/features/common_faetures/change_profile_image/view/add_profile_img.dart';
 import 'package:dentalmatching/features/common_faetures/change_password_in_profile/view/change_password_screen.dart';
 import 'package:dentalmatching/features/common_faetures/pre_signup/pre_signup.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/check_email/view/check_email_for_forget.dart';
@@ -99,5 +100,9 @@ List<GetPage> routes = [
   GetPage(
     name: AppRoutes.changePassword,
     page: () => const ChangePasswordScreen(),
+  ),
+  GetPage(
+    name: AppRoutes.changeProfileImage,
+    page: () => const AddProfileImgScreen(),
   ),
 ];

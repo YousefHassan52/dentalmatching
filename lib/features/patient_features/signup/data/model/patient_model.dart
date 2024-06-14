@@ -4,6 +4,7 @@ class PatientModel {
   final String address;
   final String token;
   final String? profileImage;
+  final String? profileImageLink;
   final String fullName;
   final String email;
   final int age;
@@ -25,6 +26,7 @@ class PatientModel {
     required this.phoneNumber,
     required this.role,
     this.profileImage,
+    this.profileImageLink,
   });
 
   factory PatientModel.fromJson(Map<String, dynamic> json) {
@@ -33,6 +35,7 @@ class PatientModel {
       userName: json['userName'],
       token: json['token'],
       profileImage: json['profileImage'],
+      profileImageLink: json['profileImageLink'],
       fullName: json['fullName'],
       email: json['email'],
       age: json['age'],
@@ -49,6 +52,7 @@ class PatientModel {
       userName: sharedPref.getString("userName")!,
       token: sharedPref.getString("token")!,
       profileImage: sharedPref.getString("profileImage"),
+      profileImageLink: sharedPref.getString("profileImageLink"),
       fullName: sharedPref.getString("fullName")!,
       email: sharedPref.getString("email")!,
       age: sharedPref.getInt("age")!,

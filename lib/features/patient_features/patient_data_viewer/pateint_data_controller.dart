@@ -12,7 +12,19 @@ class PatientDataController extends GetxController {
     update();
   }
 
+  updatePatientProfileImage(imageLink) {
+    myServices.updatePatientProfileImage(imageLink);
+    userModel = PatientModel.fromSharedPref(myServices.sharedPref);
+    update();
+  }
+
   PatientModel GetPatient() {
     return userModel;
+  }
+
+  @override
+  void onInit() {
+    print("image link ya youseef: ${userModel.profileImageLink}");
+    super.onInit();
   }
 }

@@ -88,10 +88,12 @@ class CRUD {
     }
   }
 
+  // hanst3mlha lel profile image
   Future<Either<RequestStatus, Map<String, dynamic>>> postWithToken({
     required String url,
     required Map<String, dynamic> data,
     File? image,
+    String? imageName,
     String? token,
   }) async {
     if (await CheckInternet.fun()) {
@@ -99,8 +101,8 @@ class CRUD {
         Dio dio = Dio();
         FormData formData = FormData.fromMap({
           ...data,
-          if (image != null)
-            'CardImage': await MultipartFile.fromFile(image.path),
+          if (image != null && imageName != null)
+            imageName: await MultipartFile.fromFile(image.path),
         });
         Options options = Options(
           headers: {
