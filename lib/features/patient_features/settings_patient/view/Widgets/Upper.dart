@@ -158,7 +158,7 @@ class UpperWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   Get.put(PatientDataController());
+    Get.put(PatientDataController());
     // momken te7tag hena controller mo5tlef
     //double upperPartHeight = Get.height * 0.2;
     return Container(
@@ -185,12 +185,10 @@ class UpperWidget extends StatelessWidget {
           //  height: upperPartHeight + 100,
           child: Center(
             child: Column(
-               
               // crossAxisAlignment: CrossAxisAlignment.start,
               // mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                if (welcome == true)
-                const BarProfileWidget(),
+                if (welcome == true) const BarProfileWidget(),
                 if (welcome == false)
                   if (needBackButton == true)
                     Padding(
