@@ -31,6 +31,7 @@ class SettingsPatientControllerImp extends SettingsPatientControllerAbstract {
     myServices.sharedPref.remove("address");
     myServices.sharedPref.remove("token");
     myServices.sharedPref.remove("profileImage");
+    myServices.sharedPref.remove("profileImageLink");
     myServices.sharedPref.remove("fullName");
     myServices.sharedPref.remove("email");
     myServices.sharedPref.remove("age");
@@ -48,11 +49,12 @@ class SettingsPatientControllerImp extends SettingsPatientControllerAbstract {
   deleteAccount() {}
 
   void trueVisibilityLanguage() {
-     visibleLanguage.toggle();
+    visibleLanguage.toggle();
     update();
   }
+
   void trueVisibilityPay() {
-     visiblePay.toggle();
+    visiblePay.toggle();
     update();
   }
 }

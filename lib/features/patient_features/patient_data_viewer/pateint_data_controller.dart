@@ -13,7 +13,7 @@ class PatientDataController extends GetxController {
   }
 
   updatePatientProfileImage(imageLink) {
-    myServices.updatePatientProfileImage(imageLink);
+    myServices.updateProfileImage(imageLink);
     userModel = PatientModel.fromSharedPref(myServices.sharedPref);
     update();
   }

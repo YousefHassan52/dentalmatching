@@ -11,4 +11,10 @@ class DoctorDataController extends GetxController {
     doctorModel = DoctorModel.fromSharedPref(myServices.sharedPref);
     update();
   }
+
+  updateDoctorProfileImage(imageLink) {
+    myServices.updateProfileImage(imageLink);
+    doctorModel = DoctorModel.fromSharedPref(myServices.sharedPref);
+    update();
+  }
 }

@@ -11,6 +11,8 @@ import 'package:get/get.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initialServices();
+  // MyServices service = Get.put(MyServices());
+  // service.sharedPref.clear();
   runApp(DevicePreview(builder: (builder) => const MyApp()));
   // runApp(const MyApp());
 }

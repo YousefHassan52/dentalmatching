@@ -117,7 +117,7 @@ class MyServices extends GetxService {
     sharedPref.setString("phoneNumber", response["phoneNumber"]);
   }
 
-  void updatePatientProfileImage(String imageLink) {
+  void updateProfileImage(String imageLink) {
     sharedPref.setString("profileImageLink", imageLink);
   }
 }
