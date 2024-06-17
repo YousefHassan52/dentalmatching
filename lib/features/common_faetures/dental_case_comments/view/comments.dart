@@ -5,7 +5,9 @@ import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/shared/shimmer_column.dart';
 import 'package:dentalmatching/features/common_faetures/dental_case_comments/controller/comments_controller_impl.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class CommentsOnCase extends StatelessWidget {
@@ -70,13 +72,36 @@ class CommentsOnCase extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              controller.comments[index].role.toLowerCase() ==
-                                      "doctor"
-                                  ? "Dr. ${controller.comments[index].userName}"
-                                  : controller.comments[index].userName,
-                              style: Styles.textStyle22Blue,
-                              overflow: TextOverflow.ellipsis,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Flexible(
+                                  child: FittedBox(
+                                    fit: BoxFit.scaleDown,
+                                    child: Text(
+                                      controller.comments[index].role
+                                                  .toLowerCase() ==
+                                              "doctor"
+                                          ? "Dr. ${controller.comments[index].userName}"
+                                          : controller.comments[index].userName,
+                                      style: Styles.textStyle22Blue,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                ),
+                                Flexible(
+                                  child: FittedBox(
+                                    fit: BoxFit.scaleDown,
+                                    child: IconButton(
+                                        onPressed: () {},
+                                        icon: const Icon(
+                                          Icons.cancel,
+                                          size: 20,
+                                          color: Colors.red,
+                                        )),
+                                  ),
+                                ),
+                              ],
                             ),
                             Container(
                               width: double.infinity,

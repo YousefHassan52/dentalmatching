@@ -12,10 +12,8 @@ class Heading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-
     return Padding(
-      padding: EdgeInsets.only(top: Get.width * 0.1),
+      padding: EdgeInsets.only(top: Get.width * 0.02),
       child: Center(
         child: Text(
           text,
@@ -23,9 +21,8 @@ class Heading extends StatelessWidget {
             color: AppColors.blueTextColor,
             fontSize: 20,
             fontWeight: FontWeight.w800,
-            height: 1.2, 
+            height: 1.2,
             letterSpacing: 1,
-        
           ),
         ),
       ),
