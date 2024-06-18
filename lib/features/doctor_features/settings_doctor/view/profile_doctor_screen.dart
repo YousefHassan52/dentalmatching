@@ -28,6 +28,7 @@ class SettingsDoctorScreen extends StatelessWidget {
         Get.put(DeleteAccountControllerImp());
     TranslationController translationController =
         Get.put(TranslationController());
+    DoctorDataController doctorData = Get.put(DoctorDataController());
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -64,6 +65,20 @@ class SettingsDoctorScreen extends StatelessWidget {
                   textColor: AppColors.mainColor,
                   onTap: () {
                     Get.toNamed(AppRoutes.editDoctorInfo);
+                  }),
+              SettingsRowComponent(
+                  icon: Icons.camera_alt_rounded,
+                  iconColor: AppColors.mainColor,
+                  text: "Change Profile Image",
+                  textColor: AppColors.mainColor,
+                  onTap: () {
+                    Get.toNamed(AppRoutes.changeProfileImage, arguments: {
+                      "role": "doctor",
+                      "profileImageLink":
+                          doctorData.doctorModel.profileImageLink,
+                      "token": settingsController.userModel.token
+                    });
+                    //Get.toNamed(AppRoutes.resetPassword, arguments: {"email": email});
                   }),
               SettingsRowComponent(
                   icon: Icons.lock_rounded,

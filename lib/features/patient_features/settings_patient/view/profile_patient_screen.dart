@@ -32,6 +32,7 @@ class SettingsPatientScreen extends StatelessWidget {
     Get.put(MyCasesPatientControllerImpl());
     TranslationController translationController =
         Get.put(TranslationController());
+    PatientDataController patientData = Get.put(PatientDataController());
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -70,6 +71,19 @@ class SettingsPatientScreen extends StatelessWidget {
                   textColor: AppColors.mainColor,
                   onTap: () {
                     Get.toNamed(AppRoutes.editPatientInfo);
+                  }),
+              SettingsRowComponent(
+                  icon: Icons.camera_alt_rounded,
+                  iconColor: AppColors.mainColor,
+                  text: "Change Profile Image",
+                  textColor: AppColors.mainColor,
+                  onTap: () {
+                    Get.toNamed(AppRoutes.changeProfileImage, arguments: {
+                      "role": "patient",
+                      "profileImageLink":
+                          patientData.userModel.profileImageLink,
+                      "token": settingsPatientControllerImp.userModel.token
+                    });
                   }),
               SettingsRowComponent(
                   icon: Icons.lock_rounded,

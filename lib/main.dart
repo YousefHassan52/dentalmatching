@@ -4,13 +4,16 @@ import 'package:dentalmatching/core/localization/translation.dart';
 import 'package:dentalmatching/core/localization/translation_controller.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/routes.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initialServices();
-  runApp(const MyApp());
+  // MyServices service = Get.put(MyServices());
+  // service.sharedPref.clear();
+  runApp(DevicePreview(builder: (builder) => const MyApp()));
   // runApp(const MyApp());
 }
 

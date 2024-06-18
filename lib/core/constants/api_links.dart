@@ -57,4 +57,6 @@ class ApiLinks {
       "https://dentamatchbackend.smartwaveeg.com/Doctor/DentalCase/report?CaseId=";
   static const String changePassword =
       "https://dentamatchbackend.smartwaveeg.com/Auth/ChangePassword";
+  static const String changeProfileImg =
+      "https://dentamatchbackend.smartwaveeg.com/Auth/profileimage";
 }

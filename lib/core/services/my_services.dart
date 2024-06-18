@@ -31,6 +31,10 @@ class MyServices extends GetxService {
     sharedPref.setString("token", response["data"]["token"]);
     sharedPref.setString(
         "profileImage", response["data"]["profileImage"] ?? '');
+    if (response["data"]["profileImageLink"] != null) {
+      sharedPref.setString(
+          "profileImageLink", response["data"]["profileImageLink"]);
+    }
     sharedPref.setString("fullName", response["data"]["fullName"]);
     sharedPref.setString("email", response["data"]["email"]);
     sharedPref.setInt("age", response["data"]["age"]);
@@ -47,6 +51,10 @@ class MyServices extends GetxService {
     sharedPref.setString("token", response["data"]["token"]);
     sharedPref.setString(
         "profileImage", response["data"]["profileImage"] ?? '');
+    if (response["data"]["profileImageLink"] != null) {
+      sharedPref.setString(
+          "profileImageLink", response["data"]["profileImageLink"]);
+    }
     sharedPref.setString("fullName", response["data"]["fullName"]);
     sharedPref.setString("email", response["data"]["email"]);
     sharedPref.setInt("age", response["data"]["age"]);
@@ -76,6 +84,7 @@ class MyServices extends GetxService {
     sharedPref.remove("userName");
     sharedPref.remove("token");
     sharedPref.remove("profileImage");
+    sharedPref.remove("profileImageLink");
     sharedPref.remove("fullName");
     sharedPref.remove("email");
     sharedPref.remove("age");
@@ -88,7 +97,6 @@ class MyServices extends GetxService {
 
   void updatePatientModelToSharedPrefrence(response) {
     sharedPref.setString("userName", response["userName"]);
-
     sharedPref.setString("address", response["address"]);
     sharedPref.setString("fullName", response["fullName"]);
     sharedPref.setString("email", response["email"]);
@@ -107,6 +115,10 @@ class MyServices extends GetxService {
     sharedPref.setBool("gender", response["gender"]);
     sharedPref.setString("city", response["city"]);
     sharedPref.setString("phoneNumber", response["phoneNumber"]);
+  }
+
+  void updateProfileImage(String imageLink) {
+    sharedPref.setString("profileImageLink", imageLink);
   }
 }
 

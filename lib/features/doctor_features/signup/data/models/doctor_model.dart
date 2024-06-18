@@ -5,6 +5,7 @@ class DoctorModel {
   final String? cardImage;
   final String token;
   final String? profileImage;
+  final String? profileImageLink;
   final String fullName;
   final String email;
   final int age;
@@ -27,6 +28,7 @@ class DoctorModel {
     required this.userName,
     this.cardImage,
     this.profileImage,
+    this.profileImageLink,
   });
 
   factory DoctorModel.fromJson(Map<String, dynamic> json) {
@@ -36,6 +38,7 @@ class DoctorModel {
       cardImage: json['cardImage'],
       token: json['token'],
       profileImage: json['profileImage'],
+      profileImageLink: json['profileImageLink'],
       fullName: json['fullName'],
       email: json['email'],
       age: json['age'],
@@ -52,6 +55,7 @@ class DoctorModel {
       cardImage: sharedPref.getString("cardImage"),
       token: sharedPref.getString("token")!,
       profileImage: sharedPref.getString("profileImage"),
+      profileImageLink: sharedPref.getString("profileImageLink"),
       fullName: sharedPref.getString("fullName")!,
       email: sharedPref.getString("email")!,
       age: sharedPref.getInt("age")!,

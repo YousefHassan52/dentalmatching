@@ -3,6 +3,8 @@ import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
+import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
+import 'package:dentalmatching/features/patient_features/signup/data/model/patient_model.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/data/Model/case_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,6 +21,7 @@ class FormContainerInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MyServices languageController = Get.find();
+    PatientDataController patientData = Get.put(PatientDataController());
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
       //height: 320,
@@ -47,9 +50,14 @@ class FormContainerInfo extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const SizedBox(
+              SizedBox(
                 height: 50,
-                child: CircleAvatarWidget(imagePath: 'assets/svg/pp.svg'),
+                child: patientData.userModel.profileImageLink == null
+                    ? const CircleAvatarWidget(imagePath: 'assets/svg/pp.svg')
+                    : CircleAvatarWidget(
+                        imagePath: patientData.userModel.profileImageLink!,
+                        defaultImage: false,
+                      ),
               ),
               Flexible(
                 flex: 4,

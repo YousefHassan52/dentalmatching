@@ -24,49 +24,34 @@ class BarCompoWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         // row take size of the parent container = upperPartHeight
         children: [
-          // if (needBackButton == true)
-          //   Flexible(
-          //     child: Container(
-          //       margin:
-          //           const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-          //       height: double.infinity,
-          //       decoration: BoxDecoration(
-          //         color: const Color.fromARGB(255, 255, 255, 255),
-          //         borderRadius: BorderRadius.circular(10),
-          //       ),
-          //       child: FittedBox(
-          //         fit: BoxFit.scaleDown,
-          //         child: IconButton(
-          //             onPressed: () {
-          //               Get.back();
-          //             },
-          //             icon: const Icon(Icons.arrow_back)),
-          //       ),
-          //     ),
-          //   ),
           if (welcome == true)
-            Flexible(
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
-                child: CircleAvatar(
-                  radius: 37,
-                  backgroundColor: Colors.white,
-                  child: ClipOval(
-                    child: SizedBox.fromSize(
-                        size: const Size.fromRadius(50),
-                        child: Image.asset(
-                          "assets/images/profilepicture.png",
-                        )),
+            GetBuilder<DoctorDataController>(builder: (controller) {
+              return Flexible(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: CircleAvatar(
+                    radius: 37,
+                    backgroundColor: Colors.white,
+                    child: ClipOval(
+                      child: SizedBox.fromSize(
+                          size: const Size.fromRadius(50),
+                          child: controller.doctorModel.profileImageLink == null
+                              ? Image.asset(
+                                  "assets/images/profilepicture.png",
+                                )
+                              : Image.network(
+                                  controller.doctorModel.profileImageLink!)),
+                    ),
                   ),
+                  // child: CircleAvatar(
+                  //   radius: 40,
+                  //   backgroundImage: AssetImage(
+                  //     "assets/images/profilepicture.png",
+                  //   ),
+                  // ),
                 ),
-                // child: CircleAvatar(
-                //   radius: 40,
-                //   backgroundImage: AssetImage(
-                //     "assets/images/profilepicture.png",
-                //   ),
-                // ),
-              ),
-            ),
+              );
+            }),
           const SizedBox(
             width: 10,
           ),
@@ -77,7 +62,7 @@ class BarCompoWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (welcome == true)
-                   Flexible(
+                  Flexible(
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
                       child: Text(
