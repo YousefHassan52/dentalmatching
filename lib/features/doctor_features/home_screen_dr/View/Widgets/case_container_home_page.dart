@@ -46,9 +46,14 @@ class DoctorHomeCaseContainer extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const SizedBox(
+              SizedBox(
                 height: 50,
-                child: CircleAvatarWidget(imagePath: 'assets/svg/pp.svg'),
+                child: caseModel.patientProfileImageLink == null
+                    ? CircleAvatarWidget(imagePath: 'assets/svg/pp.svg')
+                    : CircleAvatarWidget(
+                        imagePath: caseModel.patientProfileImageLink!,
+                        defaultImage: false,
+                      ),
               ),
               Flexible(
                 flex: 4,
