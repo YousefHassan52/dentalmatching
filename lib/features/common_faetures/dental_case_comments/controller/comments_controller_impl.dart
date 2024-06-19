@@ -14,13 +14,15 @@ class CommentsControllerImpl extends CommentsControllerAbstract {
   MyServices myServices = Get.find();
   CommentsData dataObject = CommentsData(Get.find());
   RequestStatus? requestStatus;
-
+  late String userName;
   late TextEditingController commentController;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   List<CommentModel> comments = [];
 
   @override
   void onInit() {
+    userName = myServices.sharedPref.getString("userName")!;
+    print("username ya joooe: $userName");
     commentController = TextEditingController();
     super.onInit();
   }
@@ -97,5 +99,40 @@ class CommentsControllerImpl extends CommentsControllerAbstract {
 
       update();
     }
+  }
+
+  @override
+  void removeComment(
+      {required String caseId,
+      required String token,
+      required String commentId}) async {
+    requestStatus = RequestStatus.LOADING;
+    update();
+    var response = await dataObject.removeComment(
+        caseId: caseId, token: token, commentId: commentId);
+    if (kDebugMode) {
+      print(response.toString());
+    }
+    update();
+    requestStatus = HandlingResponseType.fun(response);
+    if (kDebugMode) {
+      print("joe ;${requestStatus.toString()}");
+    }
+    if (requestStatus == RequestStatus.SUCCESS) {
+      if (response["success"] == true) {
+        getComments(caseId: caseId, token: token);
+      }
+    } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
+      customDialoge(
+          title: "Warning".tr,
+          middleText: "Case not found or has been deleted recently");
+    } else if (requestStatus == RequestStatus.BLOCKED_USER) {
+      blockAction();
+    } else {
+      customDialoge(
+          title: "Warning".tr, middleText: "Server Error Please Try Again");
+    }
+
+    update();
   }
 }

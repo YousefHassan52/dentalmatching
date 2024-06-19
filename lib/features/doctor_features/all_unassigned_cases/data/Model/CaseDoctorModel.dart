@@ -14,6 +14,7 @@ class CaseDoctorModel {
   final List<String> prescriptionImages;
   final String? googleMapLink;
   final String? appointmentDateTime;
+  final String? patientProfileImageLink;
 
   CaseDoctorModel({
     required this.caseId,
@@ -31,6 +32,7 @@ class CaseDoctorModel {
     required this.prescriptionImages,
     this.googleMapLink,
     this.appointmentDateTime,
+    this.patientProfileImageLink,
   });
 
   factory CaseDoctorModel.fromJson(Map<String, dynamic> json) {
@@ -45,6 +47,7 @@ class CaseDoctorModel {
       description: json['description'],
       isKnown: json['isKnown'],
       isAssigned: json['isAssigned'],
+      patientProfileImageLink: json['patientProfileImageLink'],
       chronicDiseases: List<String>.from(json['chronicDiseases']),
       dentalDiseases: List<String>.from(json['dentalDiseases']),
       mouthImages: List<String>.from(json['mouthImages']),

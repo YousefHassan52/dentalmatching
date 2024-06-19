@@ -56,12 +56,18 @@ class CommentsOnCase extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CircleAvatar(
-                        backgroundImage:
-                            controller.comments[index].role.toLowerCase() ==
+                        backgroundImage: controller
+                                    .comments[index].profileImageLink !=
+                                null
+                            ? NetworkImage(controller.comments[index]
+                                .profileImageLink!) as ImageProvider<Object>
+                            : controller.comments[index].role.toLowerCase() ==
                                     "doctor"
                                 ? const AssetImage('assets/images/doctor.png')
+                                    as ImageProvider<Object>
                                 : const AssetImage(
-                                    'assets/images/profilepicture.png'),
+                                        'assets/images/profilepicture.png')
+                                    as ImageProvider<Object>,
                         radius: 20,
                         backgroundColor: const Color.fromARGB(255, 26, 67, 143),
                       ),
@@ -82,25 +88,33 @@ class CommentsOnCase extends StatelessWidget {
                                       controller.comments[index].role
                                                   .toLowerCase() ==
                                               "doctor"
-                                          ? "Dr. ${controller.comments[index].userName}"
-                                          : controller.comments[index].userName,
+                                          ? "Dr. ${controller.comments[index].fullName}"
+                                          : controller.comments[index].fullName,
                                       style: Styles.textStyle22Blue,
                                       overflow: TextOverflow.ellipsis,
                                     ),
                                   ),
                                 ),
-                                Flexible(
-                                  child: FittedBox(
-                                    fit: BoxFit.scaleDown,
-                                    child: IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.cancel,
-                                          size: 20,
-                                          color: Colors.red,
-                                        )),
+                                if (controller.comments[index].userName ==
+                                    controller.userName)
+                                  Flexible(
+                                    child: FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: IconButton(
+                                          onPressed: () {
+                                            controller.removeComment(
+                                                caseId: caseid,
+                                                token: token,
+                                                commentId: controller
+                                                    .comments[index].commentId);
+                                          },
+                                          icon: const Icon(
+                                            Icons.cancel,
+                                            size: 20,
+                                            color: Colors.red,
+                                          )),
+                                    ),
                                   ),
-                                ),
                               ],
                             ),
                             Container(

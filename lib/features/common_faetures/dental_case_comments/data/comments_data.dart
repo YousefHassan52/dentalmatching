@@ -23,4 +23,16 @@ class CommentsData {
 
     return response.fold((l) => l, (r) => r);
   }
+
+  removeComment(
+      {required String token,
+      required String caseId,
+      required String commentId}) async {
+    var response = await crud.post(
+        url: "${ApiLinks.removeComment}caseId=$caseId&commentId=$commentId",
+        token: token,
+        data: {});
+
+    return response.fold((l) => l, (r) => r);
+  }
 }

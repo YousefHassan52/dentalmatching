@@ -59,4 +59,7 @@ class ApiLinks {
       "https://dentamatchbackend.smartwaveeg.com/Auth/ChangePassword";
   static const String changeProfileImg =
       "https://dentamatchbackend.smartwaveeg.com/Auth/profileimage";
+  static const String removeComment =
+      "https://dentamatchbackend.smartwaveeg.com/DentalCase/removeComment?";
+  //caseId=db616a4b-f91f-46c9-a34f-368653509aed&comment=hader
 }

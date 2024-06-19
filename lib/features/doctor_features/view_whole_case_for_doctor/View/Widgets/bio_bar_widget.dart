@@ -24,13 +24,19 @@ class BioBarWidget extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              const Flexible(
+              Flexible(
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: SizedBox(
                     height: 60,
-                    child:
-                        CircleAvatarWidget(imagePath: 'assets/svg/profile.svg'),
+                    child: controller.caseModel.patientProfileImageLink == null
+                        ? CircleAvatarWidget(
+                            imagePath: 'assets/svg/profile.svg')
+                        : CircleAvatarWidget(
+                            imagePath:
+                                controller.caseModel.patientProfileImageLink!,
+                            defaultImage: false,
+                          ),
                   ),
                 ),
               ),
