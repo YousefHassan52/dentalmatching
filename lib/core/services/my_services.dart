@@ -1,3 +1,4 @@
+import 'package:dentalmatching/core/services/signalr_service.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -123,5 +124,7 @@ class MyServices extends GetxService {
 }
 
 initialServices() async {
+  Get.put(SignalRService());
+
   await Get.putAsync(() => MyServices().init());
 }
