@@ -282,6 +282,15 @@ class MyTranslation implements Translations {
               "نحن ملتزمون بحماية خصوصيتك وأمنك. باستخدام تطبيقنا،\n فإنك توافق على سياسة الخصوصية وشروط الخدمة الخاصة بنا.",
           "Your Security": "حمايتك",
           "Our Priority": "أولويتنا",
+
+          //progress
+          "Session": "الجلسة",
+          "Edit your progress here ...": "عدل تقدمك هنا ...",
+          "Save": "حفظ",
+          "Recently Added": "أضيف مؤخرا",
+          "Add Progress": "إضافة تقدم",
+          "Write your progress here ...": "اكتب تقدمك هنا ...",
+          "Progress":"التقدم",
         },
         "en": {
           // categories
@@ -536,6 +545,15 @@ Your password must include:
           "You have been blocked by many doctors more than 3 times due to your bad attitude":
               "You have been blocked by many doctors more than 3 times due to your bad attitude",
           "Blocked User": "Blocked User",
+
+          //progress
+          "Session": "Session",
+          "Progress":"Progress",
+          "Edit your progress here ...": "Edit your progress here ...",
+          "Save": "Save",
+          "Recently Added": "Recently Added",
+          "Add Progress": "Add Progress",
+          "Write your progress here ...": "Write your progress here ..."
         },
       };
 }

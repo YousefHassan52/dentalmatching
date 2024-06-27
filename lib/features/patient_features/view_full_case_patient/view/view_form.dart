@@ -2,6 +2,7 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
+import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/common_faetures/dental_case_comments/view/comments.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/form_headLine.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/divider.dart';
@@ -10,6 +11,7 @@ import 'package:dentalmatching/features/patient_features/view_casess/Controller/
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/upper.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/view_full_case_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/chronic_list.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/progress_screen_patient.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/upper_assigned.dart';
 import 'package:flutter/material.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/grid_view_widget.dart';
@@ -23,6 +25,8 @@ class ViewForm extends StatelessWidget {
     ViewFullCasePatientControllerImpl controller =
         Get.put(ViewFullCasePatientControllerImpl());
     MyCasesPatientControllerImpl casesController = Get.find();
+    MyServices languageController = Get.find();
+    ScrollController scrollController = ScrollController();
     return Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
         floatingActionButton: controller.caseModel.isAssigned
@@ -54,6 +58,7 @@ class ViewForm extends StatelessWidget {
                   ],
                 )),
         body: ListView(
+          controller: scrollController,
           padding: const EdgeInsets.only(top: 0),
           children: [
             if (controller.caseModel.isAssigned == false)
@@ -77,6 +82,42 @@ class ViewForm extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                   const SizedBox(
+                  height: 20,
+                ),
+                if (controller.caseModel.isAssigned)
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      FormHeadLine(headline: 'Progress'.tr),
+                      IconButton(
+                          onPressed: () {
+                            scrollController.animateTo(0,
+                                duration: const Duration(milliseconds: 500),
+                                curve: Curves.easeInOut);
+                            showModalBottomSheet(
+                              isScrollControlled: true,
+                              context: context,
+                              builder: (context) {
+                                return const Center(child: ProgressScreenPatient());
+                              },
+                            );
+                          },
+                          icon: languageController.sharedPref.getString("lang") == "en"
+                            ? const Icon(
+                                Icons.arrow_circle_right_rounded,
+                                color: AppColors.mainColor,
+                              )
+                            : const Icon(
+                                Icons.arrow_circle_left_rounded,
+                                color: AppColors.mainColor,
+                              ),),
+                    ],
+                  ),
+                   const SizedBox(
+                  height: 20,
+                ),
+                const HDivider(),
                   FormHeadLine(headline: 'Describe what you feel'.tr),
                   Container(
                     width: double.infinity,

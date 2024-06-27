@@ -18,6 +18,23 @@ class ViewFullCasePatientControllerImpl
   late PatientCaseModel caseModel;
   ViewFullCasePatientData data = ViewFullCasePatientData(Get.find());
   RequestStatus? requestStatus;
+  List<Map<String, String>> progressEntries = [
+    {'date': '2023-06-25', 'text': 'Initial consultation Follow-up appointment Follow-up appointment Follow-up appointment Follow-up appointment Follow-up appointment'},
+    {'date': '2023-07-02', 'text': 'Follow-up appointment Follow-up appointment Follow-up appointment Follow-up appointment Follow-up appointment'},
+    // Add more entries as needed
+  ];
+  List<bool> expandedStates = [];
+
+  ViewFullCasePatientControllerImpl() {
+    expandedStates = List<bool>.filled(progressEntries.length, false);
+  }
+
+  void toggleAdded(int index) {
+    expandedStates[index] = !expandedStates[index];
+    update();
+  }
+
+
   @override
   Future<void> deleteCase() async {
     requestStatus = RequestStatus.LOADING;
