@@ -124,7 +124,5 @@ class MyServices extends GetxService {
 }
 
 initialServices() async {
-  Get.put(SignalRService());
-
   await Get.putAsync(() => MyServices().init());
 }

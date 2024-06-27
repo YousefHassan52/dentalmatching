@@ -55,8 +55,8 @@ dependencies:
   shared_preferences: ^2.2.2
   shimmer: ^3.0.0
   url_launcher: ^6.2.5
-  signalr_core: ^1.1.2
 
+  flutter_local_notifications: ^17.1.2
 
 dev_dependencies:
   flutter_lints: ^2.0.0
