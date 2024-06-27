@@ -1,4 +1,6 @@
+import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
+import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/core/shared/dailogue_with_buttons.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/controller/unassigned_cases_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
@@ -8,6 +10,7 @@ import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doct
 import 'package:dentalmatching/features/common_faetures/dental_case_comments/view/comments.dart';
 import 'package:dentalmatching/features/doctor_features/report_case/view/report_button.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/box_widget.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/progress_screen_doctor.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/form_headline.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/divider.dart';
@@ -25,6 +28,7 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
         Get.put(ViewWholeCaseDoctorControllerImpl());
 
     ScrollController scrollController = ScrollController();
+    MyServices languageController = Get.find();
 
     return Scaffold(
       body: ListView(
@@ -44,6 +48,39 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
+                if (controller.caseModel.isAssigned)
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      FormHeadLine(headline: 'Progress'.tr),
+                      IconButton(
+                          onPressed: () {
+                            scrollController.animateTo(0,
+                                duration: const Duration(milliseconds: 500),
+                                curve: Curves.easeInOut);
+                            showModalBottomSheet(
+                              isScrollControlled: true,
+                              context: context,
+                              builder: (context) {
+                                return const Center(child: ProgressScreen());
+                              },
+                            );
+                          },
+                          icon: languageController.sharedPref.getString("lang") == "en"
+                            ? const Icon(
+                                Icons.arrow_circle_right_rounded,
+                                color: AppColors.mainColor,
+                              )
+                            : const Icon(
+                                Icons.arrow_circle_left_rounded,
+                                color: AppColors.mainColor,
+                              ),),
+                    ],
+                  ),
+                   const SizedBox(
+                  height: 20,
+                ),
+                const HDivider(),
                 FormHeadLine(headline: 'Description'.tr),
                 const SizedBox(
                   height: 20,
