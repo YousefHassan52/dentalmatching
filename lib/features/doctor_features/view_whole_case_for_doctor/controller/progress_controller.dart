@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
@@ -7,7 +9,6 @@ import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doct
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/data/request_case_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
 class ProgressController extends GetxController {
   late String caseId;
@@ -108,13 +109,17 @@ class ProgressController extends GetxController {
     progresses = [];
     requestStatus = RequestStatus.LOADING;
     update();
-    var response = await data.getProgress(
-        token: doctorModel.token,
-        caseId: caseId);
+
+    var response =
+        await data.getProgress(token: doctorModel.token, caseId: caseId);
+
     print(response.toString());
-    update();
+
     requestStatus = HandlingResponseType.fun(response);
     print("joe ;${requestStatus.toString()}");
+
+    update();
+
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {
         List<dynamic> responseData = response["data"];
@@ -125,14 +130,19 @@ class ProgressController extends GetxController {
           editStates.add(false);
           progresses.add(myCase);
         }
+      } else {
+        customDialoge(
+            title: "Try Again", middleText: "Server Error Please Try Again");
       }
+    } else if (progresses.isEmpty) {
+      print("Empty List Progress");
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
       customDialoge(
-          title: "Try Again".tr,
+          title: "Try Again",
           middleText: "Internet Connection Error Refresh Data ");
     } else {
       customDialoge(
-          title: "Try Again".tr, middleText: "Server Error Please Try Again");
+          title: "Try Again", middleText: "Server Error Please Try Again");
     }
 
     update();

@@ -30,7 +30,7 @@ class BioBarWidget extends StatelessWidget {
                   child: SizedBox(
                     height: 60,
                     child: controller.caseModel.patientProfileImageLink == null
-                        ? CircleAvatarWidget(
+                        ? const CircleAvatarWidget(
                             imagePath: 'assets/svg/profile.svg')
                         : CircleAvatarWidget(
                             imagePath:
@@ -92,9 +92,7 @@ class BioBarWidget extends StatelessWidget {
                   if (controller.caseModel.isAssigned == true) {
                     return Column(
                       children: [
-                        // const SizedBox(
-                        //   height: 20,
-                        // ),
+                     
                         CallNumberWidget(
                             number: controller.caseModel.phoneNumber)
                       ],
@@ -131,19 +129,7 @@ class BioBarWidget extends StatelessWidget {
                   }
                 },
               ),
-              // GetBuilder<AppointmentController>(
-              //   builder: (controller) => Row(
-              //     mainAxisAlignment: MainAxisAlignment.center,
-              //     children: [
-              //       const Icon(Icons.access_time),
-              //       const SizedBox(width: 10),
-              //       Text(
-              //         'Time: ${controller.selectedTime.hour}:${controller.selectedTime.minute}',
-              //         style: const TextStyle(fontSize: 20),
-              //       ),
-              //     ],
-              //   ),
-              // ),
+
             ],
           ),
         ),

@@ -48,35 +48,48 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                if (controller.caseModel.isAssigned)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      FormHeadLine(headline: 'Progress'.tr),
-                      IconButton(
-                        onPressed: () {
-                          Get.toNamed(AppRoutes.progressScreen, arguments: {
-                            "caseId": controller.caseModel.caseId
-                          });
-                        },
-                        icon: languageController.sharedPref.getString("lang") ==
-                                "en"
-                            ? const Icon(
-                                Icons.arrow_circle_right_rounded,
-                                color: AppColors.mainColor,
-                              )
-                            : const Icon(
-                                Icons.arrow_circle_left_rounded,
-                                color: AppColors.mainColor,
+                GetBuilder<ViewWholeCaseDoctorControllerImpl>(
+                  builder: (controller) {
+                    if (controller.caseModel.isAssigned == true) {
+                      return Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              FormHeadLine(headline: 'Progress'.tr),
+                              IconButton(
+                                onPressed: () {
+                                  Get.toNamed(AppRoutes.progressScreen,
+                                      arguments: {
+                                        "caseId": controller.caseModel.caseId
+                                      });
+                                },
+                                icon: languageController.sharedPref
+                                            .getString("lang") ==
+                                        "en"
+                                    ? const Icon(
+                                        Icons.arrow_circle_right_rounded,
+                                        color: AppColors.mainColor,
+                                      )
+                                    : const Icon(
+                                        Icons.arrow_circle_left_rounded,
+                                        color: AppColors.mainColor,
+                                      ),
                               ),
-                      ),
-                    ],
-                  ),
-                if (controller.caseModel.isAssigned)
-                  const SizedBox(
-                    height: 20,
-                  ),
-                if (controller.caseModel.isAssigned) const HDivider(),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const HDivider(),
+                        ],
+                      );
+                    } else {
+                      return const SizedBox
+                          .shrink(); // Or handle case when not assigned
+                    }
+                  },
+                ),
                 FormHeadLine(headline: 'Description'.tr),
                 const SizedBox(
                   height: 20,

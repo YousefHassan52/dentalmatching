@@ -11,7 +11,6 @@ import 'package:dentalmatching/features/patient_features/view_casess/Controller/
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/upper.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/view_full_case_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/chronic_list.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/progress_screen_patient.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/upper_assigned.dart';
 import 'package:flutter/material.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/grid_view_widget.dart';
@@ -108,10 +107,11 @@ class ViewForm extends StatelessWidget {
                         ),
                       ],
                     ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const HDivider(),
+                  if (controller.caseModel.isAssigned)
+                    const SizedBox(
+                      height: 20,
+                    ),
+                  if (controller.caseModel.isAssigned) const HDivider(),
                   FormHeadLine(headline: 'Describe what you feel'.tr),
                   Container(
                     width: double.infinity,

@@ -1,4 +1,5 @@
 import 'package:dentalmatching/core/constants/colors.dart';
+import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/Upper.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/progress_patient_controller.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,10 @@ class ProgressScreenPatient extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ProgressPatientController());
+    ProgressPatientController progressController =
+        Get.put(ProgressPatientController());
+    final String session = "Session".tr;
+
     return Scaffold(
       body: ListView(
         padding: const EdgeInsets.all(0),
@@ -24,7 +28,7 @@ class ProgressScreenPatient extends StatelessWidget {
             height: 10,
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             child: FittedBox(
               alignment: AlignmentDirectional.topStart,
               fit: BoxFit.scaleDown,
@@ -33,12 +37,15 @@ class ProgressScreenPatient extends StatelessWidget {
                 children: [
                   Text(
                     'Recently Added'.tr,
-                    style: const TextStyle(
-                        fontSize: 24, fontWeight: FontWeight.w700),
+                    style: Styles.formTitle,
                   ),
                   IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.rocket_launch_outlined))
+                      onPressed: () {
+                        progressController
+                            .getProgress(progressController.caseId);
+                      },
+                      icon: const Icon(Icons.rocket_launch_outlined,
+                          color: AppColors.mainColor))
                 ],
               ),
             ),
@@ -67,7 +74,7 @@ class ProgressScreenPatient extends StatelessWidget {
                                   children: [
                                     ListTile(
                                       title: Text(
-                                        "Session ${index + 1}".tr,
+                                        "$session ${index + 1}".tr,
                                         style: const TextStyle(
                                             color: Colors.white),
                                       ),
@@ -126,7 +133,20 @@ class ProgressScreenPatient extends StatelessWidget {
                       ),
                     );
                   } else {
-                    return const Text("No Progress");
+                    return const Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.info_outline,
+                              size: 80, color: Colors.grey),
+                          SizedBox(height: 16),
+                          Text(
+                            "No Progress",
+                            style: TextStyle(fontSize: 20, color: Colors.grey),
+                          ),
+                        ],
+                      ),
+                    );
                   }
                 },
               );

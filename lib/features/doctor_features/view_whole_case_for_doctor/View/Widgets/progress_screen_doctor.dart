@@ -5,7 +5,6 @@ import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doct
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/added_progress.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/progress_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class ProgressScreen extends StatelessWidget {
@@ -19,11 +18,10 @@ class ProgressScreen extends StatelessWidget {
         padding: const EdgeInsets.all(0),
         children: [
           AppUpperWidget(
-              text: 'Progress        '.tr,
-              needBackButton: true,
-              welcome: false,
-            ),
-        
+            text: 'Progress        '.tr,
+            needBackButton: true,
+            welcome: false,
+          ),
           const SizedBox(
             height: 10,
           ),
@@ -53,7 +51,8 @@ class ProgressScreen extends StatelessWidget {
                         progressController
                             .getProgress(progressController.caseId);
                       },
-                      icon: const Icon(Icons.rocket_launch_outlined,color: AppColors.mainColor))
+                      icon: const Icon(Icons.rocket_launch_outlined,
+                          color: AppColors.mainColor))
                 ],
               ),
             ),
