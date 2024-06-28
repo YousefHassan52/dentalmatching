@@ -15,6 +15,7 @@ import 'package:dentalmatching/features/doctor_features/category_cases/view/cate
 import 'package:dentalmatching/features/doctor_features/edit_profile_info/view/edit_doctor_info_screen.dart';
 import 'package:dentalmatching/features/doctor_features/search_cases/view/search_cases_screen.dart';
 import 'package:dentalmatching/features/doctor_features/settings_doctor/view/profile_doctor_screen.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/progress_screen_doctor.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/view_whole_case_doctor_screen.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/all_unassigned_cases_doctor_screen.dart';
 import 'package:dentalmatching/features/doctor_features/home/home_doctor.dart';
@@ -104,5 +105,9 @@ List<GetPage> routes = [
   GetPage(
     name: AppRoutes.changeProfileImage,
     page: () => const AddProfileImgScreen(),
+  ),
+  GetPage(
+    name: AppRoutes.progressScreen,
+    page: () => const ProgressScreen(),
   ),
 ];

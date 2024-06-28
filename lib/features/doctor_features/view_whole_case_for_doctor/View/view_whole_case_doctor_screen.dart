@@ -1,4 +1,5 @@
 import 'package:dentalmatching/core/constants/colors.dart';
+import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/core/shared/dailogue_with_buttons.dart';
@@ -54,19 +55,13 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                     children: [
                       FormHeadLine(headline: 'Progress'.tr),
                       IconButton(
-                          onPressed: () {
-                            scrollController.animateTo(0,
-                                duration: const Duration(milliseconds: 500),
-                                curve: Curves.easeInOut);
-                            showModalBottomSheet(
-                              isScrollControlled: true,
-                              context: context,
-                              builder: (context) {
-                                return const Center(child: ProgressScreen());
-                              },
-                            );
-                          },
-                          icon: languageController.sharedPref.getString("lang") == "en"
+                        onPressed: () {
+                          Get.toNamed(AppRoutes.progressScreen, arguments: {
+                            "caseId": controller.caseModel.caseId
+                          });
+                        },
+                        icon: languageController.sharedPref.getString("lang") ==
+                                "en"
                             ? const Icon(
                                 Icons.arrow_circle_right_rounded,
                                 color: AppColors.mainColor,
@@ -74,10 +69,11 @@ class ViewWholeCaseForDoctor extends StatelessWidget {
                             : const Icon(
                                 Icons.arrow_circle_left_rounded,
                                 color: AppColors.mainColor,
-                              ),),
+                              ),
+                      ),
                     ],
                   ),
-                   const SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 const HDivider(),

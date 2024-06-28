@@ -61,5 +61,9 @@ class ApiLinks {
       "https://dentamatchbackend.smartwaveeg.com/Auth/profileimage";
   static const String removeComment =
       "https://dentamatchbackend.smartwaveeg.com/DentalCase/removeComment?";
-  //caseId=db616a4b-f91f-46c9-a34f-368653509aed&comment=hader
+  static const String addProgress =
+      "https://dentamatchbackend.smartwaveeg.com/Doctor/DentalCase/addprogress?";
+  static const String getProgress =
+      "https://localhost:7198/DentalCase/getprogress?caseId=";
+      //CaseId=74ca969f-ffe3-4c80-9209-a8f141c92186&ProgressMessage=na enhardt 3algt sena wa7da fadl wa7da tania 
 }

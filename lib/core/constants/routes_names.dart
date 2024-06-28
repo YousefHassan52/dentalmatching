@@ -40,4 +40,5 @@ class AppRoutes {
   static const String viewWholeCaseAdmin = "/whole_case_admin";
   static const String changePassword = "/change_password";
   static const String changeProfileImage = "/change_profile_image";
+  static const String progressScreen = "/progress_screen";
 }

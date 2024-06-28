@@ -29,4 +29,23 @@ class RequestCaseData {
 
     return response.fold((l) => l, (r) => r);
   }
+
+  addProgress(
+      {required String progressMessage,
+      required String caseId,
+      required String token}) async {
+    var response = await crud.postWithToken(
+        url:
+            "${ApiLinks.addProgress}CaseId=$caseId&ProgressMessage=$progressMessage",
+        token: token,
+        data: {});
+    return response.fold((l) => l, (r) => r);
+  }
+
+  getProgress({required String token, required String caseId}) async {
+    var response =
+        await crud.get(url: "https://dentamatchbackend.smartwaveeg.com/DentalCase/getprogress?caseId=$caseId", token: token);
+
+    return response.fold((l) => l, (r) => r);
+  }
 }

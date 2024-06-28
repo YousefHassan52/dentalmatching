@@ -1,3 +1,4 @@
+import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
@@ -7,11 +8,13 @@ import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doct
 class AddProgress extends StatelessWidget {
   const AddProgress({
     Key? key,
+    required this.caseId,
   }) : super(key: key);
+  final String caseId;
 
   @override
   Widget build(BuildContext context) {
-    final ProgressController controller = Get.put(ProgressController());
+    Get.put(ProgressController());
 
     return GetBuilder<ProgressController>(
       builder: (controller) {
@@ -25,7 +28,7 @@ class AddProgress extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ListTile(
-                  title:  Text(
+                  title: Text(
                     "Add Progress".tr,
                     style: const TextStyle(color: Colors.white),
                   ),
@@ -38,7 +41,7 @@ class AddProgress extends StatelessWidget {
                   ),
                 ),
                 if (controller.isExpandedAdd) ...[
-                  const SizedBox(height: 16), 
+                  const SizedBox(height: 16),
                   Form(
                     key: controller.formKey,
                     child: Column(
@@ -46,44 +49,49 @@ class AddProgress extends StatelessWidget {
                       children: [
                         TextFormField(
                           onChanged: (value) => controller.progressText = value,
-                          controller: controller.linkTextController,
+                          controller: controller.msgController,
                           validator: (value) {
                             return AppValidator.textFormFieldValidator(
                                 value!, "Progress");
                           },
-                          decoration:  InputDecoration(
+                          decoration: InputDecoration(
                             hintText: "Write your progress here ...".tr,
                             hintStyle: const TextStyle(color: Colors.white70),
-                            errorStyle: const TextStyle(color: Color(0xFF880900)),
+                            errorStyle:
+                                const TextStyle(color: Color(0xFF880900)),
                           ),
                           style: const TextStyle(color: Colors.white),
                           maxLines: null,
                           keyboardType: TextInputType.multiline,
                         ),
-                        const SizedBox(height: 8), // Add space between form fields
+                        const SizedBox(
+                            height: 8), // Add space between form fields
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             TextButton(
                               onPressed: controller.cancelAdd,
-                              child:  Text(
+                              child: Text(
                                 "Cancel".tr,
                                 style: const TextStyle(color: Colors.white),
                               ),
                             ),
-                            const SizedBox(width: 8), // Add space between buttons
+                            const SizedBox(
+                                width: 8), // Add space between buttons
                             TextButton(
                               onPressed: () {
                                 controller.saveProgress(
-                                    controller.linkTextController.text);
+                                    controller.msgController.text, caseId);
                               },
-                              child:  Text(
+                              child: Text(
                                 "Save".tr,
                                 style: const TextStyle(color: Colors.white),
                               ),
                             ),
                           ],
                         ),
+                        if (controller.requestStatus == RequestStatus.LOADING)
+                          LinearProgressIndicator(),
                       ],
                     ),
                   ),
