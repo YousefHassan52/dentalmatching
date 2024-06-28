@@ -23,6 +23,7 @@ import 'package:dentalmatching/features/doctor_features/signup/view/signup_scree
 import 'package:dentalmatching/features/patient_features/add_case/Views/add_case.dart';
 import 'package:dentalmatching/features/patient_features/edit_case/view/edit_screen.dart';
 import 'package:dentalmatching/features/patient_features/edit_profile_info/view/edit_patient_info_screen.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/progress_screen_patient.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/view_form.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/View/has_cases.dart';
 import 'package:dentalmatching/features/patient_features/home/view/home_screen.dart';
@@ -109,5 +110,9 @@ List<GetPage> routes = [
   GetPage(
     name: AppRoutes.progressScreen,
     page: () => const ProgressScreen(),
+  ),
+  GetPage(
+    name: AppRoutes.progressScreenPatient,
+    page: () => const ProgressScreenPatient(),
   ),
 ];

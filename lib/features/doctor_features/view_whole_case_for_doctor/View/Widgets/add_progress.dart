@@ -91,7 +91,7 @@ class AddProgress extends StatelessWidget {
                           ],
                         ),
                         if (controller.requestStatus == RequestStatus.LOADING)
-                          LinearProgressIndicator(),
+                          const LinearProgressIndicator(),
                       ],
                     ),
                   ),

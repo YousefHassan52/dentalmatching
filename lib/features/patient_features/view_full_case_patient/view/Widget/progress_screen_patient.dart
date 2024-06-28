@@ -1,57 +1,62 @@
 import 'package:dentalmatching/core/constants/colors.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/view_full_case_patient_controller_impl.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/Upper.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/progress_patient_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class ProgressScreenPatient extends StatelessWidget {
   const ProgressScreenPatient({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ViewFullCasePatientControllerImpl controller =
-        Get.put(ViewFullCasePatientControllerImpl());
-    return FractionallySizedBox(
-      heightFactor: 0.9,
-      child: Form(
-        child: ListView(
-          padding: const EdgeInsets.all(0),
-          children: [
-            const SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: FittedBox(
-                alignment: AlignmentDirectional.topStart,
-                fit: BoxFit.scaleDown,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Recently Added'.tr,
-                      style: const TextStyle(
-                          fontSize: 24, fontWeight: FontWeight.w700),
-                    ),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.rocket_launch_outlined))
-                  ],
-                ),
+    Get.put(ProgressPatientController());
+    return Scaffold(
+      body: ListView(
+        padding: const EdgeInsets.all(0),
+        children: [
+          UpperWidget(
+            needBackButton: true,
+            text: 'Progress        '.tr,
+            welcome: false,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: FittedBox(
+              alignment: AlignmentDirectional.topStart,
+              fit: BoxFit.scaleDown,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Recently Added'.tr,
+                    style: const TextStyle(
+                        fontSize: 24, fontWeight: FontWeight.w700),
+                  ),
+                  IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.rocket_launch_outlined))
+                ],
               ),
             ),
-            const SizedBox(
-              height: 5,
-            ),
-            GetBuilder<ViewFullCasePatientControllerImpl>(
-              builder: (controller) {
-                return LayoutBuilder(
-                  builder: (context, constraints) {
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          GetBuilder<ProgressPatientController>(
+            builder: (controller) {
+              return LayoutBuilder(
+                builder: (context, constraints) {
+                  if (controller.progresses.isNotEmpty) {
                     return SingleChildScrollView(
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           children: List.generate(
-                            controller.progressEntries.length,
+                            controller.progresses.length,
                             (index) {
                               return Card(
                                 color: AppColors.blueLightTextColor,
@@ -63,12 +68,12 @@ class ProgressScreenPatient extends StatelessWidget {
                                     ListTile(
                                       title: Text(
                                         "Session ${index + 1}".tr,
-                                        style:
-                                            const TextStyle(color: Colors.white),
+                                        style: const TextStyle(
+                                            color: Colors.white),
                                       ),
                                       subtitle: Text(
-                                        controller.progressEntries[index]
-                                            ['date']!,
+                                        DateFormat.yMd().format(controller
+                                            .progresses[index].timestamp),
                                         style: const TextStyle(
                                             color: Color.fromARGB(
                                                 117, 191, 191, 191)),
@@ -94,15 +99,15 @@ class ProgressScreenPatient extends StatelessWidget {
                                                 0.9, // Adjust as needed
                                           ),
                                           decoration: const BoxDecoration(
-                                              color:
-                                                  Color.fromARGB(255, 8, 38, 102),
+                                              color: Color.fromARGB(
+                                                  255, 8, 38, 102),
                                               borderRadius: BorderRadius.all(
                                                   Radius.circular(20))),
                                           child: Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: Text(
-                                              controller.progressEntries[index]
-                                                  ['text']!,
+                                              controller.progresses[index]
+                                                  .progressMessage,
                                               style: const TextStyle(
                                                   color: Colors.white),
                                             ),
@@ -120,15 +125,17 @@ class ProgressScreenPatient extends StatelessWidget {
                         ),
                       ),
                     );
-                  },
-                );
-              },
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-          ],
-        ),
+                  } else {
+                    return const Text("No Progress");
+                  }
+                },
+              );
+            },
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+        ],
       ),
     );
   }

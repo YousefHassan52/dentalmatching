@@ -41,4 +41,5 @@ class AppRoutes {
   static const String changePassword = "/change_password";
   static const String changeProfileImage = "/change_profile_image";
   static const String progressScreen = "/progress_screen";
+  static const String progressScreenPatient = "/progress_screen_patient";
 }

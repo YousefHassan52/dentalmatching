@@ -1,3 +1,6 @@
+import 'package:dentalmatching/core/constants/colors.dart';
+import 'package:dentalmatching/core/constants/styles.dart';
+import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/app_upper.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/add_progress.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/added_progress.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/progress_controller.dart';
@@ -15,17 +18,20 @@ class ProgressScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(0),
         children: [
-          Center(
-            child: Text(
-              "Progress".tr,
-              style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+          AppUpperWidget(
+              text: 'Progress        '.tr,
+              needBackButton: true,
+              welcome: false,
             ),
-          ),
+        
           const SizedBox(
             height: 10,
           ),
-          AddProgress(
-            caseId: progressController.caseId,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: AddProgress(
+              caseId: progressController.caseId,
+            ),
           ),
           const SizedBox(
             height: 5,
@@ -40,15 +46,14 @@ class ProgressScreen extends StatelessWidget {
                 children: [
                   Text(
                     'Recently Added'.tr,
-                    style: const TextStyle(
-                        fontSize: 24, fontWeight: FontWeight.w700),
+                    style: Styles.formTitle,
                   ),
                   IconButton(
                       onPressed: () {
                         progressController
                             .getProgress(progressController.caseId);
                       },
-                      icon: const Icon(Icons.rocket_launch_outlined))
+                      icon: const Icon(Icons.rocket_launch_outlined,color: AppColors.mainColor))
                 ],
               ),
             ),
