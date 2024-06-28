@@ -4,6 +4,7 @@ import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/common_faetures/dental_case_comments/controller/comments_controller_impl.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/data/model/progress_model.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/data/Model/case_model.dart';
 import 'package:dentalmatching/features/patient_features/signup/data/model/patient_model.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/view_full_case_patient_controller_abstract.dart';
@@ -18,22 +19,8 @@ class ViewFullCasePatientControllerImpl
   late PatientCaseModel caseModel;
   ViewFullCasePatientData data = ViewFullCasePatientData(Get.find());
   RequestStatus? requestStatus;
-  List<Map<String, String>> progressEntries = [
-    {'date': '2023-06-25', 'text': 'Initial consultation Follow-up appointment Follow-up appointment Follow-up appointment Follow-up appointment Follow-up appointment'},
-    {'date': '2023-07-02', 'text': 'Follow-up appointment Follow-up appointment Follow-up appointment Follow-up appointment Follow-up appointment'},
-    // Add more entries as needed
-  ];
-  List<bool> expandedStates = [];
 
-  ViewFullCasePatientControllerImpl() {
-    expandedStates = List<bool>.filled(progressEntries.length, false);
-  }
-
-  void toggleAdded(int index) {
-    expandedStates[index] = !expandedStates[index];
-    update();
-  }
-
+ 
 
   @override
   Future<void> deleteCase() async {
@@ -72,5 +59,9 @@ class ViewFullCasePatientControllerImpl
     commentsController.getComments(
         caseId: caseModel.caseId, token: patient.token);
     super.onInit();
+
   }
+
+
+  
 }

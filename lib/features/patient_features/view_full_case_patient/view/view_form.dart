@@ -82,42 +82,36 @@ class ViewForm extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                   const SizedBox(
-                  height: 20,
-                ),
-                if (controller.caseModel.isAssigned)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      FormHeadLine(headline: 'Progress'.tr),
-                      IconButton(
+                  if (controller.caseModel.isAssigned)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        FormHeadLine(headline: 'Progress'.tr),
+                        IconButton(
                           onPressed: () {
-                            scrollController.animateTo(0,
-                                duration: const Duration(milliseconds: 500),
-                                curve: Curves.easeInOut);
-                            showModalBottomSheet(
-                              isScrollControlled: true,
-                              context: context,
-                              builder: (context) {
-                                return const Center(child: ProgressScreenPatient());
-                              },
-                            );
+                            Get.toNamed(AppRoutes.progressScreenPatient,
+                                arguments: {
+                                  "caseId": controller.caseModel.caseId
+                                });
                           },
-                          icon: languageController.sharedPref.getString("lang") == "en"
-                            ? const Icon(
-                                Icons.arrow_circle_right_rounded,
-                                color: AppColors.mainColor,
-                              )
-                            : const Icon(
-                                Icons.arrow_circle_left_rounded,
-                                color: AppColors.mainColor,
-                              ),),
-                    ],
+                          icon:
+                              languageController.sharedPref.getString("lang") ==
+                                      "en"
+                                  ? const Icon(
+                                      Icons.arrow_circle_right_rounded,
+                                      color: AppColors.mainColor,
+                                    )
+                                  : const Icon(
+                                      Icons.arrow_circle_left_rounded,
+                                      color: AppColors.mainColor,
+                                    ),
+                        ),
+                      ],
+                    ),
+                  const SizedBox(
+                    height: 20,
                   ),
-                   const SizedBox(
-                  height: 20,
-                ),
-                const HDivider(),
+                  const HDivider(),
                   FormHeadLine(headline: 'Describe what you feel'.tr),
                   Container(
                     width: double.infinity,
