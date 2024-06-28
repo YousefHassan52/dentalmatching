@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
@@ -21,11 +23,11 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.only(top: 30,left: 16,right: 16,bottom: 0),
         child: Form(
           key: externalController.formKey,
           child: ListView(
-            padding: const EdgeInsets.only(top: 0),
+            padding: const EdgeInsets.only(top: 0,bottom: 0),
             scrollDirection: Axis.vertical,
             children: [
               FittedBox(
