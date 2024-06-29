@@ -21,7 +21,7 @@ void main() async {
 
   // MyServices service = Get.put(MyServices());
   // service.sharedPref.clear();
-  runApp(DevicePreview(builder: (builder) => const MyApp()));
+  runApp(const MyApp());
 
   // runApp(const MyApp());
 }

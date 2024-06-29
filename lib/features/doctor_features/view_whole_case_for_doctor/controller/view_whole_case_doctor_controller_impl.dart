@@ -9,6 +9,7 @@ import 'package:dentalmatching/features/doctor_features/get_doctor_cases/control
 import 'package:dentalmatching/features/doctor_features/signup/data/models/doctor_model.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_abstract.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/data/request_case_data.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ViewWholeCaseDoctorControllerImpl
@@ -48,7 +49,7 @@ class ViewWholeCaseDoctorControllerImpl
     update();
     print("joe ;${requestStatus.toString()}");
     if (requestStatus == RequestStatus.SUCCESS) {
-      if (response["success"] == true) {
+      if (response["message"] == "Dental Case Requested Successfully") {
         Get.snackbar("Success".tr, "Now you are Responsible with This Case".tr);
         Future.delayed(const Duration(seconds: 2), () {
           Get.back(); // Dismisses the dialog
@@ -62,6 +63,12 @@ class ViewWholeCaseDoctorControllerImpl
             Get.put(GetThreeCasesControllerImpl());
         doctorCases.getCases();
         homeCases.getCases();
+      } else {
+        customDialoge(
+            title: "Reserved Time",
+            middleText: "You already booked another appointment in this time",
+            backgroundColor: Colors.red,
+            textColor: Colors.white);
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
       customDialoge(
