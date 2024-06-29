@@ -3,6 +3,9 @@ import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/add_case.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/View/has_cases.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/profile_patient_screen.dart';
+import 'package:dentalmatching/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -27,6 +30,24 @@ class _HomePatientScreenState extends State<HomePatientScreen> {
     _pageController.dispose();
     super.dispose();
   }
+
+
+  @override
+void initState() {
+  super.initState();
+  initializeFirebaseAndToken();
+}
+
+void initializeFirebaseAndToken() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  var token = await FirebaseMessaging.instance.getToken();
+  print("Token: $token");
+
+}
+
 
   /// widget list
   final List<Widget> bottomBarPages = [

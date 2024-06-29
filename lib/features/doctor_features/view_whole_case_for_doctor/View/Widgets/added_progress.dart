@@ -12,7 +12,7 @@ class AddedProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   ProgressController controller = Get.put(ProgressController());
+   Get.put(ProgressController());
     final String session = "Session".tr;
 return GetBuilder<ProgressController>(
   builder: (controller) {
