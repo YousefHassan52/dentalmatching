@@ -120,34 +120,55 @@ class AppointmentScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 10),
                         GetBuilder<AppointmentController>(
-                          builder: (controller) => Wrap(
-                            spacing: 6,
-                            runSpacing: 5.0,
-                            children: appointmentController.availableTimes
-                                .map((time) {
-                              final isSelected = time ==
-                                  appointmentController.selectedAvailableTime;
-                              return Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 4),
-                                child: ChoiceChip(
-                                  label: Text(
-                                    '${time.format(context)} - ${time.replacing(hour: time.hour + 1).format(context)}',
-                                    style: const TextStyle(
-                                        fontSize:
-                                            14), // Adjust the font size as needed
-                                  ),
-                                  selected: isSelected,
-                                  onSelected: (selected) {
-                                    if (selected) {
+                          builder: (controller) => ListView.builder(
+                            shrinkWrap: true,
+                            itemCount:
+                                (appointmentController.availableTimes.length /
+                                        2)
+                                    .ceil(),
+                            itemBuilder: (context, index) {
+                              final startIndex = index * 2;
+                              final endIndex = startIndex + 2;
+                              final times = appointmentController.availableTimes
+                                  .sublist(
+                                      startIndex,
+                                      endIndex >
+                                              appointmentController
+                                                  .availableTimes.length
+                                          ? appointmentController
+                                              .availableTimes.length
+                                          : endIndex);
+                              return Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: times.map((time) {
+                                  final isSelected = time ==
                                       appointmentController
-                                          .selectAvailableTime(time);
-                                    }
-                                  },
-                                  selectedColor: AppColors.mainColor,
-                                ),
+                                          .selectedAvailableTime;
+                                  return Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 4, vertical: 4),
+                                      child: ChoiceChip(
+                                        label: Text(
+                                          '${time.format(context)} - ${time.replacing(hour: time.hour + 1).format(context)}',
+                                          style: const TextStyle(
+                                              fontSize:
+                                                  10), // Adjust the font size as needed
+                                        ),
+                                        selected: isSelected,
+                                        onSelected: (selected) {
+                                          if (selected) {
+                                            appointmentController
+                                                .selectAvailableTime(time);
+                                          }
+                                        },
+                                        selectedColor: AppColors.mainColor,
+                                      ),
+                                    ),
+                                  );
+                                }).toList(),
                               );
-                            }).toList(),
+                            },
                           ),
                         ),
                       ],
