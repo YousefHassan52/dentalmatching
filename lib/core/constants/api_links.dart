@@ -65,6 +65,10 @@ class ApiLinks {
       "https://dentamatchbackend.smartwaveeg.com/Doctor/DentalCase/addprogress?";
   static const String getProgress =
       "https://localhost:7198/DentalCase/getprogress?caseId=";
+  static const String editProgress =
+      "https://dentamatchbackend.smartwaveeg.com/Doctor/DentalCase/editprogress?";
   static const String notificationToken =
       "https://dentamatchbackend.smartwaveeg.com/Notification";
+  static const String appointmentTime =
+      "https://dentamatchbackend.smartwaveeg.com/Doctor/DentalCase/getcaseAvailableSlots";
 }

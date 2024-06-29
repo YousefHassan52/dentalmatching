@@ -43,8 +43,24 @@ class RequestCaseData {
   }
 
   getProgress({required String token, required String caseId}) async {
-    var response =
-        await crud.get(url: "https://dentamatchbackend.smartwaveeg.com/DentalCase/getprogress?caseId=$caseId", token: token);
+    var response = await crud.get(
+        url:
+            "https://dentamatchbackend.smartwaveeg.com/DentalCase/getprogress?caseId=$caseId",
+        token: token);
+
+    return response.fold((l) => l, (r) => r);
+  }
+
+  appointmentTime({
+    required String date,
+    required List<String> times,
+    required String token,
+  }) async {
+    var response = await crud.postWithToken(
+        url:
+            ApiLinks.appointmentTime,
+        token: token,
+        data: {"Date": date, "Times": times});
 
     return response.fold((l) => l, (r) => r);
   }
