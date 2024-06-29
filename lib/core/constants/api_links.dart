@@ -65,5 +65,6 @@ class ApiLinks {
       "https://dentamatchbackend.smartwaveeg.com/Doctor/DentalCase/addprogress?";
   static const String getProgress =
       "https://localhost:7198/DentalCase/getprogress?caseId=";
-      //CaseId=74ca969f-ffe3-4c80-9209-a8f141c92186&ProgressMessage=na enhardt 3algt sena wa7da fadl wa7da tania 
+  static const String notificationToken =
+      "https://dentamatchbackend.smartwaveeg.com/Notification";
 }

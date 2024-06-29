@@ -1,5 +1,6 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
+import 'package:dentalmatching/features/common_faetures/notifications/controller/imp_controller.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/add_case.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/View/has_cases.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/profile_patient_screen.dart';
@@ -31,23 +32,13 @@ class _HomePatientScreenState extends State<HomePatientScreen> {
     super.dispose();
   }
 
-
   @override
-void initState() {
-  super.initState();
-  initializeFirebaseAndToken();
-}
-
-void initializeFirebaseAndToken() async {
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-
-  var token = await FirebaseMessaging.instance.getToken();
-  print("Token: $token");
-
-}
-
+  void initState() {
+    super.initState();
+    NotificationControllerImpl notificationController =
+        Get.put(NotificationControllerImpl());
+    notificationController.initializeFirebaseAndToken();
+  }
 
   /// widget list
   final List<Widget> bottomBarPages = [
