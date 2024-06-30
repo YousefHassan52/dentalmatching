@@ -1,3 +1,4 @@
+import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -109,70 +110,79 @@ class AppointmentScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: Column(
-                      children: [
-                        const Text(
-                          'Select Available Time',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(height: 10),
-                        GetBuilder<AppointmentController>(
-                          builder: (controller) => ListView.builder(
-                            shrinkWrap: true,
-                            itemCount:
-                                (appointmentController.availableTimes.length /
-                                        2)
-                                    .ceil(),
-                            itemBuilder: (context, index) {
-                              final startIndex = index * 2;
-                              final endIndex = startIndex + 2;
-                              final times = appointmentController.availableTimes
-                                  .sublist(
-                                      startIndex,
-                                      endIndex >
-                                              appointmentController
+                  GetBuilder<AppointmentController>(
+                    builder: (internalController) {
+                      if(internalController.requestStatus==RequestStatus.LOADING) {
+                        return LinearProgressIndicator();
+                      } else {
+                        return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        child: Column(
+                          children: [
+                            const Text(
+                              'Select Available Time',
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(height: 10),
+                            GetBuilder<AppointmentController>(
+                              builder: (controller) => ListView.builder(
+                                shrinkWrap: true,
+                                itemCount:
+                                    (appointmentController.availableTimes.length /
+                                            2)
+                                        .ceil(),
+                                itemBuilder: (context, index) {
+                                  final startIndex = index * 2;
+                                  final endIndex = startIndex + 2;
+                                  final times = appointmentController.availableTimes
+                                      .sublist(
+                                          startIndex,
+                                          endIndex >
+                                                  appointmentController
+                                                      .availableTimes.length
+                                              ? appointmentController
                                                   .availableTimes.length
-                                          ? appointmentController
-                                              .availableTimes.length
-                                          : endIndex);
-                              return Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: times.map((time) {
-                                  final isSelected = time ==
-                                      appointmentController
-                                          .selectedAvailableTime;
-                                  return Expanded(
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 4, vertical: 4),
-                                      child: ChoiceChip(
-                                        label: Text(
-                                          '${time.format(context)} - ${time.replacing(hour: time.hour + 1).format(context)}',
-                                          style: const TextStyle(
-                                              fontSize:
-                                                  10), // Adjust the font size as needed
+                                              : endIndex);
+                                  return Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: times.map((time) {
+                                      final isSelected = time ==
+                                          appointmentController
+                                              .selectedAvailableTime;
+                                      return Expanded(
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 4, vertical: 4),
+                                          child: ChoiceChip(
+                                            label: Text(
+                                              '${time.format(context)} - ${time.replacing(hour: time.hour + 1).format(context)}',
+                                              style: const TextStyle(
+                                                  fontSize:
+                                                      10), // Adjust the font size as needed
+                                            ),
+                                            selected: isSelected,
+                                            onSelected: (selected) {
+                                              if (selected) {
+                                                appointmentController
+                                                    .selectAvailableTime(time);
+                                              }
+                                            },
+                                            selectedColor: AppColors.mainColor,
+                                          ),
                                         ),
-                                        selected: isSelected,
-                                        onSelected: (selected) {
-                                          if (selected) {
-                                            appointmentController
-                                                .selectAvailableTime(time);
-                                          }
-                                        },
-                                        selectedColor: AppColors.mainColor,
-                                      ),
-                                    ),
+                                      );
+                                    }).toList(),
                                   );
-                                }).toList(),
-                              );
-                            },
-                          ),
+                                },
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      );
+                      }
+                      
+                    }
                   ),
                   const SizedBox(height: 15),
                   Container(
