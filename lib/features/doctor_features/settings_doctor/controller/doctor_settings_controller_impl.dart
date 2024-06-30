@@ -9,7 +9,7 @@ class SettingsDoctorControllerImpl extends SettingsDoctorControllerAbstract {
   late DoctorModel userModel =
       DoctorModel.fromSharedPref(myServices.sharedPref);
 
-RxBool visibleLanguage = false.obs;
+  RxBool visibleLanguage = false.obs;
   RxBool visiblePay = false.obs;
   @override
   void onInit() {
@@ -28,18 +28,20 @@ RxBool visibleLanguage = false.obs;
     myServices.sharedPref.remove("city");
     myServices.sharedPref.remove("phoneNumber");
     myServices.sharedPref.remove("role");
+    myServices.sharedPref.remove("specialization");
     myServices.sharedPref.remove("userName");
 
     myServices.sharedPref.remove("logged");
     Get.offAllNamed(AppRoutes.login);
   }
 
-    void trueVisibilityLanguage() {
-     visibleLanguage.toggle();
+  void trueVisibilityLanguage() {
+    visibleLanguage.toggle();
     update();
   }
+
   void trueVisibilityPay() {
-     visiblePay.toggle();
+    visiblePay.toggle();
     update();
   }
 }

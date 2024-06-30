@@ -65,6 +65,7 @@ class MyTranslation implements Translations {
           "Male": "ذكر",
           "Your Account Has Been Created Successfully\nPlease Wait For Identity Verification":
               "تم إنشاء حسابك بنجاح\nيرجى الانتظار حتى يتم التحقق من الهوية",
+          "Specialization": "التخصص",
 
           "WELCOME": "مرحبا",
           "Settings": "اعدادات",
@@ -290,7 +291,7 @@ class MyTranslation implements Translations {
           "Recently Added": "أضيف مؤخرا",
           "Add Progress": "إضافة تقدم",
           "Write your progress here ...": "اكتب تقدمك هنا ...",
-          "Progress":"التقدم",
+          "Progress": "التقدم",
         },
         "en": {
           // categories
@@ -342,7 +343,7 @@ class MyTranslation implements Translations {
           "Personal Info": "Personal Info",
           "Your Account Has Been Created Successfully\nPlease Wait For Identity Verification":
               "Your Account Has Been Created Successfully\nPlease Wait For Identity Verification",
-
+          "Specialization": "Specialization",
           "WELCOME": "WELCOME",
           "Settings": "Setting",
           "Add Case": "Add Case",
@@ -548,7 +549,7 @@ Your password must include:
 
           //progress
           "Session": "Session",
-          "Progress":"Progress",
+          "Progress": "Progress",
           "Edit your progress here ...": "Edit your progress here ...",
           "Save": "Save",
           "Recently Added": "Recently Added",

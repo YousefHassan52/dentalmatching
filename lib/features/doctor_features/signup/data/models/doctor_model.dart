@@ -13,6 +13,7 @@ class DoctorModel {
   final String city;
   final String phoneNumber;
   final String role;
+  final String specialization;
   final String userName;
 
   DoctorModel({
@@ -25,6 +26,7 @@ class DoctorModel {
     required this.city,
     required this.phoneNumber,
     required this.role,
+    required this.specialization,
     required this.userName,
     this.cardImage,
     this.profileImage,
@@ -46,6 +48,7 @@ class DoctorModel {
       city: json['city'],
       phoneNumber: json['phoneNumber'],
       role: json['role'],
+      specialization: json['specialization'],
     );
   }
 
@@ -63,6 +66,7 @@ class DoctorModel {
       city: sharedPref.getString("city")!,
       phoneNumber: sharedPref.getString("phoneNumber")!,
       role: sharedPref.getString("role")!,
+      specialization: sharedPref.getString("specialization")!,
       userName: sharedPref.getString("userName")!,
     );
   }
@@ -79,6 +83,7 @@ class DoctorModel {
       'city': city,
       'phoneNumber': phoneNumber,
       'role': role,
+      'specialization': specialization,
       'userName': userName,
     };
   }

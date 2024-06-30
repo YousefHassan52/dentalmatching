@@ -48,6 +48,13 @@ class SettingsDoctorScreen extends StatelessWidget {
                 child: EnabledInfo(
                     icon: Icons.mail, info: controller.doctorModel.email),
               ),
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: EnabledInfo(
+                    icon: Icons.add_task,
+                    info:
+                        "Specialization: ${controller.doctorModel.specialization}"),
+              ),
               const SizedBox(
                 height: 25,
               ),

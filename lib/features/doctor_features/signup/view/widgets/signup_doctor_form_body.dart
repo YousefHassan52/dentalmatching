@@ -7,25 +7,13 @@ import 'package:dentalmatching/features/doctor_features/signup/controller/signup
 import 'package:dentalmatching/features/doctor_features/signup/view/widgets/add_card_image.dart';
 import 'package:dentalmatching/features/doctor_features/signup/view/widgets/doctor_dropdown_gender.dart';
 import 'package:dentalmatching/features/doctor_features/signup/view/widgets/doctor_government_dropdown_search.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:dentalmatching/features/doctor_features/signup/view/widgets/specializations_dropdown.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class SignupDoctorFormBody extends StatelessWidget {
   const SignupDoctorFormBody({Key? key}) : super(key: key);
 
-/*
- "fullName": fullname,
-      "email": email,
-      "password": password,
-      "age": age,
-      "gender": gender,
-      "city": city,
-      "phoneNumber": phoneNumber,
-      "role": role,
-      "university": university,
-      "CardImage": fileImage,*/
   @override
   Widget build(BuildContext context) {
     SignupDoctorControllerImpl externalController = Get.find();
@@ -77,6 +65,10 @@ class SignupDoctorFormBody extends StatelessWidget {
                 }
               },
               fieldController: externalController.universityController),
+          const SizedBox(
+            height: 15,
+          ),
+          const DocotrSpecializationDropdownSearch(),
           const SizedBox(
             height: 15,
           ),

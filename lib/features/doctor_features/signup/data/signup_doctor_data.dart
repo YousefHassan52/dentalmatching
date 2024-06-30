@@ -16,6 +16,7 @@ class SignupDoctorData {
     required String city,
     required String phoneNumber,
     required String role,
+    required String specialization,
     required String university,
     required File fileImage,
   }) async {
@@ -29,6 +30,7 @@ class SignupDoctorData {
       "city": city,
       "phoneNumber": phoneNumber,
       "role": role,
+      "Specialization": specialization,
       "university": university,
       "CardImage": fileImage,
     });

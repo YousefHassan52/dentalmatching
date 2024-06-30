@@ -61,7 +61,8 @@ class EditDoctorInfoControllerImp extends EditDoctortInfoControllerAbstract {
               gender: gender == "Male" ? true : false,
               city: gov!,
               phoneNumber: phoneController.text,
-              role: userModel.role);
+              role: userModel.role,
+              specialization: userModel.specialization);
           DoctorDataController doctorDataController =
               Get.put(DoctorDataController());
           doctorDataController.updateDoctordata(userModel.toJson());

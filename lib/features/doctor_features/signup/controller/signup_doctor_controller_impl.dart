@@ -21,6 +21,7 @@ class SignupDoctorControllerImpl extends SignupDoctorControllerAbstract {
   late TextEditingController passwordController;
   late TextEditingController universityController;
   String? gov;
+  String? specialization;
   String? gender;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   //-------------------------------------------------------------
@@ -47,6 +48,7 @@ class SignupDoctorControllerImpl extends SignupDoctorControllerAbstract {
       requestStatus = RequestStatus.LOADING;
       update();
       var response = await signupData.postData(
+        specialization:specialization! ,
           age: int.parse(ageController.text),
           city: gov!,
           email: emailController.text,

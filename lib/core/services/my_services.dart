@@ -42,6 +42,7 @@ class MyServices extends GetxService {
     sharedPref.setString("city", response["data"]["city"]);
     sharedPref.setString("phoneNumber", response["data"]["phoneNumber"]);
     sharedPref.setString("role", response["data"]["role"]);
+    sharedPref.setString("specialization", response["data"]["specialization"]);
   }
 
   void savePatientModelToSharedPrefrence(response) {
@@ -92,6 +93,7 @@ class MyServices extends GetxService {
     sharedPref.remove("city");
     sharedPref.remove("phoneNumber");
     sharedPref.remove("role");
+    sharedPref.remove("specialization");
     sharedPref.remove("address");
   }
 

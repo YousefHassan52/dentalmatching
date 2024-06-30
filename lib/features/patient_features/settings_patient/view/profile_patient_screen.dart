@@ -53,6 +53,7 @@ class SettingsPatientScreen extends StatelessWidget {
                 child: EnabledInfo(
                     icon: Icons.mail, info: controller.userModel.email),
               ),
+              
 
               const SizedBox(
                 height: 25,
