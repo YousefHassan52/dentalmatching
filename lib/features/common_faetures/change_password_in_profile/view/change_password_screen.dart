@@ -19,7 +19,7 @@ class ChangePasswordScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_rounded,
             color: Colors.white,
           ),
@@ -29,17 +29,12 @@ class ChangePasswordScreen extends StatelessWidget {
         ),
         title: Text(
           'Change Password'.tr,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // UpperWidget(
-            //   needBackButton: true,
-            //   text: 'Change Password'.tr,
-            //   welcome: false,
-            // ),
             GetBuilder<ChangePasswordControllerImpl>(builder: (controller) {
               return Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -151,7 +146,7 @@ class ChangePasswordScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 15,
                         ),
                         if (controller.requestStatus == RequestStatus.LOADING)
