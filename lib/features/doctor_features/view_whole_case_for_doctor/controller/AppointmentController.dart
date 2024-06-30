@@ -29,7 +29,10 @@ class AppointmentController extends GetxController {
     14,
     (index) => TimeOfDay(hour: 8 + index, minute: 0),
   );
-
+  List<TimeOfDay> timesSendtoApi = List.generate(
+    14,
+    (index) => TimeOfDay(hour: 8 + index, minute: 0),
+  );
   TimeOfDay? selectedAvailableTime;
 
   @override
@@ -39,7 +42,7 @@ class AppointmentController extends GetxController {
   }
 
   List<String> formatAvailableTimes() {
-    return availableTimes.map((time) {
+    return timesSendtoApi.map((time) {
       String formattedHour = time.hour.toString().padLeft(2, '0');
       String formattedMinute = time.minute.toString().padLeft(2, '0');
       String formattedSecond = "00"; // Assuming seconds are always "00"
