@@ -1,6 +1,6 @@
 List<String> specializations = [
-  "General"
-      "Prosthodontics",
+  "General",
+  "Prosthodontics",
   "Orthodontics",
   "Endodontics",
   "Oral and Maxillofacial surgery",

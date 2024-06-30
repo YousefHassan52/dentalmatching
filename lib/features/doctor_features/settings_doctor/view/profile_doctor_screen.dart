@@ -74,9 +74,19 @@ class SettingsDoctorScreen extends StatelessWidget {
                     Get.toNamed(AppRoutes.editDoctorInfo);
                   }),
               SettingsRowComponent(
+                  icon: Icons.add_task,
+                  iconColor: AppColors.mainColor,
+                  text: "Change Specialization".tr,
+                  textColor: AppColors.mainColor,
+                  onTap: () {
+                    Get.toNamed(
+                      AppRoutes.editSpecializationScreen,
+                    );
+                  }),
+              SettingsRowComponent(
                   icon: Icons.camera_alt_rounded,
                   iconColor: AppColors.mainColor,
-                  text: "Change Profile Image",
+                  text: "Change Profile Image".tr,
                   textColor: AppColors.mainColor,
                   onTap: () {
                     Get.toNamed(AppRoutes.changeProfileImage, arguments: {

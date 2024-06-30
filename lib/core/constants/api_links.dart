@@ -71,4 +71,6 @@ class ApiLinks {
       "https://dentamatchbackend.smartwaveeg.com/Notification";
   static const String appointmentTime =
       "https://dentamatchbackend.smartwaveeg.com/Doctor/DentalCase/getcaseAvailableSlots";
+  static const String editSpecialization =
+      "https://dentamatchbackend.smartwaveeg.com/Doctor/DentalCase/requestSpecialization";
 }

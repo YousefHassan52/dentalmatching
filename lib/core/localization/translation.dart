@@ -66,6 +66,8 @@ class MyTranslation implements Translations {
           "Your Account Has Been Created Successfully\nPlease Wait For Identity Verification":
               "تم إنشاء حسابك بنجاح\nيرجى الانتظار حتى يتم التحقق من الهوية",
           "Specialization": "التخصص",
+          "Change Specialization": "تغيير التخصص",
+          "Change Profile Image": "تغيير الصورة الشخصية",
 
           "WELCOME": "مرحبا",
           "Settings": "اعدادات",
@@ -344,6 +346,7 @@ class MyTranslation implements Translations {
           "Your Account Has Been Created Successfully\nPlease Wait For Identity Verification":
               "Your Account Has Been Created Successfully\nPlease Wait For Identity Verification",
           "Specialization": "Specialization",
+          "Change Specialization": "Change Specialization",
           "WELCOME": "WELCOME",
           "Settings": "Setting",
           "Add Case": "Add Case",
@@ -369,6 +372,7 @@ class MyTranslation implements Translations {
           'Alert': 'Alert',
           "Are you sure you want to delete your Acoount?":
               "Are you sure you want to delete your Acoount?",
+          "Change Profile Image": "Change Profile Image",
 
           //All Cases
           'Recently Added Cases': 'Recently Added Cases',

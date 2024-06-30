@@ -10,6 +10,7 @@ import 'package:dentalmatching/features/common_faetures/forget_password/reset_pa
 import 'package:dentalmatching/features/common_faetures/forget_password/verify_email_code_for_forget/view/verify_forget_password_code_screen.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/login.dart';
 import 'package:dentalmatching/features/common_faetures/onboarding/view/screens/onboarding.dart';
+import 'package:dentalmatching/features/doctor_features/edit_specialization/view/edit_specialization.dart';
 import 'package:dentalmatching/features/doctor_features/full_categories_page/View/full_category.dart';
 import 'package:dentalmatching/features/doctor_features/category_cases/view/category_cases_screen.dart';
 import 'package:dentalmatching/features/doctor_features/edit_profile_info/view/edit_doctor_info_screen.dart';
@@ -114,5 +115,9 @@ List<GetPage> routes = [
   GetPage(
     name: AppRoutes.progressScreenPatient,
     page: () => const ProgressScreenPatient(),
+  ),
+  GetPage(
+    name: AppRoutes.editSpecializationScreen,
+    page: () => const EditSpecialization(),
   ),
 ];
