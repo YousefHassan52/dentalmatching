@@ -20,8 +20,7 @@ void main() async {
 
   // MyServices service = Get.put(MyServices());
   // service.sharedPref.clear();
-  MyServices myServices=Get.put(MyServices());
-  myServices.sharedPref.clear();
+
   runApp(const MyApp());
 
   // runApp(const MyApp());
