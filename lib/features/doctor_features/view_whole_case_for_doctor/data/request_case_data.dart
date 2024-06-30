@@ -33,7 +33,8 @@ class RequestCaseData {
   addProgress(
       {required String progressMessage,
       required String caseId,
-      required String token}) async {
+      required String token,
+      }) async {
     var response = await crud.postWithToken(
         url:
             "${ApiLinks.addProgress}CaseId=$caseId&ProgressMessage=$progressMessage",
@@ -60,6 +61,21 @@ class RequestCaseData {
         url: ApiLinks.appointmentTime,
         token: token,
         data: {"Date": date, "Times": times});
+    print(response);
+
+    return response.fold((l) => l, (r) => r);
+  }
+
+  editProgress(
+      {required String progressMessage,
+      required String caseId,
+      required String progressId,
+      required String token}) async {
+    var response = await crud.post(
+        url:
+            "${ApiLinks.editProgress}CaseId=$caseId&ProgressMessage=$progressMessage&ProgressId=$progressId",
+        token: token,
+        data: {});
     print(response);
 
     return response.fold((l) => l, (r) => r);

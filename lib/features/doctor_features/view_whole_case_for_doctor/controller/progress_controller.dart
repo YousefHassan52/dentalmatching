@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
@@ -13,14 +11,11 @@ import 'package:get/get.dart';
 class ProgressController extends GetxController {
   late String caseId;
   List<ProgressModel> progresses = [];
-
   bool isExpandedAdd = false;
-  List<Map<String, String>> progressEntries = [];
-  List<bool> expandedStates = [];
   String progressText = '';
   late TextEditingController msgController;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
+  List<bool> expandedStates = [];
   List<bool> editStates = [];
   RequestCaseData data = RequestCaseData(Get.find());
   RequestStatus? requestStatus;
@@ -74,8 +69,10 @@ class ProgressController extends GetxController {
   }
 
   void toggleAdded(int index) {
-    expandedStates[index] = !expandedStates[index];
-    update();
+    if (index >= 0 && index < expandedStates.length) {
+      expandedStates[index] = !expandedStates[index];
+      update();
+    }
   }
 
   void cancelAdd() {
@@ -85,24 +82,45 @@ class ProgressController extends GetxController {
   }
 
   void editProgress(int index) {
-    editStates[index] = !editStates[index];
-    msgController.text = progressEntries[index]['text']!;
-    update();
-  }
-
-  void saveEditedProgress(int index, String text) {
-    if (formKey.currentState!.validate()) {
-      progressEntries[index]['text'] = text;
-      editStates[index] = false;
-      msgController.clear();
+    if (index >= 0 && index < editStates.length) {
+      editStates[index] = !editStates[index];
+      msgController.text = progresses[index].progressMessage;
       update();
     }
   }
 
+  void saveEditedProgress(int index, String text) async {
+    if (index >= 0 && index < editStates.length && index < progresses.length) {
+      if (formKey.currentState!.validate()) {
+      requestStatus = RequestStatus.LOADING;
+      update();
+      var response = await data.editProgress(
+          token: doctorModel.token,
+          caseId: caseId,
+          progressMessage: msgController.text,
+          progressId: progresses[index].id);
+      update();
+      requestStatus = HandlingResponseType.fun(response);
+      if (requestStatus == RequestStatus.SUCCESS) {
+        Get.snackbar("Success".tr, "Progress Edited Successfully".tr);
+        await getProgress(caseId); // Reload progress after editing
+      } else {
+        customDialoge(
+            title: "Try Again".tr, middleText: "Server Error Please Try Again");
+      }
+      msgController.clear();
+      editStates[index] = false;
+      update();
+    }
+    }
+  }
+
   void cancelEdit(int index) {
-    editStates[index] = false;
-    msgController.clear();
-    update();
+    if (index >= 0 && index < editStates.length) {
+      editStates[index] = false;
+      msgController.clear();
+      update();
+    }
   }
 
   Future<void> getProgress(caseId) async {
@@ -144,7 +162,6 @@ class ProgressController extends GetxController {
       customDialoge(
           title: "Try Again", middleText: "Server Error Please Try Again");
     }
-
     update();
   }
 }
