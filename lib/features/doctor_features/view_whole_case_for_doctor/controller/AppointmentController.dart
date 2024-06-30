@@ -85,8 +85,8 @@ class AppointmentController extends GetxController {
       selectedDate = picked;
       String selectedDateApi = DateFormat('yyyy-MM-dd').format(selectedDate!);
       List<String> formattedTimes = formatAvailableTimes();
-      print(selectedDateApi);
-      print(formattedTimes);
+      print(selectedDateApi); // for debugging
+      print(formattedTimes); // for debugging
       sendDay(selectedDateApi: selectedDateApi, formattedTimes: formattedTimes);
       update();
     }
@@ -95,7 +95,6 @@ class AppointmentController extends GetxController {
   void sendDay(
       {required String selectedDateApi,
       required List<String> formattedTimes}) async {
-    availableTimes = [];
     requestStatus = RequestStatus.LOADING;
     update();
 
@@ -109,15 +108,14 @@ class AppointmentController extends GetxController {
 
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {
+        availableTimes=[];
         List<dynamic> responseData = response["data"]["times"];
         for (var timeString in responseData) {
-          // Parse the time string and add it to availableTimes
           List<String> timeParts = timeString.split(":");
           int hour = int.parse(timeParts[0]);
           int minute = int.parse(timeParts[1]);
           availableTimes.add(TimeOfDay(hour: hour, minute: minute));
         }
-        
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
       customDialoge(

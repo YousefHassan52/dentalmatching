@@ -20,12 +20,19 @@ class CRUD {
           Map<String, dynamic> json = response.data;
           return right(json);
         } else if (response.statusCode == 400) {
+          print(response);
+
           return left(RequestStatus.UNAUTHORIZED_FAILURE);
         } else if (response.statusCode == 500) {
+          print(response);
+
           return left(RequestStatus.INTERNAL_SERVER_ERROR);
         } else if (response.statusCode == 403) {
+          print(response);
+
           return left(RequestStatus.BLOCKED_USER);
         } else {
+          print(response);
           return left(RequestStatus.SERVER_FAILURE);
         }
       } on SocketException catch (e) {
@@ -110,6 +117,7 @@ class CRUD {
           },
         );
         dio.options.validateStatus = (status) => true;
+
         return dio.post(url, data: formData, options: options);
       });
     } else {

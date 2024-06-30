@@ -56,7 +56,7 @@ class RequestCaseData {
     required List<String> times,
     required String token,
   }) async {
-    var response = await crud.postWithToken(
+    var response = await crud.post(
         url: ApiLinks.appointmentTime,
         token: token,
         data: {"Date": date, "Times": times});
