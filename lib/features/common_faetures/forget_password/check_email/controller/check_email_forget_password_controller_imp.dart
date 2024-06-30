@@ -59,6 +59,7 @@ class CheckEmailForgetPasswordControllerImp
   }
 
   void checkEmailFromSettings({required String email}) async {
+    print("email from send to email butto $email");
     requestStatus = RequestStatus.LOADING;
     update();
     var response = await checkEmailData.postData(email: email);
@@ -69,7 +70,8 @@ class CheckEmailForgetPasswordControllerImp
     update();
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response['success'] == true) {
-        goToVerifyCodeScreen();
+        Get.toNamed(AppRoutes.verifyEmailForgetPassword,
+            arguments: {"email": email});
       }
     } else if (requestStatus ==
         RequestStatus.UNAUTHORIZED_FAILURE) // status code 400 (Email not found)

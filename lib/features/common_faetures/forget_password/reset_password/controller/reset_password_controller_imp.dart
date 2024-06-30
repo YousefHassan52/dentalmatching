@@ -53,12 +53,9 @@ class ResetPasswordControllerImp extends ResetPasswordControllerAbstract {
       update();
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response["success"] == true) {
-          customDialogeWithButtons(
+          customDialoge(
             title: "Success".tr,
             middleText: "Password Reseted Successfully".tr,
-            confirm: () {
-              Get.offAllNamed(AppRoutes.login);
-            },
           );
         }
       } else if (requestStatus ==

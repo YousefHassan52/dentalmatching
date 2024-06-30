@@ -25,6 +25,7 @@ class VerifyEmailForgetPasswordCodeControllerImp
 
   @override
   void checkForgetPasswordCode({required String code}) async {
+    print("emial ya joooe $email");
     requestStatus = RequestStatus.LOADING;
     update();
     var response = await dataModel.postData(email: email, verifyCode: code);

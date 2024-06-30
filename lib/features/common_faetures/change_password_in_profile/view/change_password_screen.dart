@@ -1,5 +1,6 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
+import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/common_faetures/change_password_in_profile/controller/change_password_controller_impl.dart';
 import 'package:dentalmatching/features/common_faetures/forget_password/check_email/view/check_email_from_settings.dart';
@@ -16,14 +17,29 @@ class ChangePasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(ChangePasswordControllerImpl());
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_rounded,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Get.back();
+          },
+        ),
+        title: Text(
+          'Change Password'.tr,
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            UpperWidget(
-              needBackButton: true,
-              text: 'Change Password'.tr,
-              welcome: false,
-            ),
+            // UpperWidget(
+            //   needBackButton: true,
+            //   text: 'Change Password'.tr,
+            //   welcome: false,
+            // ),
             GetBuilder<ChangePasswordControllerImpl>(builder: (controller) {
               return Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -98,7 +114,7 @@ class ChangePasswordScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                             Flexible(
+                            Flexible(
                               child: FittedBox(
                                 fit: BoxFit.fitWidth,
                                 child: Text(
@@ -112,6 +128,8 @@ class ChangePasswordScreen extends StatelessWidget {
                             Flexible(
                               child: TextButton(
                                 onPressed: () {
+                                  print(
+                                      "email from change password screen: ${controller.email}");
                                   Get.to(CheckEmailFromSettings(
                                     email: controller.email,
                                   ));
