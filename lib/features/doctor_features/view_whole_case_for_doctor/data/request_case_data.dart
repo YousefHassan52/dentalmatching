@@ -57,10 +57,10 @@ class RequestCaseData {
     required String token,
   }) async {
     var response = await crud.postWithToken(
-        url:
-            ApiLinks.appointmentTime,
+        url: ApiLinks.appointmentTime,
         token: token,
         data: {"Date": date, "Times": times});
+    print(response);
 
     return response.fold((l) => l, (r) => r);
   }

@@ -1,4 +1,5 @@
 import 'package:dentalmatching/core/class/request_status.dart';
+import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/data/Model/CaseDoctorModel.dart';
@@ -46,22 +47,22 @@ class AppointmentController extends GetxController {
     }).toList();
   }
 
-void selectAvailableTime(TimeOfDay? time) {
-  if (time != null) {
-    selectedAvailableTime = time;
-    
-    String formattedHour = selectedAvailableTime!.hour.toString().padLeft(2, '0');
-    String formattedMinute = selectedAvailableTime!.minute.toString().padLeft(2, '0');
-    String formattedSecond = "00"; // Assuming seconds are always "00"
-    
-    String formattedTime = "$formattedHour:$formattedMinute:$formattedSecond";
-    print(formattedTime);
-        
-   
-    
-    update();
+  void selectAvailableTime(TimeOfDay? time) {
+    if (time != null) {
+      selectedAvailableTime = time;
+
+      String formattedHour =
+          selectedAvailableTime!.hour.toString().padLeft(2, '0');
+      String formattedMinute =
+          selectedAvailableTime!.minute.toString().padLeft(2, '0');
+      String formattedSecond = "00"; // Assuming seconds are always "00"
+
+      String formattedTime = "$formattedHour:$formattedMinute:$formattedSecond";
+      print(formattedTime);
+
+      update();
+    }
   }
-}
 
   Future<void> selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -86,9 +87,48 @@ void selectAvailableTime(TimeOfDay? time) {
       List<String> formattedTimes = formatAvailableTimes();
       print(selectedDateApi);
       print(formattedTimes);
+      sendDay(selectedDateApi: selectedDateApi, formattedTimes: formattedTimes);
       update();
     }
+  }
 
+  void sendDay(
+      {required String selectedDateApi,
+      required List<String> formattedTimes}) async {
+    availableTimes = [];
+    requestStatus = RequestStatus.LOADING;
+    update();
+
+    var response = await data.appointmentTime(
+        token: doctorModel.token, date: selectedDateApi, times: formattedTimes);
+    print(response.toString());
+    update();
+
+    requestStatus = HandlingResponseType.fun(response);
+    print("joe ;${requestStatus.toString()}");
+
+    if (requestStatus == RequestStatus.SUCCESS) {
+      if (response["success"] == true) {
+        List<dynamic> responseData = response["data"]["times"];
+        for (var timeString in responseData) {
+          // Parse the time string and add it to availableTimes
+          List<String> timeParts = timeString.split(":");
+          int hour = int.parse(timeParts[0]);
+          int minute = int.parse(timeParts[1]);
+          availableTimes.add(TimeOfDay(hour: hour, minute: minute));
+        }
+        
+      }
+    } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
+      customDialoge(
+          title: "Try Again".tr,
+          middleText: "Internet Connection Error Refresh Data ");
+    } else {
+      customDialoge(
+          title: "Try Again".tr, middleText: "Server Error Please Try Again");
+    }
+
+    update();
   }
 
   void bookAppointment() {
