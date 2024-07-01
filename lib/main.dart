@@ -8,7 +8,6 @@ import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:device_preview/device_preview.dart';
 
 
 void main() async {
@@ -20,8 +19,8 @@ void main() async {
 // var token = await FirebaseMessaging.instance.getToken();
 // print("el token ahooo :$token");
 
-  runApp(DevicePreview(builder: (builder) => const MyApp()));
-  // runApp(const MyApp());
+  // runApp(DevicePreview(builder: (builder) => const MyApp()));
+ runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

@@ -13,6 +13,7 @@ class PatientCaseModel {
   final List<String> xrayImages;
   final List<String> prescriptionImages;
   final String? doctorName;
+  final String? doctorNumber;
   final String? doctorUniversity;
   final String? googleMapLink;
   final String? appointmentDateTime;
@@ -32,6 +33,7 @@ class PatientCaseModel {
     required this.xrayImages,
     required this.prescriptionImages,
     this.doctorName,
+    this.doctorNumber,
     this.doctorUniversity,
     this.googleMapLink,
     this.appointmentDateTime,
@@ -44,6 +46,7 @@ class PatientCaseModel {
       appointmentDateTime: json['appointmentDateTime'],
       patientName: json['patientName'],
       phoneNumber: json['phoneNumber'],
+      doctorNumber: json['doctorNumber'],
       patientAge: json['patientAge'],
       patientCity: json['patientCity'],
       description: json['description'],
@@ -62,10 +65,10 @@ class PatientCaseModel {
   @override
   String toString() {
     return 'MyCaseModel { '
-    
         'caseId: $caseId, '
         'patientName: $patientName, '
         'phoneNumber: $phoneNumber, '
+        'doctorNumber: $doctorNumber, '
         'patientAge: $patientAge, '
         'patientCity: $patientCity, '
         'description: $description, '
