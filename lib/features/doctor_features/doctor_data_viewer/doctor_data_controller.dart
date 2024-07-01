@@ -17,4 +17,11 @@ class DoctorDataController extends GetxController {
     doctorModel = DoctorModel.fromSharedPref(myServices.sharedPref);
     update();
   }
+
+  updateDoctorSpecialization(specialization) {
+    myServices.updateDoctorSpecialization(specialization);
+    doctorModel = DoctorModel.fromSharedPref(myServices
+        .sharedPref); // dh el doctor model el ba listen 3leh fe el widgets belzat fe el upper widgets
+    update();
+  }
 }

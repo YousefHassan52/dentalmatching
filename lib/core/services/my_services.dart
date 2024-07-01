@@ -122,6 +122,10 @@ class MyServices extends GetxService {
   void updateProfileImage(String imageLink) {
     sharedPref.setString("profileImageLink", imageLink);
   }
+
+  void updateDoctorSpecialization(String specialization) {
+    sharedPref.setString("specialization", specialization);
+  }
 }
 
 initialServices() async {

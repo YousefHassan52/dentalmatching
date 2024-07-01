@@ -8,6 +8,8 @@ import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:device_preview/device_preview.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,10 +20,7 @@ void main() async {
 // var token = await FirebaseMessaging.instance.getToken();
 // print("el token ahooo :$token");
 
-  // MyServices service = Get.put(MyServices());
-  // service.sharedPref.clear();
-  runApp(const MyApp());
-
+  runApp(DevicePreview(builder: (builder) => const MyApp()));
   // runApp(const MyApp());
 }
 

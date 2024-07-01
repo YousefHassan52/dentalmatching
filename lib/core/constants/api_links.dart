@@ -73,4 +73,6 @@ class ApiLinks {
       "https://dentamatchbackend.smartwaveeg.com/Doctor/DentalCase/getcaseAvailableSlots";
   static const String editSpecialization =
       "https://dentamatchbackend.smartwaveeg.com/Doctor/DentalCase/requestSpecialization";
+  static const String getSpecialization =
+      "https://dentamatchbackend.smartwaveeg.com/Doctor/DentalCase/getSpecialization";
 }
