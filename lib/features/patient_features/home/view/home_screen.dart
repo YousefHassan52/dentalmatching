@@ -1,8 +1,10 @@
+// ignore_for_file: avoid_print
+
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/common_faetures/notifications/controller/imp_controller.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/add_case.dart';
-import 'package:dentalmatching/features/patient_features/view_casess/View/has_cases.dart';
+import 'package:dentalmatching/features/patient_features/add_case/views/add_case.dart';
+import 'package:dentalmatching/features/patient_features/view_casess/view/has_cases.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/profile_patient_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/shared/shimmer_column.dart';
 import 'package:dentalmatching/features/doctor_features/home_screen_dr/View/widgets/appointment_list_view.dart';

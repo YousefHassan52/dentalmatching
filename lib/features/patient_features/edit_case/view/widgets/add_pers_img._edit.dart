@@ -2,7 +2,7 @@ import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/patient_features/edit_case/controller/editCaseController.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/view_full_case_patient_controller_impl.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/grid_view_widget.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/widget/grid_view_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';

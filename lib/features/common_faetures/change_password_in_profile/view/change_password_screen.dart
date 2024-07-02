@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/functions/validator.dart';

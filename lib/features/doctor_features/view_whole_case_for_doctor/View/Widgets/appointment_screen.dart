@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/widgets/google_map_link_textformfield.dart';
-import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/AppointmentController.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/appointment_controller.dart';
 
 class AppointmentScreen extends StatelessWidget {
   final AppointmentController appointmentController =
@@ -113,7 +113,7 @@ class AppointmentScreen extends StatelessWidget {
                   GetBuilder<AppointmentController>(
                     builder: (internalController) {
                       if(internalController.requestStatus==RequestStatus.LOADING) {
-                        return LinearProgressIndicator();
+                        return const LinearProgressIndicator();
                       } else {
                         return Padding(
                         padding: const EdgeInsets.symmetric(vertical: 20),

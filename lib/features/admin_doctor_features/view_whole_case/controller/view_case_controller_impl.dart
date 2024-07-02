@@ -4,7 +4,7 @@ import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/admin_doctor_features/home/data/model/admin_doctor_model.dart';
 import 'package:dentalmatching/features/admin_doctor_features/view_whole_case/controller/view_case_controller_abstract.dart';
-import 'package:dentalmatching/features/admin_doctor_features/view_whole_case/data/View_whole_case_for_admin_data.dart';
+import 'package:dentalmatching/features/admin_doctor_features/view_whole_case/data/view_whole_case_for_admin_data.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/data/Model/CaseDoctorModel.dart';
 import 'package:dentalmatching/features/patient_features/add_case/data/staticData.dart';
 import 'package:flutter/foundation.dart';

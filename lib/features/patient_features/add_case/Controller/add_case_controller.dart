@@ -1,5 +1,5 @@
 // ignore: file_names
-// ignore_for_file: unnecessary_null_comparison
+// ignore_for_file: unnecessary_null_comparison, avoid_print
 
 import 'dart:io';
 
@@ -9,7 +9,7 @@ import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/functions/validator.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Controller/add_case_controller_abstract.dart';
+import 'package:dentalmatching/features/patient_features/add_case/controller/add_case_controller_abstract.dart';
 import 'package:dentalmatching/features/patient_features/add_case/data/add_case_data.dart';
 import 'package:dentalmatching/features/patient_features/add_case/data/staticData.dart';
 import 'package:dentalmatching/features/patient_features/signup/data/model/patient_model.dart';

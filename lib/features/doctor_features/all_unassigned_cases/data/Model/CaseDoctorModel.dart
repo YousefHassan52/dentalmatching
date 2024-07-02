@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 class CaseDoctorModel {
   final String caseId;
   final String patientName;

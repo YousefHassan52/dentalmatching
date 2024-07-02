@@ -82,7 +82,7 @@ class LanguageSelection extends StatelessWidget {
                           txt1.tr,
                           style: const TextStyle(
                               fontSize: 24,
-                              fontWeight: FontWeight.w300,
+                              fontWeight: FontWeight.w600,
                               color: AppColors.mainColor),
                         ),
                       ),
@@ -95,7 +95,7 @@ class LanguageSelection extends StatelessWidget {
                           txt2.tr,
                           style: const TextStyle(
                               fontSize: 24,
-                              fontWeight: FontWeight.w300,
+                              fontWeight: FontWeight.w600,
                               color: AppColors.mainColor),
                         ),
                       ),

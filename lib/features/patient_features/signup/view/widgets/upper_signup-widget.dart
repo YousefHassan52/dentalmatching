@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:flutter/material.dart';

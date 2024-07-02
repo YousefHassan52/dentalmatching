@@ -32,6 +32,13 @@ class ProgressPatientController extends GetxController {
     update();
   }
 
+  void closeAllExpanded() {
+    for (int i = 0; i < expandedStates.length; i++) {
+      expandedStates[i] = false;
+    }
+    update();
+  }
+  
   Future<void> getProgress(caseId) async {
     progresses = [];
     requestStatus = RequestStatus.LOADING;

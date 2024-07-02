@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_overrides
+
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/doctor_features/settings_doctor/controller/doctor_settings_controller_abstract.dart';

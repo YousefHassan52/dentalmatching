@@ -7,7 +7,7 @@ import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/shared/shimmer_column.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/upper.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/Controller/mycases_patient_controller_impl.dart';
-import 'package:dentalmatching/features/patient_features/view_casess/View/Widget/form_containerInfo.dart';
+import 'package:dentalmatching/features/patient_features/view_casess/view/Widget/form_containerInfo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';

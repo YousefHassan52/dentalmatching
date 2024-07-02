@@ -18,7 +18,7 @@ class CategoriesListView extends StatelessWidget {
       child: ListView.builder(
         itemCount: categories.length,
         scrollDirection: Axis.horizontal,
-        physics: AlwaysScrollableScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return CategoriesWidget(
             model: categories[index],

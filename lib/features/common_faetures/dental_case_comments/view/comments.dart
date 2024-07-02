@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, unnecessary_cast
 
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
@@ -139,9 +139,12 @@ class CommentsOnCase extends StatelessWidget {
               return const Expanded(child: ShimmerListColumn());
             } else if (controller.requestStatus ==
                 RequestStatus.EMPTY_SUCCESS) {
-              return const FittedBox(
+              return  FittedBox(
                   fit: BoxFit.scaleDown,
-                  child: Center(child: Text("There is no comments yet")));
+                  child: Center(child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text("There is no comments yet".tr),
+                  )));
             } else {
               return const FittedBox(
                   fit: BoxFit.scaleDown,
@@ -166,7 +169,7 @@ class CommentsOnCase extends StatelessWidget {
                       decoration: InputDecoration(
                         hintText: 'Add a comment...'.tr,
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(200.0),
                         ),
                       ),
                     ),
@@ -174,9 +177,9 @@ class CommentsOnCase extends StatelessWidget {
                   const SizedBox(width: 10),
                   Material(
                     color: AppColors.mainColor,
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(200),
                     child: InkWell(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(200),
                       onTap: () {
                         print("token ya jooe: $token \ncaseid: $caseid");
                         commentsController.addComment(
@@ -188,6 +191,7 @@ class CommentsOnCase extends StatelessWidget {
                         child: const Icon(
                           Icons.send,
                           color: Colors.white,
+                          size: 20,
                         ),
                       ),
                     ),

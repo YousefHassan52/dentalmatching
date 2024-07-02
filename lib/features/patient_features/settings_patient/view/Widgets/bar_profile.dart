@@ -22,7 +22,6 @@ class BarProfileWidget extends StatelessWidget {
       height: upperPartHeight,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
-        // row take size of the parent container = upperPartHeight
         children: [
           if (welcome == true)
             GetBuilder<PatientDataController>(builder: (controller) {
@@ -43,12 +42,7 @@ class BarProfileWidget extends StatelessWidget {
                                 )),
                     ),
                   ),
-                  // child: CircleAvatar(
-                  //   radius: 40,
-                  //   backgroundImage: AssetImage(
-                  //     "assets/images/profilepicture.png",
-                  //   ),
-                  // ),
+              
                 ),
               );
             }),
@@ -83,7 +77,7 @@ class BarProfileWidget extends StatelessWidget {
                         builder: (internallController) => Text(
                           ' ${internallController.userModel.fullName.split(' ')[0]}',
                           style: const TextStyle(
-                            fontSize: 25,
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
@@ -92,8 +86,7 @@ class BarProfileWidget extends StatelessWidget {
                     ),
                   ),
                 Column(
-                  // crossAxisAlignment: CrossAxisAlignment.start,
-                  // mainAxisAlignment: MainAxisAlignment.start,
+               
                   children: [
                     if (welcome == false)
                       if (needBackButton == true)
@@ -118,7 +111,7 @@ class BarProfileWidget extends StatelessWidget {
                                     child: Text(
                                       text,
                                       style: const TextStyle(
-                                        fontSize: 25,
+                                        fontSize: 18,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
                                       ),
@@ -133,17 +126,7 @@ class BarProfileWidget extends StatelessWidget {
               ],
             ),
           ),
-          // Spacer(),
-          //  IconButton(
-          //   onPressed: () {
-          //     Get.back();
-          //   },
-          //   icon: Icon(
-          //     Icons.keyboard_double_arrow_left_outlined,
-          //     size: 30,
-          //     color: Colors.white,
-          //   ),
-          // ),
+  
         ],
       ),
     );

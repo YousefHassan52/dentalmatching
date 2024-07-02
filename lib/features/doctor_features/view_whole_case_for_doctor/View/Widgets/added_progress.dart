@@ -44,10 +44,10 @@ class AddedProgress extends StatelessWidget {
                               trailing: IconButton(
                                 onPressed: () => controller.toggleAdded(index),
                                 icon: Icon(
-                                  controller.expandedStates[index]
-                                      ? Icons.expand_less
-                                      : Icons.expand_more,
-                                  color: Colors.white),
+                                    controller.expandedStates[index]
+                                        ? Icons.expand_less
+                                        : Icons.expand_more,
+                                    color: Colors.white),
                               ),
                             ),
                             if (controller.expandedStates[index])
@@ -64,7 +64,8 @@ class AddedProgress extends StatelessWidget {
                                             TextFormField(
                                               onChanged: (value) => controller
                                                   .progressText = value,
-                                              controller: controller.msgController,
+                                              controller:
+                                                  controller.msgController,
                                               validator: (value) {
                                                 return AppValidator
                                                     .textFormFieldValidator(
@@ -118,22 +119,30 @@ class AddedProgress extends StatelessWidget {
                                         ),
                                       )
                                     else
-                                      Container(
-                                        constraints: BoxConstraints(
-                                          maxWidth: constraints.maxWidth *
-                                              0.9, // Adjust as needed
-                                        ),
-                                        decoration: const BoxDecoration(
-                                            color: Color.fromARGB(255, 101, 131, 195),
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(20))),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Text(
-                                            controller.progresses[index]
-                                                .progressMessage,
-                                            style: const TextStyle(
-                                                color: Colors.white),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Center(
+                                          child: Container(
+                                            padding: const EdgeInsets.all(5),
+                                            constraints: BoxConstraints(
+                                              maxWidth: constraints.maxWidth *
+                                                  0.9, // Adjust as needed
+                                            ),
+                                            decoration: const BoxDecoration(
+                                                color: Color.fromARGB(
+                                                    255, 101, 131, 195),
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(20))),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Text(
+                                                controller.progresses[index]
+                                                    .progressMessage,
+                                                style: const TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -164,12 +173,15 @@ class AddedProgress extends StatelessWidget {
                 ),
               );
             } else {
-              return  Center(
+              return Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 50,),
-                    const Icon(Icons.info_outline, size: 80, color: Colors.grey),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    const Icon(Icons.info_outline,
+                        size: 80, color: Colors.grey),
                     const SizedBox(height: 16),
                     Text(
                       "No Progress".tr,

@@ -13,11 +13,8 @@ import 'package:dentalmatching/features/doctor_features/settings_doctor/view/wid
 import 'package:dentalmatching/features/doctor_features/settings_doctor/view/widgets/counter_box_doctor.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/enabled_info.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/setting_row_component.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 class SettingsDoctorScreen extends StatelessWidget {
   const SettingsDoctorScreen({Key? key}) : super(key: key);

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/functions/handling_response_type.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
@@ -123,6 +125,14 @@ class ProgressController extends GetxController {
     }
   }
 
+
+  void closeAllExpanded() {
+    for (int i = 0; i < expandedStates.length; i++) {
+      expandedStates[i] = false;
+    }
+    update();
+  }
+  
   Future<void> getProgress(caseId) async {
     progresses = [];
     requestStatus = RequestStatus.LOADING;

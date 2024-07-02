@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/functions/block_action.dart';

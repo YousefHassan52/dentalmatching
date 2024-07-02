@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:dentalmatching/core/class/crud.dart';
 import 'package:dentalmatching/core/constants/api_links.dart';
 

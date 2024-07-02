@@ -41,6 +41,7 @@ class ProgressScreenPatient extends StatelessWidget {
                   ),
                   IconButton(
                       onPressed: () {
+                        progressController.closeAllExpanded();
                         progressController
                             .getProgress(progressController.caseId);
                       },
@@ -107,7 +108,7 @@ class ProgressScreenPatient extends StatelessWidget {
                                           ),
                                           decoration: const BoxDecoration(
                                               color: Color.fromARGB(
-                                                  255, 8, 38, 102),
+                                                  255, 101, 131, 195),
                                               borderRadius: BorderRadius.all(
                                                   Radius.circular(20))),
                                           child: Padding(

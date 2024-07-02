@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/routes_names.dart';
@@ -9,11 +11,11 @@ import 'package:dentalmatching/features/patient_features/patient_data_viewer/pat
 import 'package:dentalmatching/features/patient_features/paybal/controller/payment_contoller_imp.dart';
 import 'package:dentalmatching/features/patient_features/payment/controller/payment_contoller_imp.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/controller/settings_controller_imp.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/counter_box.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/enabled_info.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/language_selection.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/widgets/counter_box.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/widgets/enabled_info.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/widgets/language_selection.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/upper.dart';
-import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/setting_row_component.dart';
+import 'package:dentalmatching/features/patient_features/settings_patient/view/widgets/setting_row_component.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -76,7 +78,7 @@ class SettingsPatientScreen extends StatelessWidget {
               SettingsRowComponent(
                   icon: Icons.camera_alt_rounded,
                   iconColor: AppColors.mainColor,
-                  text: "Change Profile Image",
+                  text: "Change Profile Image".tr,
                   textColor: AppColors.mainColor,
                   onTap: () {
                     Get.toNamed(AppRoutes.changeProfileImage, arguments: {

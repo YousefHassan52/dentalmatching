@@ -5,15 +5,15 @@ import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/common_faetures/dental_case_comments/view/comments.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/form_headLine.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/divider.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/optional_text.dart';
+import 'package:dentalmatching/features/patient_features/add_case/views/Widget/divider.dart';
+import 'package:dentalmatching/features/patient_features/add_case/views/Widget/optional_text.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/upper.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/view_full_case_patient_controller_impl.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/chronic_list.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/upper_assigned.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/widget/chronic_list.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/widget/upper_assigned.dart';
 import 'package:flutter/material.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/grid_view_widget.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/widget/grid_view_widget.dart';
 import 'package:get/get.dart';
 
 class ViewForm extends StatelessWidget {
@@ -76,7 +76,7 @@ class ViewForm extends StatelessWidget {
               height: 2,
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -206,6 +206,7 @@ class ViewForm extends StatelessWidget {
                   ),
                   if (!controller.caseModel.isAssigned)
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const HDivider(),
                         FormHeadLine(headline: 'Comments'.tr),

@@ -29,7 +29,10 @@ class BioWidgetDr extends StatelessWidget {
             child: Text(
               '$title  ',
               style: TextStyle(
-                  color: textColor, fontWeight: FontWeight.w300, fontSize: 24),
+                color: textColor,
+                fontWeight: FontWeight.w300,
+                fontSize: 18,
+              ),
             ),
           ),
         ),
@@ -42,11 +45,11 @@ class BioWidgetDr extends StatelessWidget {
                   ? TextStyle(
                       color: textColor,
                       fontWeight: FontWeight.w800,
-                      fontSize: 24)
+                      fontSize: 18)
                   : TextStyle(
                       color: textColor,
                       fontWeight: FontWeight.w800,
-                      fontSize: 24),
+                      fontSize: 18),
             ),
           ),
         ),

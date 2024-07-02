@@ -1,10 +1,12 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/widgets/call_number.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/Controller/mycases_patient_controller_impl.dart';
 import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/controller/view_full_case_patient_controller_impl.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/bio_widget_dr.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/date_time_patient_widget.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/widget/bio_widget_dr.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/widget/date_time_patient_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -74,7 +76,7 @@ class UpperAssigned extends StatelessWidget {
                               child: Text(
                                 text,
                                 style: const TextStyle(
-                                  fontSize: 25,
+                                  fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
@@ -103,23 +105,18 @@ class UpperAssigned extends StatelessWidget {
                             controller: controller,
                             txt: formatDate(
                                 controller.caseModel.appointmentDateTime!),
-                            text: 'Date : ',
+                            text: 'Date : '.tr,
                           ),
                         if (controller.caseModel.isAssigned == true)
                           DateTimePatientWidget(
                             controller: controller,
                             txt: formatTime(
                                 controller.caseModel.appointmentDateTime!),
-                            text: 'Time : ',
+                            text: 'Time : '.tr,
                           ),
-                        // BioWidgetDr(
-                        //   title: 'Phone Number :'.tr,
-                        //   subTitle: controller.caseModel.phoneNumber,
-                        // ),
                         CallNumberWidget(
                             number: controller.caseModel.doctorNumber!)
-                        // Text(controller.caseModel.doctorName!),
-                        // Text(controller.caseModel.doctorUniversity!),
+                        
                       ],
                     ),
                   ),

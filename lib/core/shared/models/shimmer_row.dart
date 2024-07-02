@@ -10,7 +10,7 @@ class ShimmerListRow extends StatelessWidget {
       baseColor: const Color.fromRGBO(224, 224, 224, 1),
       highlightColor: const Color.fromRGBO(245, 245, 245, 1),
       child: ListTile(
-        contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
         leading: const CircleAvatar(
           backgroundColor: Colors.grey,
           radius: 30,

@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 class AvatarWidget extends StatelessWidget {
   final String imagePath;
 
-  const AvatarWidget({
+  const AvatarWidget({super.key, 
     required this.imagePath,
   });
 

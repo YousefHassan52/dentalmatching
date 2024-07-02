@@ -1,4 +1,6 @@
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/radio_list.dart';
+// ignore_for_file: avoid_print
+
+import 'package:dentalmatching/features/patient_features/add_case/views/Widget/radio_list.dart';
 import 'package:dentalmatching/features/patient_features/add_case/data/staticData.dart';
 import 'package:dentalmatching/features/patient_features/edit_case/controller/editCaseController.dart';
 import 'package:dentalmatching/features/patient_features/edit_case/view/widgets/edit_cases_check_list.dart';

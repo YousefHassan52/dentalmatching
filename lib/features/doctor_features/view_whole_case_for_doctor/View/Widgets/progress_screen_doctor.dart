@@ -48,6 +48,8 @@ class ProgressScreen extends StatelessWidget {
                   ),
                   IconButton(
                       onPressed: () {
+                        progressController.closeAllExpanded();
+
                         progressController
                             .getProgress(progressController.caseId);
                       },

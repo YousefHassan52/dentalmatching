@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 class CategoriesModel {
   final String icon;
   final String text;

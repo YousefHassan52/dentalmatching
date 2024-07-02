@@ -4,10 +4,10 @@ import 'package:dentalmatching/features/admin_doctor_features/view_whole_case/vi
 import 'package:dentalmatching/features/admin_doctor_features/view_whole_case/view/upper_widget.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/widgets/box_widget.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/form_headline.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/divider.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/chronic_list.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/grid_view_widget.dart';
+import 'package:dentalmatching/features/patient_features/add_case/views/Widget/form_headline.dart';
+import 'package:dentalmatching/features/patient_features/add_case/views/Widget/divider.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/widget/chronic_list.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/widget/grid_view_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +23,7 @@ class ViewWholeCaseForAdmin extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(
+        leading: const BackButton(
           color: Colors.white,
         ),
         title: Text(
@@ -43,7 +43,7 @@ class ViewWholeCaseForAdmin extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      BioBarWidgetAdmin(),
+                      const BioBarWidgetAdmin(),
                       const SizedBox(
                         height: 20,
                       ),

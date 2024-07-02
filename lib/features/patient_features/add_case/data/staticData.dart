@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:dentalmatching/features/patient_features/add_case/data/Model/CheckListModel.dart';
 import 'package:get/get.dart';
 

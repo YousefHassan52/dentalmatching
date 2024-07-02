@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:dentalmatching/core/class/crud.dart';
 import 'package:get/get.dart';
 

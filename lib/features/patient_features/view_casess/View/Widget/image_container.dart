@@ -2,7 +2,7 @@
 
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/data/Model/image_model.dart';
-import 'package:dentalmatching/features/patient_features/view_casess/View/Widget/image_container_widget.dart';
+import 'package:dentalmatching/features/patient_features/view_casess/view/Widget/image_container_widget.dart';
 import 'package:dentalmatching/features/patient_features/view_casess/data/Model/case_model.dart';
 import 'package:flutter/material.dart';
 

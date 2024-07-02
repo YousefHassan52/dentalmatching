@@ -1,8 +1,8 @@
 // ignore: file_names
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Controller/add_case_controller.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/radio_list.dart';
+import 'package:dentalmatching/features/patient_features/add_case/controller/add_case_controller.dart';
+import 'package:dentalmatching/features/patient_features/add_case/views/Widget/radio_list.dart';
 import 'package:dentalmatching/features/patient_features/add_case/data/staticData.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

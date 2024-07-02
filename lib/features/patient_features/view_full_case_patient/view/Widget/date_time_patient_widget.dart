@@ -26,7 +26,7 @@ class DateTimePatientWidget extends StatelessWidget {
               style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w300,
-                  fontSize: 20),
+                  fontSize: 18),
             ),
           ),
         ),
@@ -38,7 +38,7 @@ class DateTimePatientWidget extends StatelessWidget {
                 style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w800,
-                    fontSize: 20)),
+                    fontSize: 18)),
           ),
         ),
       ],

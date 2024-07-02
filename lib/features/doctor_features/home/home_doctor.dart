@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/doctor_features/home_screen_dr/View/home_screen_dr.dart';

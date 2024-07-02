@@ -187,8 +187,8 @@ class MyTranslation implements Translations {
           "Sign up": 'اشتراك',
 
           //presignup
-          "D O C T O R  ": " دكتور",
-          "P A T I E N T": 'مريض',
+          "DENTIST": "طبيب أسنان",
+          "PATIENT": 'مريض',
 
           //Home
           "Search": 'بحث',
@@ -315,6 +315,9 @@ class MyTranslation implements Translations {
               "تم إرسال طلبك لتغيير تخصصك بنجاح، انتظر موافقة المسؤول",
           "Request sent": "تم إرسال الطلب",
           "Choose one":"أختر واحدة",
+
+          //comments
+          "There is no comments yet":"لا يوجد تعليقات حتى الان",
         },
         "en": {
           // categories
@@ -495,8 +498,8 @@ Your password must include:
           "Sign up": "Sign up",
 
           //presignup
-          "D O C T O R  ": "D O C T O R  ",
-          "P A T I E N T": "P A T I E N T",
+          "DENTIST": "DENTIST",
+         "PATIENT": "PATIENT",
 
           //home
           "Search": "Search",
@@ -600,6 +603,9 @@ Your password must include:
               "Your request to change your specialization sent successfully wait for admin approve",
           "Request sent": "Request sent",
           "Choose one":"Choose one",
+
+          //comments
+          "There is no comments yet":"There is no comments yet",
         },
       };
 }

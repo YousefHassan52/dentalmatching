@@ -49,7 +49,7 @@ class DoctorHomeCaseContainer extends StatelessWidget {
               SizedBox(
                 height: 50,
                 child: caseModel.patientProfileImageLink == null
-                    ? CircleAvatarWidget(imagePath: 'assets/svg/pp.svg')
+                    ? const CircleAvatarWidget(imagePath: 'assets/svg/pp.svg')
                     : CircleAvatarWidget(
                         imagePath: caseModel.patientProfileImageLink!,
                         defaultImage: false,
@@ -61,7 +61,7 @@ class DoctorHomeCaseContainer extends StatelessWidget {
                   fit: BoxFit.scaleDown,
                   child: Text(
                     caseModel.patientName,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                       color: AppColors.mainColor,

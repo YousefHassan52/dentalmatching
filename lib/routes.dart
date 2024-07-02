@@ -21,12 +21,12 @@ import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doct
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/view/all_unassigned_cases_doctor_screen.dart';
 import 'package:dentalmatching/features/doctor_features/home/home_doctor.dart';
 import 'package:dentalmatching/features/doctor_features/signup/view/signup_screen.dart';
-import 'package:dentalmatching/features/patient_features/add_case/Views/add_case.dart';
+import 'package:dentalmatching/features/patient_features/add_case/views/add_case.dart';
 import 'package:dentalmatching/features/patient_features/edit_case/view/edit_screen.dart';
 import 'package:dentalmatching/features/patient_features/edit_profile_info/view/edit_patient_info_screen.dart';
-import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/progress_screen_patient.dart';
+import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/widget/progress_screen_patient.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/view_form.dart';
-import 'package:dentalmatching/features/patient_features/view_casess/View/has_cases.dart';
+import 'package:dentalmatching/features/patient_features/view_casess/view/has_cases.dart';
 import 'package:dentalmatching/features/patient_features/home/view/home_screen.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/profile_patient_screen.dart';
 import 'package:dentalmatching/features/patient_features/signup/view/signup_screen.dart';
