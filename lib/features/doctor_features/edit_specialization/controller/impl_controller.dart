@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:io';
 
 import 'package:dentalmatching/core/class/request_status.dart';
@@ -44,8 +46,8 @@ class EditSpecializationControllerImpl
         update(); // Update the UI after selecting an image
       } else {
         customDialoge(
-            title: "Wrong Image Format",
-            middleText: "make sure that your image file is png, jpg or jpeg");
+            title: "Wrong Image Format".tr,
+            middleText: "Make sure that your image file is PNG, JPG or JPEG".tr);
       }
     }
     update();
@@ -66,9 +68,9 @@ class EditSpecializationControllerImpl
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response["success"] == true) {
           customDialoge(
-              title: "Request sent",
+              title: "Request sent".tr,
               middleText:
-                  "Your request to change your specialization sent successfully wait for admin approve");
+                  "Your request to change your specialization sent successfully wait for admin approve".tr);
           update();
         }
       } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
@@ -80,7 +82,7 @@ class EditSpecializationControllerImpl
 
       update();
     } else {
-      customDialoge(title: "Warning".tr, middleText: "No image selected");
+      customDialoge(title: "Warning".tr, middleText: "No image selected".tr);
     }
   }
 }

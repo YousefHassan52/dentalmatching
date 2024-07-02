@@ -1,6 +1,5 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
-import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/common_faetures/onboarding/data/data_source/static.dart';
 import 'package:dentalmatching/features/common_faetures/onboarding/data/models/onboarding.dart';
 import 'package:dentalmatching/features/common_faetures/onboarding/view/widgets/animatedsvg.dart';
@@ -16,7 +15,6 @@ class CustomOnboardingItem extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
-    MyServices languageController = Get.find();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(

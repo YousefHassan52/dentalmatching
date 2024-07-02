@@ -1,5 +1,5 @@
 import 'package:dentalmatching/core/constants/colors.dart';
-import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/bar_compo_widget.dart';
+import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/view/Widget/bar_compo_widget.dart';
 import 'package:dentalmatching/features/doctor_features/doctor_data_viewer/doctor_data_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,7 +16,7 @@ class AppUpperWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const int maxLength =25 ;
+    const int maxLength =30 ;
     final String displayTxt =
         text.length > maxLength ? '${text.substring(0, maxLength)}...' : text;
     Get.put(DoctorDataController()); // momkn 2a7ot controller 8ero
@@ -44,8 +44,6 @@ class AppUpperWidget extends StatelessWidget {
           //  height: upperPartHeight + 100,
           child: Center(
             child: Column(
-              // crossAxisAlignment: CrossAxisAlignment.start,
-              // mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 if (welcome == true) const BarCompoWidget(),
                 if (welcome == false)
@@ -54,8 +52,6 @@ class AppUpperWidget extends StatelessWidget {
                       padding:
                           const EdgeInsets.only(top: 35, left: 5, bottom: 10),
                       child: Row(
-                        // mainAxisAlignment: MainAxisAlignment.center,
-                        // crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           IconButton(
                             onPressed: () {
@@ -73,7 +69,7 @@ class AppUpperWidget extends StatelessWidget {
                                 child: Text(
                                   displayTxt,
                                   style: const TextStyle(
-                                    fontSize: 25,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
                                   ),

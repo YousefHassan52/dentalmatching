@@ -18,10 +18,14 @@ class CallNumberWidget extends StatelessWidget {
         Flexible(
           child: FittedBox(
             fit: BoxFit.scaleDown,
-            child: Text(
-              "${'Phone Number'.tr}: ",
-              style: TextStyle(
-                  color: textColor, fontWeight: FontWeight.w300, fontSize: 20),
+            child: Row(
+              children: [
+                Text(
+                  "${'Phone Number'.tr}: ",
+                  style: TextStyle(
+                      color: textColor, fontWeight: FontWeight.w300, fontSize: 20),
+                ),
+              ],
             ),
           ),
         ),
@@ -35,14 +39,21 @@ class CallNumberWidget extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: const Color.fromARGB(154, 158, 158, 158),
                     borderRadius: BorderRadius.circular(20)),
-                child: Text(
-                  number,
-                  style: TextStyle(
-                      color: textColor,
-                      fontWeight: FontWeight.w800,
-                      fontSize: 20),
+                child: Row(
+                  children: [
+                   
+                    Text(
+                      number,
+                      style: TextStyle(
+                          color: textColor,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 18),
+                    ),
+                    const SizedBox(width: 5,),
+                     const Icon(Icons.call,size: 18,color: Colors.white,),
+                  ],
                 ),
               ),
             ),

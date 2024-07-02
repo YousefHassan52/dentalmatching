@@ -7,6 +7,8 @@
 // class UpperFullCaseWidget extends StatelessWidget {
 //   const UpperFullCaseWidget({super.key});
 
+// ignore_for_file: non_constant_identifier_names
+
 //   @override
 //   Widget build(BuildContext context) {
 //     UnassignedCasesDoctorControllerImpl controller = Get.put(
@@ -50,7 +52,7 @@
 // ignore: file_names
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/doctor_features/doctor_data_viewer/doctor_data_controller.dart';
-import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/bio_bar_widget.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/widgets/bio_bar_widget.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/view_whole_case_doctor_controller_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -99,8 +101,6 @@ class UpperFullCaseWidget extends StatelessWidget {
           //  height: upperPartHeight + 100,
           child: Center(
             child: Column(
-              // crossAxisAlignment: CrossAxisAlignment.start,
-              // mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 if (needBackButton == true)
                   Padding(
@@ -123,7 +123,7 @@ class UpperFullCaseWidget extends StatelessWidget {
                             child: Text(
                               text,
                               style: const TextStyle(
-                                fontSize: 25,
+                                fontSize: 20,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
                               ),

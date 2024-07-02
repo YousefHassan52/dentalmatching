@@ -1,9 +1,8 @@
-import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/app_upper.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/view/widget/app_upper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../home_screen_dr/View/Widgets/categories.dart';
+import '../../home_screen_dr/view/widgets/categories.dart';
 
 class FullCategories extends StatelessWidget {
   const FullCategories({super.key});

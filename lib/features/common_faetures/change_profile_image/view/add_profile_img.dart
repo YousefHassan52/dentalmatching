@@ -19,15 +19,15 @@ class AddProfileImgScreen extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           if (contoller.role == "patient")
-            const UpperWidget(
+             UpperWidget(
               needBackButton: true,
-              text: 'Change Profile Image        ',
+              text: 'Change Profile Image        '.tr,
               welcome: false,
             ),
           if (contoller.role != "patient")
-            AppUpperWidget(
+             AppUpperWidget(
               needBackButton: true,
-              text: 'Change Profile Image        ',
+              text: 'Change Profile Image        '.tr,
               welcome: false,
             ),
           const SizedBox(
@@ -76,7 +76,7 @@ class AddProfileImgScreen extends StatelessWidget {
             height: 15,
           ),
           AuthButton(
-              buttonText: "Change Image",
+              buttonText: "Change Image".tr,
               onTap: () {
                 contoller.changeProfileImage();
               }),

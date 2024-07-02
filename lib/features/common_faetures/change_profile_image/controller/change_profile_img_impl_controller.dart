@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:io';
 
 import 'package:dentalmatching/core/class/request_status.dart';
@@ -7,9 +9,7 @@ import 'package:dentalmatching/core/shared/dialogue_without_buttons.dart';
 import 'package:dentalmatching/features/common_faetures/change_profile_image/controller/change_profile_img_abstract_controller.dart';
 import 'package:dentalmatching/features/common_faetures/change_profile_image/data/change_profile_img_data.dart';
 import 'package:dentalmatching/features/doctor_features/doctor_data_viewer/doctor_data_controller.dart';
-import 'package:dentalmatching/features/doctor_features/signup/data/models/doctor_model.dart';
 import 'package:dentalmatching/features/patient_features/patient_data_viewer/pateint_data_controller.dart';
-import 'package:dentalmatching/features/patient_features/signup/data/model/patient_model.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -46,8 +46,8 @@ class ChangeProfileImageImplController
         update(); // Update the UI after selecting an image
       } else {
         customDialoge(
-            title: "Wrong Image Format",
-            middleText: "make sure that your image file is png, jpg or jpeg");
+            title: "Wrong Image Format".tr,
+            middleText: "Make sure that your image file is PNG, JPG or JPEG".tr);
       }
     }
     update();
@@ -67,8 +67,8 @@ class ChangeProfileImageImplController
       print("response ya joooe:------ $response");
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response["success"] == true) {
-          Get.snackbar("Updated Successfully",
-              "Your image has been updatedd successfully");
+          Get.snackbar("Updated Successfully".tr,
+              "Your image has been updated successfully".tr);
           if (role == "patient") {
             PatientDataController pateintDataController =
                 Get.put(PatientDataController());
@@ -93,7 +93,7 @@ class ChangeProfileImageImplController
 
       update();
     } else {
-      customDialoge(title: "Warning".tr, middleText: "No image selected");
+      customDialoge(title: "Warning".tr, middleText: "No image selected".tr);
     }
   }
 }

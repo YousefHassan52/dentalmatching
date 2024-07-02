@@ -1,3 +1,5 @@
+// ignore_for_file: body_might_complete_normally_nullable
+
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/textformfield.dart';
 import 'package:dentalmatching/features/doctor_features/edit_specialization/controller/impl_controller.dart';
@@ -42,7 +44,7 @@ class EditDoctorSpecializationDropdownSearch extends StatelessWidget {
       selectedItem: externalController.specialization,
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return "Choose one";
+          return "Choose one".tr;
         }
       },
     );

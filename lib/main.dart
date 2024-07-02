@@ -13,12 +13,8 @@ import 'package:get/get.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initialServices();
-//   await Firebase.initializeApp(
-//     options: DefaultFirebaseOptions.currentPlatform,
-// );
-// var token = await FirebaseMessaging.instance.getToken();
-// print("el token ahooo :$token");
-
+// MyServices myservices=  Get.put(MyServices());
+// myservices.sharedPref.clear();
   // runApp(DevicePreview(builder: (builder) => const MyApp()));
  runApp(const MyApp());
 }

@@ -21,7 +21,6 @@ class FormBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // StaticData list = StaticData();
 
     AddCaseController controller = Get.find();
     MyCasesPatientControllerImpl reloadController = Get.find();

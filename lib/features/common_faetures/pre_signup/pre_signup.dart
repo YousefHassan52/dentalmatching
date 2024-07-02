@@ -4,7 +4,7 @@ import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'Views/Widget/pre_sign_up_widget.dart';
+import 'Views/widget/pre_sign_up_widget.dart';
 
 class PreSignup extends StatelessWidget {
   const PreSignup({super.key});

@@ -3,7 +3,7 @@ import 'package:dentalmatching/features/admin_doctor_features/view_whole_case/co
 import 'package:dentalmatching/features/admin_doctor_features/view_whole_case/view/dental_cases_widget.dart';
 import 'package:dentalmatching/features/admin_doctor_features/view_whole_case/view/upper_widget.dart';
 import 'package:dentalmatching/features/common_faetures/loginn/view/widgets/auth_button.dart';
-import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/box_widget.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/widgets/box_widget.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/form_headline.dart';
 import 'package:dentalmatching/features/patient_features/add_case/Views/Widget/divider.dart';
 import 'package:dentalmatching/features/patient_features/view_full_case_patient/view/Widget/chronic_list.dart';

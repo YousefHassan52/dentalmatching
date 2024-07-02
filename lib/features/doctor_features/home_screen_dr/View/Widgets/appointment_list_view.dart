@@ -1,4 +1,4 @@
-import 'package:dentalmatching/features/doctor_features/home_screen_dr/View/Widgets/appointment_card_widget.dart';
+import 'package:dentalmatching/features/doctor_features/home_screen_dr/View/widgets/appointment_card_widget.dart';
 import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

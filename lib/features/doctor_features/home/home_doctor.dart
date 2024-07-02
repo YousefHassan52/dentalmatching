@@ -1,7 +1,7 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/features/doctor_features/home_screen_dr/View/home_screen_dr.dart';
-import 'package:dentalmatching/features/doctor_features/get_doctor_cases/View/get_doctor_cases_screen.dart';
+import 'package:dentalmatching/features/doctor_features/get_doctor_cases/view/get_doctor_cases_screen.dart';
 import 'package:dentalmatching/features/doctor_features/settings_doctor/view/profile_doctor_screen.dart';
 
 import 'package:flutter/material.dart';

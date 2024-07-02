@@ -23,9 +23,9 @@ class BioWidget extends StatelessWidget {
           child: FittedBox(
             fit: BoxFit.scaleDown,
             child: Text(
-              '${title} : ',
+              '$title : ',
               style: TextStyle(
-                  color: textColor, fontWeight: FontWeight.w300, fontSize: 20),
+                  color: textColor, fontWeight: FontWeight.w300, fontSize: 18),
             ),
           ),
         ),
@@ -38,11 +38,11 @@ class BioWidget extends StatelessWidget {
                   ? TextStyle(
                       color: textColor,
                       fontWeight: FontWeight.w800,
-                      fontSize: 20)
+                      fontSize: 18)
                   : TextStyle(
                       color: textColor,
                       fontWeight: FontWeight.w800,
-                      fontSize: 20),
+                      fontSize: 18),
             ),
           ),
         ),

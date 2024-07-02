@@ -194,7 +194,7 @@ class MyTranslation implements Translations {
           "Search": 'بحث',
 
           //search
-          'Search Screen     ': "ابحث     ",
+          'Search Screen     ': 'ابحث        ',
 
           //requested cases
           'Requested Cases': "  حالاتك  ",
@@ -293,7 +293,28 @@ class MyTranslation implements Translations {
           "Recently Added": "أضيف مؤخرا",
           "Add Progress": "إضافة تقدم",
           "Write your progress here ...": "اكتب تقدمك هنا ...",
-          "Progress": "التقدم",
+          'Progress        ': 'التقدم        ',
+          'Progress':"التقدم",
+          "No Progress":"لا يوجد أي أضافات",
+
+          //Change Image
+
+          "Wrong Image Format": "تنسيق الصورة خاطئ",
+          "No image selected": "لم يتم تحديد صورة",
+          "Your image has been updated successfully": "تم تحديث صورتك بنجاح",
+          "Make sure that your image file is PNG, JPG or JPEG":
+              "تأكد من أن ملف الصورة الخاص بك هو PNG أو JPG أو JPEG",
+          'Change Profile Image        ': "تغيير الصورة الشخصية",
+          "Change Image": "تغيير الصورة",
+
+          //Specialization
+          'Change Specialization   ': 'تغيير التخصص        ',
+          'Choose your new specialization': 'اختر تخصصك الجديد',
+          "Add a photo to prove it : ": 'أضف صورة لإثبات ذلك :',
+          "Your request to change your specialization sent successfully wait for admin approve":
+              "تم إرسال طلبك لتغيير تخصصك بنجاح، انتظر موافقة المسؤول",
+          "Request sent": "تم إرسال الطلب",
+          "Choose one":"أختر واحدة",
         },
         "en": {
           // categories
@@ -558,7 +579,27 @@ Your password must include:
           "Save": "Save",
           "Recently Added": "Recently Added",
           "Add Progress": "Add Progress",
-          "Write your progress here ...": "Write your progress here ..."
+          "Write your progress here ...": "Write your progress here ...",
+
+          //change Image
+          "Wrong Image Format": "Wrong Image Format",
+          "No image selected": "No image selected",
+          "Your image has been updated successfully":
+              "Your image has been updated successfully",
+          "Make sure that your image file is PNG, JPG or JPEG":
+              "Make sure that your image file is PNG, JPG or JPEG",
+          'Change Profile Image        ': 'Change Profile Image        ',
+          "Change Image": "Change Image",
+
+          //Specialization
+
+          'Change Specialization   ': 'Change Specialization   ',
+          "Choose your new specialization": "Choose your new specialization",
+          "Add a photo to prove it : ": "Add a photo to prove it : ",
+          "Your request to change your specialization sent successfully wait for admin approve":
+              "Your request to change your specialization sent successfully wait for admin approve",
+          "Request sent": "Request sent",
+          "Choose one":"Choose one",
         },
       };
 }

@@ -22,7 +22,6 @@ class BarCompoWidget extends StatelessWidget {
       height: upperPartHeight,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
-        // row take size of the parent container = upperPartHeight
         children: [
           if (welcome == true)
             GetBuilder<DoctorDataController>(builder: (controller) {
@@ -43,12 +42,6 @@ class BarCompoWidget extends StatelessWidget {
                                   controller.doctorModel.profileImageLink!)),
                     ),
                   ),
-                  // child: CircleAvatar(
-                  //   radius: 40,
-                  //   backgroundImage: AssetImage(
-                  //     "assets/images/profilepicture.png",
-                  //   ),
-                  // ),
                 ),
               );
             }),

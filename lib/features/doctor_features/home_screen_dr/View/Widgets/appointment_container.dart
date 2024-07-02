@@ -1,4 +1,4 @@
-import 'package:dentalmatching/features/doctor_features/home_screen_dr/View/Widgets/time_row.dart';
+import 'package:dentalmatching/features/doctor_features/home_screen_dr/View/widgets/time_row.dart';
 import 'package:flutter/material.dart';
 
 class AppointmentContainer extends StatelessWidget {

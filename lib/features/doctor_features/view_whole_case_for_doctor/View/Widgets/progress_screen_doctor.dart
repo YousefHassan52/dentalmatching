@@ -1,8 +1,8 @@
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/app_upper.dart';
-import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/add_progress.dart';
-import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/added_progress.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/widgets/add_progress.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/widgets/added_progress.dart';
 import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/controller/progress_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

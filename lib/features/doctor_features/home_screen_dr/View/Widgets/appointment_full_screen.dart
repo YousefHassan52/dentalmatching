@@ -1,6 +1,6 @@
 import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/shared/shimmer_column.dart';
-import 'package:dentalmatching/features/doctor_features/home_screen_dr/View/Widgets/appointment_list_view.dart';
+import 'package:dentalmatching/features/doctor_features/home_screen_dr/View/widgets/appointment_list_view.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/app_upper.dart';
 import 'package:dentalmatching/features/doctor_features/get_doctor_cases/controller/get_doctor_cases_controller_impl.dart';
 import 'package:flutter/material.dart';

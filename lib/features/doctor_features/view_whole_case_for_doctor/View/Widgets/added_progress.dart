@@ -164,15 +164,16 @@ class AddedProgress extends StatelessWidget {
                 ),
               );
             } else {
-              return const Center(
+              return  Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.info_outline, size: 80, color: Colors.grey),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 50,),
+                    const Icon(Icons.info_outline, size: 80, color: Colors.grey),
+                    const SizedBox(height: 16),
                     Text(
-                      "No Progress",
-                      style: TextStyle(fontSize: 20, color: Colors.grey),
+                      "No Progress".tr,
+                      style: const TextStyle(fontSize: 20, color: Colors.grey),
                     ),
                   ],
                 ),

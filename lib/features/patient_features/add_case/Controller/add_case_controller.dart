@@ -1,4 +1,6 @@
 // ignore: file_names
+// ignore_for_file: unnecessary_null_comparison
+
 import 'dart:io';
 
 import 'package:dentalmatching/core/class/request_status.dart';

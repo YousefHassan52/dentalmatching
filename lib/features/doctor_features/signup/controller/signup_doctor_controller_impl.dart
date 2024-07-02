@@ -7,7 +7,6 @@ import 'package:dentalmatching/features/doctor_features/signup/controller/signup
 import 'package:dentalmatching/features/doctor_features/signup/data/signup_doctor_data.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 

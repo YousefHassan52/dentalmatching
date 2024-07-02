@@ -3,7 +3,7 @@ import 'package:dentalmatching/core/class/request_status.dart';
 import 'package:dentalmatching/core/constants/colors.dart';
 import 'package:dentalmatching/core/constants/styles.dart';
 import 'package:dentalmatching/core/shared/shimmer_column.dart';
-import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/View/Widget/app_upper.dart';
+import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/view/widget/app_upper.dart';
 import 'package:dentalmatching/features/doctor_features/category_cases/controller/category_cases_controller_impl.dart';
 import 'package:dentalmatching/features/doctor_features/category_cases/view/widgets/category_form_list_view.dart';
 
@@ -33,11 +33,14 @@ class CategoryCasesScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AutoSizeText(
-                  maxFontSize: 25,
-                  minFontSize: 15,
-                  "Recently Added Cases".tr,
-                  style: Styles.lightBlue,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: AutoSizeText(
+                    maxFontSize: 25,
+                    minFontSize: 15,
+                    "Recently Added Cases".tr,
+                    style: Styles.lightBlue,
+                  ),
                 ),
                 const Spacer(),
                 IconButton(
