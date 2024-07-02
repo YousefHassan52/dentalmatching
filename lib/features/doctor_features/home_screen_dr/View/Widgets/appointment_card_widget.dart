@@ -2,7 +2,7 @@ import 'package:dentalmatching/core/constants/routes_names.dart';
 import 'package:dentalmatching/core/services/my_services.dart';
 import 'package:dentalmatching/features/doctor_features/home_screen_dr/View/widgets/time_row.dart';
 import 'package:dentalmatching/features/doctor_features/all_unassigned_cases/data/Model/CaseDoctorModel.dart';
-import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/View/Widgets/dateTimeWidget.dart';
+import 'package:dentalmatching/features/doctor_features/view_whole_case_for_doctor/view/widgets/date_time_widget.dart';
 import 'package:dentalmatching/features/patient_features/settings_patient/view/Widgets/circle_avatar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
