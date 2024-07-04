@@ -47,7 +47,8 @@ class EditSpecializationControllerImpl
       } else {
         customDialoge(
             title: "Wrong Image Format".tr,
-            middleText: "Make sure that your image file is PNG, JPG or JPEG".tr);
+            middleText:
+                "Make sure that your image file is PNG, JPG or JPEG".tr);
       }
     }
     update();
@@ -55,32 +56,35 @@ class EditSpecializationControllerImpl
 
   @override
   void editSpecialization() async {
-    if (imageFile != null && formKey.currentState!.validate()) {
-      requestStatus = RequestStatus.LOADING;
-      update();
-      var response = await data.postData(
-          requiredFile: imageFile!,
-          token: userModel.token,
-          specialization: specialization!);
-      requestStatus = HandlingResponseType.fun(response);
-      update();
-      print("response ya joooe:------ $response");
-      if (requestStatus == RequestStatus.SUCCESS) {
-        if (response["success"] == true) {
+    if (imageFile != null) {
+      if (formKey.currentState!.validate()) {
+        requestStatus = RequestStatus.LOADING;
+        update();
+        var response = await data.postData(
+            requiredFile: imageFile!,
+            token: userModel.token,
+            specialization: specialization!);
+        requestStatus = HandlingResponseType.fun(response);
+        update();
+        print("response ya joooe:------ $response");
+        if (requestStatus == RequestStatus.SUCCESS) {
+          if (response["success"] == true) {
+            customDialoge(
+                title: "Request sent".tr,
+                middleText:
+                    "Your request to change your specialization sent successfully wait for admin approve"
+                        .tr);
+            update();
+          }
+        } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
+          customDialoge(title: "Warning".tr, middleText: "Unauthrized Error");
+        } else {
           customDialoge(
-              title: "Request sent".tr,
-              middleText:
-                  "Your request to change your specialization sent successfully wait for admin approve".tr);
-          update();
+              title: "Warning".tr, middleText: "Server Error Please Try Again");
         }
-      } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-        customDialoge(title: "Warning".tr, middleText: "Unauthrized Error");
-      } else {
-        customDialoge(
-            title: "Warning".tr, middleText: "Server Error Please Try Again");
-      }
 
-      update();
+        update();
+      }
     } else {
       customDialoge(title: "Warning".tr, middleText: "No image selected".tr);
     }
