@@ -21,11 +21,12 @@ class PreSignUpWidget extends StatelessWidget {
     return IconButton(
       onPressed: onTap,
       icon: FittedBox(
+        fit:  BoxFit.scaleDown,
         child: Column(
           children: [
             Center(
               child: Container(
-                height: Get.height * 0.8,
+                height: Get.height * 0.988888,
                 margin: const EdgeInsets.symmetric(vertical: 4),
                 decoration: const BoxDecoration(),
                 child: Image.asset(image),

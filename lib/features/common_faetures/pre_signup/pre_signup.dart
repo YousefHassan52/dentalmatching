@@ -38,20 +38,24 @@ class PreSignup extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            PreSignUpWidget(
-              role: "DENTIST".tr,
-              image: "assets/svg/doctors 1.png",
-              onTap: () {
-                Get.toNamed(AppRoutes.signupDoctor);
-              },
+            Expanded(
+              child: PreSignUpWidget(
+                role: "DENTIST".tr,
+                image: "assets/svg/doctors 1.png",
+                onTap: () {
+                  Get.toNamed(AppRoutes.signupDoctor);
+                },
+              ),
             ),
-            PreSignUpWidget(
-                          role: "PATIENT".tr,
-                          image: "assets/svg/Dental Patient.png",
-                          onTap: () {
-            Get.toNamed(AppRoutes.signupPatinet);
-                          },
-                        ),
+            Expanded(
+              child: PreSignUpWidget(
+                            role: "PATIENT".tr,
+                            image: "assets/svg/Dental Patient.png",
+                            onTap: () {
+              Get.toNamed(AppRoutes.signupPatinet);
+                            },
+                          ),
+            ),
           ],
         ),
         
