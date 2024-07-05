@@ -34,6 +34,8 @@ class NotificationControllerImpl extends NotificationAbstractController {
     if (requestStatus == RequestStatus.SUCCESS) {
       if (response["success"] == true) {
         print("token sent successfully");
+        print(userNotificationToken);
+
       }
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
       print(requestStatus.toString());

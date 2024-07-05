@@ -57,7 +57,7 @@ class CommentsControllerImpl extends CommentsControllerAbstract {
     } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
       customDialoge(
           title: "Warning".tr,
-          middleText: "Case not found or has been deleted recently");
+          middleText: "Case not found or has been deleted recently".tr);
     } else if (requestStatus == RequestStatus.BLOCKED_USER) {
       blockAction();
     } else {

@@ -318,6 +318,7 @@ class MyTranslation implements Translations {
 
           //comments
           "There is no comments yet":"لا يوجد تعليقات حتى الان",
+          "Case not found or has been deleted recently": "الحالة غير موجودة أو تم حذفها مؤخرًا",
         },
         "en": {
           // categories
@@ -606,6 +607,7 @@ Your password must include:
 
           //comments
           "There is no comments yet":"There is no comments yet",
+          "Case not found or has been deleted recently": "Case not found or has been deleted recently",
         },
       };
 }
