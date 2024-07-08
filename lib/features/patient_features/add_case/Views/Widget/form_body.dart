@@ -44,7 +44,6 @@ class FormBody extends StatelessWidget {
           const HDivider(),
           FormHeadLine(headline: 'Chronic Diseases'.tr),
           const ChronicDiseasesChecklist(),
-          // //MyForm(),
           const HDivider(),
           FormHeadLine(headline: 'Add a Clear Pictures of your Mouth'.tr),
           const SizedBox(
@@ -58,14 +57,7 @@ class FormBody extends StatelessWidget {
               Get.find<AddCaseController>().pickMouthImages();
             },
           ),
-          //  SizedBox(
-          //   height: 8,
-          // ),
-          // AddImageWidget(
-          //   img: 'assets/svg/Boldd_Camera.svg',
-          //   txt: 'Take Pictures',
-          //   onPressed: () {},
-          // ),
+
           OptionalText(
             text: 'Add X-Ray'.tr,
           ),
@@ -79,14 +71,7 @@ class FormBody extends StatelessWidget {
               Get.find<AddCaseController>().pickXrayImages();
             },
           ),
-          //  SizedBox(
-          //   height: 8,
-          // ),
-          // AddOptionalImg(
-          //   img: 'assets/svg/Boldd_Camera.svg',
-          //   txt: 'Take Picture   ',
-          //   onPressed: () {},
-          // ),
+       
           const Padding(
             padding: EdgeInsets.only(top: 8.0),
             child: HDivider(),
@@ -104,14 +89,7 @@ class FormBody extends StatelessWidget {
               Get.find<AddCaseController>().pickPrescriptionImages();
             },
           ),
-          //  SizedBox(
-          //   height: 8,
-          // ),
-          // AddOptionalImg(
-          //   img: 'assets/svg/Boldd_Camera.svg',
-          //   txt: 'Take Picture   ',
-          //   onPressed: () {},
-          // ),
+   
           const Padding(
             padding: EdgeInsets.only(top: 8.0),
             child: HDivider(),
@@ -121,7 +99,6 @@ class FormBody extends StatelessWidget {
           const SizedBox(
             height: 8,
           ),
-          // //CheckboxFormField(),
           AuthButton(
             buttonText: 'Submit'.tr,
             onTap: () {

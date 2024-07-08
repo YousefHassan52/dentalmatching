@@ -19,8 +19,7 @@ class UpperWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(PatientDataController());
-    // momken te7tag hena controller mo5tlef
-    //double upperPartHeight = Get.height * 0.2;
+
     return Container(
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(

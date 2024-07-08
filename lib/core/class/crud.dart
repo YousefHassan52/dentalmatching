@@ -17,6 +17,7 @@ class CRUD {
       try {
         Response response = await request();
         if (response.statusCode == 200 || response.statusCode == 201) {
+          print(response);
           Map<String, dynamic> json = response.data;
           return right(json);
         } else if (response.statusCode == 400) {
@@ -27,15 +28,15 @@ class CRUD {
             return left(RequestStatus.UNAUTHORIZED_FAILURE);
           }
         } else if (response.statusCode == 500) {
-          // print(response);
+          print(response);
 
           return left(RequestStatus.INTERNAL_SERVER_ERROR);
         } else if (response.statusCode == 403) {
-          // print(response);
+          print(response);
 
           return left(RequestStatus.BLOCKED_USER);
         } else {
-          // print(response);
+          print(response);
           return left(RequestStatus.SERVER_FAILURE);
         }
       } on SocketException catch (e) {
@@ -44,7 +45,7 @@ class CRUD {
         }
         retryCount++;
         if (retryCount < _maxRetries) {
-          await Future.delayed(_retryDelay);
+          await Future.delayed(_retryDelay); // ha wait 2 seconds we 2b3t request tani 
         }
       } on DioException catch (e) {
         if (kDebugMode) {
@@ -98,35 +99,6 @@ class CRUD {
     }
   }
 
-  // hanst3mlha lel profile image
-  Future<Either<RequestStatus, Map<String, dynamic>>> postWithToken({
-    required String url,
-    required Map<String, dynamic> data,
-    File? image,
-    String? imageName,
-    String? token,
-  }) async {
-    if (await CheckInternet.fun()) {
-      return _retryRequest(() async {
-        Dio dio = Dio();
-        FormData formData = FormData.fromMap({
-          ...data,
-          if (image != null && imageName != null)
-            imageName: await MultipartFile.fromFile(image.path),
-        });
-        Options options = Options(
-          headers: {
-            HttpHeaders.authorizationHeader: 'Bearer $token',
-          },
-        );
-        dio.options.validateStatus = (status) => true;
-
-        return dio.post(url, data: formData, options: options);
-      });
-    } else {
-      return left(RequestStatus.OFFLINE_FAILURE);
-    }
-  }
 
   Future<Either<RequestStatus, Map<String, dynamic>>> postCase({
     required String url,
@@ -181,6 +153,37 @@ class CRUD {
         );
         dio.options.validateStatus = (status) => true;
         return dio.get(url, options: options);
+      });
+    } else {
+      return left(RequestStatus.OFFLINE_FAILURE);
+    }
+  }
+
+  
+  // hanst3mlha lel profile image
+  Future<Either<RequestStatus, Map<String, dynamic>>> postWithToken({
+    required String url,
+    required Map<String, dynamic> data,
+    File? image,
+    String? imageName,
+    String? token,
+  }) async {
+    if (await CheckInternet.fun()) {
+      return _retryRequest(() async {
+        Dio dio = Dio();
+        FormData formData = FormData.fromMap({
+          ...data,
+          if (image != null && imageName != null)
+            imageName: await MultipartFile.fromFile(image.path),
+        });
+        Options options = Options(
+          headers: {
+            HttpHeaders.authorizationHeader: 'Bearer $token',
+          },
+        );
+        dio.options.validateStatus = (status) => true;
+
+        return dio.post(url, data: formData, options: options);
       });
     } else {
       return left(RequestStatus.OFFLINE_FAILURE);

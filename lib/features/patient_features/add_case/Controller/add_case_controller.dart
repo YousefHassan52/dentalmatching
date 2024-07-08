@@ -37,6 +37,66 @@ class AddCaseController extends AddCaseControllerAbstract {
   List<String> selectedDentalCases = [];
   List<File>? mouthImages = [];
 
+  @override
+  Future<void> postCase() async {
+    if (formKey.currentState!.validate() &&
+        pressureValidation() &&
+        checkBoxValidation() &&
+        mouthImagesValidation() &&
+        xrayValidation() &&
+        prescriptionValidation() &&
+        caseValidation()) {
+      requestStatus = RequestStatus.LOADING;
+      update();
+      var response = await addCaseData.postData(
+        data: {
+          "description": descriptionController.text,
+
+          //    dental diseases list
+          ...selectedDentalCases.isNotEmpty
+              ? {
+                  ...selectedDentalCases.asMap().map((index, disease) =>
+                      MapEntry('dentalDiseases[$index]', disease)),
+                }
+              : {},
+
+          // known || unknown
+          "isKnown": selectedDentalCases.isNotEmpty ? true : false,
+
+          //   chronic diseases list
+          ...selectedChronicDiseases.asMap().map(
+              (index, disease) => MapEntry('chronicDiseases[$index]', disease)),
+        },
+        token: userModel.token,
+        mouthImages: mouthImages,
+        xrayImages: xray,
+        prescriptionImages: prescription,
+      );
+      print(response.toString());
+      requestStatus = HandlingResponseType.fun(response);
+      print("joe ;${requestStatus.toString()}");
+      update();
+      if (requestStatus == RequestStatus.SUCCESS) {
+        if (response['success'] == true) {
+          clearInputs();
+          Get.snackbar(
+            "Success".tr,
+            "Your Case Posted Successfully".tr,
+          );
+        }
+      } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
+        customDialoge(
+            title: "Try Again".tr,
+            middleText: "Unauthorize Error Please Try Again..");
+      } else if (requestStatus == RequestStatus.BLOCKED_USER) {
+        blockAction();
+      } else {
+        customDialoge(
+            title: "Try Again".tr, middleText: "Server Error Please Try Again");
+      }
+    }
+  }
+
   Future<void> pickMouthImages() async {
     List<XFile>? xFiles = await ImagePicker().pickMultiImage(
       imageQuality: 70, // Adjust image quality as needed
@@ -230,66 +290,6 @@ class AddCaseController extends AddCaseControllerAbstract {
             backgroundColor: Colors.red);
 
         return; // Exit if invalid file is found
-      }
-    }
-  }
-
-  @override
-  Future<void> postCase() async {
-    if (formKey.currentState!.validate() &&
-        pressureValidation() &&
-        checkBoxValidation() &&
-        mouthImagesValidation() &&
-        xrayValidation() &&
-        prescriptionValidation() &&
-        caseValidation()) {
-      requestStatus = RequestStatus.LOADING;
-      update();
-      var response = await addCaseData.postData(
-        data: {
-          "description": descriptionController.text,
-
-          //    dental diseases list
-          ...selectedDentalCases.isNotEmpty
-              ? {
-                  ...selectedDentalCases.asMap().map((index, disease) =>
-                      MapEntry('dentalDiseases[$index]', disease)),
-                }
-              : {},
-
-          // known || unknown
-          "isKnown": selectedDentalCases.isNotEmpty ? true : false,
-
-          //   chronic diseases list
-          ...selectedChronicDiseases.asMap().map(
-              (index, disease) => MapEntry('chronicDiseases[$index]', disease)),
-        },
-        token: userModel.token,
-        mouthImages: mouthImages,
-        xrayImages: xray,
-        prescriptionImages: prescription,
-      );
-      print(response.toString());
-      requestStatus = HandlingResponseType.fun(response);
-      print("joe ;${requestStatus.toString()}");
-      update();
-      if (requestStatus == RequestStatus.SUCCESS) {
-        if (response['success'] == true) {
-          clearInputs();
-          Get.snackbar(
-            "Success".tr,
-            "Your Case Posted Successfully".tr,
-          );
-        }
-      } else if (requestStatus == RequestStatus.UNAUTHORIZED_FAILURE) {
-        customDialoge(
-            title: "Try Again".tr,
-            middleText: "Unauthorize Error Please Try Again..");
-      } else if (requestStatus == RequestStatus.BLOCKED_USER) {
-        blockAction();
-      } else {
-        customDialoge(
-            title: "Try Again".tr, middleText: "Server Error Please Try Again");
       }
     }
   }

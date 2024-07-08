@@ -42,7 +42,6 @@ class SearchCasesControllerImpl extends SearchCasesControllerAbstract {
       print("joe ;${requestStatus.toString()}");
       if (requestStatus == RequestStatus.SUCCESS) {
         if (response["success"] == true) {
-// Iterate over the response data and create MyCaseModel objects
           List<dynamic> responseData = response["data"];
           for (var data in responseData) {
             CaseDoctorModel myCase = CaseDoctorModel.fromJson(data);

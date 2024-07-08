@@ -14,15 +14,7 @@ class MyServices extends GetxService {
     return this;
   }
 
-  AddedCase() {
-    casesCounter.value++;
-    sharedPref.setInt("casesCounter", casesCounter.value);
-  }
 
-  Resest() {
-    casesCounter.value = 0;
-    sharedPref.setInt("casesCounter", casesCounter.value);
-  }
 
   void saveDoctorModelToSharedPrefrence(response) {
     sharedPref.setBool("logged", true);
@@ -127,6 +119,16 @@ class MyServices extends GetxService {
 
   void updateDoctorSpecialization(String specialization) {
     sharedPref.setString("specialization", specialization);
+  }
+
+    AddedCase() {
+    casesCounter.value++;
+    sharedPref.setInt("casesCounter", casesCounter.value);
+  }
+
+  Resest() {
+    casesCounter.value = 0;
+    sharedPref.setInt("casesCounter", casesCounter.value);
   }
 }
 
